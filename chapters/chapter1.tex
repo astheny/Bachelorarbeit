@@ -7,7 +7,8 @@ Um die Beweise in Kapitel 2 zu f"uhren, ben"otigen wir einige S"atze "uber Eigen
 
 \subsection{Graphen und Hypergraphen}
 \label{Section1:Graphen und Hypergraphen}
-Ein \DF{(schlingenloser schlichter) Graph} ist ein Tupel $(V,E)$ mit $V=V(G)$, der endlichen \DF{Eckenmenge} und $E=E(G) \subseteq \mathcal P_2 (V(G))$, der \DF{Kantenmenge}.
+Ein \DF{(schlingenloser, schlichter) Graph} ist ein Tupel $G=(V,E)$ wobei $V=V(G)$ die (endliche) \DF{Eckenmenge} und $E=E(G) \subset \mathcal{P}_2(V(G))$ die \DF{Kantenmenge} ist. F"ur $\{u,v\}\in E(G)$ schreiben wir auch kurz $uv\in E(G)$. Zwei Ecken $u,v \in V(G)$ hei"sen \DF{benachbart}, falls $uv\in E(G)$. 
+Eine \DF{F"arbung} zur Farbmenge $C$ von $G$ ist eine Abbildung $f:V(G)\to C$. Diese hei"st \DF{echte F"arbung}, falls $f(u)\neq f(v)$ f"ur alle Kanten $uv\in E(G)$. Eine F"arbung hei"st \DF{k-F"arbung}, falls $|C| = k$. 
 \subsection{Ecken- und Kantenf\"arbungen von Hypergraphen}
 \label{Section1:Farbung}
 
@@ -36,7 +37,7 @@ Eine Matrix $M \in \R^{n\times n}$ hei"st \DF{symmetrisch} falls $A = A^{T}$ gil
     Sei $A\in \R^{n\times n}$ symmetrisch mit Eigenwerten $\lambda_{1}\geq\dots\geq\lambda_n$. Sei $B\in\R^{(n-k)\times(n-k)}$ eine symmetrische Matrix, welche aus $A$ durch L"oschen von Zeilen und den entsprechenden Spalten entsteht, mit Eigenwerten $\mu_{1}\geq\dots\geq\mu_{n}$. Dann gilt $$ \lambda_{i}\leq\mu_{i}\leq\lambda_{i+k}$$ f"ur $i=1\dots n-k$.
 \end{theorem}
 \begin{proof}
-  %%TODO Beweisen
+  \todo{Beweisen}
   <++>
 \end{proof}<++>
 \subsection{Eigenwerte von Graphen}
