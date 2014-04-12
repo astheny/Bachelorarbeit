@@ -1,21 +1,22 @@
 \documentclass[a4paper,11pt]{article}
 
-\input{Vorspann/Vorspann.tex}
-
+% Vorspann
+\input{prelude}
 
 \begin{document}
 
 \renewcommand{\baselinestretch}{1.5}\normalsize
 
+% Titel
 \title{
     \begin{figure}[htbp]
         \vspace{-48pt}
         \centering
-        \includegraphics[height=36pt]{TU-Logo.eps}
+        \includegraphics[height=36pt]{images/TULogo.eps}
     \end{figure}\vspace{-16pt}
-    \Large Fakultät für Mathematik und Naturwissenschaften\\
+    \Large Fakult"at f"ur Mathematik und Naturwissenschaften\\
     \vspace{5pt}
-    \small Institut für Mathematik, Arbeitsgruppe Diskrete Mathematik und Algebra\\
+    \small Institut f"ur Mathematik, Arbeitsgruppe Diskrete Mathematik und Algebra\\
     \vspace{100pt}
   \Huge {\bf Bachelorarbeit}\\
   \vspace{90pt}
@@ -23,6 +24,7 @@
     \vspace{100pt}
 }
 
+% Autor
 \author{
     \begin{tabular}{rl}
       vorgelegt von~:& Stefan Heyder\\
@@ -35,19 +37,16 @@
 \maketitle
 \thispagestyle{empty}
 
-
+% Inhaltsverzeichnis
 \newpage
 \tableofcontents
 \thispagestyle{empty}
 \newpage
 \pagenumbering{arabic}
 
-
-\include{Kapitel1/Kapitel1}
-\include{Kapitel2/Kapitel2}
-%\include{Kapitel3}
-
-
+% Includes
+\include{chapters/chapter1}
+\include{chapters/chapter2}
 
 % Literaturverzeichnis
 \newpage
@@ -71,22 +70,17 @@ Academic Press.
 
 \end{thebibliography}
 
-
-
-
+% Erklaerung
 \newpage
 \thispagestyle{empty}
 \vspace*{15cm}
 \begin{tabular}{lp{10cm}}
-{Erklärung:} & {Hiermit versichere ich, dass ich diese Bachelorarbeit selbstständig verfasst und nur die angegebene Literatur verwendet habe. Die Arbeit wurde bisher keiner Prüfungsbehörde vorgelegt und auch noch nicht veröffentlicht.} \\
+{Erkl"arung:} & {Hiermit versichere ich, dass ich diese Bachelorarbeit selbstst"andig verfasst und nur die angegebene Literatur verwendet habe. Die Arbeit wurde bisher keiner Pr"ufungsbeh"orde vorgelegt und auch noch nicht ver"offentlicht.} \\
 \\\\
 \multicolumn{2}{l}
 {Ilmenau, \datum \hspace{3.2cm} \rule{4cm}{0.4pt}}\\
 \multicolumn{2}{l}
 {\hspace{8.9cm} Stefan Heyder} \\
 \end{tabular}
-
-
-
 
 \end{document}
