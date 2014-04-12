@@ -1,0 +1,92 @@
+\documentclass[a4paper,11pt]{article}
+
+\input{Vorspann/Vorspann.tex}
+
+
+\begin{document}
+
+\renewcommand{\baselinestretch}{1.5}\normalsize
+
+\title{
+    \begin{figure}[htbp]
+        \vspace{-48pt}
+        \centering
+        \includegraphics[height=36pt]{TU-Logo.eps}
+    \end{figure}\vspace{-16pt}
+    \Large Fakultät für Mathematik und Naturwissenschaften\\
+    \vspace{5pt}
+    \small Institut für Mathematik, Arbeitsgruppe Diskrete Mathematik und Algebra\\
+    \vspace{100pt}
+  \Huge {\bf Bachelorarbeit}\\
+  \vspace{90pt}
+    \huge {\bf Chromatische Zahl und Spektrum von Graphen}\\
+    \vspace{100pt}
+}
+
+\author{
+    \begin{tabular}{rl}
+      vorgelegt von~:& Stefan Heyder\\
+     Matrikelnummer~:& 49070\\
+           Betreuer~:& Prof.~Dr. Michael Stiebitz
+\end{tabular}
+    \vspace{20pt}
+}
+\date{\datum}
+\maketitle
+\thispagestyle{empty}
+
+
+\newpage
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\pagenumbering{arabic}
+
+
+\include{Kapitel1/Kapitel1}
+\include{Kapitel2/Kapitel2}
+%\include{Kapitel3}
+
+
+
+% Literaturverzeichnis
+\newpage
+\addcontentsline{toc}{section}{Literatur}
+\bibliographystyle{plain}
+\begin{thebibliography}{1}
+
+\bibitem{Brooks1941}
+\au{Brooks, R.L.} \yr{1941} \ti{On colouring the nodes of a network}
+\jou{Proc. Cambride Phil. Soc.}  \vp{37}{194--197}
+
+\bibitem{Diestel2010}
+\au{Diestel, R.} \yr{2010} \bkti{Graphentheorie.} Springer.
+
+\bibitem{Erdos1979}
+\au{Erd\H{o}s, P.} \yr{1979}
+\ti{Problems and results in graph theory and combinatorial analysis}
+In: \bkti{Graph Theory and Related
+Topics} (Proc. Conf., Univ. Waterloo, Waterloo, Ont., 1977), \pp{153--163}
+Academic Press.
+
+\end{thebibliography}
+
+
+
+
+\newpage
+\thispagestyle{empty}
+\vspace*{15cm}
+\begin{tabular}{lp{10cm}}
+{Erklärung:} & {Hiermit versichere ich, dass ich diese Bachelorarbeit selbstständig verfasst und nur die angegebene Literatur verwendet habe. Die Arbeit wurde bisher keiner Prüfungsbehörde vorgelegt und auch noch nicht veröffentlicht.} \\
+\\\\
+\multicolumn{2}{l}
+{Ilmenau, \datum \hspace{3.2cm} \rule{4cm}{0.4pt}}\\
+\multicolumn{2}{l}
+{\hspace{8.9cm} Stefan Heyder} \\
+\end{tabular}
+
+
+
+
+\end{document}

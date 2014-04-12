@@ -1,0 +1,47 @@
+\section{Einf"uhrung}
+\label{Section1:Einf"uhrung}
+
+In dieser Arbeit besch\"aftigen wir uns mit dem Zusammenhang der chromatischen Zahl von Graphen und ihrem Spektrum. Insbesondere werden wir die gewonnenen Erkenntnisse benutzen um die Erd"os-Faber-Lovász Vermutung zu beweisen.
+
+Um die Beweise in Kapitel 2 zu f"uhren, ben"otigen wir einige S"atze "uber Eigenwerte von symmetrischen Matrizen. Diese, und andere Grundlagen, werden wir in Kapitel 1 erarbeiten.
+
+\subsection{Graphen und Hypergraphen}
+\label{Section1:Graphen und Hypergraphen}
+Ein \DF{(schlingenloser schlichter) Graph} ist ein Tupel $(V,E)$ mit $V=V(G)$, der endlichen \DF{Eckenmenge} und $E=E(G) \subseteq \mathcal P_2 (V(G))$, der \DF{Kantenmenge}.
+\subsection{Ecken- und Kantenf\"arbungen von Hypergraphen}
+\label{Section1:Farbung}
+
+
+\subsection{Eigenwerte von symmetrischen Matrizen}
+\label{Section1:EigenwerteMatrizen} 
+Eine Matrix $M \in \R^{n\times n}$ hei"st \DF{symmetrisch} falls $A = A^{T}$ gilt. Eine symmetrische Matrix $A$ hei"st \DF{positiv semidefinit} falls $x^TAx \geq 0$ f"ur alle $x \in \R^n$. Gilt $x^TAx = 0$ nur f"ur $x = 0$, so hei"st $A$ \DF{positiv definit}. Wir wollen nun einige Eigenschaften von positiv(semi)definiten Matrizen anf"uhren.
+\begin{proposition}
+    F"ur eine symmetrische Matrix $A\in\R^{n\times n}$ sind "aquivalent:
+    \begin{enumerate}[label=(\roman*)]
+        \item $A$ ist positiv semidefinit .
+        \item Alle Eigenwerte von $A$ sind nicht negativ.
+        \item $A=UU^T$ für eine Matrix $U\in\R^{n\times m}$.
+    \end{enumerate}
+\end{proposition}
+\begin{theorem}[Courant-Fischer]
+    Sei $A\in \R^{n\times n}$ symmetrisch. Seien die (reellen) Eigenwerte von $A$ gegeben durch $\lambda_1(A) \geq \lambda_2(A) \geq \dots\geq \lambda_n(A)$. Dann gilt : 
+    \begin{enumerate}
+        \item $\lambda_p(A) = \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TAx}{x^Tx}| V\subseteq \R^n \text{ist linearer Unterraum der Dimension } p\}$.
+        \item $\lambda_p(A) = \min\{\max\limits_{x\in V , x \neq 0} \frac{x^TAx}{x^Tx}| V\subseteq \R^n \text{ist linearer Unterraum der Dimension } n-p+1\}$.
+    \end{enumerate}
+    \label{CourantFischer}
+\end{theorem}
+\begin{theorem}[Interlacing]
+    \label{Interlacing}
+    Sei $A\in \R^{n\times n}$ symmetrisch mit Eigenwerten $\lambda_{1}\geq\dots\geq\lambda_n$. Sei $B\in\R^{(n-k)\times(n-k)}$ eine symmetrische Matrix, welche aus $A$ durch L"oschen von Zeilen und den entsprechenden Spalten entsteht, mit Eigenwerten $\mu_{1}\geq\dots\geq\mu_{n}$. Dann gilt $$ \lambda_{i}\leq\mu_{i}\leq\lambda_{i+k}$$ f"ur $i=1\dots n-k$.
+\end{theorem}
+\begin{proof}
+  %%TODO Beweisen
+  <++>
+\end{proof}<++>
+\subsection{Eigenwerte von Graphen}
+\label{Section1:EigenwerteGraphen}
+Sei $G$ ein Graph. Die \DF{Adjanzenzmatrix} von $G$ ist definiert als $A := A(G)$ mit $$A(G)_{i,j} = \begin{cases}
+    1 & v_iv_j \in E(G) \\ 0 & v_iv_j \notin E(G)
+\end{cases}$$ 
+Dann ist $A$ symmetrisch, und hat folglich nur reelle Eigenwerte. Da die Anordnung der Knoten nichts an den Eigenwerten von $A$ ändert, definieren wir $$\l_i (G) := \l_i(A)$$ die \DF{Eigenwerte} von $G$. 
