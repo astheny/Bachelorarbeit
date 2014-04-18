@@ -1,20 +1,21 @@
 \section{Einf"uhrung}
-\label{Section1:Einf"uhrung}
+\label{sec:Einf"uhrung}
 
 In dieser Arbeit besch\"aftigen wir uns mit dem Zusammenhang der chromatischen Zahl von Graphen und ihrem Spektrum. Insbesondere werden wir die gewonnenen Erkenntnisse benutzen um die Erd"os-Faber-Lovász Vermutung zu beweisen.
 
 Um die Beweise in Kapitel 2 zu f"uhren, ben"otigen wir einige S"atze "uber Eigenwerte von symmetrischen Matrizen. Diese, und andere Grundlagen, werden wir in Kapitel 1 erarbeiten.
 
 \subsection{Graphen und Hypergraphen}
-\label{Section1:Graphen und Hypergraphen}
-Ein \DF{(schlingenloser, schlichter) Graph} ist ein Tupel $G=(V,E)$ wobei $V=V(G)$ die (endliche) \DF{Eckenmenge} und $E=E(G) \subset \mathcal{P}_2(V(G))$ die \DF{Kantenmenge} ist. F"ur $\{u,v\}\in E(G)$ schreiben wir auch kurz $uv\in E(G)$. Zwei Ecken $u,v \in V(G)$ hei"sen \DF{benachbart}, falls $uv\in E(G)$. 
-Eine \DF{F"arbung} zur Farbmenge $C$ von $G$ ist eine Abbildung $f:V(G)\to C$. Diese hei"st \DF{echte F"arbung}, falls $f(u)\neq f(v)$ f"ur alle Kanten $uv\in E(G)$. Eine F"arbung hei"st \DF{k-F"arbung}, falls $|C| = k$. 
+\label{ssec:Graphen und Hypergraphen}
+Ein \DF{Hypergraph} ist ein Tupel $H=(V,E)$ wobei $V=V(H)$ die (endliche) \DF{Eckenmenge} und $E=E(H) \subseteq \mathcal{P}(V(H))$ die \DF{Kantenmenge} ist. Ist $E(H)\subseteq \mathcal{P}_2(V(H))$, so ist $H$ ein \DF{(schlingenloser, schlichter) Graph}. Zwei Ecken $u,v \in V(G)$ hei"sen benachbart, falls eine Kante $e\in E(G)$ existiert, mit $\{u,v\}\subseteq e$. Im folgenden werden wir Hypergraphen mit $H$ und Graphen mit $G$ bezeichnen. Ist $G=(V,E)$ ein Graph so schreiben wir f"ur $\{u,v\}\in E(G)$ auch kurz $uv \in E(G)$. 
+
 \subsection{Ecken- und Kantenf\"arbungen von Hypergraphen}
-\label{Section1:Farbung}
+\label{ssec:F"arbung}
+Sei $H$ ein Hypergraph und $C$ eine beliebige Menge. Eine \DF{F"arbung} ist eine Abbildung $f: V(H) \to C$. Dann hei"st $C$ \DF{Farbmenge} und $f$ $k$-F"arbung, falls $|C| = k$. Eine F"arbung $f$ hei"st \DF{echte F"arbung}, falls f"ur jede Kante $e$ mit $|e| > 1$ und alle $v_i, v_j \in e , v_i \neq v_j$ gilt : $f(v_i) \neq f(v_j)$. Die \DF{chromatische Zahl} $\chi(H)$ ist die kleinste Zahl $k$ derart, dass $H$ eine echte $k$-F"arbung besitzt. 
 
 
 \subsection{Eigenwerte von symmetrischen Matrizen}
-\label{Section1:EigenwerteMatrizen} 
+\label{ssec:EigenwerteMatrizen} 
 Eine Matrix $M \in \R^{n\times n}$ hei"st \DF{symmetrisch} falls $A = A^{T}$ gilt. Eine symmetrische Matrix $A$ hei"st \DF{positiv semidefinit} falls $x^TAx \geq 0$ f"ur alle $x \in \R^n$. Gilt $x^TAx = 0$ nur f"ur $x = 0$, so hei"st $A$ \DF{positiv definit}. Wir wollen nun einige Eigenschaften von positiv(semi)definiten Matrizen anf"uhren.
 \begin{proposition}
     F"ur eine symmetrische Matrix $A\in\R^{n\times n}$ sind "aquivalent:
@@ -26,26 +27,48 @@ Eine Matrix $M \in \R^{n\times n}$ hei"st \DF{symmetrisch} falls $A = A^{T}$ gil
 \end{proposition}
 \begin{proof}
   Siehe \cite[(1.3)]{Lovasz2007}.
-\end{proof}<++>
+\end{proof}
 \begin{theorem}[Courant-Fischer]
     Sei $A\in \R^{n\times n}$ symmetrisch. Seien die (reellen) Eigenwerte von $A$ gegeben durch $\lambda_1(A) \geq \lambda_2(A) \geq \dots\geq \lambda_n(A)$. Dann gilt : 
     \begin{enumerate}
         \item $\lambda_p(A) = \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TAx}{x^Tx}| V\subseteq \R^n \text{ist linearer Unterraum der Dimension } p\}$.
         \item $\lambda_p(A) = \min\{\max\limits_{x\in V , x \neq 0} \frac{x^TAx}{x^Tx}| V\subseteq \R^n \text{ist linearer Unterraum der Dimension } n-p+1\}$.
     \end{enumerate}
-    \label{CourantFischer}
+    \label{thm:CourantFischer}
 \end{theorem}
 \begin{theorem}[Interlacing]
-    \label{Interlacing}
+    \label{thm:Interlacing}
     Sei $A\in \R^{n\times n}$ symmetrisch mit Eigenwerten $\lambda_{1}\geq\dots\geq\lambda_n$. Sei $B\in\R^{(n-k)\times(n-k)}$ eine symmetrische Matrix, welche aus $A$ durch L"oschen von Zeilen und den entsprechenden Spalten entsteht, mit Eigenwerten $\mu_{1}\geq\dots\geq\mu_{n}$. Dann gilt $$ \lambda_{i}\leq\mu_{i}\leq\lambda_{i+k}$$ f"ur $i=1\dots n-k$.
 \end{theorem}
 \begin{proof}
-  \todo{Beweisen}
-  <++>
-\end{proof}<++>
+  \todo{Referenz finden}
+\end{proof}
 \subsection{Eigenwerte von Graphen}
-\label{Section1:EigenwerteGraphen}
-Sei $G$ ein Graph. Die \DF{Adjanzenzmatrix} von $G$ ist definiert als $A := A(G)$ mit $$A(G)_{i,j} = \begin{cases}
+\label{ssec:EigenwerteGraphen}
+Sei $G$ ein Graph mit Eckenmenge $V(G) = \{v_1,\dots v_n\}$. Die \DF{Adjanzenzmatrix} von $G$ ist definiert als $A := A(G)$ mit \[A(G)_{i,j} = \begin{cases}
     1 & v_iv_j \in E(G) \\ 0 & v_iv_j \notin E(G)
-\end{cases}$$ 
-Dann ist $A$ symmetrisch, und hat folglich nur reelle Eigenwerte. Da die Anordnung der Knoten nichts an den Eigenwerten von $A$ ändert, definieren wir $$\l_i (G) := \l_i(A)$$ die \DF{Eigenwerte} von $G$. 
+\end{cases}\] 
+Dann ist $A$ symmetrisch, und hat folglich nur reelle Eigenwerte. Damit es Sinn macht, von den Eigenwerten eines Graphen zu sprechen, d"urfen die Eigenwerte von $A(G)$ nicht von der Nummerierung der Ecken abh"angen. Das dem so ist, zeigt das folgende Lemma.
+
+\begin{lemma}
+  Sei $G=(V,E)$ ein Graph. Dann sind die Eigenwerte von $A(G)$ unabh"angig von der Nummerierung der Ecken von G.
+  \label{lem:GraphEigenwerte}
+\end{lemma}
+
+\begin{proof}
+  Sei $V(G)=\{v_1\dots v_n\}= \{u_1\dots u_n\}$. Sei weiterhin $A,B \in \R^{^n\times n}$ mit  
+  \[A_{i,j} = \begin{cases}
+    1 & v_iv_j \in E(G) \\ 0 & v_iv_j \notin E(G)
+  \end{cases} \\
+  B_{i,j} = \begin{cases}
+    1 & u_iu_j \in E(G) \\ 0 & u_iu_j \notin E(G)
+  \end{cases}\] 
+  Dann gibt es eine Permutation $\sigma\in S^{n}$ sodass $v_i = u_{\sigma(i)}$.Folglich ist
+  \[
+    A=P^{-1}BP
+  \]
+  wobei $P\in\R^{^n\times n}$ die Permutationsmatrix ist die zu $\sigma$ geh"ort.
+  Also sind $A$ und $B$ "ahnlich, und haben folglich die gleichen Eigenwerte.
+\end{proof}
+
+F"ur einen Graphen $G$ seien die \DF{Eigenwerte} von $G$ definiert als $\lambda_i(G) = \lambda_i(A(G))$. 

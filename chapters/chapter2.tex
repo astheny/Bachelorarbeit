@@ -3,7 +3,7 @@
 
 
 \subsection{Krauszzerlegungen von Graphen}
-\label{subsec:Krauszzerlegung}
+\label{ssec:Krauszzerlegung}
 \begin{definition}
     \label{def:Krauszzerlegung}
     Sei $G$ ein Graph. Eine Menge $\mathcal K$ von Untergraphen von $G$ hei"st \DF{Krauszzerlegung} von $G$, falls gilt:
@@ -39,7 +39,7 @@
     Ist $\lambda_p (H) > -d $ f"ur ein $q \leq p$ und $-2 \leq d \in \N$, so ist $\kappa_d(G) \geq q$.
 \end{corollary}
 \begin{proof}
-    Angenommen $\kappa_d(G) < q$. Sei dann $\mathcal{K}$ eine Krauszzerlegung von $G$ die zu $d$ passt. Dann ist nach \ref{Interlacing} $\lambda_{q}(G)\geq \lambda_{q}(H) > -d$. 
+    Angenommen $\kappa_d(G) < q$. Sei dann $\mathcal{K}$ eine Krauszzerlegung von $G$ die zu $d$ passt. Dann ist nach \ref{thm:Interlacing} $\lambda_{q}(G)\geq \lambda_{q}(H) > -d$. 
     Da $i < q \leq n$ gilt nach \ref{thm:KrauszEigenwerte} $\lambda_{i+1}\leq -d$ und somit $\lambda_{q}(G)\leq \lambda_{i+1} \leq -d$. Widerspruch.
 \end{proof}
 
