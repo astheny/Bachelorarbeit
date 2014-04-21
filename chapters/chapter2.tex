@@ -15,8 +15,23 @@
     Desweiteren sei f"ur $v\in V(G)$ der \DF{Grad} von $v$ bez"uglich $\mathcal K$ definiert als $$d_G(v:\mathcal K) := |\{ K\in\mathcal K| v \in V(K)\}|$$ und der \DF{Minimalgrad} von $G$ bez"uglich $\mathcal K$ als $$\delta_G(\mathcal K) := \min\limits_{v\in V(G)}d_G(v:\mathcal K)$$ 
     F"ur $d \geq 1$ sei $\kappa_d(G)$ die kleinste positive Zahl $m$ derart, dass $G$ eine Krauszzerlegung $\mathcal K$ besitzt mit $|\mathcal K| = m$ und $\delta_G(\mathcal K) \geq d$.
 \end{definition}
+
+\begin{lemma}
+  Sei $G$ ein Graph. Dann ist $\kappa_d(G) < \infty$ genau dann, wenn $\delta(G) \leq d$.
+  \label{lm:krauszexistenz}
+\end{lemma}
+
+\begin{proof}
+  Es sei $\kappa_d(G) = k< \infty$, und $v \in V(G)$ mit $d_G(v) = \delta(G)$. Dann existeren $k$ kantendisjunkte vollst"andige Untergraphen $H^{1},\dots H^{k}$, die $v$ enthalten. 
+  Da die $H^{i}$ kantendisjunkt sind, und $d_{H^{i}}(v) \geq 1$, gilt 
+  \[ k \leq \sum\limits_{i=1}^{k} d_{H^{i}}(v) \leq d_G(v_i) = \delta(G) \]
+
+  Sei nun $\delta(G) = d$. Wir m"ussen zeigen, dass es eine Krauszzerlegung \mathcal{K} gibt, mit $d_{G}(v:\mathcal{K}) \geq d$. Sei $E(G)= \{e_1\dots e_{j}\}$ eine Nummerierung der Kanten. Setze $H^{i}= G[e_i]$. Dann ist $\mathcal{K} = \{H^{1}\dots H^{j}\}$ eine Krauszzerlegung von $G$ mit $d_{G}(v:\mathcal{K} \geq \delta(G)$ f"ur alle $v\in V(G)$. Also ist $\kappa_d(G) <\infty$.
+
+\end{proof}
 %Beispiele und einfache Ergebnisse
 \subsection{Krauszzerlegungen und Eigenwerte}
+
 \begin{theorem}
     \label{thm:KrauszEigenwerte}
     Sei $G$ ein Graph mit $V(G)=\{v_1,\dots,v_n\}$ und $\mathcal K=\{K_1,\dots,K_m\}$ eine Krauszzerlegung von $G$ mit $d_G(\mathcal K) \geq d \geq 2$ . Desweiteren sei $d_i := d_G(v:\mathcal K)$. 

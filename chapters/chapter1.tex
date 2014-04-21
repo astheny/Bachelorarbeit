@@ -7,15 +7,18 @@ Um die Beweise in Kapitel 2 zu f"uhren, ben"otigen wir einige S"atze "uber Eigen
 
 \subsection{Graphen und Hypergraphen}
 \label{ssec:Graphen und Hypergraphen}
-Ein \DF{Hypergraph} ist ein Tupel $H=(V,E)$ wobei $V=V(H)$ die (endliche) \DF{Eckenmenge} und $E=E(H) \subseteq \mathcal{P}(V(H))$ die \DF{Kantenmenge} ist. Ist $E(H)\subseteq \mathcal{P}_2(V(H))$, so ist $H$ ein \DF{(schlingenloser, schlichter) Graph}. Zwei Ecken $u,v \in V(G)$ hei"sen benachbart, falls eine Kante $e\in E(G)$ existiert, mit $\{u,v\}\subseteq e$. Im folgenden werden wir Hypergraphen mit $H$ und Graphen mit $G$ bezeichnen. Ist $G=(V,E)$ ein Graph so schreiben wir f"ur $\{u,v\}\in E(G)$ auch kurz $uv \in E(G)$. 
+
+Ein \DF{Hypergraph} ist ein Tupel $H=(V,E)$ wobei $V=V(H)$ die (endliche) \DF{Eckenmenge} und $E=E(H) \subseteq \mathcal{P}(V(H))$ die \DF{Kantenmenge} ist. Ist $E(H)\subseteq \mathcal{P}_2(V(H))$, so ist $H$ ein \DF{(schlingenloser, schlichter) Graph}. Zwei Ecken $u,v \in V(H)$ hei"sen benachbart, falls eine Kante $e\in E(H)$ existiert, mit $\{u,v\}\subseteq e$. Im folgenden werden wir Hypergraphen mit $H$ und Graphen mit $G$ bezeichnen. Ist $G=(V,E)$ ein Graph so schreiben wir f"ur $\{u,v\}\in E(G)$ auch kurz $uv \in E(G)$. 
 
 \subsection{Ecken- und Kantenf\"arbungen von Hypergraphen}
 \label{ssec:F"arbung}
+
 Sei $H$ ein Hypergraph und $C$ eine beliebige Menge. Eine \DF{F"arbung} ist eine Abbildung $f: V(H) \to C$. Dann hei"st $C$ \DF{Farbmenge} und $f$ $k$-F"arbung, falls $|C| = k$. Eine F"arbung $f$ hei"st \DF{echte F"arbung}, falls f"ur jede Kante $e$ mit $|e| > 1$ und alle $v_i, v_j \in e , v_i \neq v_j$ gilt : $f(v_i) \neq f(v_j)$. Die \DF{chromatische Zahl} $\chi(H)$ ist die kleinste Zahl $k$ derart, dass $H$ eine echte $k$-F"arbung besitzt. 
 
 
 \subsection{Eigenwerte von symmetrischen Matrizen}
 \label{ssec:EigenwerteMatrizen} 
+
 Eine Matrix $M \in \R^{n\times n}$ hei"st \DF{symmetrisch} falls $A = A^{T}$ gilt. Eine symmetrische Matrix $A$ hei"st \DF{positiv semidefinit} falls $x^TAx \geq 0$ f"ur alle $x \in \R^n$. Gilt $x^TAx = 0$ nur f"ur $x = 0$, so hei"st $A$ \DF{positiv definit}. Wir wollen nun einige Eigenschaften von positiv(semi)definiten Matrizen anf"uhren.
 \begin{proposition}
     F"ur eine symmetrische Matrix $A\in\R^{n\times n}$ sind "aquivalent:
@@ -25,9 +28,11 @@ Eine Matrix $M \in \R^{n\times n}$ hei"st \DF{symmetrisch} falls $A = A^{T}$ gil
         \item $A=UU^T$ für eine Matrix $U\in\R^{n\times m}$.
     \end{enumerate}
 \end{proposition}
+
 \begin{proof}
   Siehe \cite[(1.3)]{Lovasz2007}.
 \end{proof}
+
 \begin{theorem}[Courant-Fischer]
     Sei $A\in \R^{n\times n}$ symmetrisch. Seien die (reellen) Eigenwerte von $A$ gegeben durch $\lambda_1(A) \geq \lambda_2(A) \geq \dots\geq \lambda_n(A)$. Dann gilt : 
     \begin{enumerate}
@@ -36,14 +41,18 @@ Eine Matrix $M \in \R^{n\times n}$ hei"st \DF{symmetrisch} falls $A = A^{T}$ gil
     \end{enumerate}
     \label{thm:CourantFischer}
 \end{theorem}
+
 \begin{theorem}[Interlacing]
     \label{thm:Interlacing}
     Sei $A\in \R^{n\times n}$ symmetrisch mit Eigenwerten $\lambda_{1}\geq\dots\geq\lambda_n$. Sei $B\in\R^{(n-k)\times(n-k)}$ eine symmetrische Matrix, welche aus $A$ durch L"oschen von Zeilen und den entsprechenden Spalten entsteht, mit Eigenwerten $\mu_{1}\geq\dots\geq\mu_{n}$. Dann gilt $$ \lambda_{i}\leq\mu_{i}\leq\lambda_{i+k}$$ f"ur $i=1\dots n-k$.
 \end{theorem}
+
 \begin{proof}
   \todo{Referenz finden}
 \end{proof}
+
 \subsection{Eigenwerte von Graphen}
+
 \label{ssec:EigenwerteGraphen}
 Sei $G$ ein Graph mit Eckenmenge $V(G) = \{v_1,\dots v_n\}$. Die \DF{Adjanzenzmatrix} von $G$ ist definiert als $A := A(G)$ mit \[A(G)_{i,j} = \begin{cases}
     1 & v_iv_j \in E(G) \\ 0 & v_iv_j \notin E(G)
