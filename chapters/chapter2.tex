@@ -17,16 +17,17 @@
 \end{definition}
 
 \begin{lemma}
-  Sei $G$ ein Graph. Dann ist $\kappa_d(G) < \infty$ genau dann, wenn $\delta(G) \leq d$.
+  Sei $G$ ein Graph. Dann ist $\kappa_d(G) < \infty$ genau dann, wenn $\delta(G) \geq d$.
   \label{lm:krauszexistenz}
 \end{lemma}
 
 \begin{proof}
-  Es sei $\kappa_d(G) = k< \infty$, und $v \in V(G)$ mit $d_G(v) = \delta(G)$. Dann existeren $k$ kantendisjunkte vollst"andige Untergraphen $H^{1},\dots H^{k}$, die $v$ enthalten. 
-  Da die $H^{i}$ kantendisjunkt sind, und $d_{H^{i}}(v) \geq 1$, gilt 
-  \[ k \leq \sum\limits_{i=1}^{k} d_{H^{i}}(v) \leq d_G(v_i) = \delta(G) \]
-
-  Sei nun $\delta(G) = d$. Wir m"ussen zeigen, dass es eine Krauszzerlegung \mathcal{K} gibt, mit $d_{G}(v:\mathcal{K}) \geq d$. Sei $E(G)= \{e_1\dots e_{j}\}$ eine Nummerierung der Kanten. Setze $H^{i}= G[e_i]$. Dann ist $\mathcal{K} = \{H^{1}\dots H^{j}\}$ eine Krauszzerlegung von $G$ mit $d_{G}(v:\mathcal{K} \geq \delta(G)$ f"ur alle $v\in V(G)$. Also ist $\kappa_d(G) <\infty$.
+  \todo{Hinrichtung}
+  Sei $\kappa_d(G) \leq\infty$ und $v\in V(G)$ mit $d_{G}(v) = \delta(G)$. Dann existieren $d$ kantendisjunkte vollst"andige Untergraphen $H^{1}\dots H^{d}$ von $G$ mit $v\in V(H{i}$ f"ur alle $1\leq i \leq d$. Da die $H^{i}$ kantendisjunkt sind und $d_H^{i}\geq1$, gilt: 
+  \[
+    d \leq \sum\index_{i=1}^{d} d_{H^{i}}(v) \leq d_G(v) = \delta(G). 
+  \]<++>
+  Sei nun $\delta(G) \geq d$. Wir m"ussen zeigen, dass es eine Krauszzerlegung $\mathcal{K} gibt, mit $d_{G}(v:\mathcal{K}) \geq d$. Sei $E(G)= \{e_1\dots e_{m}\}$ eine Nummerierung der Kanten. Setze $H^{i}= G[e_i]$. Dann ist $\mathcal{K} = \{H^{1}\dots H^{m}\}$ eine Krauszzerlegung von $G$ mit $d_{G}(v:\mathcal{K}) \geq \delta(G) \geq d$ f"ur alle $v\in V(G)$. Also ist $\kappa_d(G)\leq m <\infty$.
 
 \end{proof}
 %Beispiele und einfache Ergebnisse
@@ -46,10 +47,11 @@
     Es sei $A$ die Adjazenzmatrix von $G$ und $D := \operatorname{diag}(d_1,\dots,d_n)$. Definiere $B$ als die Inzidenzmatrix von $\mathcal K$, also $$B(i,j) = \begin{cases}
         1 & v_i \in K_j \\ 0 & v_i \notin K_j
     \end{cases}$$ 
-    $M=BB^{T}$ ist positiv semidefinit, und es gilt $M = A+D$. Damit gilt $\lambda_1(M) \geq \dots \geq \lambda_n(M) \geq 0$ sowie $rg(M) = m$. Deswegen ist $\lambda_{m+1}(M)=\dots=\lambda_n(M) = 0$, falls $m < n$. 
+    $M=BB^{T}$ ist positiv semidefinit, und es gilt $M = A+D$. Damit gilt $\lambda_1(M) \geq \dots \geq \lambda_n(M) \geq 0$ sowie $rg(M) = rg(B) = m$\todo{$\geq$?}. Deswegen ist $\lambda_{m+1}(M)=\dots=\lambda_n(M) = 0$, falls $m < n$. 
 \end{proof}
 \begin{corollary}
     \label{cor:Korollar1}
+     \todo{ $\delta(H) \geq 2 ?$ }
     Sei $H$ ein induzierter Untergraph von $G$ mit $p = \left| H\right| \leq \left|G\right| = n$.
     Ist $\lambda_p (H) > -d $ f"ur ein $q \leq p$ und $-2 \leq d \in \N$, so ist $\kappa_d(G) \geq q$.
 \end{corollary}

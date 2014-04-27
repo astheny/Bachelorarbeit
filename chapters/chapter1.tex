@@ -44,7 +44,7 @@ Eine Matrix $M \in \R^{n\times n}$ hei"st \DF{symmetrisch} falls $A = A^{T}$ gil
 
 \begin{theorem}[Interlacing]
     \label{thm:Interlacing}
-    Sei $A\in \R^{n\times n}$ symmetrisch mit Eigenwerten $\lambda_{1}\geq\dots\geq\lambda_n$. Sei $B\in\R^{(n-k)\times(n-k)}$ eine symmetrische Matrix, welche aus $A$ durch L"oschen von Zeilen und den entsprechenden Spalten entsteht, mit Eigenwerten $\mu_{1}\geq\dots\geq\mu_{n}$. Dann gilt $$ \lambda_{i}\leq\mu_{i}\leq\lambda_{i+k}$$ f"ur $i=1\dots n-k$.
+    Sei $A\in \R^{n\times n}$ symmetrisch mit Eigenwerten $\lambda_{1}\geq\dots\geq\lambda_n$. Sei $B\in\R^{(n-k)\times(n-k)}$ eine symmetrische Matrix, welche aus $A$ durch L"oschen von Zeilen und den entsprechenden Spalten entsteht, mit Eigenwerten $\mu_{1}\geq\dots\geq\mu_{n}$. Dann gilt $$ \lambda_{i}\geq\mu_{i}\geq\lambda_{i+k}$$ f"ur $i=1\dots n-k$.
 \end{theorem}
 
 \begin{proof}
@@ -72,6 +72,7 @@ Dann ist $A$ symmetrisch, und hat folglich nur reelle Eigenwerte. Damit es Sinn 
   B_{i,j} = \begin{cases}
     1 & u_iu_j \in E(G) \\ 0 & u_iu_j \notin E(G)
   \end{cases}\] 
+  \todo{ Genauer }
   Dann gibt es eine Permutation $\sigma\in S^{n}$ sodass $v_i = u_{\sigma(i)}$.Folglich ist
   \[
     A=P^{-1}BP
