@@ -1,19 +1,15 @@
 \section{Einf"uhrung}
 \label{sec:Einf"uhrung}
 
-In dieser Arbeit besch\"aftigen wir uns mit dem Zusammenhang der chromatischen Zahl von Graphen und ihrem Spektrum. Insbesondere werden wir die gewonnenen Erkenntnisse benutzen um die Erd"os-Faber-Lov·sz Vermutung zu beweisen.
+In dieser Arbeit besch\"aftigen wir uns mit dem Zusammenhang der chromatischen Zahl von Graphen und ihrem Spektrum. 
 
 Um die Beweise in Kapitel 2 zu f"uhren, ben"otigen wir einige S"atze "uber Eigenwerte von symmetrischen Matrizen. Diese, und andere Grundlagen, werden wir in Kapitel 1 erarbeiten.
-
-\subsection{Graphen und Hypergraphen}
-\label{ssec:Graphen und Hypergraphen}
-
-Ein \DF{Hypergraph} ist ein Tupel $H=(V,E)$ wobei $V=V(H)$ die (endliche) \DF{Eckenmenge} und $E=E(H) \subseteq \mathcal{P}(V(H))$ die \DF{Kantenmenge} ist. Ist $E(H)\subseteq \mathcal{P}_2(V(H))$, so ist $H$ ein \DF{(schlingenloser, schlichter) Graph}. Zwei Ecken $u,v \in V(H)$ hei"sen benachbart, falls eine Kante $e\in E(H)$ existiert, mit $\{u,v\}\subseteq e$. Im folgenden werden wir Hypergraphen mit $H$ und Graphen mit $G$ bezeichnen. Ist $G=(V,E)$ ein Graph so schreiben wir f"ur $\{u,v\}\in E(G)$ auch kurz $uv \in E(G)$. 
 
 \subsection{Ecken- und Kantenf\"arbungen von Hypergraphen}
 \label{ssec:F"arbung}
 
-Sei $H$ ein Hypergraph und $C$ eine beliebige Menge. Eine \DF{F"arbung} ist eine Abbildung $f: V(H) \to C$. Dann hei"st $C$ \DF{Farbmenge} und $f$ $k$-F"arbung, falls $|C| = k$. Eine F"arbung $f$ hei"st \DF{echte F"arbung}, falls f"ur jede Kante $e$ mit $|e| > 1$ und alle $v_i, v_j \in e , v_i \neq v_j$ gilt : $f(v_i) \neq f(v_j)$. Die \DF{chromatische Zahl} $\chi(H)$ ist die kleinste Zahl $k$ derart, dass $H$ eine echte $k$-F"arbung besitzt. 
+Es sei $G=(V(G),E(G))$ ein beliebiger Graph. Eine \DF{(Ecken-)F"arbung} von $G$ zur \DF{Farbmenge} $C$ ist eine Abbildung $f:V(G)\to C$ mit $f(u)\neq f(v)~\forall uv\in E(G),~ u\neq v$. Ist $\left|C\right|=k \in \N$, so heiﬂt $f$ \DF{$k$-F"arbung}. Die chromatische Zahl $\chi(G)$ ist die kleinste Zahl $k\in\N$, sodass $G$ eine $k-F"arbung$ besitzt.
+Eine \DF{Kantenf"arbung} zur Farbmenge $C$ ist eine Abbildung $f:E(G)\to E(G)$ mit $f(u)\neq f(v)$ falls $u$ und $v$ eine gemeinsame Endecke besitzen.
 
 
 \subsection{Eigenwerte von symmetrischen Matrizen}
@@ -60,7 +56,7 @@ Sei $G$ ein Graph mit Eckenmenge $V(G) = \{v_1,\dots v_n\}$. Die \DF{Adjanzenzma
 Dann ist $A$ symmetrisch, und hat folglich nur reelle Eigenwerte. Damit es Sinn macht, von den Eigenwerten eines Graphen zu sprechen, d"urfen die Eigenwerte von $A(G)$ nicht von der Nummerierung der Ecken abh"angen. Das dem so ist, zeigt das folgende Lemma.
 
 \begin{lemma}
-  Sei $G=(V,E)$ ein Graph. Dann sind die Eigenwerte von $A(G)$ unabh"angig von der Nummerierung der Ecken von G.
+  Sei $G=(V,E)$ ein Graph. Dann sind die Eigenwerte von $A(G)$ unabh"angig von der Nummerierung der Ecken von $G$.
   \label{lem:GraphEigenwerte}
 \end{lemma}
 
