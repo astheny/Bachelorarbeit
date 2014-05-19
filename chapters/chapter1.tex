@@ -5,13 +5,13 @@ In dieser Arbeit besch\"aftigen wir uns mit dem Zusammenhang der chromatischen Z
 
 Um die Beweise in Kapitel 2 zu f"uhren, ben"otigen wir einige S"atze "uber Eigenwerte von symmetrischen Matrizen. Diese, und andere Grundlagen, werden wir in Kapitel 1 erarbeiten.
 
-\subsection{Ecken- und Kantenf\"arbungen von Hypergraphen}
+\subsection{Ecken- und Kantenf\"arbungen von Graphen und Hypergraphen}
 \label{ssec:F"arbung}
 
-Es sei $G=(V(G),E(G))$ ein beliebiger Graph. Eine \DF{(Ecken-)F"arbung} von $G$ zur \DF{Farbmenge} $C$ ist eine Abbildung $f:V(G)\to C$ mit $f(u)\neq f(v)~\forall uv\in E(G),~ u\neq v$. Ist $\left|C\right|=k \in \N$, so heiﬂt $f$ \DF{$k$-F"arbung}. Die chromatische Zahl $\chi(G)$ ist die kleinste Zahl $k\in\N$, sodass $G$ eine $k-F"arbung$ besitzt.
+Es sei $G=(V(G),E(G))$ ein beliebiger Graph. Eine \DF{(Ecken-)F"arbung} von $G$ zur \DF{Farbmenge} $C$ ist eine Abbildung $f:V(G)\to C$ mit $f(u)\neq f(v)~\forall uv\in E(G),~ u\neq v$. Ist $\left|C\right|=k \in \N$, so heiﬂt $f$ \DF{$k$-F"arbung}. Die chromatische Zahl $\chi(G)$ ist die kleinste Zahl $k\in\N$, sodass $G$ eine $k$-F"arbung besitzt. \\
 Eine \DF{Kantenf"arbung} zur Farbmenge $C$ ist eine Abbildung $f:E(G)\to E(G)$ mit $f(u)\neq f(v)$ falls $u$ und $v$ eine gemeinsame Endecke besitzen.
 
-
+Ein Hypergraph ist ein Tupel $H=(V(H),E(H))$, wobei $V(H)$ die (endliche) \DF{Eckenmenge} von $H$ und $E(H) \subset \mathcal{P}(H)$ die  \DF{Kantenmenge} von $H$ ist. Ein Hypergraph heiﬂt \DF{linearer Hypergraph}, falls f"ur alle verschiedenen Kanten $e,e' \in E(H)$ gilt : $|e \cap e' | \leq 1$. Eine \DF{Kantenf"arbung} von $H$ zur Farbmenge $C$ ist eine Abbildung $f:V(H) \to C$ mit $f(e) \neq f(e')$ f"ur alle $e,e'\inE(H)$ mit $e\cap e' \neq \emptyset$. 
 \subsection{Eigenwerte von symmetrischen Matrizen}
 \label{ssec:EigenwerteMatrizen} 
 
@@ -30,7 +30,7 @@ Eine Matrix $M \in \R^{n\times n}$ hei"st \DF{symmetrisch} falls $A = A^{T}$ gil
 \end{proof}
 
 \begin{theorem}[Courant-Fischer]
-    Sei $A\in \R^{n\times n}$ symmetrisch. Seien die (reellen) Eigenwerte von $A$ gegeben durch $\lambda_1(A) \geq \lambda_2(A) \geq \dots\geq \lambda_n(A)$. Dann gilt : 
+  Sei $A\in \R^{n\times n}$ symmetrisch. Seien die (reellen) Eigenwerte von $A$ gegeben durch $\lambda_1(A) \geq \lambda_2(A) \geq \dots\geq \lambda_n(A)$. Dann gilt f"ur alle $p\in\{1,\dots, n\}$ :
     \begin{enumerate}
         \item $\lambda_p(A) = \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TAx}{x^Tx}| V\subseteq \R^n \text{ist linearer Unterraum der Dimension } p\}$.
         \item $\lambda_p(A) = \min\{\max\limits_{x\in V , x \neq 0} \frac{x^TAx}{x^Tx}| V\subseteq \R^n \text{ist linearer Unterraum der Dimension } n-p+1\}$.
@@ -40,7 +40,7 @@ Eine Matrix $M \in \R^{n\times n}$ hei"st \DF{symmetrisch} falls $A = A^{T}$ gil
 
 \begin{theorem}[Interlacing]
     \label{thm:Interlacing}
-    Sei $A\in \R^{n\times n}$ symmetrisch mit Eigenwerten $\lambda_{1}\geq\dots\geq\lambda_n$. Sei $B\in\R^{(n-k)\times(n-k)}$ eine symmetrische Matrix, welche aus $A$ durch L"oschen von Zeilen und den entsprechenden Spalten entsteht, mit Eigenwerten $\mu_{1}\geq\dots\geq\mu_{n}$. Dann gilt $$ \lambda_{i}\geq\mu_{i}\geq\lambda_{i+k}$$ f"ur $i=1\dots n-k$.
+    Sei $A\in \R^{n\times n}$ symmetrisch mit Eigenwerten $\lambda_{1}\geq\dots\geq\lambda_n$. Sei $B\in\R^{(n-k)\times(n-k)}$ eine symmetrische Matrix, welche aus $A$ durch L"oschen von Zeilen und den entsprechenden Spalten entsteht, mit Eigenwerten $\mu_{1}\geq\dots\geq\mu_{n}$. Dann gilt $$ \lambda_{i}\geq\mu_{i}\geq\lambda_{i+k}$$ f"ur $i=1,\dots, n-k$.
 \end{theorem}
 
 \begin{proof}
@@ -61,20 +61,53 @@ Dann ist $A$ symmetrisch, und hat folglich nur reelle Eigenwerte. Damit es Sinn 
 \end{lemma}
 
 \begin{proof}
-  Sei $V(G)=\{v_1\dots v_n\}= \{u_1\dots u_n\}$. Sei weiterhin $A,B \in \R^{^n\times n}$ mit  
-  \[A_{i,j} = \begin{cases}
+  Seien $V(G)=\{v_1,\dots, v_n\}= \{u_1,\dots, u_n\}$ zwei Nummerierungen der Ecken. Sei weiterhin $A=(A_{i,j})_{1\leq i,j \leq n},B=(B_{i,j})_{1\leq i,j \leq n}\in \R^{^n\times n}$ mit  
+  \[
+    A_{i,j} = \begin{cases}
     1 & v_iv_j \in E(G) \\ 0 & v_iv_j \notin E(G)
   \end{cases} \\
   B_{i,j} = \begin{cases}
     1 & u_iu_j \in E(G) \\ 0 & u_iu_j \notin E(G)
   \end{cases}\] 
   \todo{ Genauer }
-  Dann gibt es eine Permutation $\sigma\in S^{n}$ sodass $v_i = u_{\sigma(i)}$.Folglich ist
+  Dann gibt es eine Permutation $\sigma\in S^{n}$ sodass $v_{\sigma(i)} = u_i$. Folglich gilt $A_{\sigma(i),\sigma(j)} = B_{i,j}$ . Sei $P \in GL_n(\R) $ die Matrix
   \[
-    A=P^{-1}BP
+    P_{i,j} = \begin{cases}
+      1 & \sigma(i) = j \\ 0 & \text{sonst} 
+  \end{cases} 
   \]
-  wobei $P\in\R^{^n\times n}$ die Permutationsmatrix ist die zu $\sigma$ geh"ort.
-  Also sind $A$ und $B$ "ahnlich, und haben folglich die gleichen Eigenwerte.
+  Damit ist $P=(e_{\sigma(1)},\dots, e_{\sigma(n)})$. Nun betrachten wir $P^{T}AP$.
+  \[
+    P^{T}AP_{i,j} = e_j^{T} P^{T}AP e_i = e_{\sigma(j)}^{T}Ae_{\sigma(i)}=A_{\sigma(i),\sigma(j)} = B_{i,j}
+  \]
+  Also ist $P^{T}AP = B$. Somit sind $A$ und $B$ "ahnlich und besitzen folglich die selben Eigenwerte.
+\end{proof}
+F"ur einen Graphen $G$ seien die \DF{Eigenwerte} von $G$ definiert als $\lambda_i(G) = \lambda_i(A(G))$.
+
+\begin{example}
+  \label{ex:GraphEV}
+\end{example}
+
+\begin{lemma}
+  Sein $H$ ein induzierter Untergraph von $G$ und $k := |V(G)| - |V(H)|$. Dann gilt
+  $$ \lambda_i(G) \geq \lambda_{i}(H) \geq \lambda_{i+k}(G)$$
+  \label{lem:InterlacingGraphen}
+\end{lemma}
+
+\begin{proof}
+  Ist $H$ ein induzierter Untergraph von $G$, so entsteht $A(H)$ aus $A(G)$ durch Streichen von Spalten und den korrespondierenden Zeilen. Damit folgt alles aus \ref{thm:Interlacing}.
 \end{proof}
 
-F"ur einen Graphen $G$ seien die \DF{Eigenwerte} von $G$ definiert als $\lambda_i(G) = \lambda_i(A(G))$. 
+\begin{corollary}
+  Sei $G$ ein Graph mit $\omega(G) = p$ und $\alpha(G) = q$. Dann gilt :
+  \[
+    \lambda_p(G) \geq -1 \\
+    \lambda_q(G) \geq 0
+  \]
+  \label{cor:alphaomegaEigenwerte}
+\end{corollary}
+
+\begin{proof}
+  Ist $\omega(G) = p$, so besitzt $G$ einen vollst"andigen induzierten Untergraphen der Ordnung $p$, $H$. Nach \ref{ex:GraphEV} besitzt $H$ die Eigenwerte $\lambda_{1}(H) = p-1$ und $\lambda_{i}(H)= -1$ f"ur $i\in \{2,\dots,p\}$. Damit folgt aus \ref{lem:InterlacingGraphen}, $\lambda_p\left( G \right) \geq -1$. \\
+  Ist $\alpha(G) = q$, so besitzt $G$ einen kantenlosen, induzierten Untergraphen der Ordnung $q$, $O$. Nach \ref{ex:GraphEV} besitzt $O$ die Eigenwerte $\lambda_{i}(O)= 0$ f"ur $i\in \{1,\dots,p\}$. Damit folgt aus \ref{lem:InterlacingGraphen}, $\lambda_q\left( G \right) \geq 0$. 
+\end{proof}
