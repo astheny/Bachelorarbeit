@@ -22,12 +22,11 @@
 \end{lemma}
 
 \begin{proof}
-  \todo{Hinrichtung}
-  Sei $\kappa_d(G) \leq\infty$ und $v\in V(G)$ mit $d_{G}(v) = \delta(G)$. Dann existieren $d$ kantendisjunkte vollst"andige Untergraphen $H^{1}\dots H^{d}$ von $G$ mit $v\in V(H{i}$ f"ur alle $1\leq i \leq d$. Da die $H^{i}$ kantendisjunkt sind und $d_H^{i}\geq1$, gilt: 
+  Seien $\kappa_d(G) \leq\infty$ und $v\in V(G)$ mit $d_{G}(v) = \delta(G)$. Dann existieren $d$ kantendisjunkte vollst"andige Untergraphen $H^{1}\dots H^{d}$ von $G$ mit $v\in V(H^{i})$ f"ur alle $1\leq i \leq d$. Da die $H^{i}$ kantendisjunkt sind und $d_H^{i}(v)\geq1$, gilt: 
   \[
-    d \leq \sum\index_{i=1}^{d} d_{H^{i}}(v) \leq d_G(v) = \delta(G). 
-  \]<++>
-  Sei nun $\delta(G) \geq d$. Wir m"ussen zeigen, dass es eine Krauszzerlegung $\mathcal{K}$ gibt, mit $d_{G}(v:\mathcal{K}) \geq d$. Sei $E(G)= \{e_1\dots e_{m}\}$ eine Nummerierung der Kanten. Setze $H^{i}= G[e_i]$. Dann ist $\mathcal{K} = \{H^{1}\dots H^{m}\}$ eine Krauszzerlegung von $G$ mit $d_{G}(v:\mathcal{K}) \geq \delta(G) \geq d$ f"ur alle $v\in V(G)$. Also ist $\kappa_d(G)\leq m <\infty$.
+    d \leq \sum\limits_{i=1}^{d} d_{H^{i}}(v) \leq d_G(v) = \delta(G). 
+  \]
+  Sei nun $\delta(G) \geq d$. Wir m"ussen zeigen, dass es eine Krauszzerlegung $\mathcal{K}$ gibt, mit $d_{G}(v:\mathcal{K}) \geq d$. Sei $E(G)= \{e_1,\dots, e_{m}\}$ eine Nummerierung der Kanten. Setze $H^{i}= G[e_i]$. Dann ist $\mathcal{K} = \{H^{1},\dots, H^{m}\}$ eine Krauszzerlegung von $G$ mit $d_{G}(v:\mathcal{K}) = d_{G}(v) \geq \delta(G) \geq d$ f"ur alle $v\in V(G)$. Also ist $\kappa_d(G)\leq m <\infty$.
 
 \end{proof}
 %Beispiele und einfache Ergebnisse
@@ -39,16 +38,19 @@
     Wir k"onnen ohne Beschr"ankung der Allgemeinheit annehmen, dass $d_1\geq d_2 \geq \dots \geq d_n \geq d$.
     Dann gilt: 
     \begin{enumerate}[label=(\alph*)]
-        \item $\lambda_i \geq -d_{n-i+1}$ f"ur $i = 1, \dots , n$
-        \item $\lambda_{m+1} \leq -d$ falls $m < n$
+        \item $\lambda_i(G) \geq -d_{n-i+1}$ f"ur $i = 1, \dots , n$
+        \item $\lambda_{m+1}(G) \leq -d$ falls $m < n$
     \end{enumerate}
 \end{theorem}
 \begin{proof}
     Es sei $A$ die Adjazenzmatrix von $G$ und $D := \operatorname{diag}(d_1,\dots,d_n)$. Definiere $B$ als die Inzidenzmatrix von $\mathcal K$, also $$B(i,j) = \begin{cases}
         1 & v_i \in K_j \\ 0 & v_i \notin K_j
     \end{cases}$$ 
-    $M=BB^{T}$ ist positiv semidefinit, und es gilt $M = A+D$. Damit gilt $\lambda_1(M) \geq \dots \geq \lambda_n(M) \geq 0$ sowie $rg(M) = rg(B) = m$\todo{$\geq$?}. Deswegen ist $\lambda_{m+1}(M)=\dots=\lambda_n(M) = 0$, falls $m < n$. 
-\end{proof}
+    $M=BB^{T}$ ist positiv semidefinit, und es gilt $M = A+D$ \todo{Genauer}. Folglich ist $A- (-D)$ positiv semidefinit, und es folgt mit \ref{lem:evpsddif}, dass 
+    \begin{equation*}
+      \lambda_i(G) = \lambda_i(A) \geq \lambda_i(-D) =- -d_{n-i+1}
+    \end{equation*}
+  \end{proof}
 \begin{corollary}
     \label{cor:Korollar1}
      \todo{ $\delta(H) \geq 2 ?$ }
