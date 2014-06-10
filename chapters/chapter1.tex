@@ -59,7 +59,14 @@ Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte 
 \end{theorem}
 
 \begin{proof}
-  \todo{Referenz finden}
+  Seien $l_1<\dots< l_{n-k}$ die Nummern der Zeilen bzw. Spalten die nach dem L"oschen der Zeilen bzw. Spalten von $A$ "ubrig bleiben. \todo{bessere Formulierung} Setze $P:=(e_{l_1},e_{l_2},\dots,e_{l_{n-k}})\in \R^{n\times n-k}$. Dann ist $B=P^{T}AP$. Es folgt mit Hilfe von \ref{thm:CourantFischer} : 
+  \begin{align*}
+    \mu_i = \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TBx}{x^Tx}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } i\} \\
+    &= \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TP^{T}APx}{x^Tx}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } i\} \\
+    &\leq \max\{\min\limits_{y\in PV , y \neq 0} \frac{y^{T}Ay}{y^Ty}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } i\}\todo{PV anders} \\
+    &\leq \max\{\min\limits_{x\in V , x \neq 0} \frac{y^TAy}{y^Ty}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } i\}\\
+    &= \lambda_i
+  \end{align*}<++>
 \end{proof}
 
 \subsection{Eigenwerte von Graphen}
