@@ -1,21 +1,20 @@
 \section{Einf"uhrung}
 \label{sec:Einf"uhrung}
-
+\todo{gute Einleitung}
 In dieser Arbeit besch\"aftigen wir uns mit dem Zusammenhang der chromatischen Zahl von Graphen und ihrem Spektrum. 
 
 Um die Beweise in Kapitel 2 zu f"uhren, ben"otigen wir einige S"atze "uber Eigenwerte von symmetrischen Matrizen. Diese, und andere Grundlagen, werden wir in Kapitel 1 erarbeiten.
-
+\todo{Anders anordnen}.
 \subsection{Ecken- und Kantenf\"arbungen von Graphen und Hypergraphen}
 \label{ssec:F"arbung}
 
-Es sei $G=(V(G),E(G))$ ein beliebiger Graph. Eine \DF{(Ecken-)F"arbung} von $G$ zur \DF{Farbmenge} $C$ ist eine Abbildung $f:V(G)\to C$ mit $f(u)\neq f(v)~\forall uv\in E(G),~ u\neq v$. Ist $\left|C\right|=k \in \N$, so heißt $f$ \DF{$k$-F"arbung}. Die chromatische Zahl $\chi(G)$ ist die kleinste Zahl $k\in\N$, sodass $G$ eine $k$-F"arbung besitzt. \\
-Eine \DF{Kantenf"arbung} zur Farbmenge $C$ ist eine Abbildung $f:E(G)\to E(G)$ mit $f(u)\neq f(v)$ falls $u$ und $v$ eine gemeinsame Endecke besitzen.
+Es sei $G=(V(G),E(G))$ ein beliebiger Graph. Eine \DF{(Ecken-)F"arbung} von $G$ zur \DF{Farbmenge} $C$ ist eine Abbildung $f:V(G)\to C$ mit $f(u)\neq f(v)$ f"ur alle $u,v \in V(G)$. Ist $\left|C\right|=k \in \N$, so heißt $f$ \DF{$k$-F"arbung}. Die \DF{chromatische Zahl} $\chi(G)$ ist die kleinste Zahl $k\in\N$, sodass $G$ eine $k$-F"arbung besitzt. \\
+Eine \DF{Kantenf"arbung} zur \DF{Farbmenge} $C$ ist eine Abbildung $f:E(G)\to C$ mit $f(e)\neq f(e')$ falls $e,e'\in E(G)$ eine gemeinsame Endecke besitzen.
 
 Ein Hypergraph ist ein Tupel $H=(V(H),E(H))$, wobei $V(H)$ die (endliche) \DF{Eckenmenge} von $H$ und $E(H) \subset \mathcal{P}(H)$ die  \DF{Kantenmenge} von $H$ ist. Ein Hypergraph heißt \DF{linearer Hypergraph}, falls f"ur alle verschiedenen Kanten $e,e' \in E(H)$ gilt : $|e \cap e' | \leq 1$. Eine \DF{Kantenf"arbung} von $H$ zur Farbmenge $C$ ist eine Abbildung $f:V(H) \to C$ mit $f(e) \neq f(e')$ f"ur alle $e,e'\in E(H)$ mit $e\cap e' \neq \emptyset$. 
 \subsection{Eigenwerte von symmetrischen Matrizen}
 \label{ssec:EigenwerteMatrizen} 
-
-Eine Matrix $M \in \R^{n\times n}$ hei"st \DF{symmetrisch} falls $A = A^{T}$ gilt. Eine symmetrische Matrix $A$ hei"st \DF{positiv semidefinit} falls $x^TAx \geq 0$ f"ur alle $x \in \R^n$. Gilt $x^TAx = 0$ nur f"ur $x = 0$, so hei"st $A$ \DF{positiv definit}. Wir wollen nun einige Eigenschaften von positiv(semi)definiten Matrizen anf"uhren.
+Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte und folglich k"onnen dieses fallend angeordnet werden. F"ur eine symmetrische Matrix $A$ sei also $\lambda_i(A)$ der i-gr"oßte \DF{Eigenwert} (gez"ahlt mit Vielfachheiten). Eine symmetrische Matrix $A$ hei"st \DF{positiv semidefinit} falls $x^TAx \geq 0$ f"ur alle $x \in \R^n$. Gilt $x^TAx = 0$ nur f"ur $x = 0$(also $x^{T}Ax > 0$ f"ur $x\neq 0$), so hei"st $A$ \DF{positiv definit}. Wir wollen nun einige Eigenschaften von positiv (semi)definiten Matrizen anf"uhren.
 \begin{proposition}
     F"ur eine symmetrische Matrix $A\in\R^{n\times n}$ sind "aquivalent:
     \begin{enumerate}[label=(\roman*)]
@@ -32,18 +31,31 @@ Eine Matrix $M \in \R^{n\times n}$ hei"st \DF{symmetrisch} falls $A = A^{T}$ gil
 \begin{theorem}[Courant-Fischer]
   Sei $A\in \R^{n\times n}$ symmetrisch. Seien die (reellen) Eigenwerte von $A$ gegeben durch $\lambda_1(A) \geq \lambda_2(A) \geq \dots\geq \lambda_n(A)$. Dann gilt f"ur alle $p\in\{1,\dots, n\}$ :
     \begin{enumerate}
-        \item $\lambda_p(A) = \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TAx}{x^Tx}| V\subseteq \R^n \text{ist linearer Unterraum der Dimension } p\}$.
-        \item $\lambda_p(A) = \min\{\max\limits_{x\in V , x \neq 0} \frac{x^TAx}{x^Tx}| V\subseteq \R^n \text{ist linearer Unterraum der Dimension } n-p+1\}$.
+        \item $\lambda_p(A) = \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TAx}{x^Tx}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } p\}$.
+        \item $\lambda_p(A) = \min\{\max\limits_{x\in V , x \neq 0} \frac{x^TAx}{x^Tx}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } n-p+1\}$.
     \end{enumerate}
     \label{thm:CourantFischer}
 \end{theorem}
 \begin{lemma}
   Seien $A,B\in \Rnn$ symmetrisch und $A-B$ positiv semidefinit. Dann ist $\lambda_i(A)\geq\lambda_i(B)$ f"ur alle $1\leq i \leq n$.
   \label{lem:evpsddif}
-\end{lemma}<++>
+\end{lemma}
+
+\begin{proof}
+  Sei $x\in\R^{n}$ beliebig. Dann gilt \begin{align*}
+    x^{T} (A-B) x &\geq 0 \\
+    x^{T} A x &\geq x^{T} B x
+  \end{align*}
+  Folglich ist $\frac{x^{T} A x}{x^{T}x} \geq\frac{x^{T} B x}{x^{T}x}$ und es folgt mit \ref{thm:CourantFischer} : 
+  \begin{align*}
+    \lambda_i(A) &= \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TAx}{x^Tx}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } i\}\\
+    &\geq \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TBx}{x^Tx}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } i\} \\
+    &= \lambda_i(B)
+  \end{align*}
+\end{proof}
 \begin{theorem}[Interlacing]
     \label{thm:Interlacing}
-    Sei $A\in \R^{n\times n}$ symmetrisch mit Eigenwerten $\lambda_{1}\geq\dots\geq\lambda_n$. Sei $B\in\R^{(n-k)\times(n-k)}$ eine symmetrische Matrix, welche aus $A$ durch L"oschen von Zeilen und den entsprechenden Spalten entsteht, mit Eigenwerten $\mu_{1}\geq\dots\geq\mu_{n}$. Dann gilt $$ \lambda_{i}\geq\mu_{i}\geq\lambda_{i+k}$$ f"ur $i=1,\dots, n-k$.
+    Sei $A\in \R^{n\times n}$ symmetrisch mit Eigenwerten $\lambda_{1}\geq\dots\geq\lambda_n$. Sei $B\in\R^{(n-k)\times(n-k)}$ eine symmetrische Matrix, welche aus $A$ durch L"oschen von Zeilen und den entsprechenden Spalten entsteht, mit Eigenwerten $\mu_{1}\geq\dots\geq\mu_{k}$. Dann gilt $$ \lambda_{i}\geq\mu_{i}\geq\lambda_{i+k}$$ f"ur $i=1,\dots, n-k$.
 \end{theorem}
 
 \begin{proof}
