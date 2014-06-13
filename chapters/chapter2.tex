@@ -5,103 +5,120 @@
 \subsection{Krauszzerlegungen von Graphen}
 \label{ssec:Krauszzerlegung}
 \begin{definition}
-    \label{def:Krauszzerlegung}
-    Sei $G$ ein Graph. Eine Menge $\mathcal K$ von Untergraphen von $G$ hei"st \DF{Krauszzerlegung} von $G$, falls gilt:
-    \begin{enumerate}[label=(\roman*)]
-        \item $\forall K \in \mathcal K:$ $K$ ist ein vollst"andiger Graph mit $|K| \geq 2$
-        \item $\forall K, K'\in \mathcal K$ mit $K\neq K'$ gilt $|K\cap K'| \leq 1$
-        \item $G=\bigcup\limits_{K\in \mathcal K}K$
-    \end{enumerate}
-    Desweiteren sei f"ur $v\in V(G)$ der \DF{Grad} von $v$ bez"uglich $\mathcal K$ definiert als $$d_G(v:\mathcal K) := |\{ K\in\mathcal K| v \in V(K)\}|$$ und der \DF{Minimalgrad} von $G$ bez"uglich $\mathcal K$ als $$\delta_G(\mathcal K) := \min\limits_{v\in V(G)}d_G(v:\mathcal K)$$ 
-    F"ur $d \geq 1$ sei $\kappa_d(G)$ die kleinste positive Zahl $m$ derart, dass $G$ eine Krauszzerlegung $\mathcal K$ besitzt mit $|\mathcal K| = m$ und $\delta_G(\mathcal K) \geq d$.
+  \label{def:Krauszzerlegung}
+  Sei $G$ ein Graph. Eine Menge $\mathcal K$ von Untergraphen von $G$ hei"st \DF{Krauszzerlegung} von $G$, falls gilt:
+  \begin{enumerate}[label=(\roman*)]
+    \item $\forall K \in \mathcal K:$ $K$ ist ein vollst"andiger Graph mit $|K| \geq 2$
+    \item $\forall K, K'\in \mathcal K$ mit $K\neq K'$ gilt $|K\cap K'| \leq 1$
+    \item $G=\bigcup\limits_{K\in \mathcal K}K$
+  \end{enumerate}
+  Desweiteren sei f"ur $v\in V(G)$ der \DF{Grad} von $v$ bez"uglich $\mathcal K$ definiert als $$d_G(v:\mathcal K) := |\{ K\in\mathcal K| v \in V(K)\}|$$ und der \DF{Minimalgrad} von $G$ bez"uglich $\mathcal K$ als $$\delta_G(\mathcal K) := \min\limits_{v\in V(G)}d_G(v:\mathcal K)$$ 
+  F"ur $d \geq 1$ sei $\kappa_d(G)$ die kleinste positive Zahl $m$ derart, dass $G$ eine Krauszzerlegung $\mathcal K$ besitzt mit $|\mathcal K| = m$ und $\delta_G(\mathcal K) \geq d$.
 \end{definition}
-
+%% evtll: K1 dazu, dann delta + 1
 \begin{lemma}
   Sei $G$ ein Graph. Dann ist $\kappa_d(G) < \infty$ genau dann, wenn $\delta(G) \geq d$.
   \label{lm:krauszexistenz}
 \end{lemma}
 
 \begin{proof}
-  Seien $\kappa_d(G) \leq\infty$ und $v\in V(G)$ mit $d_{G}(v) = \delta(G)$. Dann existieren $d$ kantendisjunkte vollst"andige Untergraphen $H^{1}\dots H^{d}$ von $G$ mit $v\in V(H^{i})$ f"ur alle $1\leq i \leq d$. Da die $H^{i}$ kantendisjunkt sind und $d_H^{i}(v)\geq1$, gilt: 
+  Seien $\kappa_d(G) <\infty$ und $v\in V(G)$ mit $d_{G}(v) = \delta(G)$. Dann existieren $d$ kantendisjunkte vollst"andige Untergraphen $H^{1}\dots H^{d}$ von $G$ mit $v\in V(H^{i})$ f"ur alle $1\leq i \leq d$. Da die $H^{i}$ kantendisjunkt sind und $d_H^{i}(v)\geq1$, gilt: 
   \[
     d \leq \sum\limits_{i=1}^{d} d_{H^{i}}(v) \leq d_G(v) = \delta(G). 
   \]
-  Sei nun $\delta(G) \geq d$. Wir m"ussen zeigen, dass es eine Krauszzerlegung $\mathcal{K}$ gibt, mit $d_{G}(v:\mathcal{K}) \geq d$. Sei $E(G)= \{e_1,\dots, e_{m}\}$ eine Nummerierung der Kanten. Setze $H^{i}= G[e_i]$. Dann ist $\mathcal{K} = \{H^{1},\dots, H^{m}\}$ eine Krauszzerlegung von $G$ mit $d_{G}(v:\mathcal{K}) = d_{G}(v) \geq \delta(G) \geq d$ f"ur alle $v\in V(G)$. Also ist $\kappa_d(G)\leq m <\infty$.
+  Sei nun $\delta(G) \geq d$. Wir m"ussen zeigen, dass es eine Krauszzerlegung $\mathcal{K}$ gibt, mit $d_{G}(v:\mathcal{K}) \geq d$ f"ur alle $v\in V(G)$. Sei $E(G)= \{e_1,\dots, e_{m}\}$ eine Nummerierung der Kanten. Setze $H^{i}= G[e_i]$. Dann ist $\mathcal{K} = \{H^{1},\dots, H^{m}\}$ eine Krauszzerlegung von $G$ mit $d_{G}(v:\mathcal{K}) = d_{G}(v) \geq \delta(G) \geq d$ f"ur alle $v\in V(G)$. Also ist $\kappa_d(G)\leq m <\infty$.
 
 \end{proof}
 %Beispiele und einfache Ergebnisse
 \subsection{Krauszzerlegungen und Eigenwerte}
 
 \begin{theorem}
-    \label{thm:KrauszEigenwerte}
-    Sei $G$ ein Graph mit $V(G)=\{v_1,\dots,v_n\}$ und $\mathcal K=\{K_1,\dots,K_m\}$ eine Krauszzerlegung von $G$ mit $d_G(\mathcal K) \geq d \geq 2$ . Desweiteren sei $d_i := d_G(v:\mathcal K)$. 
-    Wir k"onnen ohne Beschr"ankung der Allgemeinheit annehmen, dass $d_1\geq d_2 \geq \dots \geq d_n \geq d$.
-    Dann gilt: 
-    \begin{enumerate}[label=(\alph*)]
-        \item $\lambda_i(G) \geq -d_{n-i+1}$ f"ur $i = 1, \dots , n$
-        \item $\lambda_{m+1}(G) \leq -d$ falls $m < n$
-    \end{enumerate}
+  \label{thm:KrauszEigenwerte}
+  Sei $G$ ein Graph mit $V(G)=\{v_1,\dots,v_n\}$ und $\mathcal K=\{K_1,\dots,K_m\}$ eine Krauszzerlegung von $G$ mit $d_G(\mathcal K) \geq d \geq 2$ . Desweiteren sei $d_i := d_G(v:\mathcal K)$. 
+  Wir k"onnen ohne Beschr"ankung der Allgemeinheit annehmen, dass $d_1\geq d_2 \geq \dots \geq d_n \geq d$.
+  Dann gilt: 
+  \begin{enumerate}[label=(\alph*)]
+    \item $\lambda_i(G) \geq -d_{n-i+1}$ f"ur $i = 1, \dots , n$
+    \item $\lambda_{m+1}(G) \leq -d$ falls $m < n$
+  \end{enumerate}
 \end{theorem}
 \begin{proof}
-    Es sei $A$ die Adjazenzmatrix von $G$ und $D := \operatorname{diag}(d_1,\dots,d_n)$. Definiere $B$ als die Inzidenzmatrix von $\mathcal K$, also $$B(i,j) = \begin{cases}
+  \begin{enumerate}[label=(\alph*)]
+    \item Es sei $A$ die Adjazenzmatrix von $G$ und $D := \operatorname{diag}(d_1,\dots,d_n)$. Definiere $B\in\R^{n\times m}$ als die Inzidenzmatrix von $\mathcal K$, also $$B_{i,j} = \begin{cases}
         1 & v_i \in K_j \\ 0 & v_i \notin K_j
-    \end{cases}$$ 
-    $M=BB^{T}$ ist positiv semidefinit, und es gilt $M = A+D$ \todo{Genauer}. Folglich ist $A- (-D)$ positiv semidefinit, und es folgt mit \ref{lem:evpsddif}, dass 
-    \begin{equation*}
-      \lambda_i(G) = \lambda_i(A) \geq \lambda_i(-D) =- -d_{n-i+1}
-    \end{equation*}
-  \end{proof}
+      \end{cases}$$ 
+      Nun betrachten wir $M=BB^{T}$. Es gilt
+      \[
+        M_{i,j} = \sum\limits_{k=1}^{d}B_{i,k}B_{j,k}
+      \]
+      Seien zun"achst $i,j \in \{1,\dots,n\}$ mit $i\neq j$. Ist $B_{i,k} = 1$ und $B_{j,k} = 1$, so ist $v_i,v_j  \in K_k$, und somit (da $K_k$ ein vollst"andiger Graph ist) $v_iv_j\in E(G)$. Es k"onnen aber f"ur h"ochstens ein $k\in \{1,\dots,m\}$ $B_{i,k}$ und $B_{j,k}$ gleichzeitig $1$ seien, da nach \ref{def:Krauszzerlegung} die Graphen aus $\mathcal K$ kantendisjunkt sind. Also ist $M_{i,j}= 1 $ genau dann, wenn $v_iv_j\in E(G)$, genau dann wenn $A_{i,j} = 1$. Somit ist $M_{i,j}=A_{i,j}$\\
+      Sei nun $i\in\{1,\dots,n\}$ beliebig. Wir betrachten $M_{i,i}$. Es gilt 
+      \[
+        M_{i,i} = \sum\limits_{k=1}^{d}B_{i,k}B_{i,k} = \sum\limits_{k=1}^{d} B_{i,k}
+      \]
+      $B_{i,k}=1$ genau dann, wenn $v_i \in K_k$. Folglich ist $M_{i,i}= d_G(v_i:\mathcal K)= d_i$. Damit gilt $M=A+D$. $M$ ist nach \ref{prop:psdmatrix} positiv semidefinit.
+      Folglich ist $A- (-D)$ positiv semidefinit, und es folgt mit \ref{lem:evpsddif}, dass 
+      \begin{equation*}
+        \lambda_i(G) = \lambda_i(A) \geq \lambda_i(-D) =- -d_{n-i+1}
+      \end{equation*}
+    \item Sei $m<n$. Dann ist $\operatorname{rang}(M)= \operatorname{rang}(B) \leq m$. Folglich besitzt $M$ den Eigenwert $0$ mit Vielfachheit mindestens $n-m$. ,w:Git add .
+      :Gcommit
+t
+
+
+  \end{enumerate}<++>
+\end{proof}
 \begin{corollary}
-    \label{cor:Korollar1}
-     \todo{ $\delta(H) \geq 2 ?$ }
-    Sei $H$ ein induzierter Untergraph von $G$ mit $p = \left| H\right| \leq \left|G\right| = n$.
-    Ist $\lambda_p (H) > -d $ f"ur ein $q \leq p$ und $-2 \leq d \in \N$, so ist $\kappa_d(G) \geq q$.
+  \label{cor:Korollar1}
+  \todo{ $\delta(H) \geq 2 ?$ }
+  Sei $H$ ein induzierter Untergraph von $G$ mit $p = \left| H\right| \leq \left|G\right| = n$.
+  Ist $\lambda_p (H) > -d $ f"ur ein $q \leq p$ und $-2 \leq d \in \N$, so ist $\kappa_d(G) \geq q$.
 \end{corollary}
 \begin{proof}
-    Angenommen $\kappa_d(G) < q$. Sei dann $\mathcal{K}$ eine Krauszzerlegung von $G$ die zu $d$ passt. Dann ist nach \ref{thm:Interlacing} $\lambda_{q}(G)\geq \lambda_{q}(H) > -d$. 
-    Da $i < q \leq n$ gilt nach \ref{thm:KrauszEigenwerte} $\lambda_{i+1}\leq -d$ und somit $\lambda_{q}(G)\leq \lambda_{i+1} \leq -d$. Widerspruch.
+  Angenommen $\kappa_d(G) < q$. Sei dann $\mathcal{K}$ eine Krauszzerlegung von $G$ die zu $d$ passt. Dann ist nach \ref{thm:Interlacing} $\lambda_{q}(G)\geq \lambda_{q}(H) > -d$. 
+  Da $i < q \leq n$ gilt nach \ref{thm:KrauszEigenwerte} $\lambda_{i+1}\leq -d$ und somit $\lambda_{q}(G)\leq \lambda_{i+1} \leq -d$. Widerspruch.
 \end{proof}
 Es sei $G$ ein Graph. Der \DF{Kantengraph} $L(G)$ (engl. line graph) von $G$ ist definiert als der Graph mit Eckenmenge $E(G)$ und Kantenmenge $\{ee'|e\text{ und } e' \text{besitzen eine gemeinsame Endecke}\}$.
 
 \begin{corollary}
-    Sei $\delta(G) \geq 2$ und $H$ ein induzierter Untergraph von $G$, welcher Kantengraph eines Waldes ist. 
-    Dann ist $\kappa_{2}(H)\geq \left|H\right|$
+  Sei $\delta(G) \geq 2$ und $H$ ein induzierter Untergraph von $G$, welcher Kantengraph eines Waldes ist. 
+  Dann ist $\kappa_{2}(H)\geq \left|H\right|$
 \end{corollary}
 
 \begin{proof}
   \todo{Satz Linegraphen Eigenwerte}
-    Nach \ref{cor:Korollar1} ist f"ur $q=\left|H\right|$ : $\lambda_q(H)=\lambda_{\text{min}}> -2$. Dann ist mit \ref{cor:Korollar1} $\kappa_{2}\left( H \right) > \left| H\right|$.
+  Nach \ref{cor:Korollar1} ist f"ur $q=\left|H\right|$ : $\lambda_q(H)=\lambda_{\text{min}}> -2$. Dann ist mit \ref{cor:Korollar1} $\kappa_{2}\left( H \right) > \left| H\right|$.
 \end{proof}
 
 \begin{corollary}[Klotz]
-    $\kappa_{2}\left( K_n \right) \geq n$
+  $\kappa_{2}\left( K_n \right) \geq n$
 \end{corollary}
 
 \begin{proof}
-    $K_n$ ist der Kantengraph von $K_{1,n}$.
+  $K_n$ ist der Kantengraph von $K_{1,n}$.
 \end{proof}
 \begin{corollary}
-    Ist $\delta\left( G \right) \geq 2$, so gilt $\omega\left( G \right)\leq \kappa_{2}\left( G \right)$ und $\alpha\left( G \right)\leq \kappa_{2}\left( G \right)$.
+  Ist $\delta\left( G \right) \geq 2$, so gilt $\omega\left( G \right)\leq \kappa_{2}\left( G \right)$ und $\alpha\left( G \right)\leq \kappa_{2}\left( G \right)$.
 \end{corollary}
 
 \begin{proof}
-    Sei $p = \omega(G)$. Dann gilt nach $\lambda_{p}\left( G \right)\geq -1\geq -2$. Damit sind f"ur $d=2$ die Voraussetzungen von \ref{cor:Korollar1} erf"ullt, und es gilt folglich $\kappa_{2}\left( G \right)\geq p = \omega\left( G \right)$ 
-    F"ur $q=\alpha\left( G) \right)$ gilt wieder nach $\lambda_{q}\left( G \right)\geq 0 \geq -2$. Damit folgt analog $\alpha\left( G \right) \leq \kappa_{2}\left( G \right)$.
+  Sei $p = \omega(G)$. Dann gilt nach $\lambda_{p}\left( G \right)\geq -1\geq -2$. Damit sind f"ur $d=2$ die Voraussetzungen von \ref{cor:Korollar1} erf"ullt, und es gilt folglich $\kappa_{2}\left( G \right)\geq p = \omega\left( G \right)$ 
+  F"ur $q=\alpha\left( G) \right)$ gilt wieder nach $\lambda_{q}\left( G \right)\geq 0 \geq -2$. Damit folgt analog $\alpha\left( G \right) \leq \kappa_{2}\left( G \right)$.
 \end{proof}
 \begin{conjecture}
-    \label{con:MainConjecture}
-    Ist $\chi\left( G \right) \geq k$, so ist $\lambda_k\left( G \right) > -d$.
+  \label{con:MainConjecture}
+  Ist $\chi\left( G \right) \geq k$, so ist $\lambda_k\left( G \right) > -d$.
 \end{conjecture}
 
 \begin{theorem}
-    \label{thm:MainTheorem}
-    Gelte \ref{con:MainConjecture}. Dann gilt :
-    \begin{enumerate}[label=(\roman*)]
-        \item Ist $\delta\left( G \right) \geq 2$ so ist $\chi\left( G \right)\leq \kappa_{d}\left( G \right)$
-        \item  Ist $H$ ein linearer Hypergraph mit $\left|e\right| \geq d$, so ist $\chi'\left( H \right)\leq \left|H\right| $
-    \end{enumerate}
+  \label{thm:MainTheorem}
+  Gelte \ref{con:MainConjecture}. Dann gilt :
+  \begin{enumerate}[label=(\roman*)]
+    \item Ist $\delta\left( G \right) \geq 2$ so ist $\chi\left( G \right)\leq \kappa_{d}\left( G \right)$
+    \item  Ist $H$ ein linearer Hypergraph mit $\left|e\right| \geq d$, so ist $\chi'\left( H \right)\leq \left|H\right| $
+  \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-    Sei $\chi(G) = k$. Dann ist nach \ref{con:MainConjecture} $\lambda_{k}\left( G \right) > -2$. Mit \ref{cor:Korollar1} folgt$\kappa_{d}\left( G \right) \geq k = \chi\left( G \right)$.
+  Sei $\chi(G) = k$. Dann ist nach \ref{con:MainConjecture} $\lambda_{k}\left( G \right) > -2$. Mit \ref{cor:Korollar1} folgt$\kappa_{d}\left( G \right) \geq k = \chi\left( G \right)$.
 \end{proof}

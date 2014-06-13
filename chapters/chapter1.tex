@@ -16,12 +16,13 @@ Ein Hypergraph ist ein Tupel $H=(V(H),E(H))$, wobei $V(H)$ die (endliche) \DF{Ec
 \label{ssec:EigenwerteMatrizen} 
 Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte und folglich k"onnen dieses fallend angeordnet werden. F"ur eine symmetrische Matrix $A$ sei also $\lambda_i(A)$ der i-gr"oßte \DF{Eigenwert} (gez"ahlt mit Vielfachheiten). Eine symmetrische Matrix $A$ hei"st \DF{positiv semidefinit} falls $x^TAx \geq 0$ f"ur alle $x \in \R^n$. Gilt $x^TAx = 0$ nur f"ur $x = 0$(also $x^{T}Ax > 0$ f"ur $x\neq 0$), so hei"st $A$ \DF{positiv definit}. Wir wollen nun einige Eigenschaften von positiv (semi)definiten Matrizen anf"uhren.
 \begin{proposition}
-    F"ur eine symmetrische Matrix $A\in\R^{n\times n}$ sind "aquivalent:
-    \begin{enumerate}[label=(\roman*)]
-        \item $A$ ist positiv semidefinit .
-        \item Alle Eigenwerte von $A$ sind nicht negativ.
-        \item $A=UU^T$ für eine Matrix $U\in\R^{n\times m}$.
-    \end{enumerate}
+  F"ur eine symmetrische Matrix $A\in\R^{n\times n}$ sind "aquivalent:
+  \begin{enumerate}[label=(\roman*)]
+    \item $A$ ist positiv semidefinit .
+    \item Alle Eigenwerte von $A$ sind nicht negativ.
+    \item $A=UU^T$ für eine Matrix $U\in\R^{n\times m}$.
+  \end{enumerate}
+  \label{prop:psdmatrix}
 \end{proposition}
 
 \begin{proof}
@@ -30,11 +31,11 @@ Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte 
 
 \begin{theorem}[Courant-Fischer]
   Sei $A\in \R^{n\times n}$ symmetrisch. Seien die (reellen) Eigenwerte von $A$ gegeben durch $\lambda_1(A) \geq \lambda_2(A) \geq \dots\geq \lambda_n(A)$. Dann gilt f"ur alle $p\in\{1,\dots, n\}$ :
-    \begin{enumerate}
-        \item $\lambda_p(A) = \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TAx}{x^Tx}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } p\}$.
-        \item $\lambda_p(A) = \min\{\max\limits_{x\in V , x \neq 0} \frac{x^TAx}{x^Tx}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } n-p+1\}$.
-    \end{enumerate}
-    \label{thm:CourantFischer}
+  \begin{enumerate}
+    \item $\lambda_p(A) = \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TAx}{x^Tx}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } p\}$.
+    \item $\lambda_p(A) = \min\{\max\limits_{x\in V , x \neq 0} \frac{x^TAx}{x^Tx}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } n-p+1\}$.
+  \end{enumerate}
+  \label{thm:CourantFischer}
 \end{theorem}
 \begin{lemma}
   Seien $A,B\in \Rnn$ symmetrisch und $A-B$ positiv semidefinit. Dann ist $\lambda_i(A)\geq\lambda_i(B)$ f"ur alle $1\leq i \leq n$.
@@ -54,8 +55,8 @@ Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte 
   \end{align*}
 \end{proof}
 \begin{theorem}[Interlacing]
-    \label{thm:Interlacing}
-    Sei $A\in \R^{n\times n}$ symmetrisch mit Eigenwerten $\lambda_{1}\geq\dots\geq\lambda_n$. Sei $B\in\R^{(n-k)\times(n-k)}$ eine symmetrische Matrix, welche aus $A$ durch L"oschen von Zeilen und den entsprechenden Spalten entsteht, mit Eigenwerten $\mu_{1}\geq\dots\geq\mu_{k}$. Dann gilt $$ \lambda_{i}\geq\mu_{i}\geq\lambda_{i+k}$$ f"ur $i=1,\dots, n-k$.
+  \label{thm:Interlacing}
+  Sei $A\in \R^{n\times n}$ symmetrisch mit Eigenwerten $\lambda_{1}\geq\dots\geq\lambda_n$. Sei $B\in\R^{(n-k)\times(n-k)}$ eine symmetrische Matrix, welche aus $A$ durch L"oschen von Zeilen und den entsprechenden Spalten entsteht, mit Eigenwerten $\mu_{1}\geq\dots\geq\mu_{k}$. Dann gilt $$ \lambda_{i}\geq\mu_{i}\geq\lambda_{i+k}$$ f"ur $i=1,\dots, n-k$.
 \end{theorem}
 
 \begin{proof}
@@ -67,7 +68,7 @@ Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte 
     &\leq \max\{\min\limits_{x\in V , x \neq 0} \frac{y^TAy}{y^Ty}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } i\} \\
     &= \lambda_i
   \end{align*}
-\todo{PV anders}
+  \todo{PV anders}
 \end{proof}
 
 \subsection{Eigenwerte von Graphen}
@@ -87,16 +88,16 @@ Dann ist $A$ symmetrisch, und hat folglich nur reelle Eigenwerte. Damit es Sinn 
   Seien $V(G)=\{v_1,\dots, v_n\}= \{u_1,\dots, u_n\}$ zwei Nummerierungen der Ecken. Sei weiterhin $A=(A_{i,j})_{1\leq i,j \leq n},B=(B_{i,j})_{1\leq i,j \leq n}\in \R^{n\times n}$ mit  
   \[
     A_{i,j} = \begin{cases}
-    1 & v_iv_j \in E(G) \\ 0 & v_iv_j \notin E(G)
-  \end{cases} \\
-  B_{i,j} = \begin{cases}
-    1 & u_iu_j \in E(G) \\ 0 & u_iu_j \notin E(G)
+      1 & v_iv_j \in E(G) \\ 0 & v_iv_j \notin E(G)
+    \end{cases} \\
+    B_{i,j} = \begin{cases}
+      1 & u_iu_j \in E(G) \\ 0 & u_iu_j \notin E(G)
   \end{cases}\] 
   Dann gibt es eine Permutation $\sigma\in S^{n}$ sodass $v_{\sigma(i)} = u_i$. Folglich gilt $A_{\sigma(i),\sigma(j)} = B_{i,j}$ . Sei $P \in GL_n(\R) $ die Matrix
   \[
     P_{i,j} = \begin{cases}
       1 & \sigma(i) = j \\ 0 & \text{sonst} 
-  \end{cases} 
+    \end{cases} 
   \]
   Damit ist $P=(e_{\sigma(1)},\dots, e_{\sigma(n)})$. Nun betrachten wir $P^{T}AP$.
   \[
@@ -104,13 +105,26 @@ Dann ist $A$ symmetrisch, und hat folglich nur reelle Eigenwerte. Damit es Sinn 
   \]
   Also ist $P^{T}AP = B$. Somit sind $A$ und $B$ "ahnlich und besitzen folglich die selben Eigenwerte.
 \end{proof}
-F"ur einen Graphen $G$ seien die \DF{Eigenwerte} von $G$ definiert als $\lambda_i(G) = \lambda_i(A(G))$.
-
-\begin{example}
-  Wir wollen nun einige elementaren Graphen und ihre Eigenwerte betrachten.
-  \label{ex:GraphEV}
-  \todo{vollst"andige Graphen, Kreise, Komplemente usw. Bilder!}
-\end{example}
+F"ur einen Graphen $G$ seien die \DF{Eigenwerte} von $G$ definiert als $\lambda_i(G) = \lambda_i(A(G))$.\todo{Adjazenzmatrix ambiguity} 
+\begin{remark}
+  \label{rem:evGraph}<++> 
+  \begin{enumerate}
+    \item Die Summe aller Eigenwerte eines Graphen (mit Vielfachheiten) ist $0$.
+    \item Ist $G$ $d$ regul"ar, so ist $d$ ein Eigenwert von $G$.
+  \end{enumerate}
+\end{remark}
+\begin{proof}
+  \begin{enumerate}
+    \item F"ur die Adjazenzmatrix eines Graphen gilt $\tr(A)=0$. Somit ist\[
+        \sum\limits_{i=1}^{n} \lambda_i(G) = \tr(A) = 0
+      \]
+    \item \todo{Beweisen}
+  \end{enumerate}
+\end{proof}
+Wir wollen nun einige elementaren Graphen und ihre Eigenwerte betrachten.
+Sei dazu zun"achst $G=K_n$ der vollst"andige Graph der Ordnung $n$. Dann ist $A(G)=J-I$, wobei $J\in\Rnn$ die Matrix ist, bei der jeder Eintrag $1$ ist, und $I\in\Rnn$ die Einheitsmatrix. Somit ist $-1$ ein Eigenwert mit Vielfachheit $n-1$. Außerdem folgt aus \ref{rem:evGraph}, dass $n-1$ ein Eigenwert von $G$ ist. \\
+Sei nun $G=C_n$
+\todo{vollst"andige Graphen, Kreise, Komplemente usw. Bilder!}
 
 \begin{lemma}
   Sein $H$ ein induzierter Untergraph von $G$ und $k := |V(G)| - |V(H)|$. Dann gilt
@@ -131,6 +145,6 @@ F"ur einen Graphen $G$ seien die \DF{Eigenwerte} von $G$ definiert als $\lambda_
   \label{cor:alphaomegaEigenwerte}
 \end{corollary}
 \begin{proof}
-  Ist $\omega(G) = p$, so besitzt $G$ einen vollst"andigen induzierten Untergraphen der Ordnung $p$, $H$. Nach \ref{ex:GraphEV} besitzt $H$ die Eigenwerte $\lambda_{1}(H) = p-1$ und $\lambda_{i}(H)= -1$ f"ur $i\in \{2,\dots,p\}$. Damit folgt aus \ref{lem:InterlacingGraphen}, $\lambda_p\left( G \right) \geq -1$. \\
-  Ist $\alpha(G) = q$, so besitzt $G$ einen kantenlosen, induzierten Untergraphen der Ordnung $q$, $O$. Nach \ref{ex:GraphEV} besitzt $O$ die Eigenwerte $\lambda_{i}(O)= 0$ f"ur $i\in \{1,\dots,p\}$. Damit folgt aus \ref{lem:InterlacingGraphen}, $\lambda_q\left( G \right) \geq 0$. 
+  Ist $\omega(G) = p$, so besitzt $G$ einen vollst"andigen induzierten Untergraphen der Ordnung $p$, $H$. Nach besitzt $H$ die Eigenwerte $\lambda_{1}(H) = p-1$ und $\lambda_{i}(H)= -1$ f"ur $i\in \{2,\dots,p\}$. Damit folgt aus \ref{lem:InterlacingGraphen}, $\lambda_p\left( G \right) \geq -1$. \\
+  Ist $\alpha(G) = q$, so besitzt $G$ einen kantenlosen, induzierten Untergraphen der Ordnung $q$, $O$. Nach besitzt $O$ die Eigenwerte $\lambda_{i}(O)= 0$ f"ur $i\in \{1,\dots,p\}$. Damit folgt aus \ref{lem:InterlacingGraphen}, $\lambda_q\left( G \right) \geq 0$. 
 \end{proof}
