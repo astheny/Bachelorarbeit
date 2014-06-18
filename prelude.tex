@@ -7,6 +7,8 @@
 \usepackage{enumitem}
 \usepackage{geometry}
 \usepackage{tikz}
+\usepackage{url}
+\usepackage{hyperref}
 % TODO Package
 \usepackage{todonotes}
 
@@ -87,9 +89,10 @@
 \newcommand{\sm}{\setminus}
 \newcommand{\la}{\langle}
 \newcommand{\ra}{\rangle}
+% Nummerierung in align* Umgebung mit \numberthis
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 
 % LITERATUR :
-
 
 \newcommand{\au}[1]{{\sc #1}}     % author(s)
 \newcommand{\ti}[1]{{\rm #1.}}   % article title ohne abstand

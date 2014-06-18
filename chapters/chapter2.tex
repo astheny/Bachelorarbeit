@@ -1,6 +1,12 @@
-\section{Die Erd\H{o}s--Faber--Lov\'asz Vermutung}
+\section{Krauszzerlegungen und die Erd\H{o}s--Faber--Lov\'asz Vermutung}
+\subsection{Die Erd\H{o}s--Faber--Lov\'asz Vermutung}
 \label{sec:EFL-Vermutung}
-
+Es bezeichne $\cE(n)$ die Klasse aller Graphen welche die Vereinigung von $n$ kantendisjunkten vollst"andigen Graphen der Ordnung $n$ sind. F"ur $G\in\cE(n)$ gilt also $G= \bigcup\limits_{i=1}^{n} G_i$, wobei $G_i \cong K_n$ und $|G_i \cap G_j| \leq 1$ f"ur alle $1\leq i,j \leq n$ mit $i\neq j$. 
+\todo{Bilder, Beispiele}
+\begin{conjecture}[Erd\H{o}s--Faber--Lov\'asz]
+  Sei $G\in\cE(n)$. Dann ist $\chi(G) = n$.
+  \label{con:efl}
+\end{conjecture}
 
 \subsection{Krauszzerlegungen von Graphen}
 \label{ssec:Krauszzerlegung}
@@ -16,6 +22,7 @@
   F"ur $d \geq 1$ sei $\kappa_d(G)$ die kleinste positive Zahl $m$ derart, dass $G$ eine Krauszzerlegung $\mathcal K$ besitzt mit $|\mathcal K| = m$ und $\delta_G(\mathcal K) \geq d$.
 \end{definition}
 %% evtll: K1 dazu, dann delta + 1
+\todo{Bilder, Beispiele}
 \begin{lemma}
   Sei $G$ ein Graph. Dann ist $\kappa_d(G) < \infty$ genau dann, wenn $\delta(G) \geq d$.
   \label{lm:krauszexistenz}
@@ -23,6 +30,7 @@
 
 \begin{proof}
   Seien $\kappa_d(G) <\infty$ und $v\in V(G)$ mit $d_{G}(v) = \delta(G)$. Dann existieren $d$ kantendisjunkte vollst"andige Untergraphen $H^{1}\dots H^{d}$ von $G$ mit $v\in V(H^{i})$ f"ur alle $1\leq i \leq d$. Da die $H^{i}$ kantendisjunkt sind und $d_H^{i}(v)\geq1$, gilt: 
+
   \[
     d \leq \sum\limits_{i=1}^{d} d_{H^{i}}(v) \leq d_G(v) = \delta(G). 
   \]
@@ -30,6 +38,40 @@
 
 \end{proof}
 %Beispiele und einfache Ergebnisse
+\begin{theorem}
+  Die folgenden Aussagen sind "aquivalent:
+  \begin{enumerate}
+    \item \ref{con:efl}
+    \item Ist $G$ ein Graph mit Minimalgrad mindestens $2$, so ist $\chi(G) \leq \kappa_{2}(G)$.
+    \item Ist $H$ ein linearer Hypergraph so gilt $\chi'(H)\leq |H|$
+  \end{enumerate}
+  \label{thm:equivefl}
+\end{theorem}
+
+\begin{proof}
+  Gelte zun"achst \ref{con:efl} und sei $G$ ein Graph mit $\kappa_{2}(G) =m$. Dann existiert eine Krauszzerlegung $\mathcal{K} = \left\{ K_1,\dots K_m \right\}$ von $G$. Ist $m \geq n$
+  \begin{align*}
+    \chi(G) \leq n \leq m = \kappa_2 (G)
+  \end{align*}
+  Ist andererseits $m< n $, so ist $|K^{i}| \leq \omega (G)  \leq \kappa_2 (G) =  m$ (siehe \ref{cor:alphaomegakrausz}). Damit k"onnen wir f"ur $1\leq i \leq n$ jeden $K^{i}$ durch Hinzuf"ugen von Ecken und Kanten zu einem vollst"andigen Graphen von Grad $m$ aufbl"ahen. Den so enstehenden Graphen nennen wir $G'$. Offenbar ist $G$ ein Untergraph von $G'$ und $G'\in \cE(m)$. Damit gilt 
+  \begin{align*}
+    \chi(G) \leq \chi (G') = m = \kappa_{2}(G)
+  \end{align*}
+
+  Gelte nun die zweite Aussage \todo{bessere Formulierung}. Sei $G\in \cE(n)$. Dann ist $G$ die kantendisjunkte Vereinigung von $n$ vollst"andigen Graphen der Ordnung $n$. W"ahle $X= \left\{ v\in V(G) | d_G(v) \geq n \right\}$ und betrachte den von $X$ induzierten Untergraphen $H$ von $G$. Die Einschr"ankung der vollst"andigen Graphen, aus denen $G$ besteht, auf $H$ ergeben eine Krauszzerlegung $\mathcal{K}$ von $H$ (jeder induzierte Untergraph eines vollst"andigen Graphen ist wieder ein vollst"andiger
+  Graph). Die Wahl von $X$ sichert, dass $\delta_G(\mathcal K) \geq 2$. Somit 
+  \begin{align*}
+    \chi(H) \leq \kappa_{2}(H) \leq \kappa_{2}(G) \leq n
+  \end{align*}
+  Also erhalten wir eine F"arbung von $H$ mit maximal $n$ Farben. Diese l"asst sich auf $G$ zu einer F"arbung mit maximal $n$ Farben erweitern, da wir nur Ecken entfernt haben, deren Grad kleiner als $n$ ist, welche folglich nur $n-1$ Nachbarn haben. 
+
+  Gelte 3. und sei $G$ ein Graph mit Minimalgrad gr"o{\ss}er oder gleich $2$. Seien weiterhin $\kappa_{2}(G) = m $ und $\mathcal{K}= \left\{ K^{1},\dots,K^{m} \right\}$ eine Krauszzerlegung von $G$. 
+  F"ur $v\in V(G)$ definiere $e_v$ als die Menge aller $K\in \mathcal{K}$, welche $v$ enthalten. 
+  Sei $H$ der Hypergraph mit Eckenmenge $\mathcal{K}$ und Kantenmenge $\left\{ e_v| v\in V(G) \right\}$. 
+  Wir zeigen, dass $H$ linear ist. 
+  Seien dazu $e_{v},e_{w} $ zwei unterschiedliche Kanten von $H$.
+  Angenommen $|e_{v}\cap e_{w}| \geq 2$. Dann existieren mindestens zwei vollst"andige Graphen $K,K'$, welche sowohl $v$ als auch $w$ enthalten. Dies ist ein Widerspruch zu Eigenschaft (ii) der Krauszzerlegung. Folglich ist $|e_{v}\cap e_{w}| \leq 1$, also ist $H$ linear. Dann folgt mit aus der Vorraussetzung, dass $\chi'(H) \leq |H| = \kappa_{2}(G)$ \todo{wieso chi G kleiner}.
+\end{proof}
 \subsection{Krauszzerlegungen und Eigenwerte}
 
 \begin{theorem}
@@ -61,12 +103,8 @@
       \begin{equation*}
         \lambda_i(G) = \lambda_i(A) \geq \lambda_i(-D) =- -d_{n-i+1}
       \end{equation*}
-    \item Sei $m<n$. Dann ist $\operatorname{rang}(M)= \operatorname{rang}(B) \leq m$. Folglich besitzt $M$ den Eigenwert $0$ mit Vielfachheit mindestens $n-m$. ,w:Git add .
-      :Gcommit
-t
-
-
-  \end{enumerate}<++>
+    \item Sei $m<n$. Dann ist $\operatorname{rang}(M)= \operatorname{rang}(B) \leq m$. Folglich besitzt $M$ den Eigenwert $0$ mit Vielfachheit mindestens $n-m$.
+  \end{enumerate}
 \end{proof}
 \begin{corollary}
   \label{cor:Korollar1}
@@ -78,15 +116,16 @@ t
   Angenommen $\kappa_d(G) < q$. Sei dann $\mathcal{K}$ eine Krauszzerlegung von $G$ die zu $d$ passt. Dann ist nach \ref{thm:Interlacing} $\lambda_{q}(G)\geq \lambda_{q}(H) > -d$. 
   Da $i < q \leq n$ gilt nach \ref{thm:KrauszEigenwerte} $\lambda_{i+1}\leq -d$ und somit $\lambda_{q}(G)\leq \lambda_{i+1} \leq -d$. Widerspruch.
 \end{proof}
-Es sei $G$ ein Graph. Der \DF{Kantengraph} $L(G)$ (engl. line graph) von $G$ ist definiert als der Graph mit Eckenmenge $E(G)$ und Kantenmenge $\{ee'|e\text{ und } e' \text{besitzen eine gemeinsame Endecke}\}$.
+Es sei $G$ ein Graph. Der \DF{Kantengraph} $L(G)$ (engl. line graph) von $G$ ist definiert als der Graph mit Eckenmenge $E(G)$ und Kantenmenge $\{ee'|e\text{ und } e' \text{ besitzen eine gemeinsame Endecke}\}$.
 
 \begin{corollary}
+  \label{cor:LineGraphWald}
   Sei $\delta(G) \geq 2$ und $H$ ein induzierter Untergraph von $G$, welcher Kantengraph eines Waldes ist. 
   Dann ist $\kappa_{2}(H)\geq \left|H\right|$
 \end{corollary}
 
 \begin{proof}
-  \todo{Satz Linegraphen Eigenwerte}
+  Da $H$ Kantengraph eines Waldes ist, folgt $\lambda_{min}(H) > -2$ (vgl. \cite[3.4.10]{zbMATH05625877}) 
   Nach \ref{cor:Korollar1} ist f"ur $q=\left|H\right|$ : $\lambda_q(H)=\lambda_{\text{min}}> -2$. Dann ist mit \ref{cor:Korollar1} $\kappa_{2}\left( H \right) > \left| H\right|$.
 \end{proof}
 
@@ -95,10 +134,11 @@ Es sei $G$ ein Graph. Der \DF{Kantengraph} $L(G)$ (engl. line graph) von $G$ ist
 \end{corollary}
 
 \begin{proof}
-  $K_n$ ist der Kantengraph von $K_{1,n}$.
+  $K_n$ ist der Kantengraph von $K_{1,n}$. Nun folgt die Behauptung aus \ref{cor:LineGraphWald}.
 \end{proof}
 \begin{corollary}
   Ist $\delta\left( G \right) \geq 2$, so gilt $\omega\left( G \right)\leq \kappa_{2}\left( G \right)$ und $\alpha\left( G \right)\leq \kappa_{2}\left( G \right)$.
+  \label{cor:alphaomegakrausz}
 \end{corollary}
 
 \begin{proof}
