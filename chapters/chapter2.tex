@@ -66,11 +66,26 @@ Es bezeichne $\cE(n)$ die Klasse aller Graphen welche die Vereinigung von $n$ ka
   Also erhalten wir eine F"arbung von $H$ mit maximal $n$ Farben. Diese l"asst sich auf $G$ zu einer F"arbung mit maximal $n$ Farben erweitern, da wir nur Ecken entfernt haben, deren Grad kleiner als $n$ ist, welche folglich nur $n-1$ Nachbarn haben. 
 
   Gelte 3. und sei $G$ ein Graph mit Minimalgrad gr"o{\ss}er oder gleich $2$. Seien weiterhin $\kappa_{2}(G) = m $ und $\mathcal{K}= \left\{ K^{1},\dots,K^{m} \right\}$ eine Krauszzerlegung von $G$. 
-  F"ur $v\in V(G)$ definiere $e_v$ als die Menge aller $K\in \mathcal{K}$, welche $v$ enthalten. 
+  F"ur $v\in V(G)$ definiere $e_v$ als die Menge aller $K\in \mathcal{K}$, welche $v$ enthalten. Sind dann $v$ und $w$ zwei unterschiedliche Ecken von $G$, so sind $e_v$ und $e_{w}$ unterschiedlich, da sonst Eigenschafft (ii) der Krauszzerlegung verletzt w"are. 
   Sei $H$ der Hypergraph mit Eckenmenge $\mathcal{K}$ und Kantenmenge $\left\{ e_v| v\in V(G) \right\}$. 
   Wir zeigen, dass $H$ linear ist. 
   Seien dazu $e_{v},e_{w} $ zwei unterschiedliche Kanten von $H$.
-  Angenommen $|e_{v}\cap e_{w}| \geq 2$. Dann existieren mindestens zwei vollst"andige Graphen $K,K'$, welche sowohl $v$ als auch $w$ enthalten. Dies ist ein Widerspruch zu Eigenschaft (ii) der Krauszzerlegung. Folglich ist $|e_{v}\cap e_{w}| \leq 1$, also ist $H$ linear. Dann folgt mit aus der Vorraussetzung, dass $\chi'(H) \leq |H| = \kappa_{2}(G)$ \todo{wieso chi G kleiner}.
+  Angenommen $|e_{v}\cap e_{w}| \geq 2$. Dann existieren mindestens zwei vollst"andige Graphen $K,K'$, welche sowohl $v$ als auch $w$ enthalten. Dies ist ein Widerspruch zu Eigenschaft (ii) der Krauszzerlegung. Folglich ist $|e_{v}\cap e_{w}| \leq 1$, also ist $H$ linear. Dann folgt aus der Vorraussetzung, dass $\chi'(H) \leq |H| = \kappa_{2}(G)$ 
+  Somit finden wir eine F"arbung der Kanten von $H$ mit maximal $\kappa_{2}(G)$ Farben. Jede Kante von $H$ korrespondiert mit genau einer Ecke von $G$. Folglich erhalten wir eine F"arbung von $G$ mit maximal $\kappa_{2}(G)$ Farben, wenn wir die Ecken von $G$ mit der selben Farbe wie ihre korrespondierende Kante in $H$ f"arben. \todo{Format} Sonst exisiteren zwei Ecken $v,w$ von $G$ die benachbart sind und die selbe Farbe haben, 
+also auch $e_v$ und $e_w$. Da $v$ und $w$ benachbart sind, kommen sie beide im selben vollst"andigen Graph $K$ der Krauszzerlegung vor. Damit ist $|e_v\cap e_w| = 0$ und folglich kommen $v$ und $w$ nicht in den selben vollst"andigen Graphen vor. Widerspruch. Damit folgt
+\begin{align*}
+  \chi(G) \leq \chi(H) \leq \kappa_{2}(G)
+\end{align*}
+
+Gelte 2. und sei $H$ ein (von der M"achtigkeit) minimaler linearer Hypergraph welcher 3. nicht erf"ullt. Ist dann $\delta(H) \leq 1$ so k"onnen wir eine Ecke aus $H$ entfernen und erhalten einen linearen Hypergraphen $H'$ kleinerer M"achtigkeit, welcher ebenfalls 3. nicht erf"ullt. Also ist $\delta(H) \geq 2$. Sei $G$ der Kantengraph von $H$ mit $V(G) = E(H)$ und $E(G) = \left\{ ee'|e\cap e' \neq \emptyset \right\}$. Definere f"ur $v\in V(H)$ die Menge $E_{H}(v)$ als die Menge aller
+Kanten von $H$, die mit $v$ inzident sind und $K^{v}$ als den durch $E_H(v)$ induzierten Untergraphen von $G$.
+Wir zeigen: $\mathcal K := \left\{ K^{v}| v \in V(H) \right\}$ ist eine Krauszzerlegung von $G$.  
+
+Seien $e,e'$ zwei verschiedene Kanten aus $E_{H}(v)$. Dann haben $e$ und $e'$ die Ecke $v$ gemeinsam. Folglich ist $e\cap e' \neq \emptyset$ und $ee'$ ist eine Kante in $G$. Au{\ss}erdem ist 
+\begin{align*}
+  |K^{v}| = |E_H(v)| = d_{H}(v) \geq 2
+\end{align*}
+Damit erf"ullen alle $K^{v}$ Bedingung (i) von \ref{def:Krauszzerlegung}. Bedingung (ii) folgt, da $H$ ein linearer Hypergraph ist \todo{ausf"uhrlicher}. (iii) folgt, da jede Kante von $H$ mit mindestens einer Ecke von $H$ inzident ist.
 \end{proof}
 \subsection{Krauszzerlegungen und Eigenwerte}
 

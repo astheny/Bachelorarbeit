@@ -4,14 +4,14 @@
 In dieser Arbeit besch\"aftigen wir uns mit dem Zusammenhang der chromatischen Zahl von Graphen und ihrem Spektrum. 
 
 Um die Beweise in Kapitel 2 zu f"uhren, ben"otigen wir einige S"atze "uber Eigenwerte von symmetrischen Matrizen. Diese, und andere Grundlagen, werden wir in Kapitel 1 erarbeiten.
-\todo{Anders anordnen}.
-%\subsection{Ecken- und Kantenf\"arbungen von Graphen und Hypergraphen}
-%\label{ssec:F"arbung}
-%
-%Es sei $G=(V(G),E(G))$ ein beliebiger Graph. Eine \DF{(Ecken-)F"arbung} von $G$ zur \DF{Farbmenge} $C$ ist eine Abbildung $f:V(G)\to C$ mit $f(u)\neq f(v)$ f"ur alle $u,v \in V(G)$. Ist $\left|C\right|=k \in \N$, so heißt $f$ \DF{$k$-F"arbung}. Die \DF{chromatische Zahl} $\chi(G)$ ist die kleinste Zahl $k\in\N$, sodass $G$ eine $k$-F"arbung besitzt. \\
-%Eine \DF{Kantenf"arbung} zur \DF{Farbmenge} $C$ ist eine Abbildung $f:E(G)\to C$ mit $f(e)\neq f(e')$ falls $e,e'\in E(G)$ eine gemeinsame Endecke besitzen.
-%
-%Ein Hypergraph ist ein Tupel $H=(V(H),E(H))$, wobei $V(H)$ die (endliche) \DF{Eckenmenge} von $H$ und $E(H) \subset \mathcal{P}(H)$ die  \DF{Kantenmenge} von $H$ ist. Ein Hypergraph heißt \DF{linearer Hypergraph}, falls f"ur alle verschiedenen Kanten $e,e' \in E(H)$ gilt : $|e \cap e' | \leq 1$. Eine \DF{Kantenf"arbung} von $H$ zur Farbmenge $C$ ist eine Abbildung $f:V(H) \to C$ mit $f(e) \neq f(e')$ f"ur alle $e,e'\in E(H)$ mit $e\cap e' \neq \emptyset$. 
+\todo{Anders anordnen}
+\subsection{Graphentheoretische Grundlagen}
+\label{ssec:graphengrundlagen}
+
+Es sei $G=(V(G),E(G))$ ein beliebiger Graph. Eine \DF{(Ecken-)F"arbung} von $G$ zur \DF{Farbmenge} $C$ ist eine Abbildung $f:V(G)\to C$ mit $f(u)\neq f(v)$ f"ur alle $u,v \in V(G)$. Ist $\left|C\right|=k \in \N$, so heißt $f$ \DF{$k$-F"arbung}. Die \DF{chromatische Zahl} $\chi(G)$ ist die kleinste Zahl $k\in\N$, sodass $G$ eine $k$-F"arbung besitzt. \\
+Eine \DF{Kantenf"arbung} zur \DF{Farbmenge} $C$ ist eine Abbildung $f:E(G)\to C$ mit $f(e)\neq f(e')$ falls $e,e'\in E(G)$ eine gemeinsame Endecke besitzen.
+
+Ein Hypergraph ist ein Tupel $H=(V(H),E(H))$, wobei $V(H)$ die (endliche) \DF{Eckenmenge} von $H$ und $E(H) \subset \mathcal{P}(H)$ die  \DF{Kantenmenge} von $H$ ist. Ein Hypergraph heißt \DF{linearer Hypergraph}, falls f"ur alle verschiedenen Kanten $e,e' \in E(H)$ gilt : $|e \cap e' | \leq 1$. Eine \DF{Kantenf"arbung} von $H$ zur Farbmenge $C$ ist eine Abbildung $f:V(H) \to C$ mit $f(e) \neq f(e')$ f"ur alle $e,e'\in E(H)$ mit $e\cap e' \neq \emptyset$. 
 \subsection{Eigenwerte von symmetrischen Matrizen}
 \label{ssec:EigenwerteMatrizen} 
 Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte und folglich k"onnen diese monoton fallend angeordnet werden. F"ur eine symmetrische Matrix $A$ sei also $\lambda_k(A)$ der k-gr"oßte \DF{Eigenwert} (gez"ahlt mit Vielfachheiten). Eine symmetrische Matrix $A$ hei"st \DF{positiv semidefinit} falls $x^TAx \geq 0$ f"ur alle $x \in \R^n$. Gilt außerdem $x^{T}Ax > 0$ f"ur $x\neq 0$ , so hei"st $A$ \DF{positiv definit}. Wir wollen nun einige Eigenschaften von positiv (semi)definiten Matrizen anf"uhren.
