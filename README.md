@@ -13,3 +13,5 @@ TODO
     - Graphen
     - Vektoren
     - Eigenwerte
+- Eigenwerte thm und Ungleichungen einheitlich
+- Bibliographie deutsch

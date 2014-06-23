@@ -1,23 +1,31 @@
 \section{Einf"uhrung}
 \label{sec:Einf"uhrung}
-\todo{gute Einleitung}
-In dieser Arbeit besch\"aftigen wir uns mit dem Zusammenhang der chromatischen Zahl von Graphen und ihrem Spektrum. 
-
-Um die Beweise in Kapitel 2 zu f"uhren, ben"otigen wir einige S"atze "uber Eigenwerte von symmetrischen Matrizen. Diese, und andere Grundlagen, werden wir in Kapitel 1 erarbeiten.
-\todo{Anders anordnen}
+Gegenstand dieser Bachelorarbeit ist \todo{gute Einleitung, Verweis auf EFL Resultate}
 \subsection{Graphentheoretische Grundlagen}
 \label{ssec:graphengrundlagen}
+Es sei $G=(V,E)$ stets ein (schlichter, ungerichteter) Graph mit Eckenmenge $V=V(G) = \left\{ 1,\dots,n \right\}$ und Kantenmenge $E=E(G)= \left\{ ij| i \text{ und } j \text{ sind in } G \text{ adjazent} \right\}$. Der \DF{Grad} einer Ecke $v\in V(G)$ sei definiert als $d_{G}(v) = \left\{ j|ij\in E(G) \right\}$. Der \DF{Minimalgrad} (\DF{Maximalgrad}) sei definiert als der kleinste (gr"o{\ss}te) Grad einer Ecke von $G$ und wird mit $\delta(G)$ ($\Delta(G)$) bezeichnet.
 
-Es sei $G=(V(G),E(G))$ ein beliebiger Graph. Eine \DF{(Ecken-)F"arbung} von $G$ zur \DF{Farbmenge} $C$ ist eine Abbildung $f:V(G)\to C$ mit $f(u)\neq f(v)$ f"ur alle $u,v \in V(G)$. Ist $\left|C\right|=k \in \N$, so heißt $f$ \DF{$k$-F"arbung}. Die \DF{chromatische Zahl} $\chi(G)$ ist die kleinste Zahl $k\in\N$, sodass $G$ eine $k$-F"arbung besitzt. \\
-Eine \DF{Kantenf"arbung} zur \DF{Farbmenge} $C$ ist eine Abbildung $f:E(G)\to C$ mit $f(e)\neq f(e')$ falls $e,e'\in E(G)$ eine gemeinsame Endecke besitzen.
+Wir wollen nun einige h"aufig auftretenden Graphen bezeichnen. Der \DF{vollst"andige Graph} der Ordnung $n$ sei $K_n$ und sein Komplement, der \DF{leere Graph} der Ordnung $n$ sei $O_n$, der \DF{Kreis} der L"ange $n$ sei $C_n$. Der \DF{Weg} der L"ange $n$ sei $P_{n+1}$. 
 
-Ein Hypergraph ist ein Tupel $H=(V(H),E(H))$, wobei $V(H)$ die (endliche) \DF{Eckenmenge} von $H$ und $E(H) \subset \mathcal{P}(H)$ die  \DF{Kantenmenge} von $H$ ist. Ein Hypergraph heißt \DF{linearer Hypergraph}, falls f"ur alle verschiedenen Kanten $e,e' \in E(H)$ gilt : $|e \cap e' | \leq 1$. Eine \DF{Kantenf"arbung} von $H$ zur Farbmenge $C$ ist eine Abbildung $f:V(H) \to C$ mit $f(e) \neq f(e')$ f"ur alle $e,e'\in E(H)$ mit $e\cap e' \neq \emptyset$. 
+F"ur einen Graphen sei der \DF{Kantengraph} $L(G)$ definiert als der Graph mit Eckenmenge $V(L(G))= E(G)$ und Kantenmenge $E(L(G)) = \left\{ ee'|e \text{ und } e' \text{ besitzen in } G \text{ eine gemeinsame Endecke} \right\}$. \todo{einige Beispiele}.
+Ein Untergraph von $G$ ist ein Graph $H$ mit $V(H) \subseteq V(G)$ und $E(H)\subseteq E(G)$. 
+Sei $X\subseteq V(G)$, dann heißt $H$ induzierter Untergraph von $G$, falls $V(H) = X$ und $E(H) = \left\{ ij|i,j\in V(H) \text{ und } ij \in E(G) \right\}$. Wir bezeichnen $H$ dann mit $G[X]$.
+
+Die \DF{Cliquenzahl} $\omega(G)$ ist die gr"o{\ss}te Zahl $k$, sodass $G$ den vollst"andigen Graph vom Grad $k$ $K_k$ als Untergraphen enth"alt, die \DF{Unabh"angigkeitszahl} $\alpha(G)$ ist die gr"oßte Zahl $k$, sodass $G$ den leeren Graphen vom Grad $k$ $O_k$ als Untergraphen enth"alt.
+
+Ein Hypergraph $H=(V,E)$ mit \DF{Eckenmenge} $V=V(H)$ und \DF{Kantenmenge} $E=E(H)$ heißt \DF{linearer Hypergraph}, falls zwei verschiedene Ecken $e,e'\in E(H)$ maximal eine Ecke gemeinsam haben ($|e\cap e'| \leq 1$). Auch f"ur Hypergraphen definieren wir den \DF{Kantengraphen} $L(H)$ als den Graphen mit Eckenmenge $V(L(H))=E(H)$ und Kantenmenge $E(L(H)) = \left\{ ee'|e\cap e' \neq \emptyset \right\}$.
+
+Eine \DF{F"arbung} von $G$ ist eine Abbildung $f:V(G)\to C$, wobei $C$ eine beliebige Menge, die \DF{Farbmenge}, ist. Diese ist eine \DF{echte F"arbung}, falls $f(v)\neq f(w)$ f"ur alle $vw\in E(G)$. Ist $|C| = k$ so heißt $f$ \DF{k-F"arbung}. Die \DF{chromatische Zahl} $\chi(G)$ bezeichne die kleinste postivie Zahl $k$, f"ur welche eine echte $k$-F"arbung von $G$ existiert. 
+
+Ist $H$ ein Hypergraph so heißt eine Abbildung $g:E(H) \to C$ (wiederrum ist $C$ die \DF{Farbmenge}) eine \DF{Kantenf"arbung} von $H$. Diese ist eine \DF{echte Kantenf"arbung}, falls $g(e) \neq g(e')$ f"ur alle unterschiedlichen Kanten $e,e'$ von $H$ mit $e\cap e' \neq \emptyset$ bzw. eine \DF{$k$-F"arbung}, falls $|C| = k$. Der chromatische Index $\chi'(H)$ bezeichne die kleinste positive Zahl $k$, derart, dass $H$ eine echte $k$-F"arbung besitzt.
+
+Man beachte, dass eine Kantenf"arbung eines Graphen in direktem Zusammenhang zu einer Eckenf"arbung seines Kantengraphen steht. \todo{Genauer}
 \subsection{Eigenwerte von symmetrischen Matrizen}
 \label{ssec:EigenwerteMatrizen} 
 Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte und folglich k"onnen diese monoton fallend angeordnet werden. F"ur eine symmetrische Matrix $A$ sei also $\lambda_k(A)$ der k-gr"oßte \DF{Eigenwert} (gez"ahlt mit Vielfachheiten). Eine symmetrische Matrix $A$ hei"st \DF{positiv semidefinit} falls $x^TAx \geq 0$ f"ur alle $x \in \R^n$. Gilt außerdem $x^{T}Ax > 0$ f"ur $x\neq 0$ , so hei"st $A$ \DF{positiv definit}. Wir wollen nun einige Eigenschaften von positiv (semi)definiten Matrizen anf"uhren.
 \begin{proposition}
   F"ur eine symmetrische Matrix $A\in\R^{n\times n}$ sind "aquivalent:
-  \begin{enumerate}[label=(\roman*)]
+  \begin{enumerate}[label=(\alph*)]
     \item $A$ ist positiv semidefinit .
     \item Alle Eigenwerte von $A$ sind nicht negativ.
     \item $A=UU^T$ für eine Matrix $U\in\R^{n\times m}$.
@@ -38,6 +46,7 @@ Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte 
   \end{enumerate}
   \label{thm:CourantFischer}
 \end{theorem}
+\todo{beweisen}
 \begin{lemma}
   Seien $A,B\in \Rnn$ symmetrisch und $A-B$ positiv semidefinit. Dann ist $\lambda_i(A)\geq\lambda_i(B)$ f"ur alle $1\leq i \leq n$.
   \label{lem:evpsddif}
@@ -76,6 +85,29 @@ Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte 
   \todo{Pr"ufen!}
 \end{proof}
 
+\begin{theorem}[Weyl Ungleichungen]
+  Seien $A,B,C\in\Rnn$ symmetrische Matrizen mit $A = B+C$. Dann gilt f"ur alle $1\leq i \leq n$
+  \begin{equation*}
+    \lambda_{i}(B) + \lambda_{n}(C) \leq \lambda_{i}(A) \leq \lambda_{i}(B) + \lambda_{1}(C)
+  \end{equation*}
+  \label{thm:weylineq}
+\end{theorem}
+\begin{proof}
+  Siehe \cite[6.7]{zbMATH03278338}.
+\end{proof}
+
+\begin{theorem}[Ky Fan Ungleichungen]
+  Seien $A,B,C\in\Rnn$ symmetrische Matrizen mit $A = B+C$. Dann gilt f"ur alle $k\leq n$
+  \begin{equation*}
+    \sum\limits_{i=1}^{k} \lambda_{i}(A) \leq \sum\limits_{i=1}^{k} \lambda_{i}(B) + \sum\limits_{i=1}^{k} \lambda_{i} (C)
+  \end{equation*}
+  F"ur $k=n$ gilt Gleichheit.
+  \label{thm:kyfanineq}
+\end{theorem}
+
+\begin{proof}
+  Siehe \cite[3.]{1108.1467}.
+\end{proof}
 \subsection{Eigenwerte von Graphen}
 
 \label{ssec:EigenwerteGraphen}
@@ -112,7 +144,7 @@ Dann ist $A$ symmetrisch, und hat folglich nur reelle Eigenwerte. Damit es Sinn 
 \end{proof}
 F"ur einen Graphen $G$ seien die \DF{Eigenwerte} von $G$ definiert als $\lambda_i(G) = \lambda_i(A(G))$.\todo{Adjazenzmatrix ambiguity} 
 \begin{remark}
-  \label{rem:evGraph}<++> 
+  \label{rem:evGraph} 
   \begin{enumerate}
     \item Die Summe aller Eigenwerte eines Graphen (mit Vielfachheiten) ist $0$.
     \item Ist $G$ $d$ regul"ar, so ist $d$ ein Eigenwert von $G$.
@@ -127,12 +159,12 @@ F"ur einen Graphen $G$ seien die \DF{Eigenwerte} von $G$ definiert als $\lambda_
   \end{enumerate}
 \end{proof}
 Wir wollen nun einige elementaren Graphen und ihre Eigenwerte betrachten.
-Sei dazu zun"achst $G=K_n$ der vollst"andige Graph der Ordnung $n$. Dann ist $A(G)=J-I$, wobei $J\in\Rnn$ die Matrix ist, bei der jeder Eintrag $1$ ist, und $I\in\Rnn$ die Einheitsmatrix. Somit ist $-1$ ein Eigenwert mit Vielfachheit $n-1$. Außerdem folgt aus \ref{rem:evGraph}, dass $n-1$ ein Eigenwert von $G$ ist. \\
-Sei nun $G=C_n$
-\todo{vollst"andige Graphen, Kreise, Komplemente usw. Bilder!}
+Sei dazu zun"achst $G=K_n$ . Dann ist $A(G)=J-I$, wobei $J\in\Rnn$ die Matrix ist, bei der jeder Eintrag $1$ ist, und $I\in\Rnn$ die Einheitsmatrix. Somit ist $-1$ ein Eigenwert mit Vielfachheit $n-1$. Außerdem folgt aus \ref{rem:evGraph}, dass $n-1$ ein Eigenwert von $G$ ist. \\
+Sei nun $G=C_n$. Dann hat $G$ die Eigenwerte $2 \cos (\frac{2\pi i}{n})$ f"ur $i\in \left\{ 1,\dots,n \right\}$ (siehe \cite[1.1.4]{zbMATH05625877}).
+\todo{Bilder!}
 
 \begin{lemma}
-  Sein $H$ ein induzierter Untergraph von $G$ und $k := |V(G)| - |V(H)|$. Dann gilt
+  Seien $H$ ein induzierter Untergraph von $G$ und $k := |V(G)| - |V(H)|$. Dann gilt
   $$ \lambda_i(G) \geq \lambda_{i}(H) \geq \lambda_{i+k}(G)$$
   \label{lem:InterlacingGraphen}
 \end{lemma}
