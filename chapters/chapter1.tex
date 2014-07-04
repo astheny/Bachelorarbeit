@@ -1,25 +1,23 @@
 \section{Einf"uhrung}
 \label{sec:Einf"uhrung}
-Gegenstand dieser Bachelorarbeit ist \todo{gute Einleitung, Verweis auf EFL Resultate}
+Gegenstand dieser Bachelorarbeit ist der Zusammenhang zwischen den Eigenwerten, der chromatischen Zahl und den Krauszzerlegungen eines Graphen. Die daf"ur ben"otigten Grundlagen werden wir in Kapitel 1 erarbeiten. 
 \subsection{Graphentheoretische Grundlagen}
 \label{ssec:graphengrundlagen}
-Es sei $G=(V,E)$ stets ein (schlichter, ungerichteter) Graph mit Eckenmenge $V=V(G) = \left\{ 1,\dots,n \right\}$ und Kantenmenge $E=E(G)= \left\{ ij| i \text{ und } j \text{ sind in } G \text{ adjazent} \right\}$. Der \DF{Grad} einer Ecke $v\in V(G)$ sei definiert als $d_{G}(v) = \left\{ j|ij\in E(G) \right\}$. Der \DF{Minimalgrad} (\DF{Maximalgrad}) sei definiert als der kleinste (gr"o{\ss}te) Grad einer Ecke von $G$ und wird mit $\delta(G)$ ($\Delta(G)$) bezeichnet.
-
+Es sei $G=(V(G),E(G))$ stets ein (schlichter, ungerichteter) Graph mit Eckenmenge $V(G) = \left\{ 1,\dots,n \right\}$ und Kantenmenge $E(G)= \left\{ ij| i \text{ und } j \text{ sind in } G \text{ adjazent} \right\}$.Dann heißt $|G| := |V(G)$ die \DF{Ordnung} von $G$. Der \DF{Grad} einer Ecke $v\in V(G)$ sei definiert als $d_{G}(v) = |\left\{ j|ij\in E(G) \right\}|$. Der \DF{Minimalgrad} (\DF{Maximalgrad}) sei definiert als der kleinste (gr"o{\ss}te) Grad einer Ecke von $G$ und wird mit $\delta(G)$ ($\Delta(G)$) bezeichnet.
 Wir wollen nun einige h"aufig auftretenden Graphen bezeichnen. Der \DF{vollst"andige Graph} der Ordnung $n$ sei $K_n$ und sein Komplement, der \DF{leere Graph} der Ordnung $n$ sei $O_n$, der \DF{Kreis} der L"ange $n$ sei $C_n$. Der \DF{Weg} der L"ange $n$ sei $P_{n+1}$. 
-
-F"ur einen Graphen sei der \DF{Kantengraph} $L(G)$ definiert als der Graph mit Eckenmenge $V(L(G))= E(G)$ und Kantenmenge $E(L(G)) = \left\{ ee'|e \text{ und } e' \text{ besitzen in } G \text{ eine gemeinsame Endecke} \right\}$. \todo{einige Beispiele}.
+\todo{Bilder?} F"ur einen Graphen sei der \DF{Kantengraph} $L(G)$ definiert als der Graph mit Eckenmenge $V(L(G))= E(G)$ und Kantenmenge $E(L(G)) = \left\{ ee'|e \text{ und } e' \text{ besitzen in } G \text{ eine gemeinsame Endecke} \right\}$. 
 Ein Untergraph von $G$ ist ein Graph $H$ mit $V(H) \subseteq V(G)$ und $E(H)\subseteq E(G)$. 
-Sei $X\subseteq V(G)$, dann heißt $H$ induzierter Untergraph von $G$, falls $V(H) = X$ und $E(H) = \left\{ ij|i,j\in V(H) \text{ und } ij \in E(G) \right\}$. Wir bezeichnen $H$ dann mit $G[X]$.
+Gibt es eine Menge von Ecken $X\subseteq V(G)$ mit $V(H) = X$ und $E(H) = \left\{ ij|i,j\in V(H) \text{ und } ij \in E(G) \right\}$ so heißt $H$ \DF{induzierter Untergraph} von $G$. Wir bezeichnen $H$ dann mit $G[X]$.
+Die \DF{Cliquenzahl} $\omega(G)$ ist die gr"o{\ss}te Zahl $k$, sodass $G$ den vollst"andigen Graph vom Grad $k$  als Untergraphen enth"alt, die \DF{Unabh"angigkeitszahl} $\alpha(G)$ ist die gr"oßte Zahl $k$, sodass $G$ den leeren Graphen vom Grad $k$ als Untergraphen enth"alt.
 
-Die \DF{Cliquenzahl} $\omega(G)$ ist die gr"o{\ss}te Zahl $k$, sodass $G$ den vollst"andigen Graph vom Grad $k$ $K_k$ als Untergraphen enth"alt, die \DF{Unabh"angigkeitszahl} $\alpha(G)$ ist die gr"oßte Zahl $k$, sodass $G$ den leeren Graphen vom Grad $k$ $O_k$ als Untergraphen enth"alt.
+Ein Hypergraph $H=(V(H),E(H))$ mit \DF{Eckenmenge} $V(H)$ und \DF{Kantenmenge} $E(H)$ heißt \DF{linearer Hypergraph}, falls zwei verschiedene Ecken $e,e'\in E(H)$ maximal eine Ecke gemeinsam haben ($|e\cap e'| \leq 1$). F"ur eine Kante $e$ von $H$ \DF{Eckengrad} die Anzahl aller Ecken, die mit $e$ einen nichtleeren Schnitt haben. Auch f"ur Hypergraphen definieren wir den \DF{Kantengraphen} $L(H)$ als den Graphen mit Eckenmenge $V(L(H))=E(H)$ und Kantenmenge $E(L(H)) = \left\{ ee'|e\cap e' \neq \emptyset \right\}$.
 
-Ein Hypergraph $H=(V,E)$ mit \DF{Eckenmenge} $V=V(H)$ und \DF{Kantenmenge} $E=E(H)$ heißt \DF{linearer Hypergraph}, falls zwei verschiedene Ecken $e,e'\in E(H)$ maximal eine Ecke gemeinsam haben ($|e\cap e'| \leq 1$). Auch f"ur Hypergraphen definieren wir den \DF{Kantengraphen} $L(H)$ als den Graphen mit Eckenmenge $V(L(H))=E(H)$ und Kantenmenge $E(L(H)) = \left\{ ee'|e\cap e' \neq \emptyset \right\}$.
+Eine \DF{F"arbung} von $G$ ist eine Abbildung $f:V(G)\to C$ mit $f(v)\neq f(w)$ f"ur alle $vw\in E(G)$, wobei $C$ eine beliebige Menge, die \DF{Farbmenge}, ist. Ist $|C| = k$ so heißt $f$ \DF{k-F"arbung}. Die \DF{chromatische Zahl} $\chi(G)$ bezeichne die kleinste postivie Zahl $k$, f"ur welche eine $k$-F"arbung von $G$ existiert. 
 
-Eine \DF{F"arbung} von $G$ ist eine Abbildung $f:V(G)\to C$, wobei $C$ eine beliebige Menge, die \DF{Farbmenge}, ist. Diese ist eine \DF{echte F"arbung}, falls $f(v)\neq f(w)$ f"ur alle $vw\in E(G)$. Ist $|C| = k$ so heißt $f$ \DF{k-F"arbung}. Die \DF{chromatische Zahl} $\chi(G)$ bezeichne die kleinste postivie Zahl $k$, f"ur welche eine echte $k$-F"arbung von $G$ existiert. 
+Ist $H$ ein Hypergraph so heißt eine Abbildung $g:E(H) \to C$ (wieder heißt $C$ die \DF{Farbmenge}) eine \DF{Kantenf"arbung} von $H$  falls $g(e) \neq g(e')$ f"ur alle unterschiedlichen Kanten $e,e'$ von $H$ mit $e\cap e' \neq \emptyset$. Diese ist eine \DF{$k$-F"arbung}, falls $|C| = k$. Der chromatische Index $\chi'(H)$ bezeichne die kleinste positive Zahl $k$, derart, dass $H$ eine echte $k$-F"arbung besitzt.
 
-Ist $H$ ein Hypergraph so heißt eine Abbildung $g:E(H) \to C$ (wiederrum ist $C$ die \DF{Farbmenge}) eine \DF{Kantenf"arbung} von $H$. Diese ist eine \DF{echte Kantenf"arbung}, falls $g(e) \neq g(e')$ f"ur alle unterschiedlichen Kanten $e,e'$ von $H$ mit $e\cap e' \neq \emptyset$ bzw. eine \DF{$k$-F"arbung}, falls $|C| = k$. Der chromatische Index $\chi'(H)$ bezeichne die kleinste positive Zahl $k$, derart, dass $H$ eine echte $k$-F"arbung besitzt.
-
-Man beachte, dass eine Kantenf"arbung eines Graphen in direktem Zusammenhang zu einer Eckenf"arbung seines Kantengraphen steht. \todo{Genauer}
+Man beachte, dass eine Kantenf"arbung eines Hypergraphen in direktem Zusammenhang zu einer Eckenf"arbung seines Kantengraphen steht. Ist n"amlich $H$ ein Hypergraph und $G=L(H)$ sein Kantengraph, so gibt es offenbar eine bijektive Abbildung $\pi: E(H) \to V(G)$, welche jeder Kante von $H$ die korrespondierende Ecke in $G$ zuordnet. Ist $f$ nun eine F"arbung der Kanten von $H$, so ist $\pi \circ f$ eine F"arbung der Ecken von $G$ und umgekehrt. 
+\todo{genauer?}
 \subsection{Eigenwerte von symmetrischen Matrizen}
 \label{ssec:EigenwerteMatrizen} 
 Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte und folglich k"onnen diese monoton fallend angeordnet werden. F"ur eine symmetrische Matrix $A$ sei also $\lambda_k(A)$ der k-gr"oßte \DF{Eigenwert} (gez"ahlt mit Vielfachheiten). Eine symmetrische Matrix $A$ hei"st \DF{positiv semidefinit} falls $x^TAx \geq 0$ f"ur alle $x \in \R^n$. Gilt außerdem $x^{T}Ax > 0$ f"ur $x\neq 0$ , so hei"st $A$ \DF{positiv definit}. Wir wollen nun einige Eigenschaften von positiv (semi)definiten Matrizen anf"uhren.
@@ -46,7 +44,10 @@ Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte 
   \end{enumerate}
   \label{thm:CourantFischer}
 \end{theorem}
-\todo{beweisen}
+
+\begin{proof}
+  Siehe \cite{zbMATH05826340}[13.5].
+\end{proof}
 \begin{lemma}
   Seien $A,B\in \Rnn$ symmetrisch und $A-B$ positiv semidefinit. Dann ist $\lambda_i(A)\geq\lambda_i(B)$ f"ur alle $1\leq i \leq n$.
   \label{lem:evpsddif}
@@ -63,7 +64,7 @@ Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte 
     &\geq \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TBx}{x^Tx}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } i\} \\
     &= \lambda_i(B)
   \end{align*}
-  \todo{nachpr"ufen}
+  %\todo{nachpr"ufen}
 \end{proof}
 \begin{theorem}[Interlacing]
   \label{thm:Interlacing}
@@ -71,7 +72,7 @@ Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte 
 \end{theorem}
 
 \begin{proof}
-  Seien $l_1<\dots< l_{n-k}$ die Nummern der Zeilen bzw. Spalten die nach dem L"oschen der Zeilen bzw. Spalten von $A$ "ubrig bleiben. \todo{bessere Formulierung} Setze $P:=(e_{l_1},e_{l_2},\dots,e_{l_{n-k}})\in \R^{n\times \left( n-k \right)}$. Dann besitzt $P$ vollen Spaltenrang und $B=P^{T}AP$. 
+  Seien $l_1<\dots< l_{n-k}$ die Nummern der Zeilen bzw. Spalten die nicht gel"oscht werden. Setze $P:=(e_{l_1},e_{l_2},\dots,e_{l_{n-k}})\in \R^{n\times \left( n-k \right)}$, wobei $e_{k}$ der $k$-te Einheitsvektors des $\R^{n}$ ist. Dann besitzt $P$ vollen Spaltenrang und $B=P^{T}AP$. 
   Seien $V \subseteq\R^{\left( n-k \right)}$ ein linearer Unterraum ,  $x\in  V $ beliebig und $y = Px$. Dann ist $y\in PV = \{z\in \R^{n}| z = Px, x \in V \}$ und es gilt $y^{T}y = x^{T}P^{T}Px = x^{T}x$, da $P^{T}P = I_{n_k}$.
   Außerdem ist $PV$ ein linearer Unterraum des $\Rn$ der selben Dimension wie $V$ ($P$ besitzt vollen Spaltenrang ). Mit \ref{thm:CourantFischer} folgt : 
   \begin{align*}
@@ -111,8 +112,8 @@ Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte 
 \subsection{Eigenwerte von Graphen}
 
 \label{ssec:EigenwerteGraphen}
-Sei $G$ ein Graph mit Eckenmenge $V(G) = \{v_1,\dots v_n\}$. Die \DF{Adjanzenzmatrix} von $G$ ist definiert als $A := A(G)$ mit \[A(G)_{i,j} = \begin{cases}
-    1 & v_iv_j \in E(G) \\ 0 & v_iv_j \notin E(G)
+Sei $G$ ein Graph mit Eckenmenge $V(G) = \{1,\dots,n\}$. Die \DF{Adjanzenzmatrix} von $G$ ist definiert als $A := A(G)$ mit \[A(G)_{i,j} = \begin{cases}
+    1 & ij \in E(G) \\ 0 & ij \notin E(G)
 \end{cases}\] 
 Dann ist $A$ symmetrisch, und hat folglich nur reelle Eigenwerte. Damit es Sinn macht, von den Eigenwerten eines Graphen zu sprechen, d"urfen die Eigenwerte von $A(G)$ nicht von der Nummerierung der Ecken abh"angen. Das dem so ist, zeigt das folgende Lemma.
 

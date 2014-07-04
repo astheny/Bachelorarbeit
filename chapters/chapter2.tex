@@ -41,7 +41,11 @@ Es bezeichne $\cE(n)$ die Klasse aller Graphen welche die Vereinigung von $n$ ka
   Sei nun $\delta(G) \geq d$. Wir m"ussen zeigen, dass es eine Krauszzerlegung $\mathcal{K}$ gibt, mit $d_{G}(v:\mathcal{K}) \geq d$ f"ur alle $v\in V(G)$. Sei $E(G)= \{e_1,\dots, e_{m}\}$ eine Nummerierung der Kanten. Setze $H^{i}= G[e_i]$. Dann ist $\mathcal{K} = \{H^{1},\dots, H^{m}\}$ eine Krauszzerlegung von $G$ mit $d_{G}(v:\mathcal{K}) = d_{G}(v) \geq \delta(G) \geq d$ f"ur alle $v\in V(G)$. Also ist $\kappa_d(G)\leq m <\infty$.
 
 \end{proof}
-%Beispiele und einfache Ergebnisse
+
+\begin{example}
+  Sei zun"achst $G$ ein bipartiter Graph mit Minimalgrad mindestens $d$. Dann ist $\kappa_{d}(G) = |E(G)|$, da $G$ keine Dreiecke enth"alt und somit jeder Graph einer Krauszzerlegung von $G$ isomorph zu $K_{2}$ sein muss. 
+\end{example}
+
 \begin{theorem}
   Die folgenden Aussagen sind "aquivalent:
   \begin{enumerate}[label=(\alph*)]
@@ -71,7 +75,7 @@ Es bezeichne $\cE(n)$ die Klasse aller Graphen welche die Vereinigung von $n$ ka
   Also erhalten wir eine F"arbung von $H$ mit maximal $n$ Farben. Diese l"asst sich auf $G$ zu einer F"arbung mit maximal $n$ Farben erweitern, da wir nur Ecken entfernt haben, deren Grad kleiner als $n$ ist, welche folglich nur $n-1$ Nachbarn haben. 
   Damit ist die "Aquivalenz von (a) und (b) gezeigt. Es bleibt die "Aquivalenz von (b) und (c) zu zeigen. 
 
-  Gelte 3. und sei $G$ ein Graph mit Minimalgrad gr"o{\ss}er oder gleich $2$. Seien weiterhin $\kappa_{2}(G) = m $ und $\mathcal{K}= \left\{ K^{1},\dots,K^{m} \right\}$ eine Krauszzerlegung von $G$. 
+  Gelte (c) und sei $G$ ein Graph mit Minimalgrad gr"o{\ss}er oder gleich $2$. Seien weiterhin $\kappa_{2}(G) = m $ und $\mathcal{K}= \left\{ K^{1},\dots,K^{m} \right\}$ eine Krauszzerlegung von $G$. 
   F"ur $v\in V(G)$ definiere $e_v$ als die Menge aller $K\in \mathcal{K}$, welche $v$ enthalten. Sind dann $v$ und $w$ zwei unterschiedliche Ecken von $G$, so sind $e_v$ und $e_{w}$ unterschiedlich, da sonst Eigenschafft (ii) der Krauszzerlegung verletzt w"are. 
   Sei $H$ der Hypergraph mit Eckenmenge $\mathcal{K}$ und Kantenmenge $\left\{ e_v| v\in V(G) \right\}$. 
   Wir zeigen, dass $H$ linear ist. 
@@ -83,7 +87,7 @@ Es bezeichne $\cE(n)$ die Klasse aller Graphen welche die Vereinigung von $n$ ka
     \chi(G) \leq \chi(H) \leq \kappa_{2}(G)
   \end{align*}
 
-  Gelte 2. und sei $H$ ein (von der M"achtigkeit) minimaler linearer Hypergraph welcher 3. nicht erf"ullt. Ist dann $\delta(H) \leq 1$ so k"onnen wir eine Ecke aus $H$ entfernen und erhalten einen linearen Hypergraphen $H'$ kleinerer M"achtigkeit, welcher ebenfalls 3. nicht erf"ullt. Also ist $\delta(H) \geq 2$. Sei $G$ der Kantengraph von $H$ mit $V(G) = E(H)$ und $E(G) = \left\{ ee'|e\cap e' \neq \emptyset \right\}$. Definere f"ur $v\in V(H)$ die Menge $E_{H}(v)$ als die Menge aller
+  Gelte (b) und sei $H$ ein (von der M"achtigkeit) minimaler linearer Hypergraph welcher (c) nicht erf"ullt. Ist dann $\delta(H) \leq 1$ so k"onnen wir eine Ecke aus $H$ entfernen und erhalten einen linearen Hypergraphen $H'$ kleinerer M"achtigkeit, welcher ebenfalls (c) nicht erf"ullt. Also ist $\delta(H) \geq 2$. Sei $G$ der Kantengraph von $H$ mit $V(G) = E(H)$ und $E(G) = \left\{ ee'|e\cap e' \neq \emptyset \right\}$. Definere f"ur $v\in V(H)$ die Menge $E_{H}(v)$ als die Menge aller
   Kanten von $H$, die mit $v$ inzident sind und $K^{v}$ als den durch $E_H(v)$ induzierten Untergraphen von $G$.
   Wir zeigen: $\mathcal K := \left\{ K^{v}| v \in V(H) \right\}$ ist eine Krauszzerlegung von $G$.  
 
@@ -170,23 +174,42 @@ Es sei $G$ ein Graph. Der \DF{Kantengraph} $L(G)$ (engl. line graph) von $G$ ist
   Sei $p = \omega(G)$. Dann gilt nach $\lambda_{p}\left( G \right)\geq -1\geq -2$. Damit sind f"ur $d=2$ die Voraussetzungen von \ref{cor:Korollar1} erf"ullt, und es gilt folglich $\kappa_{2}\left( G \right)\geq p = \omega\left( G \right)$ 
   F"ur $q=\alpha\left( G) \right)$ gilt wieder nach $\lambda_{q}\left( G \right)\geq 0 \geq -2$. Damit folgt analog $\alpha\left( G \right) \leq \kappa_{2}\left( G \right)$.
 \end{proof}
-\begin{conjecture}[$C_{d}$]
+\begin{conjecture}
   \label{con:MainConjecture}
   Ist $\chi\left( G \right) \geq k$, so ist $\lambda_k\left( G \right) > -d$.
-  \todo{Cd richtig anzeigen}
 \end{conjecture}
 
 \begin{theorem}
   \label{thm:MainTheorem}
   Gelte \ref{con:MainConjecture}. Dann gilt :
-  \begin{enumerate}[label=(\roman*)]
-    \item Ist $\delta\left( G \right) \geq 2$ so ist $\chi\left( G \right)\leq \kappa_{d}\left( G \right)$
+  \begin{enumerate}[label=(\alph*)]
+    \item \label{en:mainconfirst}Ist $\delta\left( G \right) \geq d$ so ist $\chi\left( G \right)\leq \kappa_{d}\left( G \right)$
     \item  Ist $H$ ein linearer Hypergraph mit $\left|e\right| \geq d$, so ist $\chi'\left( H \right)\leq \left|H\right| $
   \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-  Sei $\chi(G) = k$. Dann ist nach \ref{con:MainConjecture} $\lambda_{k}\left( G \right) > -2$. Mit \ref{cor:Korollar1} folgt$\kappa_{d}\left( G \right) \geq k = \chi\left( G \right)$.
+
+  \begin{enumerate}[label=(\alph*)]
+    \item Sei $\chi(G) = k$. Dann ist nach \ref{con:MainConjecture} $\lambda_{k}\left( G \right) > -d$. Mit \ref{cor:Korollar1} folgt $\kappa_{d}\left( G \right) \geq k = \chi\left( G \right)$.
+      \todo{Nachpr"ufen ob d-1 reicht} 
+    \item Angenommen die Behauptung gilt nicht. Dann gibt es einen minimalen Hypergraphen $H$ f"ur welchen $\chi'(H) > |H|$ ist. Angenommen in diesem exisitiert eine Kante vom Grad kleiner als $d$. Entfernen wir diese und alle mit keinen anderen Kanten inzidenten Ecken (von welchen es mindestens eine gibt, da alle Kanten mindestens $d$ Ecken enthalten und $H$ ein linearer Hypergraph ist), erhalten wir einen Hypergraphen $H'$. 
+      Dieser erf"ullt die Behauptung, da $H$ das kleinste Gegenbeispiel ist. Also existiert eine Kantenf"arbung von $H'$ mit h"ochstens $|H'| < |H|$ Farben. Aus dieser gewinnen wir eine Kantenf"arbung von $H$, indem wir alle Kanten wie in $H'$ f"arben, und die entfernte Kante mit einer neuen Farbe f"arben. Folglich gilt also:
+      \begin{align*}
+        \chi'(H) \leq \chi'(H') +1 \leq |H'|+1 \leq |H|
+      \end{align*}
+      Ein Widerspruch. Folglich haben alle Kanten in $H$ mindestens Grad $d$. 
+
+      Sei nun $G$ der Kantengraph von $H$. Dann ist $\delta(G) \geq d$, folglich also 
+      \begin{align*}
+        \chi'(H) = \chi(G) \leq \kappa_{d}(G) 
+      \end{align*}
+      Die Kanten von $G$ ergeben eine Krauszzerlegung $\mathcal{K}$ mit $\delta_{G}(\mathcal{K}) \geq d$. Jede Kante von $G$ korrespondiert mit einer Ecke von $H$, da $H$ ein linearer Hypergraph ist. Folglich ist 
+      \begin{align*}
+        |E(G)| = |\{ v \in V(H) | d_{H}(v) = 2 \}| \leq |H|
+      \end{align*}
+      Damit ist $\kappa_{d}(G) \leq |E(G)|\leq |H|$. Folglich existiert kein kleinstes Gegenbeispiel, und die Behauptung gilt f"ur alle linearen Hypergraphen.
+  \end{enumerate}
 \end{proof}
 
 
@@ -230,4 +253,26 @@ Wir wollen nun einige Schranken f"ur $\kappa_{d}(G)$ angeben.
     (n-m) d \leq (n-m) \lambda_n(D) \leq \sum\limits_{i=m+1}^{n} \lambda_{i}(D) \leq\sum\limits_{i=1}^{m} \lambda_{i}(A) \leq m\lambda_{1}(A)
   \end{align*}
   Durch Umstellen erhalten wir die gew"unschte Ungleichung.
+\end{proof}
+
+\begin{theorem}
+  \label{thm:omegakrauszabsch}
+  Sei $G$ ein Graph mit Minimalgrad mindestens $d$. Dann gilt
+  \begin{align*}
+    \kappa_{d}(G) \geq \frac{|E(G)|}{{\omega(G) \choose 2}} \\
+    \kappa_{d}(G) \geq \frac{n}{\chi(G)}
+  \end{align*}
+\end{theorem}
+
+\begin{proof}
+  Sei $\mathcal{K}$ eine Krauszzerlegung von $G$ mit $|\mathcal{K}| = \kappa_{d}(G)$. Dann ist jeder Graph in $\mathcal{K}$ ein vollst"andiger Graph der Ordnung h"ochstens $\omega(G)$. Somit gilt
+  \begin{align*}
+    |E(G)| = \sum\limits_{K\in \mathcal{K}} |E(K)| 
+  \end{align*} 
+  Also gilt die erste Ungleichung. 
+  Nach \ref{cor:alphaomegakrausz} gilt $\kappa_{d}(G) \geq \alpha(G)$. Daraus folgt 
+  \begin{align*}
+    \chi(G) \kappa_{d}(G) \geq \chi(G) \alpha(G) \geq n
+  \end{align*}
+  Damit ist alles gezeigt.
 \end{proof}
