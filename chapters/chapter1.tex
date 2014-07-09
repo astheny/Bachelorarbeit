@@ -17,7 +17,7 @@ Eine \DF{F"arbung} von $G$ ist eine Abbildung $f:V(G)\to C$ mit $f(v)\neq f(w)$ 
 Ist $H$ ein Hypergraph so heißt eine Abbildung $g:E(H) \to C$ (wieder heißt $C$ die \DF{Farbmenge}) eine \DF{Kantenf"arbung} von $H$  falls $g(e) \neq g(e')$ f"ur alle unterschiedlichen Kanten $e,e'$ von $H$ mit $e\cap e' \neq \emptyset$. Diese ist eine \DF{$k$-F"arbung}, falls $|C| = k$. Der chromatische Index $\chi'(H)$ bezeichne die kleinste positive Zahl $k$, derart, dass $H$ eine echte $k$-F"arbung besitzt.
 
 Man beachte, dass eine Kantenf"arbung eines Hypergraphen in direktem Zusammenhang zu einer Eckenf"arbung seines Kantengraphen steht. Ist n"amlich $H$ ein Hypergraph und $G=L(H)$ sein Kantengraph, so gibt es offenbar eine bijektive Abbildung $\pi: E(H) \to V(G)$, welche jeder Kante von $H$ die korrespondierende Ecke in $G$ zuordnet. Ist $f$ nun eine F"arbung der Kanten von $H$, so ist $\pi \circ f$ eine F"arbung der Ecken von $G$ und umgekehrt. 
-\todo{genauer?}
+%\todo{genauer?}
 \subsection{Eigenwerte von symmetrischen Matrizen}
 \label{ssec:EigenwerteMatrizen} 
 Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte und folglich k"onnen diese monoton fallend angeordnet werden. F"ur eine symmetrische Matrix $A$ sei also $\lambda_k(A)$ der k-gr"oßte \DF{Eigenwert} (gez"ahlt mit Vielfachheiten). Eine symmetrische Matrix $A$ hei"st \DF{positiv semidefinit} falls $x^TAx \geq 0$ f"ur alle $x \in \R^n$. Gilt außerdem $x^{T}Ax > 0$ f"ur $x\neq 0$ , so hei"st $A$ \DF{positiv definit}. Wir wollen nun einige Eigenschaften von positiv (semi)definiten Matrizen anf"uhren.
@@ -83,7 +83,7 @@ Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte 
     &= \lambda_i
   \end{align*}
   Damit ist die erste Ungleichung gezeigt. Die zweite folgt analog bei Betrachtung von $-A$ und $-B$.
-  \todo{Pr"ufen!}
+  %\todo{Pr"ufen!}
 \end{proof}
 
 \begin{theorem}[Weyl Ungleichungen]
@@ -143,7 +143,7 @@ Dann ist $A$ symmetrisch, und hat folglich nur reelle Eigenwerte. Damit es Sinn 
   \]
   Also ist $P^{T}AP = B$. Somit sind $A$ und $B$ "ahnlich und besitzen folglich die selben Eigenwerte.
 \end{proof}
-F"ur einen Graphen $G$ seien die \DF{Eigenwerte} von $G$ definiert als $\lambda_i(G) = \lambda_i(A(G))$.\todo{Adjazenzmatrix ambiguity} 
+F"ur einen Graphen $G$ seien die \DF{Eigenwerte} von $G$ definiert als $\lambda_i(G) = \lambda_i(A(G))$.%\todo{Adjazenzmatrix ambiguity} 
 \begin{remark}
   \label{rem:evGraph} 
   \begin{enumerate}
@@ -156,7 +156,7 @@ F"ur einen Graphen $G$ seien die \DF{Eigenwerte} von $G$ definiert als $\lambda_
     \item F"ur die Adjazenzmatrix eines Graphen gilt $\tr(A)=0$. Somit ist\[
         \sum\limits_{i=1}^{n} \lambda_i(G) = \tr(A) = 0
       \]
-    \item \todo{Beweisen}
+    \item %\todo{Beweisen}
   \end{enumerate}
 \end{proof}
 Wir wollen nun einige elementaren Graphen und ihre Eigenwerte betrachten.
