@@ -68,7 +68,11 @@ Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte 
 \end{proof}
 \begin{theorem}[Interlacing]
   \label{thm:Interlacing}
-  Sei $A\in \R^{n\times n}$ symmetrisch mit Eigenwerten $\lambda_{1}\geq\dots\geq\lambda_n$. Sei $B\in\R^{(n-k)\times(n-k)}$ eine symmetrische Matrix, welche aus $A$ durch L"oschen von Zeilen und den entsprechenden Spalten entsteht, mit Eigenwerten $\mu_{1}\geq\dots\geq\mu_{k}$. Dann gilt $$ \lambda_{i}\geq\mu_{i}\geq\lambda_{i+k}$$ f"ur $i=1,\dots, n-k$.
+  Sei $A\in \R^{n\times n}$ symmetrisch mit und $B\in\R^{(n-k)\times(n-k)}$ eine symmetrische Matrix, welche aus $A$ durch L"oschen von Zeilen und den entsprechenden Spalten entsteht. 
+  \begin{align*}
+    \lambda_{i}(A) \geq \lambda_{i}(B) \geq \lambda_{i+k}(A) 
+  \end{align*}
+  F"ur $i = 1,\dots n-k$.
 \end{theorem}
 
 \begin{proof}
@@ -76,13 +80,13 @@ Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte 
   Seien $V \subseteq\R^{\left( n-k \right)}$ ein linearer Unterraum ,  $x\in  V $ beliebig und $y = Px$. Dann ist $y\in PV = \{z\in \R^{n}| z = Px, x \in V \}$ und es gilt $y^{T}y = x^{T}P^{T}Px = x^{T}x$, da $P^{T}P = I_{n_k}$.
   Auﬂerdem ist $PV$ ein linearer Unterraum des $\Rn$ der selben Dimension wie $V$ ($P$ besitzt vollen Spaltenrang ). Mit \ref{thm:CourantFischer} folgt : 
   \begin{align*}
-    \mu_i &= \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TBx}{x^Tx}| V\subseteq \R^{\left( n-k \right)} \text{ ist linearer Unterraum der Dimension } i\} \\
+    \lambda_{i}(B) &= \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TBx}{x^Tx}| V\subseteq \R^{\left( n-k \right)} \text{ ist linearer Unterraum der Dimension } i\} \\
     &= \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TP^{T}APx}{x^Tx}| V\subseteq \R^{\left( n-k \right)} \text{ ist linearer Unterraum der Dimension } i\} \\
     &\leq \max\{\min\limits_{y\in PV , y \neq 0} \frac{y^{T}Ay}{y^Ty}| V\subseteq \R^{\left( n-k \right)} \text{ ist linearer Unterraum der Dimension } i\} \numberthis \label{eq1} \\
     &\leq \max\{\min\limits_{x\in W , x \neq 0} \frac{y^TAy}{y^Ty}| W\subseteq \R^n \text{ ist linearer Unterraum der Dimension } i\} \\
-    &= \lambda_i
+    &= \lambda_i(A)
   \end{align*}
-  Damit ist die erste Ungleichung gezeigt. Die zweite folgt analog bei Betrachtung von $-A$ und $-B$.
+  Damit ist die erste Ungleichung gezeigt. Die zweite folgt analog bei Betrachtung von $-A$ und $-B$, da $\lambda_{i}(-A) = \lambda_{n-i+1}(A)$.
   %\todo{Pr"ufen!}
 \end{proof}
 
@@ -115,52 +119,54 @@ Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte 
 Sei $G$ ein Graph mit Eckenmenge $V(G) = \{1,\dots,n\}$. Die \DF{Adjanzenzmatrix} von $G$ ist definiert als $A := A(G)$ mit \[A(G)_{i,j} = \begin{cases}
     1 & ij \in E(G) \\ 0 & ij \notin E(G)
 \end{cases}\] 
-Dann ist $A$ symmetrisch, und hat folglich nur reelle Eigenwerte. Damit es Sinn macht, von den Eigenwerten eines Graphen zu sprechen, d"urfen die Eigenwerte von $A(G)$ nicht von der Nummerierung der Ecken abh"angen. Das dem so ist, zeigt das folgende Lemma.
-
-\begin{lemma}
-  Sei $G=(V,E)$ ein Graph. Dann sind die Eigenwerte von $A(G)$ unabh"angig von der Nummerierung der Ecken von $G$.
-  \label{lem:GraphEigenwerte}
-\end{lemma}
-
-\begin{proof}
-  Seien $V(G)=\{v_1,\dots, v_n\}= \{u_1,\dots, u_n\}$ zwei Nummerierungen der Ecken. Sei weiterhin $A=(A_{i,j})_{1\leq i,j \leq n},B=(B_{i,j})_{1\leq i,j \leq n}\in \R^{n\times n}$ mit  
-  \[
-    A_{i,j} = \begin{cases}
-      1 & v_iv_j \in E(G) \\ 0 & v_iv_j \notin E(G)
-    \end{cases} \\
-    B_{i,j} = \begin{cases}
-      1 & u_iu_j \in E(G) \\ 0 & u_iu_j \notin E(G)
-  \end{cases}\] 
-  Dann gibt es eine Permutation $\sigma\in S^{n}$ sodass $v_{\sigma(i)} = u_i$. Folglich gilt $A_{\sigma(i),\sigma(j)} = B_{i,j}$ . Sei $P \in GL_n(\R) $ die Matrix
-  \[
-    P_{i,j} = \begin{cases}
-      1 & \sigma(i) = j \\ 0 & \text{sonst} 
-    \end{cases} 
-  \]
-  Damit ist $P=(e_{\sigma(1)},\dots, e_{\sigma(n)})$. Nun betrachten wir $P^{T}AP$.
-  \[
-    (P^{T}AP)_{i,j} = e_j^{T} P^{T}AP e_i = e_{\sigma(j)}^{T}Ae_{\sigma(i)}=A_{\sigma(i),\sigma(j)} = B_{i,j}
-  \]
-  Also ist $P^{T}AP = B$. Somit sind $A$ und $B$ "ahnlich und besitzen folglich die selben Eigenwerte.
-\end{proof}
+Dann ist $A$ symmetrisch, und hat folglich nur reelle Eigenwerte.% Damit es Sinn macht, von den Eigenwerten eines Graphen zu sprechen, d"urfen die Eigenwerte von $A(G)$ nicht von der Nummerierung der Ecken abh"angen. Das dem so ist, zeigt das folgende Lemma.
+%
+%\begin{lemma}
+%  Sei $G=(V,E)$ ein Graph. Dann sind die Eigenwerte von $A(G)$ unabh"angig von der Nummerierung der Ecken von $G$.
+%  \label{lem:GraphEigenwerte}
+%\end{lemma}
+%
+%\begin{proof}
+%  Seien $V(G)=\{v_1,\dots, v_n\}= \{u_1,\dots, u_n\}$ zwei Nummerierungen der Ecken. Sei weiterhin $A=(A_{i,j})_{1\leq i,j \leq n},B=(B_{i,j})_{1\leq i,j \leq n}\in \R^{n\times n}$ mit  
+%  \[
+%    A_{i,j} = \begin{cases}
+%      1 & v_iv_j \in E(G) \\ 0 & v_iv_j \notin E(G)
+%    \end{cases} \\
+%    B_{i,j} = \begin{cases}
+%      1 & u_iu_j \in E(G) \\ 0 & u_iu_j \notin E(G)
+%  \end{cases}\] 
+%  Dann gibt es eine Permutation $\sigma\in S^{n}$ sodass $v_{\sigma(i)} = u_i$. Folglich gilt $A_{\sigma(i),\sigma(j)} = B_{i,j}$ . Sei $P \in GL_n(\R) $ die Matrix
+%  \[
+%    P_{i,j} = \begin{cases}
+%      1 & \sigma(i) = j \\ 0 & \text{sonst} 
+%    \end{cases} 
+%  \]
+%  Damit ist $P=(e_{\sigma(1)},\dots, e_{\sigma(n)})$. Nun betrachten wir $P^{T}AP$.
+%  \[
+%    (P^{T}AP)_{i,j} = e_j^{T} P^{T}AP e_i = e_{\sigma(j)}^{T}Ae_{\sigma(i)}=A_{\sigma(i),\sigma(j)} = B_{i,j}
+%  \]
+%  Also ist $P^{T}AP = B$. Somit sind $A$ und $B$ "ahnlich und besitzen folglich die selben Eigenwerte.
+%\end{proof}
 F"ur einen Graphen $G$ seien die \DF{Eigenwerte} von $G$ definiert als $\lambda_i(G) = \lambda_i(A(G))$.%\todo{Adjazenzmatrix ambiguity} 
-\begin{remark}
-  \label{rem:evGraph} 
-  \begin{enumerate}
-    \item Die Summe aller Eigenwerte eines Graphen (mit Vielfachheiten) ist $0$.
-    \item Ist $G$ $d$ regul"ar, so ist $d$ ein Eigenwert von $G$.
-  \end{enumerate}
-\end{remark}
-\begin{proof}
-  \begin{enumerate}
-    \item F"ur die Adjazenzmatrix eines Graphen gilt $\tr(A)=0$. Somit ist\[
-        \sum\limits_{i=1}^{n} \lambda_i(G) = \tr(A) = 0
-      \]
-    \item %\todo{Beweisen}
-  \end{enumerate}
-\end{proof}
+%\begin{remark}
+%  \label{rem:evGraph} 
+%  \begin{enumerate}
+%    \item Die Summe aller Eigenwerte eines Graphen (mit Vielfachheiten) ist $0$.
+%    \item Ist $G$ $d$ regul"ar, so ist $d$ ein Eigenwert von $G$.
+%  \end{enumerate}
+%\end{remark}
+%\begin{proof}
+%  \begin{enumerate}
+%    \item F"ur die Adjazenzmatrix eines Graphen gilt $\tr(A)=0$. Somit ist\[
+%        \sum\limits_{i=1}^{n} \lambda_i(G) = \tr(A) = 0
+%      \]
+%    \item %\todo{Beweisen}
+%  \end{enumerate}
+%\end{proof}
 Wir wollen nun einige elementaren Graphen und ihre Eigenwerte betrachten.
-Sei dazu zun"achst $G=K_n$ . Dann ist $A(G)=J-I$, wobei $J\in\Rnn$ die Matrix ist, bei der jeder Eintrag $1$ ist, und $I\in\Rnn$ die Einheitsmatrix. Somit ist $-1$ ein Eigenwert mit Vielfachheit $n-1$. Auﬂerdem folgt aus \ref{rem:evGraph}, dass $n-1$ ein Eigenwert von $G$ ist. \\
+Sei dazu zun"achst $G=K_n$ . Dann ist $A(G)=J-I$, wobei $J\in\Rnn$ die Matrix ist, bei der jeder Eintrag $1$ ist, und $I\in\Rnn$ die Einheitsmatrix. Somit ist $-1$ ein Eigenwert mit Vielfachheit $n-1$. Da $K_n$ $n-1$ regul"ar ist, ist der Vektor $\begin{pmatrix}
+  1 & 1 & \dots & 1
+\end{pmatrix}$ ein Eigenvektor von $G$ zum Eigenwert $n-1$.%Auﬂerdem folgt aus \ref{rem:evGraph}, dass $n-1$ ein Eigenwert von $G$ ist. \\
 Sei nun $G=C_n$. Dann hat $G$ die Eigenwerte $2 \cos (\frac{2\pi i}{n})$ f"ur $i\in \left\{ 1,\dots,n \right\}$ (siehe \cite[1.1.4]{zbMATH05625877}).
 \todo{Bilder!}
 
