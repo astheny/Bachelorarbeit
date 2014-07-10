@@ -123,15 +123,8 @@ Dann ist $A$ symmetrisch, und hat folglich nur reelle Eigenwerte. Damit es Sinn 
 \end{lemma}
 
 \begin{proof}
-  Seien $V(G)=\{v_1,\dots, v_n\}= \{u_1,\dots, u_n\}$ zwei Nummerierungen der Ecken. Sei weiterhin $A=(A_{i,j})_{1\leq i,j \leq n},B=(B_{i,j})_{1\leq i,j \leq n}\in \R^{n\times n}$ mit  
-  \[
-    A_{i,j} = \begin{cases}
-      1 & v_iv_j \in E(G) \\ 0 & v_iv_j \notin E(G)
-    \end{cases} \\
-    B_{i,j} = \begin{cases}
-      1 & u_iu_j \in E(G) \\ 0 & u_iu_j \notin E(G)
-  \end{cases}\] 
-  Dann gibt es eine Permutation $\sigma\in S^{n}$ sodass $v_{\sigma(i)} = u_i$. Folglich gilt $A_{\sigma(i),\sigma(j)} = B_{i,j}$ . Sei $P \in GL_n(\R) $ die Matrix
+  Es reicht zu zeigen, dass f"ur zwei isomorphe Graphen $G$ und $H$ gilt, dass $A(G)$ und $A(H)$ die gleiche Eigenwerte haben.
+  Seien also $G$ und $H$ zwei isomorphe Graphen der M"achtigkeit $n$. Sei weiterhin $A=A(G)$ die Adjazenzmatrix von $G$ und $B=A(H)$ die Adjazenzmatirx von $H$.  Dann gibt es eine Permutation $\sigma\in S^{n}$ sodass  $A_{\sigma(i),\sigma(j)} = B_{i,j}$ (da $G$ und $H$ isomorph sind) . Sei $P \in GL_n(\R) $ die Matrix mit
   \[
     P_{i,j} = \begin{cases}
       1 & \sigma(i) = j \\ 0 & \text{sonst} 
