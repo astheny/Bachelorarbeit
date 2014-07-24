@@ -1,6 +1,7 @@
 \section{Krauszzerlegungen und die Erd\H{o}s--Faber--Lov\'asz Vermutung}
 \subsection{Die Erd\H{o}s--Faber--Lov\'asz Vermutung}
 \label{sec:EFL-Vermutung}
+\todo{Geschichte, was ist bekannt etc.}
 Es bezeichne $\cE(n)$ die Klasse aller Graphen welche die Vereinigung von $n$ kantendisjunkten vollst"andigen Graphen der Ordnung $n$ sind. F"ur $G\in\cE(n)$ gilt also $G= \bigcup\limits_{i=1}^{n} G_i$, wobei $G_i \cong K_n$ und $|G_i \cap G_j| \leq 1$ f"ur alle $1\leq i,j \leq n$ mit $i\neq j$. 
 \todo{Bilder, Beispiele}
 \begin{conjecture}[Erd\H{o}s--Faber--Lov\'asz]
@@ -9,27 +10,27 @@ Es bezeichne $\cE(n)$ die Klasse aller Graphen welche die Vereinigung von $n$ ka
 \end{conjecture}
 
 \begin{remark}
-  \ref{con:efl} gilt offenbar f"ur $n = 1,2$. 
+ Vermutung \ref{con:efl} gilt f"ur $n\leq 10$.
 \end{remark}
-
+\todo{Quelle}
 \subsection{Krauszzerlegungen von Graphen}
+\todo{Historie, Line graphen etc}
 \label{ssec:Krauszzerlegung}
 \begin{definition}
   \label{def:Krauszzerlegung}
-  Sei $G$ ein Graph. Eine Menge $\mathcal K$ von Untergraphen von $G$ hei"st \DF{Krauszzerlegung} von $G$, falls gilt:
-  \begin{enumerate}[label=(\roman*)]
+  Sei $G$ ein Graph. Eine Menge $\mathcal K$ von Untergraphen von $G$ hei"st \DF{Krauszzerlegung} von $G$, falls folgende Bedingungen erf"ullt sind:
+  \begin{enumerate}[label={\rm(K\alph*)}]
     \item Alle Graphen $K\in \mathcal{K}$ sind vollst"andige Graphen mit $|K| \geq 2$.
-    \item Sind $K,K'$ zwei verschiedene Graphen aus $\mathcal{K}$, so sind sie kantendisjunkt (also $|K\cap K'| \leq 1$)
-    \item $\mathcal K$ ist eine Zerlegung von $G$, also  $G=\bigcup\limits_{K\in \mathcal K}K$
+    \item Sind $K,K'$ zwei verschiedene Graphen aus $\mathcal{K}$, so sind sie kantendisjunkt (d.h. $|K\cap K'| \leq 1$)
+    \item $\mathcal K$ ist eine "Uberdeckung von $G$, also  $G=\bigcup\limits_{K\in \mathcal K}K$
   \end{enumerate}
   Desweiteren sei f"ur $v\in V(G)$ der \DF{Grad} von $v$ bez"uglich $\mathcal K$ definiert als $$d_G(v:\mathcal K) := |\{ K\in\mathcal K| v \in V(K)\}|$$ und der \DF{Minimalgrad} von $G$ bez"uglich $\mathcal K$ als $$\delta_G(\mathcal K) := \min\limits_{v\in V(G)}d_G(v:\mathcal K)$$ 
   F"ur $d \geq 1$ sei $\kappa_d(G)$ die kleinste positive Zahl $m$ derart, dass $G$ eine Krauszzerlegung $\mathcal K$ besitzt mit $|\mathcal K| = m$ und $\delta_G(\mathcal K) \geq d$. Existiert keine solche Zahl $m$, so setzen wir $\kappa_{d}(G) = \infty$.
 \end{definition}
-%% evtll: K1 dazu, dann delta + 1
+
 \todo{Bilder, Beispiele}
 \begin{lemma}
-  Sei $G$ ein Graph. Dann ist $\kappa_d(G) < \infty$ genau dann, wenn $\delta(G) \geq d$.
-  \label{lm:krauszexistenz}
+  Sei $G$ ein Graph und $d\in \N$. Genau dann ist $\kappa_{d}(G) < \infty$, wenn $\delta(G) \geq d$ ist. \label{lm:krauszexistenz}
 \end{lemma}
 
 \begin{proof}
@@ -46,56 +47,79 @@ Es bezeichne $\cE(n)$ die Klasse aller Graphen welche die Vereinigung von $n$ ka
   Sei zun"achst $G$ ein bipartiter Graph mit Minimalgrad mindestens $d$. Dann ist $\kappa_{d}(G) = |E(G)|$, da $G$ keine Dreiecke enth"alt und somit jeder Graph einer Krauszzerlegung von $G$ isomorph zu $K_{2}$ sein muss. 
 \end{example}
 
+%\begin{lemma}
+%  Sei $H$ ein linearer Hypergraph mit $|e| \geq d$ f"ur alle $e \in E(H)$ und ein $d \geq 2$. Sei $E_{H}(v)$ die Menge aller Kanten von $H$, welche $v$ enthalten, und $K^{v} = G[E_{H}(v)]$. Dann ist $\mathcal{K}= \left\{ K^{v}| v \in V(H), |E_{H}(v)| \geq 2 \right\}$ eine Krauszzerlegung von $G$ mit $\delta_{G}(\mathcal{K}) \geq d$. 
+%  \label{lm:hyperkrausz}
+%\end{lemma}
+%
+%\begin{proof}
+%  Wir zeigen zun"achst, dass $\mathcal{K}$ eine Krauszzerlegung ist. 
+%  Sei $v\in V(H)$ mit $|E_{H}(v)| \geq 2$ beliebig, wir m"ussen nun zeigen, dass $K^{v}$ ein vollst"andiger Graph der Ordnung mindestens $2$ ist. Seien $e,e' \in V(K^{v}) = E_H (v)$. Dann ist $e\cap e' = \left\{ v \right\}$ und folglich $ee' \in E(K^{v})$. Also ist $K^{v} $ ein vollst"andiger Graph. Da $|K^{v}| = |E_H(v)| \geq 2$ f"ur $K^{v}\in \mathcal{K}$ ist (Ka) erf"ullt. Seien nun $K^{v}$ und $K^{w}$ zwei verschiedene Elemente von $\mathcal{K}$. 
+%  Wir m"ussen zeigen, dass diese kantendisjunkt sind. Angenommen, dem ist nicht so. Dann ist $|K^{v}\cap K^{w}| \geq 2$ und folglich gibt es in $H$ zwei Kanten $e,e'$, welche sowohl $v$ als auch $w$ enthalten, ein Widerspruch zur Vorraussetzung, dass $H$ ein lineare Hypergraph ist. Folglich ist (Kb) erf"ullt. 
+%  Sei $e\in E(H) = V(G)$ eine Ecke von $G$. 
+%\end{proof}
 \begin{theorem}
   Die folgenden Aussagen sind "aquivalent:
   \begin{enumerate}[label=(\alph*)]
-    \item F"ur alle $n\in\N$ und alle $G\in\cE(n)$ gilt $\chi(G) = n$.
-    \item Ist $G$ ein Graph mit Minimalgrad mindestens $2$, so ist $\chi(G) \leq \kappa_{2}(G)$.
-    \item Ist $H$ ein linearer Hypergraph so gilt $\chi'(H)\leq |H|$
+    \item F"ur alle $p\in\N$ und alle $G\in\cE(p)$ gilt $\chi(G) = p$.
+    \item F"ur alle Graphen $G$ gilt $\chi(G) \leq \kappa_{2}(G)$.
+    \item F"ur alle linearen Hypergraphen $H$ gilt $\chi'(H) \leq |H|$.
   \end{enumerate}
   \label{thm:equivefl}
 \end{theorem}
 
 \begin{proof}
-  Wir zeigen zun"achst, dass (b) aus (a) folgt. Sei $G$ ein Graph mit $\kappa_{2}(G) =m$. Dann existiert eine Krauszzerlegung $\mathcal{K} = \left\{ K_1,\dots K_m \right\}$ von $G$. Ist $m \geq n$
+  Wir zeigen zun"achst, dass (b) aus (a) folgt. Sei $G$ ein Graph der Ordnung $n$. Ist $\kappa_{2}(G) = \infty$, so ist nichts zu zeigen. Andernfalls ist $\kappa_{2}(G) =p$. Dann existiert eine Krauszzerlegung $\mathcal{K} = \left\{ K^1,\dots K^p \right\}$ von $G$ mit $\delta_G(\mathcal{K}) \geq 2$. Ist $p \geq n$ so gilt:
   \begin{align*}
-    \chi(G) \leq n \leq m = \kappa_2 (G)
+    \chi(G) \leq n \leq p = \kappa_2 (G)
   \end{align*}
-  Ist andererseits $m< n $, so ist $|K^{i}| \leq \omega (G)  \leq \kappa_2 (G) =  m$ (siehe \ref{cor:alphaomegakrausz}). Damit k"onnen wir f"ur $1\leq i \leq n$ jeden $K^{i}$ durch Hinzuf"ugen von Ecken und Kanten zu einem vollst"andigen Graphen von Grad $m$ aufbl"ahen. Den so enstehenden Graphen nennen wir $G'$. Offenbar ist $G$ ein Untergraph von $G'$ und $G'\in \cE(m)$. Damit gilt 
+  Ist andererseits $p< n $, so ist $|K^{i}| \leq \omega (G)  \leq \kappa_2 (G) =  p$ f"ur alle $1\leq i \leq p$ (siehe Korollar \ref{cor:alphaomegakrausz}). Damit k"onnen wir f"ur $1\leq i \leq p$ jeden $K^{i}$ durch Hinzuf"ugen von Ecken und Kanten zu einem vollst"andigen Graphen vom Grad $p$ aufbl"ahen. Den so enstehenden Graphen nennen wir $G'$. Offenbar ist $G$ ein Untergraph von $G'$ und $G'\in \cE(p)$. Damit gilt 
   \begin{align*}
-    \chi(G) \leq \chi (G') = m = \kappa_{2}(G)
+    \chi(G) \leq \chi (G') = p = \kappa_{2}(G)
   \end{align*}
   Also folgt (b) aus (a).  
 
-  Um zu zeigen, dass (a) aus (b) folgt, sei $G\in \cE(n)$. Dann ist $G$ die kantendisjunkte Vereinigung von $n$ vollst"andigen Graphen der Ordnung $n$. W"ahle $X= \left\{ v\in V(G) | d_G(v) \geq n \right\}$ und betrachte den von $X$ induzierten Untergraphen $H$ von $G$. Die Einschr"ankung der vollst"andigen Graphen, aus denen $G$ besteht, auf $H$ ergeben eine Krauszzerlegung $\mathcal{K}$ von $H$ (jeder induzierte Untergraph eines vollst"andigen Graphen ist wieder ein vollst"andiger
-  Graph). Die Wahl von $X$ sichert, dass $\delta_G(\mathcal K) \geq 2$. Somit 
-  \begin{align*}
-    \chi(H) \leq \kappa_{2}(H) \leq \kappa_{2}(G) \leq n
-  \end{align*}
-  Also erhalten wir eine F"arbung von $H$ mit maximal $n$ Farben. Diese l"asst sich auf $G$ zu einer F"arbung mit maximal $n$ Farben erweitern, da wir nur Ecken entfernt haben, deren Grad kleiner als $n$ ist, welche folglich nur $n-1$ Nachbarn haben. 
-  Damit ist die "Aquivalenz von (a) und (b) gezeigt. Es bleibt die "Aquivalenz von (b) und (c) zu zeigen. 
-
-  Gelte (c) und sei $G$ ein Graph mit Minimalgrad gr"o{\ss}er oder gleich $2$. Seien weiterhin $\kappa_{2}(G) = m $ und $\mathcal{K}= \left\{ K^{1},\dots,K^{m} \right\}$ eine Krauszzerlegung von $G$. 
-  F"ur $v\in V(G)$ definiere $e_v$ als die Menge aller $K\in \mathcal{K}$, welche $v$ enthalten. Sind dann $v$ und $w$ zwei unterschiedliche Ecken von $G$, so sind $e_v$ und $e_{w}$ unterschiedlich, da sonst Eigenschafft (ii) der Krauszzerlegung verletzt w"are. 
-  Sei $H$ der Hypergraph mit Eckenmenge $\mathcal{K}$ und Kantenmenge $\left\{ e_v| v\in V(G) \right\}$. 
+  Um zu zeigen, dass (a) aus (b) folgt, sei $G\in \cE(p) $. Dann ist $G$ die kantendisjunkte Vereinigung von $p$ vollst"andigen Graphen der Ordnung $p$, welche wir mit $K^{1},\dots K^{p}$ bezeichnen wollen. Nun entfernen wir wiederholt Ecken,  deren Grad kleiner als $p$ ist und zwar solange, bis entweder keine Ecken mehr "ubrig sind, oder es keine Ecken vom Grad kleiner als $p$ existieren. 
+  Bleiben bei diesem Prozess keine Ecken "ubrig, so k"onnen wir $G$ schrittweise mit $p$ Farben f"arben, indem wir die in diesem Vorgang entstandenen Graphen f"arben. Da wir immer nur Ecken von Grad h"ochstens $p-1$ entfernen, reichen $p$ Farben aus.
+  Bleiben Ecken "ubrig, so nennen wir den resultierenden Graphen $H$. Nach Konstruktion gilt $\delta(H) \geq p$. Sei $\hat{K}^i = K^{i} \cap H$ f"ur $1\leq i \leq n$. Dann ist $\hat{K}^i$ ein vollst"andiger Graph f"ur alle $i$. W"ahle $\mathcal{K} = \left\{ \hat{K}^i | | \hat{K}^i| \geq 2  \right\}$. Wir zeigen, dass $\mathcal{K}$ eine Krauszzerlegung von $H$ mit $\delta_{H}(\mathcal{K}) \geq 2$.
+  (Ka) ist offensichtlich erf"ullt. Da in $G$ die $K^{i}$ kantendisjunkt sind, sind die $\hat{K}^{i}$ in $H$ ebenfalls kantendisjunkt, folglich gilt (Kb). Sei $v\in V(H)$. Dann ist $d_{H}(v) \geq p$, also auch $d_{G}(v) \geq d_H(v) \geq p$. 
+  Es existieren mindestens zwei $K,K' \in \mathcal{K}$ mit $v\in V(K)$ und $v\in V(K')$. W"are dem nicht so, so w"are $d_{H}(v) \leq p-1$, da alle $\hat{K}^{i}$, die nicht in $\mathcal{K}$ sind, nicht zum Grad einer Ecke beitragen, und $d_{\hat{K}^{i}} (v) \leq p-1$ f"ur alle $1 \leq i \leq p$.
+  Folglich ist $d_{H}(v:\mathcal{K}) \geq 2$ f"ur alle $v \in V(H)$. Also ist $\mathcal{K}$ eine Krauszzerlegung mit $\delta_{H}(\mathcal{K}) \geq 2$. Also ist wegen (b)
+  \begin{equation*}
+    \chi(H) \leq \kappa_{2}(H) \leq |\mathcal{K}| \leq p
+  \end{equation*}
+  Also ist $H$ $p$-f"arbbar. Da wir $H$ aus $G$ erhalten haben, indem wir Ecken vom Grad kleiner als $p$ entfernt haben, ist auch $G$ $p$-f"arbbar. 
+  Damit ist die "Aquivalenz von (a) und (b) gezeigt. 
+  
+  Es bleibt die "Aquivalenz von (b) und (c) zu zeigen. 
+  Gelte (c) und sei $G$ ein Graph. Wir m"ussen zeigen, dass $\chi(G) \leq \kappa_{2}(G)$ gilt. Ist $\kappa_{2}(G) = \infty$, so ist nichts zu zeigen. Seien also $\kappa_{2}(G) = p < \infty $ und $\mathcal{K}= \left\{ K^{1},\dots,K^{p} \right\}$ eine Krauszzerlegung von $G$ mit $\delta_{G}(\mathcal{K}) \geq 2 $.  
+  F"ur $v\in V(G)$ definiere $e_v$ als die Menge aller $K\in \mathcal{K}$, welche $v$ enthalten. Auf Grund der Wahl der Krauszzerlegung gilt $|e_v| \geq 2$ f"ur alle $v \in V(G)$. Seien $H$ der Hypergraph mit Eckenmenge $\mathcal{K}$ und Kantenmenge $\left\{ e_v| v\in V(G) \right\}$ sowie $\pi: V(G) \mapsto E(H)$ mit $\pi(v) = e_v$. Dann ist $\pi$ bijektiv. W"are dem nicht so, so g"abe es zwei unterschiedliche Ecken $v,w$ mit $e_v = e_w$. 
+  Da $|e_v| \geq 2$ w"aren dann die Kante $vw$ in zwei Graphen von $\mathcal{K}$ enthalten, was (Kb) widersprechen w"urde. Also ist $f$ bijektiv.
   Wir zeigen, dass $H$ linear ist. 
   Seien dazu $e_{v},e_{w} $ zwei unterschiedliche Kanten von $H$.
-  Angenommen $|e_{v}\cap e_{w}| \geq 2$. Dann existieren mindestens zwei vollst"andige Graphen $K,K'$, welche sowohl $v$ als auch $w$ enthalten. Dies ist ein Widerspruch zu Eigenschaft (ii) der Krauszzerlegung. Folglich ist $|e_{v}\cap e_{w}| \leq 1$, also ist $H$ linear. Dann folgt aus der Vorraussetzung, dass $\chi'(H) \leq |H| = \kappa_{2}(G)$ 
-  Somit finden wir eine F"arbung der Kanten von $H$ mit maximal $\kappa_{2}(G)$ Farben. Jede Kante von $H$ korrespondiert mit genau einer Ecke von $G$. Folglich erhalten wir eine F"arbung von $G$ mit maximal $\kappa_{2}(G)$ Farben, wenn wir die Ecken von $G$ mit der selben Farbe wie ihre korrespondierende Kante in $H$ f"arben. \todo{Format} Sonst exisiteren zwei Ecken $v,w$ von $G$ die benachbart sind und die selbe Farbe haben, 
-  also auch $e_v$ und $e_w$. Da $v$ und $w$ benachbart sind, kommen sie beide im selben vollst"andigen Graph $K$ der Krauszzerlegung vor. Damit ist $|e_v\cap e_w| = 0$ und folglich kommen $v$ und $w$ nicht in den selben vollst"andigen Graphen vor. Widerspruch. Damit folgt
-  \begin{align*}
-    \chi(G) \leq \chi(H) \leq \kappa_{2}(G)
-  \end{align*}
+  Angenommen $|e_{v}\cap e_{w}| \geq 2$. Dies ist ein Widerspruch zu Eigenschaft (Kb) der Krauszzerlegung $\mathcal{K}$. Folglich ist $|e_{v}\cap e_{w}| \leq 1$, also ist $H$ linear. Dann folgt aus der Vorraussetzung, dass $\chi'(H) \leq |H| = \kappa_{2}(G)$ 
+  Somit finden wir eine F"arbung $g : E(H) \mapsto \left\{ 1,\dots,p \right\}$ der Kanten von $H$. Sei dann $f =  \pi \circ g$. Wir zeigen, dass $f$ eine F"arbung der Ecken von $G$ ist. Ist dem nicht so, so existieren zwei unterschiedliche Ecken $v,w$ mit $vw\in E(G)$ und $f(v) = f(w)$. Dann ist $g(e_v) = g(e_w)$ und folglich $|e_v  \cap e_w | = 0$. Dann kann aber $vw$ nicht in $E(G)$ sein, da die Graphen aus $\mathcal{K}$ eine "Uberdeckung von $G$ sind. Ein
+  Widerspruch. Also ist $f$ ein F"arbung von $G$. Damit ist 
+  \begin{equation*}
+    \chi(G) \leq |E(H)| = |\mathcal{K}| = p
+  \end{equation*}
+  Also impliziert (c) (b). 
 
-  Gelte (b) und sei $H$ ein (von der M"achtigkeit) minimaler linearer Hypergraph welcher (c) nicht erf"ullt. Ist dann $\delta(H) \leq 1$ so k"onnen wir eine Ecke aus $H$ entfernen und erhalten einen linearen Hypergraphen $H'$ kleinerer M"achtigkeit, welcher ebenfalls (c) nicht erf"ullt. Also ist $\delta(H) \geq 2$. Sei $G$ der Kantengraph von $H$ mit $V(G) = E(H)$ und $E(G) = \left\{ ee'|e\cap e' \neq \emptyset \right\}$. Definere f"ur $v\in V(H)$ die Menge $E_{H}(v)$ als die Menge aller
+  Das (c) aus (b) folgt, zeigen wir durch Widerspruch. Gelte (b) und sei $H$ ein (von der M"achtigkeit der Ecken) minimaler linearer Hypergraph welcher (c) nicht erf"ullt (d.h. ist $H'$ ein weiterer linearer Hypergraph mit $|H'| < |H|$, so ist $\chi'(H') \leq | H'|$). Ist dann $\delta(H) \leq 1$ so k"onnen wir eine Ecke aus $H$ entfernen und erhalten einen linearen Hypergraphen $H'$ kleinerer \todo{ausf"uhrlicer?} M"achtigkeit, welcher ebenfalls (c) nicht erf"ullt. Dies steht im Widerspruch zu unserer Annahme der
+  Minimalit"at von  $H$.  Also ist $\delta(H) \geq 2$. Sei $G$ der Kantengraph von $H$ mit $V(G) = E(H)$ und $E(G) = \left\{ ee'|e\cap e' \neq \emptyset \right\}$. Definiere f"ur $v\in V(H)$ die Menge $E_{H}(v)$ als die Menge aller
   Kanten von $H$, die mit $v$ inzident sind und $K^{v}$ als den durch $E_H(v)$ induzierten Untergraphen von $G$.
-  Wir zeigen: $\mathcal K := \left\{ K^{v}| v \in V(H) \right\}$ ist eine Krauszzerlegung von $G$.  
-
-  Seien $e,e'$ zwei verschiedene Kanten aus $E_{H}(v)$. Dann haben $e$ und $e'$ die Ecke $v$ gemeinsam. Folglich ist $e\cap e' \neq \emptyset$ und $ee'$ ist eine Kante in $G$. Au{\ss}erdem ist 
-  \begin{align*}
-    |K^{v}| = |E_H(v)| = d_{H}(v) \geq 2
-  \end{align*}
-  Damit erf"ullen alle $K^{v}$ Bedingung (i) von \ref{def:Krauszzerlegung}. Bedingung (ii) folgt, da $H$ ein linearer Hypergraph ist \todo{ausf"uhrlicher}. (iii) folgt, da jede Kante von $H$ mit mindestens einer Ecke von $H$ inzident ist.
+  Wir zeigen: $\mathcal K := \left\{ K^{v}| v \in V(H) \right\}$ ist eine Krauszzerlegung von $G$ mit $\delta_{G}(\mathcal{K}) \geq 2$.
+  Sei also $K \in \mathcal{K} $ beliebig. Dann gibt es eine Ecke $v\in V(H)$ mit $K = K^{v} = G[E_{H}(v)]$. Seien weiterhin $e,e' \in E_H(v)$. Damit ist $e\cap e' = \left\{ v \right\}$ und deswegen $ee'\in E(K^{v})$. 
+  Au{\ss}erdem ist \begin{equation*}
+    |K^{v}| = |E_{H}(v)|= d_{H}(v) \geq \delta(H) \geq 2
+  \end{equation*}
+  Also erf"ullt $\mathcal{K}$ (Ka). Seien nun $K,K'\in \mathcal{K}$ unterschiedlich. Wir m"ussen zeigen, dass diese keine Kante gemeinsam haben. Angenommen das w"are der Fall. Dann gibt es zwei unterschiedliche Ecken $e,e' \in V(K) \cap V(K')$. Folglich existieren
+  zwei unterschiedliche Ecken $v,w \in V(H)$ mit $v,w \in e \cap e'$. Ein Widerspruch, da $H$ ein linearer Hypergraph ist. Also erf"ullt  $\mathcal{K}$ (Kb). Sei $ee'\in E(G)$. Folglich ist $e\cap e' \neq \emptyset$ und es existiert eine Ecke $v$ von $H$ mit $e \cap e ' = \left\{ v \right\}$. Damit sind $e,e'\in V(K^{v}) \subseteq V(G)$. Also erf"ullt $\mathcal{K}$ (Kc). 
+  Es bleibt zu zeigen, dass $\delta_{G}(\mathcal{K}) \geq 2$. Sei dazu $e \in V(G)$ beliebig. Da wir $H$ als schlingenlos angenommen haben, existieren zwei unterschiedliche Ecken $v,w \in e$. Also ist $e\in K^{v}$ und $e\in K^{w}$. Diese sind unterschiedlich, da sonst $v$ und $w$ mit den selben Kanten inzident w"aren und somit eine andere Kante $e'$ existieren w"urde (da $\delta(H) \geq 2 $) mit $v,w \in e'$. Das ist aber unm"oglich, da $H$ ein linearer Hypergraph ist. 
+  Damit ist \begin{equation*}
+    \chi'(H) = \chi(G) \leq \kappa_{2}(G) \leq |\mathcal{K}| = |H|
+  \end{equation*}
+  Ein Widerspruch.
 \end{proof}
 \subsection{Krauszzerlegungen und Eigenwerte}
 
@@ -110,41 +134,39 @@ Es bezeichne $\cE(n)$ die Klasse aller Graphen welche die Vereinigung von $n$ ka
   \end{enumerate}
 \end{theorem}
 \begin{proof}
-  \begin{enumerate}[label=(\alph*)]
-    \item Es sei $A$ die Adjazenzmatrix von $G$ und $D := \operatorname{diag}(d_1,\dots,d_n)$. Definiere $B\in\R^{n\times m}$ als die Inzidenzmatrix von $\mathcal K$, also $$B_{i,j} = \begin{cases}
+    Zun"achst zeigen wir (a). Es sei $A$ die Adjazenzmatrix von $G$ und $D := \operatorname{diag}(d_1,\dots,d_n)$. Definiere $B\in\R^{n\times m}$ als die Inzidenzmatrix von $\mathcal K$, also $$B_{i,j} = \begin{cases}
         1 & v_i \in K_j \\ 0 & v_i \notin K_j
       \end{cases}$$ 
       Nun betrachten wir $M=BB^{T}$. Es gilt
       \[
         M_{i,j} = \sum\limits_{k=1}^{d}B_{i,k}B_{j,k}
       \]
-      Seien zun"achst $i,j \in \{1,\dots,n\}$ mit $i\neq j$. Ist $B_{i,k} = 1$ und $B_{j,k} = 1$, so ist $v_i,v_j  \in K_k$, und somit (da $K_k$ ein vollst"andiger Graph ist) $v_iv_j\in E(G)$. Es k"onnen aber f"ur h"ochstens ein $k\in \{1,\dots,m\}$ $B_{i,k}$ und $B_{j,k}$ gleichzeitig $1$ seien, da nach \ref{def:Krauszzerlegung} die Graphen aus $\mathcal K$ kantendisjunkt sind. Also ist $M_{i,j}= 1 $ genau dann, wenn $v_iv_j\in E(G)$, genau dann wenn $A_{i,j} = 1$. Somit ist $M_{i,j}=A_{i,j}$\\
+      Seien zun"achst $i,j \in \{1,\dots,n\}$ mit $i\neq j$. Ist $B_{i,k} = 1$ und $B_{j,k} = 1$, so ist $v_i,v_j  \in K_k$, und somit (da $K_k$ ein vollst"andiger Graph ist) $v_iv_j\in E(G)$. Es k"onnen aber f"ur h"ochstens ein $k\in \{1,\dots,m\}$ $B_{i,k}$ und $B_{j,k}$ gleichzeitig $1$ seien, da nach Definition \ref{def:Krauszzerlegung} die Graphen aus $\mathcal K$ kantendisjunkt sind. Also ist $M_{i,j}= 1 $ genau dann, wenn $v_iv_j\in E(G)$, genau dann wenn $A_{i,j} = 1$. Somit ist $M_{i,j}=A_{i,j}$\\
       Sei nun $i\in\{1,\dots,n\}$ beliebig. Wir betrachten $M_{i,i}$. Es gilt 
       \[
         M_{i,i} = \sum\limits_{k=1}^{d}B_{i,k}B_{i,k} = \sum\limits_{k=1}^{d} B_{i,k}
       \]
-      $B_{i,k}=1$ genau dann, wenn $v_i \in K_k$. Folglich ist $M_{i,i}= d_G(v_i:\mathcal K)= d_i$. Damit gilt $M=A+D$. $M$ ist nach \ref{prop:psdmatrix} positiv semidefinit.
-      Folglich ist $A- (-D)$ positiv semidefinit, und es folgt mit \ref{lem:evpsddif}, dass 
+      $B_{i,k}=1$ genau dann, wenn $v_i \in K_k$. Folglich ist $M_{i,i}= d_G(v_i:\mathcal K)= d_i$. Damit gilt $M=A+D$. $M$ ist nach Satz \ref{prop:psdmatrix} positiv semidefinit.
+      Folglich ist $A- (-D)$ positiv semidefinit, und es folgt mit Lemma \ref{lem:evpsddif}, dass 
       \begin{equation*}
-        \lambda_i(G) = \lambda_i(A) \geq \lambda_i(-D) =- -d_{n-i+1}
+        \lambda_i(G) = \lambda_i(A) \geq \lambda_i(-D) = -d_{n-i+1}
       \end{equation*}
-    \item Sei $m<n$. Dann ist $\operatorname{rang}(M)= \operatorname{rang}(B) \leq m$. Also ist $\lambda_{m+1}(M) = 0$ und es folgt mit \ref{thm:weylineq} dass 
+      Damit ist (a) gezeigt.
+
+     Nun zeigen wir (b). Sei $m<n$. Dann ist $\operatorname{rang}(M)= \operatorname{rang}(B) \leq m$. Also ist $\lambda_{m+1}(M) = 0$ und es folgt mit Satz \ref{thm:weylineq} dass 
       \begin{align*}
         \lambda_{m+1}(A) + d \leq \lambda_{m+1}(A) + d_{n} \leq 0
       \end{align*}
       Durch Umstellen erhalten wir die gew"unschte Ungleichung.
-  \end{enumerate}
 \end{proof}
 \begin{corollary}
   \label{cor:Korollar1}
-  Sei $H$ ein induzierter Untergraph von $G$ mit $p = \left| H\right| \leq \left|G\right| = n$.
-  Ist $\lambda_p (H) > -d $ f"ur ein $q \leq p$ und $-2 \leq d \in \N$, so ist $\kappa_d(G) \geq q$.
+  Sei $H$ ein induzierter Untergraph von $G$ mit $p = \left| H\right|$.
+  Ist $\lambda_q (H) > -d $ f"ur ein $q \leq p$ und $2 \leq d \in \N$, so ist $\kappa_d(G) \geq q$.
 \end{corollary}
 \begin{proof}
-  Angenommen $\kappa_d(G) < q$. Sei dann $\mathcal{K}$ eine Krauszzerlegung von $G$ die zu $d$ passt. Dann ist nach \ref{thm:Interlacing} $\lambda_{q}(G)\geq \lambda_{q}(H) > -d$. 
-  Da $i < q \leq n$ gilt nach \ref{thm:KrauszEigenwerte} $\lambda_{i+1}\leq -d$ und somit $\lambda_{q}(G)\leq \lambda_{i+1} \leq -d$. Widerspruch.
+  Angenommen $\kappa_{d}(G) < q$. Sei dann $\mathcal{K}$ eine Krauszzerlegung von $G$ mit $|\mathcal{K}| = \kappa_{d}(G)$ und $\delta_G(\mathcal{K}) \geq d$. Dann ist nach Lemma \ref{lem:InterlacingGraphen} $\lambda_{q}(G) \geq \lambda_{q}(H) > -d $. Nach Satz \ref{thm:KrauszEigenwerte} ist dann $\lambda_{q}(G) \leq \lambda_{\kappa_{d}(G)+1} \leq -d $, ein Widerspruch. 
 \end{proof}
-Es sei $G$ ein Graph. Der \DF{Kantengraph} $L(G)$ (engl. line graph) von $G$ ist definiert als der Graph mit Eckenmenge $E(G)$ und Kantenmenge $\{ee'|e\text{ und } e' \text{ besitzen eine gemeinsame Endecke}\}$.
 
 \begin{corollary}
   \label{cor:LineGraphWald}
@@ -154,7 +176,7 @@ Es sei $G$ ein Graph. Der \DF{Kantengraph} $L(G)$ (engl. line graph) von $G$ ist
 
 \begin{proof}
   Da $H$ Kantengraph eines Waldes ist, folgt $\lambda_{min}(H) > -2$ (vgl. \cite[3.4.10]{zbMATH05625877}) 
-  Nach \ref{cor:Korollar1} ist f"ur $q=\left|H\right|$ : $\lambda_q(H)=\lambda_{\text{min}}> -2$. Dann ist mit \ref{cor:Korollar1} $\kappa_{2}\left( H \right) > \left| H\right|$.
+  Nach Korollar \ref{cor:Korollar1} ist f"ur $q=\left|H\right|$ : $\lambda_q(H)=\lambda_{\text{min}}> -2$. Dann ist mit Korollar \ref{cor:Korollar1} $\kappa_{2}\left( H \right) > \left| H\right|$.
 \end{proof}
 
 \begin{corollary}[Klotz]
@@ -162,7 +184,7 @@ Es sei $G$ ein Graph. Der \DF{Kantengraph} $L(G)$ (engl. line graph) von $G$ ist
 \end{corollary}
 
 \begin{proof}
-  $K_n$ ist der Kantengraph von $K_{1,n}$. Nun folgt die Behauptung aus \ref{cor:LineGraphWald}.
+  $K_n$ ist der Kantengraph von $K_{1,n}$. Nun folgt die Behauptung aus Korollar \ref{cor:LineGraphWald}.
 \end{proof}
 \begin{corollary}
   Ist $\delta\left( G \right) \geq 2$, so gilt $\omega\left( G \right)\leq \kappa_{2}\left( G \right)$ und $\alpha\left( G \right)\leq \kappa_{2}\left( G \right)$.
@@ -170,45 +192,36 @@ Es sei $G$ ein Graph. Der \DF{Kantengraph} $L(G)$ (engl. line graph) von $G$ ist
 \end{corollary}
 
 \begin{proof}
-  Sei $p = \omega(G)$. Dann gilt nach $\lambda_{p}\left( G \right)\geq -1\geq -2$. Damit sind f"ur $d=2$ die Voraussetzungen von \ref{cor:Korollar1} erf"ullt, und es gilt folglich $\kappa_{2}\left( G \right)\geq p = \omega\left( G \right)$ 
+  Sei $p = \omega(G)$. Dann gilt nach $\lambda_{p}\left( G \right)\geq -1\geq -2$. Damit sind f"ur $d=2$ die Voraussetzungen von Korollar \ref{cor:Korollar1} erf"ullt, und es gilt folglich $\kappa_{2}\left( G \right)\geq p = \omega\left( G \right)$ 
   F"ur $q=\alpha\left( G) \right)$ gilt wieder nach $\lambda_{q}\left( G \right)\geq 0 \geq -2$. Damit folgt analog $\alpha\left( G \right) \leq \kappa_{2}\left( G \right)$.
 \end{proof}
-\begin{conjecture}
-  \label{con:MainConjecture}
-  Ist $\chi\left( G \right) \geq k$, so ist $\lambda_k\left( G \right) > -d$.
-\end{conjecture}
 
 \begin{theorem}
   \label{thm:MainTheorem}
-  Gelte \ref{con:MainConjecture}. Dann gilt :
+  Existiert ein $d\in \N$, sodass f"ur alle  Graphen $G$ mit $\chi(G) = k $ gilt : $ \lambda_{k}(G) > -d$, so gilt:
   \begin{enumerate}[label=(\alph*)]
-    \item \label{en:mainconfirst}Ist $\delta\left( G \right) \geq d$ so ist $\chi\left( G \right)\leq \kappa_{d}\left( G \right)$
-    \item  Ist $H$ ein linearer Hypergraph mit $\left|e\right| \geq d$, so ist $\chi'\left( H \right)\leq \left|H\right| $
+    \item  $\chi\left( G \right)\leq \kappa_{d}\left( G \right)$
+    \item  Ist $H$ ein linearer Hypergraph mit $\left|e\right| \geq d$ f"ur alle $e\in E(H)$, so ist $\chi'\left( H \right)\leq \left|H\right| $
   \end{enumerate}
 \end{theorem}
 
 \begin{proof}
 
-  \begin{enumerate}[label=(\alph*)]
-    \item Sei $\chi(G) = k$. Dann ist nach \ref{con:MainConjecture} $\lambda_{k}\left( G \right) > -d$. Mit \ref{cor:Korollar1} folgt $\kappa_{d}\left( G \right) \geq k = \chi\left( G \right)$.
-      \todo{Nachpr"ufen ob d-1 reicht} 
-    \item Angenommen die Behauptung gilt nicht. Dann gibt es einen minimalen Hypergraphen $H$ f"ur welchen $\chi'(H) > |H|$ ist. Angenommen in diesem exisitiert eine Kante vom Grad kleiner als $d$. Entfernen wir diese und alle mit keinen anderen Kanten inzidenten Ecken (von welchen es mindestens eine gibt, da alle Kanten mindestens $d$ Ecken enthalten und $H$ ein linearer Hypergraph ist), erhalten wir einen Hypergraphen $H'$. 
+    Wir zeigen zun"achst (a). Sei $\chi(G) = k$. Dann ist nach Voraussetzung $\lambda_{k}\left( G \right) > -d$. Mit Korollar \ref{cor:Korollar1} folgt $\kappa_{d}\left( G \right) \geq k = \chi\left( G \right)$. 
+    Damit ist (a) gezeigt. 
+
+    Wir zeigen nun (b) durch Widerspruch. Angenommen die Behauptung gilt nicht. Dann gibt es einen (von der M"achtigkeit der Ecken)  minimalen Hypergraphen $H$ f"ur welchen $\chi'(H) > |H|$ ist. Angenommen in diesem exisitiert eine Kante vom Grad kleiner als $d$. Entfernen wir diese, erhalten wir einen Hypergraphen $H'$ kleinerer M"achtigkeit.
       Dieser erf"ullt die Behauptung, da $H$ das kleinste Gegenbeispiel ist. Also existiert eine Kantenf"arbung von $H'$ mit h"ochstens $|H'| < |H|$ Farben. Aus dieser gewinnen wir eine Kantenf"arbung von $H$, indem wir alle Kanten wie in $H'$ f"arben, und die entfernte Kante mit einer neuen Farbe f"arben. Folglich gilt also:
       \begin{align*}
         \chi'(H) \leq \chi'(H') +1 \leq |H'|+1 \leq |H|
       \end{align*}
       Ein Widerspruch. Folglich haben alle Kanten in $H$ mindestens Grad $d$. 
 
-      Sei nun $G$ der Kantengraph von $H$. Dann ist $\delta(G) \geq d$, folglich also 
-      \begin{align*}
-        \chi'(H) = \chi(G) \leq \kappa_{d}(G) 
-      \end{align*}
-      Die Kanten von $G$ ergeben eine Krauszzerlegung $\mathcal{K}$ mit $\delta_{G}(\mathcal{K}) \geq d$. Jede Kante von $G$ korrespondiert mit einer Ecke von $H$, da $H$ ein linearer Hypergraph ist. Folglich ist 
-      \begin{align*}
-        |E(G)| = |\{ v \in V(H) | d_{H}(v) = 2 \}| \leq |H|
-      \end{align*}
-      Damit ist $\kappa_{d}(G) \leq |E(G)|\leq |H|$. Folglich existiert kein kleinstes Gegenbeispiel, und die Behauptung gilt f"ur alle linearen Hypergraphen.
-  \end{enumerate}
+      Sei nun $G=L(H)$ der Kantengraph von $H$. Dann ist $\delta(G) \geq d$. F"ur eine Ecke  $v\in V(H)$ sei (analog zum Beweis von  Satz \ref{thm:equivefl}) $E_{H}(v) = \left\{ e\in E(H) | v\in e \right\}$ und $K^{v} = G[E_{H}(v)]$. Wie in Satz \ref{thm:equivefl} folgt, dass $\mathcal{K}=\left\{ K^{v} | v \in V(H) \right\}$ eine Krauszzerlegung von $G$ mit $\delta_{G}(\mathcal{K}) \geq d$ ist. Damit gilt
+      \begin{equation*}
+        \chi'(H) = \chi(G) \leq \kappa_{d}(G) \leq |\mathcal{K}| = |H|
+      \end{equation*}
+      Wobei die erste Ungleichung wegen (a) gilt. Damit ist alles gezeigt. 
 \end{proof}
 
 
@@ -219,10 +232,11 @@ Wir wollen nun einige Schranken f"ur $\kappa_{d}(G)$ angeben.
   Ist $\delta(G) \geq d$, so ist $\kappa_{d}(G) \leq |E(G)|$. 
 \end{lemma}
 \begin{proof}
-  Dies folgt unmittelbar aus dem Beweis von \ref{lm:krauszexistenz}. 
+  Dies folgt unmittelbar aus dem Beweis von Lemma \ref{lm:krauszexistenz}. 
 \end{proof}
 
 \begin{theorem}
+  Sei $G$ ein Graph der Ordnung $n$ und $d\in \N$. Dann gilt:
   \begin{align*}
     \kappa_{d}(G) &\geq \frac{nd}{\lambda_{1}(G) +d} 
     %\lambda_n(A) \leq -d 
@@ -239,39 +253,64 @@ Wir wollen nun einige Schranken f"ur $\kappa_{d}(G)$ angeben.
     \kappa_{d}(G) \geq n &\geq \frac{nd}{\lambda_{1}(G)+d}
   \end{align*}
   \ncase{2}{$\kappa_{d}(G) < n$}
-  Wir verwenden die selbe Bezeichnung wie in \ref{thm:KrauszEigenwerte}. Dann ist $M=A+D$ mit $\operatorname{rang} (M) = m \leq \kappa_{d}(G) < n$ und folglich $\lambda_{m+1}(M) = \dots = \lambda_{n}(M) = 0$. 
-
-  Mit \ref{thm:kyfanineq} folgt dann : 
+  Sei $\mathcal{K}$ eine Krauszzerlegung von $G$ mit $|\mathcal{K}| = \kappa_{d}(G)$ und $\delta_{G}(\mathcal{K}) \geq d$. Seien $d_{i} = d_{G}(v:\mathcal{K})$. Wir k"onnen annehmen, dass die $d_{i}$ fallend geordnet sind. Sei $B\in \R^{n\times p}$ die Adjanzenzmatrix von $\mathcal{K}$ und $M = BB^{T} = A+D$, wobei $A= A(G)$ und $D = \operatorname{diag}(d_{1},\dots,d_n)$.
+  Dann ist $M$ positiv semidefinit und $\operatorname{rang} (M) \leq p = \kappa_{d}(G) < n $. Deswegen ist $\lambda_{p+1}(M) = \dots \lambda_{n}(M) = 0$. 
+    Mit Satz \ref{thm:kyfanineq} folgt dann : 
   \begin{align*}
     \sum\limits_{i=1}^{n} \lambda_{i}(D) &=\sum\limits_{i=1}^{n} \lambda_{i}(A) +\sum\limits_{i=1}^{n}  \lambda_{i}(D) \\
-    &=\sum\limits_{i=1}^{n} \lambda_{i}(M) =\sum\limits_{i=1}^{m} \lambda_{i}(M) \\
-    &\leq \sum\limits_{i=1}^{m} \lambda_{i}(A) +\sum\limits_{i=1}^{m} \lambda_{i}(D)
+    &=\sum\limits_{i=1}^{n} \lambda_{i}(M) =\sum\limits_{i=1}^{p} \lambda_{i}(M) \\
+    &\leq \sum\limits_{i=1}^{p} \lambda_{i}(A) +\sum\limits_{i=1}^{p} \lambda_{i}(D)
   \end{align*}
   Daraus folgt 
   \begin{align*}
-    (n-m) d \leq (n-m) \lambda_n(D) \leq \sum\limits_{i=m+1}^{n} \lambda_{i}(D) \leq\sum\limits_{i=1}^{m} \lambda_{i}(A) \leq m\lambda_{1}(A)
+    (n-p) d \leq (n-p) \lambda_n(D) \leq \sum\limits_{i=m+1}^{n} \lambda_{i}(D) \leq\sum\limits_{i=1}^{p} \lambda_{i}(A) \leq p\lambda_{1}(A)
   \end{align*}
-  Durch Umstellen erhalten wir die gew"unschte Ungleichung.
+  Durch Umstellen nach $p$ erhalten wir die gew"unschte Ungleichung.
 \end{proof}
 
-\begin{theorem}
-  \label{thm:omegakrauszabsch}
-  Sei $G$ ein Graph mit Minimalgrad mindestens $d$. Dann gilt
-  \begin{align*}
-    \kappa_{d}(G) \geq \frac{|E(G)|}{{\omega(G) \choose 2}} \\
-    \kappa_{d}(G) \geq \frac{n}{\chi(G)}
-  \end{align*}
-\end{theorem}
+\subsection{Chromatische Zahl und Eigenwerte}
+
+\subsection{Satz \ref{thm:MainTheorem} f"ur $d=2$}
+
+Gilt Satz \ref{thm:MainTheorem} f"ur $d=2$, so folgt die Erd\H{o}s--Faber--Lov\'asz Vermutung auf Grund von Satz \ref{thm:equivefl}. Im Folgenden wollen wir den Fall $d=2$ f"ur einige Graphenklassen untersuchen. 
+
+\begin{conjecture}
+  Ist $G$ ein Graph mit $\chi(G) = k$, dann gilt $\lambda_{k}(G) > -2$. 
+  \label{con:maincon}
+\end{conjecture}
+
+\begin{remark}
+  Es reicht Vermutung \ref{con:maincon} f"ur $k$-kritische Graphen zu zeigen. 
+\end{remark}
 
 \begin{proof}
-  Sei $\mathcal{K}$ eine Krauszzerlegung von $G$ mit $|\mathcal{K}| = \kappa_{d}(G)$. Dann ist jeder Graph in $\mathcal{K}$ ein vollst"andiger Graph der Ordnung h"ochstens $\omega(G)$. Somit gilt
-  \begin{align*}
-    |E(G)| = \sum\limits_{K\in \mathcal{K}} |E(K)| 
-  \end{align*} 
-  Also gilt die erste Ungleichung. 
-  Nach \ref{cor:alphaomegakrausz} gilt $\kappa_{d}(G) \geq \alpha(G)$. Daraus folgt 
-  \begin{align*}
-    \chi(G) \kappa_{d}(G) \geq \chi(G) \alpha(G) \geq n
-  \end{align*}
-  Damit ist alles gezeigt.
+  Sei $G$ ein Graph mit $\chi(G) = k$. Dann enth"alt $G$ einen $k$-kritischen Untergraphen $H$. F"ur diesen gilt (nach Vermutung) $\lambda_{k}(H) > -2$. Nun folgt mit Satz \ref{thm:InterlacingGraphen}
+  \begin{equation*}
+    \lambda_{k}(G) \geq \lambda_{k}(H) > -2
+  \end{equation*}
+  Damit gilt Vermutung \ref{con:maincon} auch f"ur $G$.
 \end{proof}
+
+Seien $v,k\in \N$ mit $v \geq k$. Der \DF{Kneser Graph} $K_{v:r}$ ist der Graph mit Eckenmenge $V(K_{v:r}) = \left\{ X \subset \left\{ 1,\dots v \right\} | |X| = r \right\}$ und Kantenmenge $E(K_{v:r}) = \left\{ XY| X,Y \in V(K_{v:r}), X \cap Y = \emptyset \right\}$. 
+
+Es wurde gezeigt \todo{Referenz , binom. richtig}, dass $\alpha(K_{v:r}) =\begin{pmatrix}
+   v-1 \\ r-1
+ \end{pmatrix}$ (falls $v >2r$) und $\chi(K_{v:r}) = v-2r+2$. Das, und  Korollar \ref{cor:alphaomegaEigenwerte} erlaubt uns Vermutung \ref{con:maincon} f"ur alle Kneser Graphen zu beweisen. 
+
+ \begin{proposition}
+   Ist $G=K_{v:r}$ und $k= \chi(G)$ so ist $\lambda_{k}(G) > -2$. 
+ \end{proposition}
+
+ \begin{proof}
+   Wir machen eine Fallunterscheidung bez"uglich $r$. 
+   \ncase{1} {$r=1$} Dann ist $K_{v:1}$ isomorph zu $K_v$. Dieser hat alle Eigenwerte gr"o{\ss}er als $-2$.
+ \ncase{2} {$\frac{v}{2} >  r \geq 2$} Sei $p = \alpha(G)$.  Dann ist $\alpha(G) = \begin{pmatrix}
+   v-1 \\ r-1
+ \end{pmatrix}$ und folglich $ \alpha (G) \geq v-1$. Andererseits ist $\chi(G) = v-2r+2 < v-2$. Folglich ist $p > \chi(G)$. Mit  Korollar \ref{cor:alphaomegaEigenwerte} gilt dann \begin{equation*}
+   \lambda_{k}(G) \geq \lambda_{p}(G) \geq 0
+ \end{equation*}
+  Also ist alles gezeigt.
+  \ncase{3} {$2r = v $} Dann ist $\chi(G) = 2$ und $\omega(G) =2$. Somit folgt die Behauptung aus Korollar \ref{cor:alphaomegaEigenwerte}. 
+  \ncase{3}{$2r > v$} Dann ist $|E(G)| = 0$ und folglich ist $G$ ein leerer Graph, welcher nur den Eigenwert $0$ besitzt.
+ \end{proof}
+
