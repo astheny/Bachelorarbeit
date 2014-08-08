@@ -3,22 +3,25 @@
 Gegenstand dieser Bachelorarbeit ist der Zusammenhang zwischen den Eigenwerten, der chromatischen Zahl und den Krauszzerlegungen eines Graphen. Die daf"ur ben"otigten Grundlagen werden wir in Kapitel 1 erarbeiten. 
 \subsection{Graphentheoretische Grundlagen}
 \label{ssec:graphengrundlagen}
-Es sei $G=(V(G),E(G))$ stets ein (schlichter, ungerichteter) Graph mit Eckenmenge $V(G) = \left\{ v_1,\dots v_n \right\}$ und Kantenmenge $E(G)= \left\{ v_iv_j| v_i \text{ und } v_j \text{ sind in } G \text{ adjazent} \right\}$.Dann heißt $|G| = |V(G)|$ die \DF{Ordnung} von $G$. Der \DF{Grad} einer Ecke $v\in V(G)$ sei definiert als $d_{G}(v) = |\left\{ v_j|v_iv_j\in E(G) \right\}|$. Der \DF{Minimalgrad} (\DF{Maximalgrad}) sei definiert als der kleinste (gr"o{\ss}te) Grad einer Ecke von $G$ und wird mit $\delta(G)$ ($\Delta(G)$) bezeichnet.
+In der folgenden Arbeit seien die nat"urlichen Zahlen $\N$ stets die Menge $ \left\{ 1, 2 , \dots \right\}$.
+Es sei $G=(V(G),E(G))$ stets ein (schlichter, ungerichteter) \DF{Graph} mit \DF{Eckenmenge} $V(G) = \left\{ v_1,\dots , v_n \right\}$ und \DF{Kantenmenge} $E(G)= \left\{ v_iv_j| v_i \text{ und } v_j \text{ sind in } G \text{ adjazent} \right\}$. Dann heißt $|G| = |V(G)|$ die \DF{Ordnung} von $G$. Der \DF{Grad} einer Ecke $v\in V(G)$ sei definiert als $d_{G}(v) = |\left\{ v_j|v_iv_j\in E(G) \right\}|$. Der \DF{Minimalgrad} (\DF{Maximalgrad}) sei definiert als der kleinste (gr"o{\ss}te) Grad einer Ecke von $G$ und wird mit $\delta(G)$ ($\Delta(G)$) bezeichnet.
 Wir wollen nun einige h"aufig auftretenden Graphen bezeichnen. Der \DF{vollst"andige Graph} der Ordnung $n$ sei $K_n$ und sein Komplement, der \DF{leere Graph} der Ordnung $n$ sei $O_n$, der \DF{Kreis} der L"ange $n$ sei $C_n$. Der \DF{Weg} der L"ange $n$ sei $P_{n+1}$. 
 \todo{Bilder?} F"ur einen Graphen $G$ sei der \DF{Kantengraph} $L(G)$ definiert als der Graph mit Eckenmenge $V(L(G))= E(G)$ und Kantenmenge $E(L(G)) = \left\{ ee'|e \text{ und } e' \text{ besitzen in } G \text{ eine gemeinsame Endecke} \right\}$. 
 Ein Untergraph von $G$ ist ein Graph $H$ mit $V(H) \subseteq V(G)$ und $E(H)\subseteq E(G)$. 
 Gibt es eine Menge von Ecken $X\subseteq V(G)$ mit $V(H) = X$ und $E(H) = \left\{ v_iv_j|v_i,v_j\in V(H) \text{ und } v_iv_j \in E(G) \right\}$ so heißt $H$ \DF{induzierter Untergraph} von $G$. Wir bezeichnen $H$ dann mit $G[X]$.
 Die \DF{Cliquenzahl} $\omega(G)$ ist die gr"o{\ss}te Zahl $k$, sodass $G$ den vollst"andigen Graph der Ordnung $k$  als Untergraphen enth"alt, die \DF{Unabh"angigkeitszahl} $\alpha(G)$ ist die gr"oßte Zahl $k$, sodass $G$ den leeren Graphen der Ordnung $k$ als Untergraphen enth"alt.
 
-Ein (schlingenloser) Hypergraph $H=(V(H),E(H))$ mit \DF{Eckenmenge} $V(H)$ und \DF{Kantenmenge} $E(H)$ heißt \DF{linearer Hypergraph}, falls zwei verschiedene Kanten $e,e'\in E(H)$ maximal eine Ecke gemeinsam haben ($|e\cap e'| \leq 1$). F"ur eine Kante $e$ von $H$ ist  der \DF{Kantengrad} die Anzahl aller Kanten, die mit $e$ einen nichtleeren Schnitt haben. Der \DF{Eckengrad} einer Ecke $v \in V(H)$ ist definiert als die Anzahl aller Kanten, welche $v$ enthalten. 
+Ein (schlingenloser) Hypergraph $H=(V(H),E(H))$ mit \DF{Eckenmenge} $V(H)$ und \DF{Kantenmenge} $E(H)$ heißt \DF{linearer Hypergraph}, falls zwei verschiedene Kanten $e,e'\in E(H)$ maximal eine Ecke gemeinsam haben ($|e\cap e'| \leq 1$). Die \DF{Ordnung} von $H$ sei $|V(H)|$ und wird mit $|H|$ bezeichnet. F"ur eine Kante $e$ von $H$ ist  der \DF{Kantengrad} die Anzahl aller Kanten, die mit $e$ einen nichtleeren Schnitt haben. Der \DF{Eckengrad} einer Ecke $v \in V(H)$ ist
+definiert als die Anzahl aller Kanten, welche $v$ enthalten und wird mit $d_{H}(v)$ bezeichnet. 
 Auch hier bezeichne $\delta(H)$ den kleinsten Grad aller Ecken von $H$.
 Auch f"ur Hypergraphen definieren wir den \DF{Kantengraphen} $L(H)$ als den Graphen mit Eckenmenge $V(L(H))=E(H)$ und Kantenmenge $E(L(H)) = \left\{ ee'|e\cap e' \neq \emptyset \right\}$.
 
-Eine \DF{F"arbung} von $G$ ist eine Abbildung $f:V(G)\to C$ mit $f(v)\neq f(w)$ f"ur alle $vw\in E(G)$, wobei $C$ eine beliebige Menge, die \DF{Farbmenge}, ist. Ist $|C| = k$ so heißt $f$ \DF{k-F"arbung}. Die \DF{chromatische Zahl} $\chi(G)$ bezeichne die kleinste postivie Zahl $k$, f"ur welche eine $k$-F"arbung von $G$ existiert. 
+Eine \DF{F"arbung} von $G$ ist eine Abbildung $f:V(G)\to C$ mit $f(v)\neq f(w)$ f"ur alle $vw\in E(G)$, wobei $C$ eine beliebige Menge, die \DF{Farbmenge}, ist. Ist $|C| = k$ so heißt $f$ \DF{k-Kantenf"arbung}. Die \DF{chromatische Zahl} $\chi(G)$ bezeichne die kleinste postivie Zahl $k$, f"ur welche eine $k$-F"arbung von $G$ existiert. 
 
-Ist $H$ ein Hypergraph so heißt eine Abbildung $g:E(H) \to C$ (wieder heißt $C$ die \DF{Farbmenge}) eine \DF{Kantenf"arbung} von $H$  falls $g(e) \neq g(e')$ f"ur alle unterschiedlichen Kanten $e,e'$ von $H$ mit $e\cap e' \neq \emptyset$. Diese ist eine \DF{$k$-F"arbung}, falls $|C| = k$. Der chromatische Index $\chi'(H)$ bezeichne die kleinste positive Zahl $k$, derart, dass $H$ eine echte $k$-F"arbung besitzt.
+Ist $H$ ein Hypergraph so heißt eine Abbildung $g:E(H) \to C$ (wieder heißt $C$ die \DF{Farbmenge}) eine \DF{Kantenf"arbung} von $H$  falls $g(e) \neq g(e')$ f"ur alle unterschiedlichen Kanten $e,e'$ von $H$ mit $e\cap e' \neq \emptyset$. Diese ist eine \DF{$k$-F"arbung}, falls $|C| = k$. Der \DF{chromatische Index} $\chi'(H)$ bezeichne die kleinste positive Zahl $k$, derart, dass $H$ eine echte $k$-F"arbung besitzt.
 
-Man beachte, dass eine Kantenf"arbung eines Hypergraphen in direktem Zusammenhang zu einer Eckenf"arbung seines Kantengraphen steht. Ist n"amlich $H$ ein Hypergraph und $G=L(H)$ sein Kantengraph, so gibt es offenbar eine bijektive Abbildung $\pi: E(H) \to V(G)$, welche jeder Kante von $H$ die korrespondierende Ecke in $G$ zuordnet. Ist $f$ nun eine F"arbung der Kanten von $H$, so ist $\pi \circ f$ eine F"arbung der Ecken von $G$ und umgekehrt. 
+Man beachte, dass eine Kantenf"arbung eines Hypergraphen in direktem Zusammenhang zu einer Eckenf"arbung seines Kantengraphen steht. Ist n"amlich $H$ ein Hypergraph und $G=L(H)$ sein Kantengraph, so gibt es offenbar eine bijektive Abbildung $\pi: E(H) \to V(G)$, welche jeder Kante von $H$ die korrespondierende Ecke in $G$ zuordnet. Ist $f$ nun eine F"arbung der Kanten von $H$, so ist $f \circ \pi ^{-1}$ eine F"arbung der Ecken von $G$ und ist $g$ eine F"arbung der Ecken von $G$, so ist
+$g \circ \pi$ eine F"arbung der Kanten von $g$. 
 \subsection{Eigenwerte von symmetrischen Matrizen}
 \label{ssec:EigenwerteMatrizen} 
 Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte und folglich k"onnen diese monoton fallend angeordnet werden. F"ur eine symmetrische Matrix $A$ sei also $\lambda_k(A)$ der k-gr"oßte \DF{Eigenwert} (gez"ahlt mit Vielfachheiten). Eine symmetrische Matrix $A$ hei"st \DF{positiv semidefinit} falls $x^TAx \geq 0$ f"ur alle $x \in \R^n$. Gilt außerdem $x^{T}Ax > 0$ f"ur $x\neq 0$ , so hei"st $A$ \DF{positiv definit}. Wir wollen nun einige Eigenschaften von positiv (semi)definiten Matrizen anf"uhren.
@@ -30,12 +33,12 @@ Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte 
     \item $A=UU^T$ für eine Matrix $U\in\R^{n\times m}$.
   \end{enumerate}
   \label{prop:psdmatrix}
-
 \end{proposition}
-Der folgende Satz hilft uns bei der Berechnung der Eigenwerte einer symmetrischen Matrix. Er wurde \todo{suchen} von in bewiesen.
-\begin{theorem}[Courant-Fischer]
+
+Der folgende Satz hilft uns bei der Berechnung der Eigenwerte einer symmetrischen Matrix. Ein Beweis findet sich unter anderem in \cite{zbMATH05826340}[13.5]. 
+\begin{theorem}
   Sei $A\in \R^{n\times n}$ symmetrisch. Seien die (reellen) Eigenwerte von $A$ gegeben durch $\lambda_1(A) \geq \lambda_2(A) \geq \dots\geq \lambda_n(A)$. Dann gilt f"ur alle $p\in\{1,\dots, n\}$ :
-  \begin{enumerate}
+  \begin{enumerate}[label={\rm(\alph*)}]
     \item $\lambda_p(A) = \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TAx}{x^Tx}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } p\}$.
     \item $\lambda_p(A) = \min\{\max\limits_{x\in V , x \neq 0} \frac{x^TAx}{x^Tx}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } n-p+1\}$.
   \end{enumerate}
@@ -43,77 +46,72 @@ Der folgende Satz hilft uns bei der Berechnung der Eigenwerte einer symmetrische
 \end{theorem}
 
 \begin{lemma}
-  Seien $A,B\in \Rnn$ symmetrisch und $A-B$ positiv semidefinit. Dann ist $\lambda_i(A)\geq\lambda_i(B)$ f"ur alle $1\leq i \leq n$.
+  Seien $A,B\in \Rnn$ symmetrisch und $A-B$ positiv semidefinit. Dann ist $\lambda_p(A)\geq\lambda_p(B)$ f"ur alle $1\leq p \leq n$.
   \label{lem:evpsddif}
 \end{lemma}
 
 \begin{proof}
-  Sei $x\in\R^{n}$ beliebig. Dann gilt $x^{T}(A-B)x \geq 0$, da $A-B$ positiv semidefinit ist. Daraus folgt
+  Sei $x\in\R^{n}\setminus \left\{ 0 \right\}$ beliebig. Dann gilt $x^{T}(A-B)x \geq 0$, da $A-B$ positiv semidefinit ist. Daraus folgt
   \begin{align*}
     x^{T} A x &\geq x^{T} B x
   \end{align*}
-  Folglich ist $\frac{x^{T} A x}{x^{T}x} \geq\frac{x^{T} B x}{x^{T}x}$ und es folgt mit Satz \ref{thm:CourantFischer} : 
+  und folglich ist $\frac{x^{T} A x}{x^{T}x} \geq\frac{x^{T} B x}{x^{T}x}$ und es folgt mit Satz \ref{thm:CourantFischer}(a) : 
   \begin{align*}
-    \lambda_i(A) &= \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TAx}{x^Tx}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } i\}\\
-    &\geq \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TBx}{x^Tx}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } i\} \\
-    &= \lambda_i(B)
+    \lambda_p(A) &= \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TAx}{x^Tx}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } p\}\\
+    &\geq \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TBx}{x^Tx}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } p\} \\
+    &= \lambda_p(B)
   \end{align*}
-  F"ur $1\leq i \leq n$. Damit ist alles gezeigt.
+  f"ur $1\leq p \leq n$. Damit ist alles gezeigt.
 \end{proof}
 \begin{theorem}[Interlacing]
   \label{thm:Interlacing}
-  Sei $A\in \R^{n\times n}$ symmetrisch mit und $B\in\R^{(n-k)\times(n-k)}$ eine symmetrische Matrix, welche aus $A$ durch L"oschen von Zeilen und den entsprechenden Spalten entsteht. 
+  Sei $A\in \R^{n\times n}$ symmetrisch mit und $B\in\R^{(n-k)\times(n-k)}$ eine symmetrische Matrix, welche aus $A$ durch L"oschen von Zeilen und den entsprechenden Spalten entsteht. Dann gilt :
   \begin{align*}
-    \lambda_{i}(A) \geq \lambda_{i}(B) \geq \lambda_{i+k}(A) 
+    \lambda_{p}(A) \geq \lambda_{p}(B) \geq \lambda_{p+k}(A) 
   \end{align*}
-  F"ur $i = 1,\dots n-k$.
+  f"ur $p = 1,\dots n-k$.
 \end{theorem}
 
 \begin{proof}
-  Seien $l_1<\dots< l_{n-k}$ die Nummern der Zeilen bzw. Spalten die nicht gel"oscht werden. Setze $P:=(e_{l_1},e_{l_2},\dots,e_{l_{n-k}})\in \R^{n\times \left( n-k \right)}$, wobei $e_{k}$ der $k$-te Einheitsvektors des $\R^{n}$ ist. Dann besitzt $P$ vollen Spaltenrang und $B=P^{T}AP$. 
-  Seien $V \subseteq\R^{\left( n-k \right)}$ ein linearer Unterraum ,  $x\in  V $ beliebig und $y = Px$. Dann ist $y\in PV = \{z\in \R^{n}| z = Px, x \in V \}$ und es gilt $y^{T}y = x^{T}P^{T}Px = x^{T}x$, da $P^{T}P = I_{n_k}$.
-  Außerdem ist $PV$ ein linearer Unterraum des $\Rn$ der selben Dimension wie $V$ ($P$ besitzt vollen Spaltenrang ). Mit Satz \ref{thm:CourantFischer} folgt : 
+  Seien $l_1<\dots< l_{n-k}$ die Nummern der Zeilen bzw. Spalten die nicht gel"oscht werden. Setze $P:=(e_{l_1},e_{l_2},\dots,e_{l_{n-k}})\in \R^{n\times \left( n-k \right)}$, wobei $e_{k}$ der $k$-te Einheitsvektors des $\R^{n}$ ist. Dann besitzt $P$ vollen Spaltenrang und es gilt $B=P^{T}AP$. 
+  Seien $V \subseteq\R^{\left( n-k \right)}$ ein linearer Unterraum ,  $x\in  V $ beliebig und $y = Px$. Dann ist $y\in \operatorname{im} P_{|V} = \{z\in \R^{n}| z = Px, x \in V \}$ und es gilt $y^{T}y = x^{T}P^{T}Px = x^{T}x$, da $P^{T}P = I_{n_k}$ ist.
+  Außerdem ist $\operatorname{im} P_{|V}$ ein linearer Unterraum des $\Rn$ mit $\operatorname{dim} (\operatorname{im} P_{|V}) = \operatorname{dim} (V)$, da $P$ vollen Spaltenrang besitzt. Mit Satz \ref{thm:CourantFischer}(a) folgt f"ur $1 \leq p  \leq n-k$ :
   \begin{align*}
-    \lambda_{i}(B) &= \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TBx}{x^Tx}| V\subseteq \R^{\left( n-k \right)} \text{ ist linearer Unterraum der Dimension } i\} \\
-    &= \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TP^{T}APx}{x^Tx}| V\subseteq \R^{\left( n-k \right)} \text{ ist linearer Unterraum der Dimension } i\} \\
-    &= \max\{\min\limits_{y\in PV , y \neq 0} \frac{y^{T}Ay}{y^Ty}| V\subseteq \R^{\left( n-k \right)} \text{ ist linearer Unterraum der Dimension } i\} \\
-    &\leq \max\{\min\limits_{x\in W , x \neq 0} \frac{y^TAy}{y^Ty}| W\subseteq \R^n \text{ ist linearer Unterraum der Dimension } i\} \\
-    &= \lambda_i(A)
+    \lambda_{p}(B) &= \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TBx}{x^Tx}| V\subseteq \R^{\left( n-k \right)} \text{ ist linearer Unterraum der Dimension } p\} \\
+    &= \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TP^{T}APx}{x^Tx}| V\subseteq \R^{\left( n-k \right)} \text{ ist linearer Unterraum der Dimension } p\} \\
+    &= \max\{\min\limits_{y\in \operatorname{im} P_{|V} , y \neq 0} \frac{y^{T}Ay}{y^Ty}| V\subseteq \R^{\left( n-k \right)} \text{ ist linearer Unterraum der Dimension } p\} \\
+    &\leq \max\{\min\limits_{x\in W , x \neq 0} \frac{y^TAy}{y^Ty}| W\subseteq \R^n \text{ ist linearer Unterraum der Dimension } p\} \\
+    &= \lambda_p(A)
   \end{align*}
-  Damit ist die erste Ungleichung gezeigt. Die zweite folgt analog bei Betrachtung von $-A$ und $-B$, da $\lambda_{i}(-A) = \lambda_{n-i+1}(A)$.
+  Damit ist die erste Ungleichung gezeigt. Die zweite folgt analog bei Betrachtung von $-A$ und $-B$, da $\lambda_{p}(-A) = -\lambda_{n-p+1}(A)$.
 \end{proof}
 
+Die folgenden Ungleichungen werden sp"ater bei der Betrachtung der Eigenwerte von Graphen hilfreich seien. Ein Beweis f"ur die Weyl Ungleichungen findet sich in \cite[6.7]{zbMATH03278338}.
 \begin{theorem}[Weyl Ungleichungen]
-  Seien $A,B,C\in\Rnn$ symmetrische Matrizen mit $A = B+C$. Dann gilt f"ur alle $1\leq i \leq n$
+  Seien $A,B,C\in\Rnn$ symmetrische Matrizen mit $A = B+C$. Dann gilt f"ur alle $1\leq p \leq n$
   \begin{equation*}
-    \lambda_{i}(B) + \lambda_{n}(C) \leq \lambda_{i}(A) \leq \lambda_{i}(B) + \lambda_{1}(C)
+    \lambda_{p}(B) + \lambda_{n}(C) \leq \lambda_{p}(A) \leq \lambda_{p}(B) + \lambda_{1}(C)
   \end{equation*}
   \label{thm:weylineq}
 \end{theorem}
-\begin{proof}
-  Siehe \cite[6.7]{zbMATH03278338}.
-\end{proof}
-
+Ein Beweis f"ur die folgenden Ungleichungen findet sich in \cite[3.]{1108.1467}.
 \begin{theorem}[Ky Fan Ungleichungen]
   Seien $A,B,C\in\Rnn$ symmetrische Matrizen mit $A = B+C$. Dann gilt f"ur alle $k\leq n$
   \begin{equation*}
-    \sum\limits_{i=1}^{k} \lambda_{i}(A) \leq \sum\limits_{i=1}^{k} \lambda_{i}(B) + \sum\limits_{i=1}^{k} \lambda_{i} (C)
+    \sum\limits_{p=1}^{k} \lambda_{p}(A) \leq \sum\limits_{p=1}^{k} \lambda_{p}(B) + \sum\limits_{p=1}^{k} \lambda_{p} (C)
   \end{equation*}
   F"ur $k=n$ gilt Gleichheit.
   \label{thm:kyfanineq}
 \end{theorem}
 
-\begin{proof}
-  Siehe \cite[3.]{1108.1467}.
-\end{proof}
 \subsection{Eigenwerte von Graphen}
 
 \label{ssec:EigenwerteGraphen}
-Sei $G$ ein Graph mit Eckenmenge $V(G) = \{v_1,\dots,v_n\}$. Die \DF{Adjanzenzmatrix} von $G$ ist definiert als $A := A(G)$ mit \[A(G)_{i,j} = \begin{cases}
-    1 & ij \in E(G) \\ 0 & ij \notin E(G)
+Sei $G$ ein Graph mit Eckenmenge $V(G) = \{v_1,\dots,v_n\}$. Die \DF{Adjanzenzmatrix} von $G$ ist definiert als $ A(G)\in \Rnn$ mit \[A(G)_{i,j} = \begin{cases}
+    1 & v_{i}v_{j} \in E(G) \\ 0 & v_{i}v_{j} \notin E(G)
 \end{cases}\] 
 Dann ist $A$ symmetrisch, und hat folglich nur reelle Eigenwerte.
-Damit es Sinn macht, von den Eigenwerten eines Graphen zu sprechen, d"urfen die Eigenwerte von $A(G)$ nicht von der Nummerierung der Ecken abh"angen. Das dem so ist, zeigt das folgende Lemma.
+Damit es Sinn ergibt, von den Eigenwerten eines Graphen zu sprechen, d"urfen die Eigenwerte von $A(G)$ nicht von der Nummerierung der Ecken abh"angen. Das dem so ist, zeigt das folgende Lemma.
 
 \begin{lemma}
   Sei $G=(V,E)$ ein Graph. Dann sind die Eigenwerte von $A(G)$ unabh"angig von der Nummerierung der Ecken von $G$.
@@ -121,7 +119,7 @@ Damit es Sinn macht, von den Eigenwerten eines Graphen zu sprechen, d"urfen die 
 \end{lemma}
 
 \begin{proof}
-  Seien $V(G)=\{v_1,\dots, v_n\}= \{u_1,\dots, u_n\}$ zwei Nummerierungen der Ecken. Sei weiterhin $A=(A_{i,j})_{1\leq i,j \leq n},B=(B_{i,j})_{1\leq i,j \leq n}\in \R^{n\times n}$ mit  
+  Seien $V(G)=\{v_1,\dots, v_n\}= \{u_1,\dots, u_n\}$ zwei Nummerierungen der Ecken. Sei weiterhin $A,B\in \R^{n\times n}$ mit  
   \[
     A_{i,j} = \begin{cases}
       1 & v_iv_j \in E(G) \\ 0 & v_iv_j \notin E(G)
@@ -141,30 +139,29 @@ Damit es Sinn macht, von den Eigenwerten eines Graphen zu sprechen, d"urfen die 
   \]
   Also ist $P^{T}AP = B$. Somit sind $A$ und $B$ "ahnlich und besitzen folglich die selben Eigenwerte.
 \end{proof}
-F"ur einen Graphen $G$ seien die \DF{Eigenwerte} von $G$ definiert als $\lambda_i(G) = \lambda_i(A(G))$.
+F"ur einen Graphen $G$ seien die \DF{Eigenwerte} von $G$ definiert als $\lambda_{p}(G)  = \lambda_{p}(A(G))$ f"ur alle $1 \leq p \leq n$. 
 \begin{remark}
   \label{rem:evGraph} 
     Die Summe aller Eigenwerte eines Graphen (mit Vielfachheiten) ist $0$.
 \end{remark}
 \begin{proof}
-  F"ur die Adjazenzmatrix $A(G)$ gilt $\operatorname{spur}(A(G))  = \sum\limits_{i=1}^{n} a_{ii}= 0$. Aus der Linearen Algebra ist bekannt, dass $\sum\limits_{i=1}^{n}\lambda_{i}(A(G)) = \operatorname{spur}(A(G)) = 0$
+  F"ur die Adjazenzmatrix $A(G)$ gilt $\operatorname{spur}(A(G))  = \sum\limits_{i=1}^{n} a_{ii}= 0$. Aus der Linearen Algebra ist bekannt, dass $\sum\limits_{i=1}^{n}\lambda_{i}(A(G)) = \operatorname{spur}(A(G)) = 0$.
   \end{proof}
-Wir wollen nun einige elementaren Graphen und ihre Eigenwerte betrachten.
-Sei dazu zun"achst $G=K_n$ . Dann ist $A(G)=J-I$, wobei $J\in\Rnn$ die Matrix ist, bei der jeder Eintrag $1$ ist, und $I\in\Rnn$ die Einheitsmatrix. Somit ist $-1$ ein Eigenwert mit Vielfachheit $n-1$. Da $K_n$ $n-1$ regul"ar ist, ist der Vektor $\begin{pmatrix}
-  1 & 1 & \dots & 1
-\end{pmatrix}$ ein Eigenvektor von $G$ zum Eigenwert $n-1$.
-Sei nun $G=C_n$. Dann hat $G$ die Eigenwerte $2 \cos (\frac{2\pi i}{n})$ f"ur $i\in \left\{ 1,\dots,n \right\}$ (siehe \cite[1.1.4]{zbMATH05625877}).
+Wir wollen nun einige elementare Graphen und ihre Eigenwerte betrachten.
+Sei dazu zun"achst $G=K_n$ . Dann ist $A(G)=J-I$, wobei $J\in\Rnn$ die Matrix ist, bei der jeder Eintrag $1$ ist, und $I\in\Rnn$ die Einheitsmatrix. Somit ist $-1$ ein Eigenwert mit Vielfachheit $n-1$. Da $K_n$ $n-1$ regul"ar ist, ist der Vektor $(1,1,\dots,1)^{T}$ ein Eigenvektor von $G$ zum Eigenwert $n-1$.
+
+Sei nun $G=C_n$. Dann hat $G$ die Eigenwerte $2 \cos (\frac{2\pi p}{n})$ f"ur $p\in \left\{ 1,\dots,n \right\}$ (siehe z.B. \cite[1.1.4]{zbMATH05625877}).
 \todo{Bilder!}
 
 \begin{lemma}
   Seien $H$ ein induzierter Untergraph von $G$ und $k = |G| - |H|$. Dann gilt
-  $$ \lambda_i(G) \geq \lambda_{i}(H) \geq \lambda_{i+k}(G)$$
-  F"ur $1\leq i \leq n-k$.
+  $$ \lambda_p(G) \geq \lambda_{p}(H) \geq \lambda_{p+k}(G)$$
+  F"ur $1\leq p \leq n-k$.
   \label{lem:InterlacingGraphen}
 \end{lemma}
 
 \begin{proof}
-  Ist $H$ ein induzierter Untergraph von $G$, so entsteht $A(H)$ aus $A(G)$ durch Streichen von Spalten und den korrespondierenden Zeilen. Damit folgt alles aus Satz \ref{thm:Interlacing}.
+  Ist $H$ ein induzierter Untergraph von $G$, so entsteht $A(H)$ aus $A(G)$ durch Streichen von Spalten und den korrespondierenden Zeilen. Damit folgt die Behauptung aus Satz \ref{thm:Interlacing}.
 \end{proof}
 
 \begin{corollary}
@@ -175,6 +172,6 @@ Sei nun $G=C_n$. Dann hat $G$ die Eigenwerte $2 \cos (\frac{2\pi i}{n})$ f"ur $i
   \label{cor:alphaomegaEigenwerte}
 \end{corollary}
 \begin{proof}
-  Ist $\omega(G) = p$, so besitzt $G$ einen vollst"andigen induzierten Untergraphen $H$, der Ordnung $p$. Nach dem obigen Beispiel besitzt dieser die Eigenwerte $\lambda_{1}(H) = p-1$ und $\lambda_{i}(H) = -1$ f"ur $2\leq i \leq p$. Damit folgt aus Korollar \ref{cor:alphaomegaEigenwerte}, dass $\lambda_{p}(G) \geq \lambda_{p}(H) \geq -1$. Ist $\alpha(G) = q$, so besitzt $G$ einen kantenlosen induzierten Untergraphen $H'$ der Ordnung $q$. Nach dem obigen Beispiel besitzt $H'$ nur den Eigenwert
-  $\lambda_{i} (H') = 0$ f"ur  $1\leq i \leq q$. Also folgt aus Korollar \ref{cor:alphaomegaEigenwerte}, dass $\lambda_{p}(G) \geq \lambda_{p}(H') = 0$. Damit ist alles gezeigt.
-  \end{proof}
+  Ist $\omega(G) = p$, so besitzt $G$ einen vollst"andigen induzierten Untergraphen $H$, der Ordnung $p$. Nach dem obigen Beispiel besitzt dieser die Eigenwerte $\lambda_{1}(H) = p-1$ und $\lambda_{p}(H) = -1$ f"ur $2\leq p \leq p$. Damit folgt aus Korollar \ref{cor:alphaomegaEigenwerte}, dass $\lambda_{p}(G) \geq \lambda_{p}(H) \geq -1$ ist . Ist $\alpha(G) = q$, so besitzt $G$ einen kantenlosen induzierten Untergraphen $H'$ der Ordnung $q$.
+  Nach dem obigen Beispiel besitzt $H'$ nur den Eigenwert $\lambda_{p} (H') = 0$ f"ur  $1\leq p \leq q$. Also folgt aus Korollar \ref{cor:alphaomegaEigenwerte}, dass $\lambda_{p}(G) \geq \lambda_{p}(H') = 0$. 
+\end{proof}
