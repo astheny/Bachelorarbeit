@@ -1,20 +1,29 @@
 \section{Krauszzerlegungen und die Erd\H{o}s--Faber--Lov\'asz Vermutung}
 \subsection{Die Erd\H{o}s--Faber--Lov\'asz Vermutung}
 \label{sec:EFL-Vermutung}
-\todo{Geschichte, was ist bekannt etc.}
-Es bezeichne $\cE(n)$ die Klasse aller Graphen welche die Vereinigung von $n$ kantendisjunkten vollst"andigen Graphen der Ordnung $n$ sind. F"ur $G\in\cE(n)$ gilt also $G= \bigcup\limits_{i=1}^{n} G_i$, wobei $G_i \cong K_n$ und $|G_i \cap G_j| \leq 1$ f"ur alle $1\leq i,j \leq n$ mit $i\neq j$. 
-\todo{Bilder, Beispiele}
-\begin{conjecture}[Erd\H{o}s--Faber--Lov\'asz]
+Der Hauptteil dieser Bachelorarbeit befasst sich mit einer neuen Herangehensweise an die Erd\H{o}s--Faber--Lov\'asz Vermutung. 
+Es bezeichne $\cE(n)$ die Klasse aller Graphen welche die Vereinigung von $n$ kantendisjunkten vollst"andigen Graphen der Ordnung $n$ sind. 
+
+\begin{figure}[htbp]
+        \centering
+        \includegraphics{images/bildeg4}
+        \caption{Ein Graph aus $\cE(4)$}
+\end{figure}
+
+F"ur $G\in\cE(n)$ gilt also $G= \bigcup\limits_{i=1}^{n} G_i$, wobei $G_i \cong K_n$ und $|G_i \cap G_j| \leq 1$ f"ur alle $1\leq i,j \leq n$ mit $i\neq j$. 
+\begin{conjecture}[Erd\H{o}s--Faber--Lov\'asz(1972)]
   Sei $G\in\cE(n)$. Dann ist $\chi(G) = n$.
   \label{con:efl}
 \end{conjecture}
-
+"Uber diese Vermutung ist viel bekannt, ein vollst"andiger Beweis fehlt jedoch bis jetzt. Wir wollen nun einige bekannte Resultate beziehungsweise "aquivalente Formulierungen dieser Vermutung angeben. Im Anschluss werden wir eine Vermutung "uber den $k$-ten Eigenwert $k$-chromatischer Graphen aufstellen, welche (sollte sie sich als wahr herausstellen) Vermutung \ref{con:efl} impliziert.
 \begin{remark}
   Vermutung \ref{con:efl} gilt f"ur $n\leq 10$.
 \end{remark}
 \todo{Quelle}
 \subsection{Krauszzerlegungen von Graphen}
-\todo{Historie, Line graphen etc}
+Die Graphen aus $\cE(n)$ lassen sich alle durch $n$ vollst"andige Graphen der Ordnung $n$ kantendisjunkt "uberdecken. Im Folgenden wollen wir ein allgemeineres Konzept betrachten, indem wir nicht fordern, dass alle Graphen der "Uberdeckung die selbe Ordnung haben. 
+Diese Art der "Uberdeckung wurde zuerst von Krausz zur Charakterisierung von Kantengraphen verwendet, daher der Name Krauszzerlegung.
+\todo{ausf"uhrlicher}
 \label{ssec:Krauszzerlegung}
 \begin{definition}
   \label{def:Krauszzerlegung}
@@ -286,7 +295,7 @@ Es ist nicht viel "uber den Zusammenhang der chromatischen Zahl eines Graphen, u
   Gleichheit tritt nur auf, falls $G$ ein vollst"ander Graph oder ein ungerader Kreis ist.
   \label{thm:wilfev}
 \end{theorem}
- 
+
 Eine untere Schranke findet sich in \cite{Hoffmanbounds} (man beachte hierbei, dass $\lambda_{n}(G)$ negativ ist):
 
 \begin{theorem}
@@ -295,52 +304,88 @@ Eine untere Schranke findet sich in \cite{Hoffmanbounds} (man beachte hierbei, d
   \label{thm:Hoffmanev}
 \end{theorem}
 
-\subsection{Satz \ref{thm:MainTheorem} f"ur $d=2$}
+\subsection{$k$-chromatische Graphen mit $\lambda_{k} > -2$}
 
-Gilt Satz \ref{thm:MainTheorem} f"ur $d=2$, so folgt die Erd\H{o}s--Faber--Lov\'asz Vermutung auf Grund von Satz \ref{thm:equivefl}. Im Folgenden wollen wir den Fall $d=2$ f"ur einige Graphenklassen untersuchen. 
-
+Gilt Satz \ref{thm:MainTheorem} f"ur $d=2$, so folgt die Erd\H{o}s--Faber--Lov\'asz Vermutung auf Grund von Satz \ref{thm:equivefl}. Im Folgenden wollen wir f"ur einige Graphenklassen folgende Vermutung "uberpr"ufen.
 \begin{conjecture}
   Ist $G$ ein Graph mit $\chi(G) = k$, dann gilt $\lambda_{k}(G) > -2$. 
   \label{con:maincon}
 \end{conjecture}
 
+Ein Graph $G$ hei{\ss}t $k$-kritisch, falls $\chi(G) = k$ und $\chi(H) < k$ f"ur alle induzierten Untergraphen $H$ von $G$.
 \begin{remark}
   Es reicht Vermutung \ref{con:maincon} f"ur $k$-kritische Graphen zu zeigen. 
 \end{remark}
 
 \begin{proof}
-  Sei $G$ ein Graph mit $\chi(G) = k$. Dann enth"alt $G$ einen $k$-kritischen Untergraphen $H$. F"ur diesen gilt (nach Vermutung) $\lambda_{k}(H) > -2$. Nun folgt mit Satz \ref{thm:InterlacingGraphen}
+  Sei $G$ ein Graph mit $\chi(G) = k$. Dann enth"alt $G$ einen $k$-kritischen Untergraphen $H$. F"ur diesen gilt (nach Vermutung) $\lambda_{k}(H) > -2$. Nun folgt mit Satz \todo{referenz}
   \begin{equation*}
     \lambda_{k}(G) \geq \lambda_{k}(H) > -2
   \end{equation*}
   Damit gilt Vermutung \ref{con:maincon} auch f"ur $G$.
 \end{proof}
 
-Seien $v,k\in \N$ mit $v \geq k$. Der \DF{Kneser Graph} $K_{v:r}$ ist der Graph mit Eckenmenge $V(K_{v:r}) = \left\{ X \subset \left\{ 1,\dots v \right\} | |X| = r \right\}$ und Kantenmenge $E(K_{v:r}) = \left\{ XY| X,Y \in V(K_{v:r}), X \cap Y = \emptyset \right\}$. 
+Seien $v,r$ zwei nat"urliche Zahlen mit $v\geq r$. Der \DF{Kneser Graph} $K_{v:r}$ ist der Graph mit Eckenmenge $V(K_{v:r}) = \left\{ X \subset \left\{ 1,\dots v \right\} | |X| = r \right\}$ und Kantenmenge 
 
-Es wurde gezeigt \todo{Referenz , binom. richtig}, dass $\alpha(K_{v:r}) =\begin{pmatrix}
-  v-1 \\ r-1
-\end{pmatrix}$ (falls $v >2r$) und $\chi(K_{v:r}) = v-2r+2$. Das, und  Korollar \ref{cor:alphaomegaEigenwerte} erlaubt uns Vermutung \ref{con:maincon} f"ur alle Kneser Graphen zu beweisen. 
+\parindent 0pt $E(K_{v:r}) = \left\{ XY| X,Y \in V(K_{v:r}), X \cap Y = \emptyset \right\}$. 
+
+\parindent 15pt Es wurde gezeigt\todo{Referenz}, dass $\alpha(K_{v:r}) = \binom{v-1}{r-1}$ (falls $v >2r$) und $\chi(K_{v:r}) = v-2r+2$. Das, und  Korollar \ref{cor:alphaomegaEigenwerte} erlaubt uns Vermutung \ref{con:maincon} f"ur alle Kneser Graphen zu beweisen. 
 
 \begin{proposition}
-  Ist $G=K_{v:r}$ und $k= \chi(G)$ so ist $\lambda_{k}(G) > -2$. 
+  Seien $k,v\in \N$ mit $k>v$ und sei $G= K_{v:r}$ ein Kneser-Graph mit $\chi(G) = k$. Dann gilt $\lambda_{k}(G) > -2$
 \end{proposition}
 
 \begin{proof}
   Wir machen eine Fallunterscheidung bez"uglich $r$. 
-  
-  \ncase{1} {$r=1$} Dann ist $K_{v:1}$ isomorph zu $K_v$. Dessen Eigenwerte sind alle gr"o{\ss}er als $-2$.
 
-  \ncase{2} {$\frac{v}{2} >  r \geq 2$} Sei $p = \alpha(G)$.  Dann ist $\alpha(G) = \begin{pmatrix}
+  \ncase{1} {$r=1$} Dann ist $G=K_{v:1}$ isomorph zu $K_v$, da alle Ecken von $G$ einelementige Teilmengen von $\left\{ 1,\dots, v \right\}$ sind, und diese alle miteinander disjunkt sind. Die Eigenwerte des $K_v$ sind alle gr"o{\ss}er als $-2$. 
 
-    v-1 \\ r-1
-  \end{pmatrix}$ und folglich $ \alpha (G) \geq v-1$. Andererseits ist $\chi(G) = v-2r+2 < v-2$. Folglich ist $p > \chi(G)$. Mit  Korollar \ref{cor:alphaomegaEigenwerte} gilt dann \begin{equation*}
-    \lambda_{k}(G) \geq \lambda_{p}(G) \geq 0
+  \ncase{2} {$v > 2r \geq 4 $} Sei $p = \alpha(G)$.  Dann ist $ p = \binom{v-1}{r-1}$ und folglich $ p \geq v-1$. Andererseits ist $\chi(G) = v-2r+2 < v-2$. Folglich ist $p > \chi(G)$. Mit  Korollar \ref{cor:alphaomegaEigenwerte} gilt dann \begin{equation*}
+    \lambda_{k}(G) \geq \lambda_{p}(G) \geq 0 > -2
   \end{equation*}
-  Also ist alles gezeigt.
 
-  \ncase{3} {$2r = v $} Dann ist $\chi(G) = 2$ und $\omega(G) =2$. Somit folgt die Behauptung aus Korollar \ref{cor:alphaomegaEigenwerte}. 
+  \ncase{3} {$2r = v $} Die Ecken von $G$ sind alle $r$-elementingen Teilmengen von $\left\{ 1,\dots,v \right\}$. Da $v=2r$ ist f"ur ein $w\in V(G)$ die einzige benachbarte Ecke ihr Komplement in $\left\{ 1,\dots,v \right\}$. Also sind die Komponenten von $G$ alle isomoprh zu $K_{2}$. Dann ist $\chi(G) = 2$ und $\omega(G) = 2$. Aus Korollar \ref{cor:alphaomegaEigenwerte} folgt dann, dass $\lambda_{2}(G) \geq -1 > -2$ ist.
 
-  \ncase{4}{$2r > v$} Dann ist $|E(G)| = 0$ und folglich ist $G$ ein leerer Graph, welcher nur den Eigenwert $0$ besitzt.
+  \ncase{4}{$2r > v$} Dann ist $|E(G)| = 0$, da je zwei Ecken nichtleeren Schnitt haben, und folglich ist $G$ ein leerer Graph, welcher nur den Eigenwert $0>-2$ besitzt. Insbesondere ist also auch $\lambda_{k}(G) > -2$.
 \end{proof}
+
+\begin{proposition}
+  Sei $G$ ein perfekter Graph. Dann gilt f"ur $k=\chi(G)$:
+  $$\lambda_{k}(G) > -2$$
+\end{proposition}
+
+\begin{proof}
+  Da $G$ ein perfekter Graph ist, gilt $k = \chi(G) = \omega(G)$. Also besitzt $G$ einen vollst"andigen Graphen der Ordnung $k$ als induzierten Untergraphen. Nach \ref{cor:alphaomegaEigenwerte} ist $\lambda_{k}(G) > -2$.
+\end{proof}
+
+\begin{proposition}
+  Vermutung \ref{con:maincon} gilt f"ur planare Graphen.
+\end{proposition}
+
+\begin{proof}
+  Sei $G$ ein planarer Graph. Wir machen eine Fallunterscheidung nach $n = |G|$. 
+  \ncase{1}{$n\leq6$}
+  \todo{}
+
+  \parindent 0pt \ncase{2}{$n \geq 7$}
+  Wir zeigen, dass $\lambda_4(G) > -2$ gilt. Da alle planaren Graphen eine chromatische Zahl kleiner gleich $4$ haben, folgt dann die Behauptung.
+
+  Nehmen wir daf"ur an, dass $\lambda_{4}(G) < -2$ gilt.
+  Aus Bemerkung \ref{rem:evGraph} (i) folgt dann:
+  \begin{equation*}
+    \sum\limits_{i=1}^3 \lambda_{i}(G) = -\sum\limits_{i=4}^{n}\lambda_{i}(G) \geq 2 (n-3) = 2n-6
+  \end{equation*}
+  Mit Bemerkung \ref{rem:evGraph} (ii) folgt au{\ss}erdem:
+  \begin{align*}
+    \sum\limits_{i=1}^3 \lambda_{i}(G)^{2} &= 2m -\sum\limits_{i=4}^{n}\lambda_{i}(G)^{2} \\
+    &\leq 2(3n-6) -4(n-3) = 2n
+  \end{align*}
+  Die Ungleichung folgt dabei aus der Absch"artzung der Kanten f"ur planare Graphen. Aus der Absch"atzung der $2$ und $1$ Norm folgt nun:
+
+  \begin{align*}
+    2n &\geq \lambda_{1}^{2} +\lambda_{2}^{2} +\lambda_{3}^{2}  \\ &\geq \frac{1}{3} (|\lambda_{1}| + |\lambda_2| + |\lambda_3|)^{2} \\
+    &\geq \frac{1}{3}(\lambda_{1}+ \lambda_2 + \lambda_3)^{2}\\ &\geq \frac{1}{3}(2n-6)^{2}
+  \end{align*}
+  L"osen der entstehenden quadratischen Gleichung ergibt $n\leq 6$, ein Widerspruch.
+\end{proof} 
 

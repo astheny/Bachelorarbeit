@@ -3,10 +3,10 @@
 Gegenstand dieser Bachelorarbeit ist der Zusammenhang zwischen den Eigenwerten, der chromatischen Zahl und den Krauszzerlegungen eines Graphen. Die daf"ur ben"otigten Grundlagen werden wir in Kapitel 1 erarbeiten. 
 \subsection{Graphentheoretische Grundlagen}
 \label{ssec:graphengrundlagen}
-In der folgenden Arbeit seien die nat"urlichen Zahlen $\N$ stets die Menge $ \left\{ 1, 2 , \dots \right\}$.
+Im Folgenden seien die nat"urlichen Zahlen $\N$ stets die Menge $ \left\{ 1, 2, 3, \dots \right\}$.
 Es sei $G=(V(G),E(G))$ stets ein (schlichter, ungerichteter) \DF{Graph} mit \DF{Eckenmenge} $V(G) = \left\{ v_1,\dots , v_n \right\}$ und \DF{Kantenmenge} $E(G)= \left\{ v_iv_j| v_i \text{ und } v_j \text{ sind in } G \text{ adjazent} \right\}$. Dann heißt $|G| = |V(G)|$ die \DF{Ordnung} von $G$. Der \DF{Grad} einer Ecke $v\in V(G)$ sei definiert als $d_{G}(v) = |\left\{ v_j|v_iv_j\in E(G) \right\}|$. Der \DF{Minimalgrad} (\DF{Maximalgrad}) sei definiert als der kleinste (gr"o{\ss}te) Grad einer Ecke von $G$ und wird mit $\delta(G)$ ($\Delta(G)$) bezeichnet.
 Wir wollen nun einige h"aufig auftretenden Graphen bezeichnen. Der \DF{vollst"andige Graph} der Ordnung $n$ sei $K_n$ und sein Komplement, der \DF{leere Graph} der Ordnung $n$ sei $O_n$, der \DF{Kreis} der L"ange $n$ sei $C_n$. Der \DF{Weg} der L"ange $n$ sei $P_{n+1}$. 
-\todo{Bilder?} F"ur einen Graphen $G$ sei der \DF{Kantengraph} $L(G)$ definiert als der Graph mit Eckenmenge $V(L(G))= E(G)$ und Kantenmenge $E(L(G)) = \left\{ ee'|e \text{ und } e' \text{ besitzen in } G \text{ eine gemeinsame Endecke} \right\}$. 
+F"ur einen Graphen $G$ sei der \DF{Kantengraph} $L(G)$ definiert als der Graph mit Eckenmenge $V(L(G))= E(G)$ und Kantenmenge $E(L(G)) = \left\{ ee'|e \text{ und } e' \text{ besitzen in } G \text{ eine gemeinsame Endecke} \right\}$. 
 Ein Untergraph von $G$ ist ein Graph $H$ mit $V(H) \subseteq V(G)$ und $E(H)\subseteq E(G)$. 
 Gibt es eine Menge von Ecken $X\subseteq V(G)$ mit $V(H) = X$ und $E(H) = \left\{ v_iv_j|v_i,v_j\in V(H) \text{ und } v_iv_j \in E(G) \right\}$ so heißt $H$ \DF{induzierter Untergraph} von $G$. Wir bezeichnen $H$ dann mit $G[X]$.
 Die \DF{Cliquenzahl} $\omega(G)$ ist die gr"o{\ss}te Zahl $k$, sodass $G$ den vollst"andigen Graph der Ordnung $k$  als Untergraphen enth"alt, die \DF{Unabh"angigkeitszahl} $\alpha(G)$ ist die gr"oßte Zahl $k$, sodass $G$ den leeren Graphen der Ordnung $k$ als Untergraphen enth"alt.
@@ -21,7 +21,7 @@ Eine \DF{F"arbung} von $G$ ist eine Abbildung $f:V(G)\to C$ mit $f(v)\neq f(w)$ 
 Ist $H$ ein Hypergraph so heißt eine Abbildung $g:E(H) \to C$ (wieder heißt $C$ die \DF{Farbmenge}) eine \DF{Kantenf"arbung} von $H$  falls $g(e) \neq g(e')$ f"ur alle unterschiedlichen Kanten $e,e'$ von $H$ mit $e\cap e' \neq \emptyset$. Diese ist eine \DF{$k$-F"arbung}, falls $|C| = k$. Der \DF{chromatische Index} $\chi'(H)$ bezeichne die kleinste positive Zahl $k$, derart, dass $H$ eine echte $k$-F"arbung besitzt.
 
 Man beachte, dass eine Kantenf"arbung eines Hypergraphen in direktem Zusammenhang zu einer Eckenf"arbung seines Kantengraphen steht. Ist n"amlich $H$ ein Hypergraph und $G=L(H)$ sein Kantengraph, so gibt es offenbar eine bijektive Abbildung $\pi: E(H) \to V(G)$, welche jeder Kante von $H$ die korrespondierende Ecke in $G$ zuordnet. Ist $f$ nun eine F"arbung der Kanten von $H$, so ist $f \circ \pi ^{-1}$ eine F"arbung der Ecken von $G$ und ist $g$ eine F"arbung der Ecken von $G$, so ist
-$g \circ \pi$ eine F"arbung der Kanten von $g$. 
+$g \circ \pi$ eine F"arbung der Kanten von $G$. 
 \subsection{Eigenwerte von symmetrischen Matrizen}
 \label{ssec:EigenwerteMatrizen} 
 Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte und folglich k"onnen diese monoton fallend angeordnet werden. F"ur eine symmetrische Matrix $A$ sei also $\lambda_k(A)$ der k-gr"oßte \DF{Eigenwert} (gez"ahlt mit Vielfachheiten). Eine symmetrische Matrix $A$ hei"st \DF{positiv semidefinit} falls $x^TAx \geq 0$ f"ur alle $x \in \R^n$. Gilt außerdem $x^{T}Ax > 0$ f"ur $x\neq 0$ , so hei"st $A$ \DF{positiv definit}. Wir wollen nun einige Eigenschaften von positiv (semi)definiten Matrizen anf"uhren.
@@ -139,19 +139,31 @@ Damit es Sinn ergibt, von den Eigenwerten eines Graphen zu sprechen, d"urfen die
   \]
   Also ist $P^{T}AP = B$. Somit sind $A$ und $B$ "ahnlich und besitzen folglich die selben Eigenwerte.
 \end{proof}
-F"ur einen Graphen $G$ seien die \DF{Eigenwerte} von $G$ definiert als $\lambda_{p}(G)  = \lambda_{p}(A(G))$ f"ur alle $1 \leq p \leq n$. 
+F"ur einen Graphen $G$ seien die \DF{Eigenwerte} von $G$ definiert als $\lambda_{p}(G)  = \lambda_{p}(A(G))$ f"ur alle $1 \leq p \leq |G|$. 
+
 \begin{remark}
   \label{rem:evGraph} 
-    Die Summe aller Eigenwerte eines Graphen (mit Vielfachheiten) ist $0$.
+
+  Sei $G$ ein Graph der Ordnung $n$.
+  \begin{enumerate}[label={\rm(\alph*)}]
+    \item Die Summe aller Eigenwerte von $G$ (mit Vielfachheiten) ist $0$. 
+    \item Die Summe der Quadrate aller Eigenwerte von $G$ (mit Vielfachheiten) ist $2|E(G)|$. 
+  \end{enumerate}
 \end{remark}
 \begin{proof}
-  F"ur die Adjazenzmatrix $A(G)$ gilt $\operatorname{spur}(A(G))  = \sum\limits_{i=1}^{n} a_{ii}= 0$. Aus der Linearen Algebra ist bekannt, dass $\sum\limits_{i=1}^{n}\lambda_{i}(A(G)) = \operatorname{spur}(A(G)) = 0$.
-  \end{proof}
-Wir wollen nun einige elementare Graphen und ihre Eigenwerte betrachten.
-Sei dazu zun"achst $G=K_n$ . Dann ist $A(G)=J-I$, wobei $J\in\Rnn$ die Matrix ist, bei der jeder Eintrag $1$ ist, und $I\in\Rnn$ die Einheitsmatrix. Somit ist $-1$ ein Eigenwert mit Vielfachheit $n-1$. Da $K_n$ $n-1$ regul"ar ist, ist der Vektor $(1,1,\dots,1)^{T}$ ein Eigenvektor von $G$ zum Eigenwert $n-1$.
+  Sei $G$ ein Graph der Ordnung $n$.
+  Wir zeigen zun"achst (i). F"ur die Adjazenzmatrix $A = A(G)$ gilt $\operatorname{spur}(A)  = \sum\limits_{i=1}^{n} a_{ii}= 0$. Aus der Linearen Algebra ist bekannt, dass $\sum\limits_{i=1}^{n}\lambda_{i}(A) = \operatorname{spur}(A) = 0$.
 
-Sei nun $G=C_n$. Dann hat $G$ die Eigenwerte $2 \cos (\frac{2\pi p}{n})$ f"ur $p\in \left\{ 1,\dots,n \right\}$ (siehe z.B. \cite[1.1.4]{zbMATH05625877}).
-\todo{Bilder!}
+  Um (ii) zu beweisen, betrachten wir $B=A^{2}$. Die Eintr"age $B_{i,j}$ geben die Anzahl aller Kantenfolgen der L"ange $2$ zwischen den Ecken $v_i$ und $v_j$ an. Insbesondere gilt $B_{i,i} = d_{G}(v_i)$. Daraus folgt:
+
+  \begin{equation*}
+    \sum\limits_{i=1}^{n} \lambda_{i}(G) ^{2} = \operatorname{spur}(B) = \sum\limits_{i=1}^{n} d_{G}(v_{i}) = 2|E(G)|
+  \end{equation*}
+\end{proof}
+Wir wollen nun einige elementare Graphen und ihre Eigenwerte betrachten.
+Wir betrachten $K_n$, den vollst"andigen Graphen der Ordnung $n$. Dann ist $A(K_n)=J-I$, wobei $J\in\Rnn$ die Matrix ist, bei der jeder Eintrag $1$ ist, und $I\in\Rnn$ die Einheitsmatrix. Somit ist $-1$ ein Eigenwert mit Vielfachheit $n-1$(da $J$ Rang $1$ hat). Aus der vorherigen Bemerkung folgt nun, dass $n-1$ ein Eigenwert mit Vielfachheit $1$ ist.
+
+Der Kreis $C_n$ hat die Eigenwerte $2 \cos (\frac{2\pi p}{n})$ f"ur $p\in \left\{ 1,\dots,n \right\}$ (siehe z.B. \cite[1.1.4]{zbMATH05625877}).
 
 \begin{lemma}
   Seien $H$ ein induzierter Untergraph von $G$ und $k = |G| - |H|$. Dann gilt
@@ -166,10 +178,9 @@ Sei nun $G=C_n$. Dann hat $G$ die Eigenwerte $2 \cos (\frac{2\pi p}{n})$ f"ur $p
 
 \begin{corollary}
   Sei $G$ ein Graph mit $\omega(G) = p$ und $\alpha(G) = q$. Dann gilt :
-  \begin{align*}
-    \lambda_p(G) \geq -1 \mbox{ und } \lambda_q(G) \geq 0
-  \end{align*}
-  \label{cor:alphaomegaEigenwerte}
+  \begin{equation*}
+    \lambda_p(G) \geq -1 \mbox{ und } \lambda_q(G) \geq 0 \text{.}
+  \end{equation*} \label{cor:alphaomegaEigenwerte}
 \end{corollary}
 \begin{proof}
   Ist $\omega(G) = p$, so besitzt $G$ einen vollst"andigen induzierten Untergraphen $H$, der Ordnung $p$. Nach dem obigen Beispiel besitzt dieser die Eigenwerte $\lambda_{1}(H) = p-1$ und $\lambda_{p}(H) = -1$ f"ur $2\leq p \leq p$. Damit folgt aus Korollar \ref{cor:alphaomegaEigenwerte}, dass $\lambda_{p}(G) \geq \lambda_{p}(H) \geq -1$ ist . Ist $\alpha(G) = q$, so besitzt $G$ einen kantenlosen induzierten Untergraphen $H'$ der Ordnung $q$.
