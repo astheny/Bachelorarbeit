@@ -3,21 +3,28 @@
 Gegenstand dieser Bachelorarbeit ist der Zusammenhang zwischen den Eigenwerten, der chromatischen Zahl und den Krauszzerlegungen eines Graphen. Die daf"ur ben"otigten Grundlagen werden wir in Kapitel 1 erarbeiten. 
 \subsection{Graphentheoretische Grundlagen}
 \label{ssec:graphengrundlagen}
-Im Folgenden seien die nat"urlichen Zahlen $\N$ stets die Menge $ \left\{ 1, 2, 3, \dots \right\}$.
-Es sei $G=(V(G),E(G))$ stets ein (schlichter, ungerichteter) \DF{Graph} mit \DF{Eckenmenge} $V(G) = \left\{ v_1,\dots , v_n \right\}$ und \DF{Kantenmenge} $E(G)= \left\{ v_iv_j| v_i \text{ und } v_j \text{ sind in } G \text{ adjazent} \right\}$. Dann heiﬂt $|G| = |V(G)|$ die \DF{Ordnung} von $G$. Der \DF{Grad} einer Ecke $v\in V(G)$ sei definiert als $d_{G}(v) = |\left\{ v_j|v_iv_j\in E(G) \right\}|$. Der \DF{Minimalgrad} (\DF{Maximalgrad}) sei definiert als der kleinste (gr"o{\ss}te) Grad einer Ecke von $G$ und wird mit $\delta(G)$ ($\Delta(G)$) bezeichnet.
-Wir wollen nun einige h"aufig auftretenden Graphen bezeichnen. Der \DF{vollst"andige Graph} der Ordnung $n$ sei $K_n$ und sein Komplement, der \DF{leere Graph} der Ordnung $n$ sei $O_n$, der \DF{Kreis} der L"ange $n$ sei $C_n$. Der \DF{Weg} der L"ange $n$ sei $P_{n+1}$. 
-F"ur einen Graphen $G$ sei der \DF{Kantengraph} $L(G)$ definiert als der Graph mit Eckenmenge $V(L(G))= E(G)$ und Kantenmenge $E(L(G)) = \left\{ ee'|e \text{ und } e' \text{ besitzen in } G \text{ eine gemeinsame Endecke} \right\}$. 
-Ein Untergraph von $G$ ist ein Graph $H$ mit $V(H) \subseteq V(G)$ und $E(H)\subseteq E(G)$. 
-Gibt es eine Menge von Ecken $X\subseteq V(G)$ mit $V(H) = X$ und $E(H) = \left\{ v_iv_j|v_i,v_j\in V(H) \text{ und } v_iv_j \in E(G) \right\}$ so heiﬂt $H$ \DF{induzierter Untergraph} von $G$. Wir bezeichnen $H$ dann mit $G[X]$.
-Die \DF{Cliquenzahl} $\omega(G)$ ist die gr"o{\ss}te Zahl $k$, sodass $G$ den vollst"andigen Graph der Ordnung $k$  als Untergraphen enth"alt, die \DF{Unabh"angigkeitszahl} $\alpha(G)$ ist die gr"oﬂte Zahl $k$, sodass $G$ den leeren Graphen der Ordnung $k$ als Untergraphen enth"alt.
+Die in dieser Arbeit betrachteten Graphen und Hypergraphen sind endlich und haben weder Mehrfachkanten noch Schlingen. Bei den Bezeichnungen richten wir uns im Wesentlichen nach dem Buch von Diestel beziehungsweise dem Buch von Berge. \todo{Referenzen} 
+Mit $\N$ bezeichnen wir die Menge der positiven ganzen Zahlen und setzen $\N_{0} = \N \cup \left\{ 0 \right\}$. F"ur eine Menge $V$ sei die Menge $2^{V}$ die Potenzmenge von $V$ und $[V]^{p}$ mit $p\in\N_0$ die Menge der $p$-elementigen Teilmengen von $V$. 
 
-Ein (schlingenloser) Hypergraph $H=(V(H),E(H))$ mit \DF{Eckenmenge} $V(H)$ und \DF{Kantenmenge} $E(H)$ heiﬂt \DF{linearer Hypergraph}, falls zwei verschiedene Kanten $e,e'\in E(H)$ maximal eine Ecke gemeinsam haben ($|e\cap e'| \leq 1$). Die \DF{Ordnung} von $H$ sei $|V(H)|$ und wird mit $|H|$ bezeichnet. F"ur eine Kante $e$ von $H$ ist  der \DF{Kantengrad} die Anzahl aller Kanten, die mit $e$ einen nichtleeren Schnitt haben. Der \DF{Eckengrad} einer Ecke $v \in V(H)$ ist
-definiert als die Anzahl aller Kanten, welche $v$ enthalten und wird mit $d_{H}(v)$ bezeichnet. 
-Auch hier bezeichne $\delta(H)$ den kleinsten Grad aller Ecken von $H$.
-Auch f"ur Hypergraphen definieren wir den \DF{Kantengraphen} $L(H)$ als den Graphen mit Eckenmenge $V(L(H))=E(H)$ und Kantenmenge $E(L(H)) = \left\{ ee'|e\cap e' \neq \emptyset \right\}$.
+Ein Hypergraph $H$ ist ein Tupel von zwei Menge, $V(H)$ und $E(H)$. Dabei ist $V(H)$ endlich und $E(H)$ eine Teilmenge von $2^{V(H)}$ mit $|e| \geq 2$ f"ur alle $e\in E(H)$. Die Menge $V(H)$ hei{\ss}t dann \DF{Eckenmenge} von $H$ und ihre Elemente hei{\ss}en \DF{Ecken} von $H$. Die Menge $E(H)$ hei{\ss}t \DF{Kantenmenge} und ihre Elemente hei{\ss}en \DF{Kanten}. Ein Hypergraph hei{\ss}t \DF{linear}, falls zwei verschieden Kanten h"ochstens eine Ecke gemeinsam haben.
+
+Sei $H$ ein Hypergraph. Die \DF{Ordnung} von $H$ ist die Anzahl der Ecken von $H$, geschrieben $|H|$. Eine Kante $e$ hei{\ss}t \DF{Hyperkante}, falls $|e| \geq 3$ und sonst \DF{gew"ohnliche Kante}. F"ur eine gew"ohnliche Kante $e=\left\{ u,v \right\}$ schreiben wir auch kurz $e=uv$ oder $e=vu$. 
+Ist $E(H) \subseteq [V]^p$, so nennen wir $H$ \DF{$p$-uniform}. Ein \DF{Graph} ist ein $2$-uniformer Hypergraph, also ein Hypergraph in dem jede Kante gew"ohnlich ist. Eine Ecke $v$ ist \DF{inzident} mit einer Kante $e$, falls $v\in e$ gilt. F"ur eine Ecke $v$ von $H$ sei $E_{H}(v) = \left\{ e\in E(H) | v\in e \right\}$. Der \DF{Grad} einer Ecke $v$ ist $d_{H}(v) = |E_H(v)|$. 
+Der \DF{Minimalgrad} (\DF{Maximalgrad}) sei definiert als der kleinste (gr"o{\ss}te) Grad einer Ecke von $H$ und wird mit $\delta(H)$ ($\Delta(H)$) bezeichnet. Ist $\delta(H) = \Delta(H) = r$, so hei{\ss}t $H$ $r$-regul"ar. 
+
+Ein \DF{Unterhypergraph} von $H$ ist ein Hypergraph $H'$ mit $V(H') \subseteq V(H)$ und $E(H') \subseteq E(H)$. Gibt es eine Menge $X \subseteq V(H)$ mit $V(H') = X$ und $E(H') = \left\{ e\in E(H) | e \subset X \right\}$, so ist $H'$ ein \DF{induzierter Hypergraph} und wir schreiben $H'= H[X]$. 
+
+Eine Menge von Ecken $X\subseteq V(H)$ hei{\ss}t \DF{unabh"angige Menge} von $H$, falls $E(H[X]) = \emptyset$ gilt, beziehungsweise \DF{Clique}, falls $H[X]$ alle gew"ohnlichen Kanten von $[X]^{2}$ enth"alt. Die \DF{Unabh"angigkeitszahl} $\alpha(H)$ ist die Ordnung der gr"o{\ss}ten unabh"anigegen Menge von $H$. Die \DF{Cliquenzahl} $\omega(H)$ ist die Ordnung der gr"o{\ss}ten Clique von $H$. 
+
+Ein Graph $G$ hei{\ss}t \DF{vollst"andiger Graph}, falls $E(G) = [V(G)]^{2}$ gilt. Ist $G$ ein vollst"andiger Graph der Ordnung $n$, so schreiben wir auch $G=K_n$. Man beachte hierbei, dass alle vollst"andigen Graphen der Ordnung $n$ isomorph sind. In diesem Sinne bezeichnen wir mit $C_n$ den \DF{Kreis} der Ordnung $n$, mit $P_n$ den \DF{Weg} der Ordnung $n$ und mit $O_n$ den \DF{kantenlosen Graphen} der Ordnung $n$ (d.h. das Komplement von $K_n$). 
+
+Damit ist $\omega(H)$ die gr"o{\ss}te Zahl, sodass $H$ einen vollst"andigen Graphen der Ordnung $n$ als Untergraphen enth"alt und $\alpha(H)$ die gr"o{\ss}te Zahl $n$, sodass $H$ den kantenlosen Graphen der Ordnung $n$ als induzierten Untergraphen enth"alt. 
+
+Der \DF{Kantengraph} $L(H)$ eines Hyergraphen $H$ ist der Graph mit der Eckenmenge $V(L(H))= E(H) $ und Kantenmenge $$E(L(H) = \left\{ ee'| \left\{ e,e' \right\} \in [E(H)]^{2}, e\cap e' \neq \emptyset \right\}$$
+F"ur eine Kante $e$ von $H$ sei $d_{H}(e) = d_{L(H)}(e) $ der \DF{Kantengrad} von $e$ in $H$. Dieser ist also die Zahl der von $e$ verschiedenen Kanten $e'$ von $H$, welche mit $e$ nichtleeren Schnitt haben. 
 
 Eine \DF{F"arbung} von $G$ ist eine Abbildung $f:V(G)\to C$ mit $f(v)\neq f(w)$ f"ur alle $vw\in E(G)$, wobei $C$ eine beliebige Menge, die \DF{Farbmenge}, ist. Ist $|C| = k$ so heiﬂt $f$ \DF{k-Kantenf"arbung}. Die \DF{chromatische Zahl} $\chi(G)$ bezeichne die kleinste postivie Zahl $k$, f"ur welche eine $k$-F"arbung von $G$ existiert. 
-
+\todo{F"arbung neuschreiben}
 Ist $H$ ein Hypergraph so heiﬂt eine Abbildung $g:E(H) \to C$ (wieder heiﬂt $C$ die \DF{Farbmenge}) eine \DF{Kantenf"arbung} von $H$  falls $g(e) \neq g(e')$ f"ur alle unterschiedlichen Kanten $e,e'$ von $H$ mit $e\cap e' \neq \emptyset$. Diese ist eine \DF{$k$-F"arbung}, falls $|C| = k$. Der \DF{chromatische Index} $\chi'(H)$ bezeichne die kleinste positive Zahl $k$, derart, dass $H$ eine echte $k$-F"arbung besitzt.
 
 Man beachte, dass eine Kantenf"arbung eines Hypergraphen in direktem Zusammenhang zu einer Eckenf"arbung seines Kantengraphen steht. Ist n"amlich $H$ ein Hypergraph und $G=L(H)$ sein Kantengraph, so gibt es offenbar eine bijektive Abbildung $\pi: E(H) \to V(G)$, welche jeder Kante von $H$ die korrespondierende Ecke in $G$ zuordnet. Ist $f$ nun eine F"arbung der Kanten von $H$, so ist $f \circ \pi ^{-1}$ eine F"arbung der Ecken von $G$ und ist $g$ eine F"arbung der Ecken von $G$, so ist
@@ -35,7 +42,7 @@ Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte 
   \label{prop:psdmatrix}
 \end{proposition}
 
-Der folgende Satz hilft uns bei der Berechnung der Eigenwerte einer symmetrischen Matrix. Ein Beweis findet sich unter anderem in \cite{zbMATH05826340}[13.5]. 
+Der folgende Satz hilft uns bei der Berechnung der Eigenwerte einer symmetrischen Matrix. Ein Beweis findet sich unter anderem in \cite[Theorem 13.5]{zbMATH05826340}. 
 \begin{theorem}
   Sei $A\in \R^{n\times n}$ symmetrisch. Seien die (reellen) Eigenwerte von $A$ gegeben durch $\lambda_1(A) \geq \lambda_2(A) \geq \dots\geq \lambda_n(A)$. Dann gilt f"ur alle $p\in\{1,\dots, n\}$ :
   \begin{enumerate}[label={\rm(\alph*)}]
