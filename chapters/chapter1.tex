@@ -111,11 +111,11 @@ Ein Beweis f"ur die folgenden Ungleichungen findet sich in \cite[3.]{1108.1467}.
 \subsection{Eigenwerte von Graphen}
 
 \label{ssec:EigenwerteGraphen}
-Sei $G$ ein Graph mit Eckenmenge $V(G) = \{v_1,\dots,v_n\}$. Die \DF{Adjanzenzmatrix} von $G$ ist definiert als $ A(G)\in \Rnn$ mit \[A(G)_{i,j} = \begin{cases}
+Sei $G$ ein Graph der Ordnung $n$ mit Eckenemenge $V(G) = \left\{ v_1,v_2,\dots,v_n \right\}$. Die \DF{Adjanzenzmatrix} von $G$ ist definiert als $ A(G)\in \Rnn$ mit \[A(G)_{i,j} = \begin{cases}
     1 & v_{i}v_{j} \in E(G) \\ 0 & v_{i}v_{j} \notin E(G)
 \end{cases}\] 
-Dann ist $A$ symmetrisch, und hat folglich nur reelle Eigenwerte.
-Damit es Sinn ergibt, von den Eigenwerten eines Graphen zu sprechen, d"urfen die Eigenwerte von $A(G)$ nicht von der Nummerierung der Ecken abh"angen. Das dem so ist, zeigt das folgende Lemma.
+Dabei ist zu bemerken, dass die Adjazenzmatrix von der Nummerierung der Ecken abh"angt.
+Damit es Sinn hat, von den Eigenwerten eines Graphen zu sprechen, d"urfen die Eigenwerte von $A(G)$ nicht von der Nummerierung der Ecken abh"angen. Das dem so ist, zeigt das folgende Lemma.
 
 \begin{lemma}
   Sei $G=(V,E)$ ein Graph. Dann sind die Eigenwerte von $A(G)$ unabh"angig von der Nummerierung der Ecken von $G$.
@@ -143,9 +143,9 @@ Damit es Sinn ergibt, von den Eigenwerten eines Graphen zu sprechen, d"urfen die
   \]
   Also ist $P^{T}AP = B$. Somit sind $A$ und $B$ "ahnlich und besitzen folglich die selben Eigenwerte.
 \end{proof}
-F"ur einen Graphen $G$ seien die \DF{Eigenwerte} von $G$ definiert als $\lambda_{p}(G)  = \lambda_{p}(A(G))$ f"ur alle $1 \leq p \leq |G|$. 
+F"ur einen Graphen $G$ seien die \DF{Eigenwerte} von $G$ definiert als $\lambda_{p}(G)  = \lambda_{p}(A(G))$ f"ur alle $1 \leq p \leq |G|$. Die Menge $\{\lambda | \lambda \text{ ist ein Eigenwert von $G$}$ bezeichnen wir als das \DF{Spektrum} von $G$. 
 
-\begin{remark}
+\begin{lemma}
   \label{rem:evGraph} 
 
   Sei $G$ ein Graph der Ordnung $n$.
@@ -153,7 +153,7 @@ F"ur einen Graphen $G$ seien die \DF{Eigenwerte} von $G$ definiert als $\lambda_
     \item Die Summe aller Eigenwerte von $G$ (mit Vielfachheiten) ist $0$. 
     \item Die Summe der Quadrate aller Eigenwerte von $G$ (mit Vielfachheiten) ist $2|E(G)|$. 
   \end{enumerate}
-\end{remark}
+\end{lemma}
 \begin{proof}
   Sei $G$ ein Graph der Ordnung $n$.
   Wir zeigen zun"achst (i). F"ur die Adjazenzmatrix $A = A(G)$ gilt $\operatorname{spur}(A)  = \sum\limits_{i=1}^{n} a_{ii}= 0$. Aus der Linearen Algebra ist bekannt, dass $\sum\limits_{i=1}^{n}\lambda_{i}(A) = \operatorname{spur}(A) = 0$.

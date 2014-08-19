@@ -43,11 +43,11 @@ Diese Art der "Uberdeckung wurde zuerst von Krausz zur Charakterisierung von Kan
 \begin{example}
   \begin{figure}[htb]
     \centering
-    \psfig{figure=krauszzerlegungk4.eps}
+    \includegraphics{images/krauszzerlegungk4.eps}
     \caption{Eine Krauszzerlegung des $K_4$}
     \label{fig:KrauszzerlegungK4}
   \end{figure}
-  In Abbildung \ref{fig:KrauszzerlegungK4} sehen wir eine Krauszzerlegung $\mathcal{K}$ des $K_4$ (die einzelnen kantendisjunkten Untergraphen sind jeweils mit der selben Farbe markiert). Wir k"onnen au{\ss}erdem erkennen, dass $\delta_{G}(\mathcal{K}) = 2$, und folglich $\kappa_{2}(K_4) \leq 4$ (wir werden sp"ater sehen, dass $\kappa_{2}(K_n) \geq n$ stets gilt). 
+  In Abbildung \ref{fig:KrauszzerlegungK4} sehen wir eine Krauszzerlegung $\mathcal{K}$ des $K_4$ (die einzelnen kantendisjunkten Untergraphen sind jeweils mit der selben Farbe markiert). Wir k"onnen au{\ss}erdem erkennen, dass $\delta_{G}(\mathcal{K}) = 2$, und folglich $\kappa_{2}(K_4) \leq 4$ (wir werden sp"ater sehen, dass $\kappa_{2}(K_n) \geq n$ stets gilt, und somit $\kappa_{2}(K_{4}) = 4$ ist). 
 \end{example}
 \begin{lemma}
   Seien $G$ ein Graph und $d\in \N$. Genau dann ist $\kappa_{d}(G) < \infty$, wenn $\delta(G) \geq d$ ist. \label{lm:krauszexistenz}
@@ -380,11 +380,11 @@ Seien $v,r$ zwei nat"urliche Zahlen mit $v\geq r$. Der \DF{Kneser Graph} $K_{v:r
   Wir zeigen, dass $\lambda_4(G) > -2$ gilt. Da alle planaren Graphen eine chromatische Zahl kleiner gleich $4$ haben, folgt dann die Behauptung.
 
   Nehmen wir daf"ur an, dass $\lambda_{4}(G) < -2$ gilt.
-  Aus Bemerkung \ref{rem:evGraph} (i) folgt dann:
+  Aus Lemma \ref{rem:evGraph} (i) folgt dann:
   \begin{equation*}
     \sum\limits_{i=1}^3 \lambda_{i}(G) = -\sum\limits_{i=4}^{n}\lambda_{i}(G) \geq 2 (n-3) = 2n-6
   \end{equation*}
-  Mit Bemerkung \ref{rem:evGraph} (ii) folgt au{\ss}erdem:
+  Mit Lemma \ref{rem:evGraph} (ii) folgt au{\ss}erdem:
   \begin{align*}
     \sum\limits_{i=1}^3 \lambda_{i}(G)^{2} &= 2m -\sum\limits_{i=4}^{n}\lambda_{i}(G)^{2} \\
     &\leq 2(3n-6) -4(n-3) = 2n
