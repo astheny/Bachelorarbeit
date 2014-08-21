@@ -1,8 +1,8 @@
 \section{Einf"uhrung}
 \label{sec:Einf"uhrung}
 Gegenstand dieser Bachelorarbeit ist der Zusammenhang zwischen den Eigenwerten, der chromatischen Zahl und den Krauszzerlegungen eines Graphen. Die daf"ur ben"otigten Grundlagen werden wir in Kapitel 1 erarbeiten. 
-\subsection{Graphentheoretische Grundlagen}
-\label{ssec:graphengrundlagen}
+\subsection{Graphen und Hypergraphen}
+\label{ssec:graphenundhypergraphen}
 Die in dieser Arbeit betrachteten Graphen und Hypergraphen sind endlich und haben weder Mehrfachkanten noch Schlingen. Bei den Bezeichnungen richten wir uns im Wesentlichen nach dem Buch von Diestel beziehungsweise dem Buch von Berge. \todo{Referenzen} 
 Mit $\N$ bezeichnen wir die Menge der positiven ganzen Zahlen und setzen $\N_{0} = \N \cup \left\{ 0 \right\}$. F"ur eine Menge $V$ sei die Menge $2^{V}$ die Potenzmenge von $V$ und $[V]^{p}$ mit $p\in\N_0$ die Menge der $p$-elementigen Teilmengen von $V$. 
 
@@ -12,7 +12,10 @@ Sei $H$ ein Hypergraph. Die \DF{Ordnung} von $H$ ist die Anzahl der Ecken von $H
 Ist $E(H) \subseteq [V]^p$, so nennen wir $H$ \DF{$p$-uniform}. Ein \DF{Graph} ist ein $2$-uniformer Hypergraph, also ein Hypergraph in dem jede Kante gew"ohnlich ist. Eine Ecke $v$ ist \DF{inzident} mit einer Kante $e$, falls $v\in e$ gilt. F"ur eine Ecke $v$ von $H$ sei $E_{H}(v) = \left\{ e\in E(H) | v\in e \right\}$. Der \DF{Grad} einer Ecke $v$ ist $d_{H}(v) = |E_H(v)|$. 
 Der \DF{Minimalgrad} (\DF{Maximalgrad}) sei definiert als der kleinste (gr"o{\ss}te) Grad einer Ecke von $H$ und wird mit $\delta(H)$ ($\Delta(H)$) bezeichnet. Ist $\delta(H) = \Delta(H) = r$, so hei{\ss}t $H$ $r$-regul"ar. 
 
-Ein \DF{Unterhypergraph} von $H$ ist ein Hypergraph $H'$ mit $V(H') \subseteq V(H)$ und $E(H') \subseteq E(H)$. Gibt es eine Menge $X \subseteq V(H)$ mit $V(H') = X$ und $E(H') = \left\{ e\in E(H) | e \subset X \right\}$, so ist $H'$ ein \DF{induzierter Hypergraph} und wir schreiben $H'= H[X]$. 
+Ein \DF{Unterhypergraph} von $H$ ist ein Hypergraph $H'$ mit $V(H') \subseteq V(H)$ und $E(H') \subseteq E(H)$. Wir schreiben dann $H' \subseteq H$. Gilt $H' \neq H$, so ist $H'$ ein \DF{echter Unterhypergraph}. Gibt es eine Menge $X \subseteq V(H)$ mit $V(H') = X$ und $E(H') = \left\{ e\in E(H) | e \subset X \right\}$, so ist $H'$ ein \DF{induzierter Hypergraph} und wir schreiben $H'= H[X]$ bzw. $H' \unlhd H$. 
+
+Ist $H$ ein Hypergraph und $X\subseteq V(H)$, so bezeichne $H-X = H[V(H) \setminus X]$. Ist $X=\left\{ v \right\}$, so schreiben wir daf"ur auch $H-v$ statt $H-X$. Ist $F\subseteq 2^{V(H)}$ eine Menge, so sei $H-F$ der Hypergraph mit Eckenmenge $V(H)$ und Kantenmenge $E(H) \setminus F$ und $H+F$ der Hypergraph mit Eckenemenge $V(H)$ und Kantenmenge $E(H) \cup F$. Ist $F= \left\{ e \right\}$ so schreiben wir $H-e$ beziehungsweise $H+e$ anstatt $H- \left\{ e \right\}$ beziehungsweise
+$H+\left\{ e \right\}$. 
 
 Eine Menge von Ecken $X\subseteq V(H)$ hei{\ss}t \DF{unabh"angige Menge} von $H$, falls $E(H[X]) = \emptyset$ gilt, beziehungsweise \DF{Clique}, falls $H[X]$ alle gew"ohnlichen Kanten von $[X]^{2}$ enth"alt. Die \DF{Unabh"angigkeitszahl} $\alpha(H)$ ist die Ordnung der gr"o{\ss}ten unabh"anigegen Menge von $H$. Die \DF{Cliquenzahl} $\omega(H)$ ist die Ordnung der gr"o{\ss}ten Clique von $H$. 
 
@@ -22,10 +25,38 @@ Damit ist $\omega(H)$ die gr"o{\ss}te Zahl, sodass $H$ einen vollst"andigen Grap
 
 Der \DF{Kantengraph} $L(H)$ eines Hyergraphen $H$ ist der Graph mit der Eckenmenge $V(L(H))= E(H) $ und Kantenmenge $$E(L(H) = \left\{ ee'| \left\{ e,e' \right\} \in [E(H)]^{2}, e\cap e' \neq \emptyset \right\}$$
 F"ur eine Kante $e$ von $H$ sei $d_{H}(e) = d_{L(H)}(e) $ der \DF{Kantengrad} von $e$ in $H$. Dieser ist also die Zahl der von $e$ verschiedenen Kanten $e'$ von $H$, welche mit $e$ nichtleeren Schnitt haben. 
+\subsection{F"arbungen von Graphen und Hypergraphen}
 
-Sei $C$ eine endliche Menge. Eine Abbildung $f:V(H) \to C$ hei{\ss}t Eckenf"arbung (kurz F"arbung) von $H$, falls f"ur alle Kanten $e$ von $H$ gilt: es gibt zwei Ecken $v,w\in e$ mit $f(v) \neq f(w)$. Ist $|C| = k \in \N$, so hei{\ss}t $f$ $k$-Eckenf"arbung (kurz $k$-F"arbung). Die kleinste nat"urliche Zahl $k$, f"ur die $H$ eine $k$-F"arbung besitzt, bezeichnen wir mit $\chi(H)$, der chromatischen Zahl von $H$. 
+Das \DF{F\"arbungsproblem} f\"ur Graphen ist ein klassischen Problem aus der Graphentheorie mit vielf\"altigen Anwendungen in der kombinatorischen Optimierung und anderen Teilgebieten der Mathematik. Beim  F\"arbungsproblem besteht die Aufgabe darin, die Ecken eines Graphen $G$ so zu f\"arben, dass durch eine Kante verbundene Ecken verschiedenen Farben erhalten. Dabei sollen nat\"urlich m\"oglichst wenige Farben verwendet werden.
 
-Sie wieder $C$ eine endliche Menge. Eine Abbildung $g: E(H) \to C$ hei{\ss}t Kantenf"arbung von $H$, falls f"ur zwei verschiedene Kanten $e,e'$ von $H$ mit nichtleerem Schnitt $g(e) \neq g(e')$ gilt. Ist $|C| = k$, so ist $g$ eine $k$-Kantenf"arbung. Die kleinste nat"urliche Zahl $k$, f"ur die $H$ eine $k$-Kantenf"arbung besitzt, bezeichnen wir mit $\chi'(H)$, dem chromatischen Index von $H$. Man beachte hierbei, dass stets $\chi'(H) = \chi(L(H))$ gilt. 
+Sei $C$ eine endliche Menge. Eine Abbildung $f:V(G) \to C$ hei{\ss}t \DF{F"arbung} von $G$, falls f"ur alle Kanten $vw$ von $G$ gilt: $f(v) \neq f(w)$. Ist $|C| = k \in \N$, so hei{\ss}t $f$ \DF{$k$-F"arbung}. Die kleinste nat"urliche Zahl $k$, f"ur die $G$ eine $k$-F"arbung besitzt, bezeichnen wir mit $\chi(G)$, der \DF{chromatischen Zahl} von $G$. 
+
+Die Bestimmung der chromatischen Zahl eines Graphen ist ein {\sf NP}-schweres Optimierungsproblem, wie im Jahre 1972 von Karp \cite{karp} gezeigt wurde. Sei $f$ eine F"arbung von $G$ und $H$ ein Untergraph von $G$. Dann ist $f_{|V(H)}$ eine F"arbung von $H$. Folglich ist die chromatische Zahl ein monotoner Graphenparameter, d.h. $$ H\subseteq G \Rightarrow \chi(H) \leq \chi(G).$$
+
+Eine Abbildung $f :V(G) \to C$ ist eine F"arbung von $G$, genau dann wenn f"ur alle $c\in C$ das Urbild $f^{-1}(c)$ eine unabh"angige Menge in $G$ ist (d.h. keine zwei Ecken von $f^{-1}(c)$ sind durch eine Kante von $G$ verbunden). Diese Urbilder nennen wir \DF{Farbklassen}. Offensichtlich sind die Farbklassen disjunkt. 
+Folglich haben Farbklassen h"ochstens $\alpha (G)$ Ecken. Daraus folgt, dass jede $k$-F"arbung von $G$ $|G| \leq k \alpha(G)$ erf"ullt, und deswegen auch $|G| \leq \chi(G) \alpha(G)$ gilt. 
+
+Offensichtlich gilt $\chi(G) \leq |G|$. Damit gilt 
+$$\chi(G) \geq |G|  \Leftrightarrow chi(G) = |G| \Leftrightarrow \alpha(G) \leq 1 \Leftrightarrow G \text{ ist ein vollst"andiger Graph}$$
+Insbesondere gilt somit f"ur $n\in \N$ : $\chi(K_n)  = n $. Da $\chi $ ein monotoner Graphenparameter ist, ist also $$\omega(G) \leq \chi(G).$$
+
+Bei der Untersuchung des F"arbungsproblems f"ur Graphen erweisen sich die kritischen Graphen als ein n"utzliches Hilfsmittel. Dies liegt vor allem daran, dass sich F"arbungsprobleme f"ur Graphen oft auf entsprechende F"ar-bungsprobleme f"ur kritische Graphen zur"uckf"uhren lassen.
+Ein Graph $G$ hei{\ss}t \DF{k-kritisch}, falls $\chi(G) = k$ ist und $\chi(H) < k$ gilt f"ur alle echten induzierten Untergraphen $H$ von $G$.
+
+Sie $C$ eine endliche Menge. Eine Abbildung $g: E(H) \to C$ hei{\ss}t \DF{Kantenf"arbung} von $H$, falls f"ur zwei verschiedene Kanten $e,e'$ von $H$ mit nichtleerem Schnitt $g(e) \neq g(e')$ gilt. Ist $|C| = k$, so ist $g$ eine \DF{$k$-Kantenf"arbung}. Die kleinste nat"urliche Zahl $k$, f"ur die $H$ eine $k$-Kantenf"arbung besitzt, bezeichnen wir mit $\chi'(H)$, dem \DF{chromatischen Index} von $H$. Man beachte hierbei, dass stets $\chi'(H) = \chi(L(H))$ gilt. 
+
+Zu (Kanten)F"arbungen von Graphen und Hypergraphen ist vieles bekannt, vor allem die S"atze von Brooks und Vizing. Der Vollst"andigkeit halber wollen wir diese hier anf"uhren. 
+Der folgende Satz stammt von Brooks aus dem Jahr $1941$. Die Schranke werden wir sp"ater noch verbessern, siehe Satz \ref{thm:wilf1967eigenvalues}. 
+\begin{theorem}[Brooks]
+  Sei $G$ ein zusammenh"angender Graph mit Maximalgrad $\Delta$. Dann gilt $$\chi(G) \leq \Delta + 1. $$
+  Gleichheit tritt nur auf, falls $G$ ein vollst"andiger Graph oder ein ungerader Kreis ist.
+  \label{thm:brooks}
+\end{theorem}
+Sei $G$ ein Graph. Dann ist offensichtlich $\chi'(G) \geq \Delta(G)$, da alle Kanten die eine Ecke maximalen Grades enthalten mit unterschiedlichen Farben gef"arbt werden m"ussen. 
+\begin{theorem}[Vizing]
+  Sei $G$ ein Graph mit Maximalgrad $\Delta$. Dann gilt $\chi'(G) = \Delta$ oder $\chi'(G) = \Delta + 1$. 
+  \label{thm:Vizing}
+\end{theorem}<++>
 \subsection{Eigenwerte von symmetrischen Matrizen}
 \label{ssec:EigenwerteMatrizen} 
 Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte und folglich k"onnen diese monoton fallend angeordnet werden. F"ur eine symmetrische Matrix $A$ sei also $\lambda_k(A)$ der k-gr"oßte \DF{Eigenwert} (gez"ahlt mit Vielfachheiten). Eine symmetrische Matrix $A$ hei"st \DF{positiv semidefinit} falls $x^TAx \geq 0$ f"ur alle $x \in \R^n$. Gilt außerdem $x^{T}Ax > 0$ f"ur $x\neq 0$ , so hei"st $A$ \DF{positiv definit}. Wir wollen nun einige Eigenschaften von positiv (semi)definiten Matrizen anf"uhren.
@@ -40,7 +71,7 @@ Es sei $A\in \Rnn$ eine symmetrische Matrix. Dann hat $A$ nur reelle Eigenwerte 
 \end{proposition}
 
 Der folgende Satz hilft uns bei der Berechnung der Eigenwerte einer symmetrischen Matrix. Ein Beweis findet sich unter anderem in \cite[Theorem 13.5]{zbMATH05826340}. 
-\begin{theorem}
+\begin{theorem}[Courant-Fisher]
   Sei $A\in \R^{n\times n}$ symmetrisch. Seien die (reellen) Eigenwerte von $A$ gegeben durch $\lambda_1(A) \geq \lambda_2(A) \geq \dots\geq \lambda_n(A)$. Dann gilt f"ur alle $p\in\{1,\dots, n\}$ :
   \begin{enumerate}[label={\rm(\alph*)}]
     \item $\lambda_p(A) = \max\{\min\limits_{x\in V , x \neq 0} \frac{x^TAx}{x^Tx}| V\subseteq \R^n \text{ ist linearer Unterraum der Dimension } p\}$.
@@ -48,6 +79,12 @@ Der folgende Satz hilft uns bei der Berechnung der Eigenwerte einer symmetrische
   \end{enumerate}
   \label{thm:CourantFischer}
 \end{theorem}
+
+\begin{theorem}[Perron-Frobenius]
+  Sei $A\in \Rnn$ eine Matrix mit nichtnegativen Eintr"agen. Dann besitzt $A$ einen reellen Eigenwert $\lambda$, welcher den gr"o{\ss}ten Betrag unter allen Eigenwerten besitzt. Zu diesem Eigenwert $\lambda$ existiert ein nicht negativer reeller Eigenvektor.
+  
+  \label{<++>}
+\end{theorem}<++>
 
 \begin{lemma}
   Seien $A,B\in \Rnn$ symmetrisch und $A-B$ positiv semidefinit. Dann ist $\lambda_p(A)\geq\lambda_p(B)$ f"ur alle $1\leq p \leq n$.
@@ -144,6 +181,35 @@ Damit es Sinn hat, von den Eigenwerten eines Graphen zu sprechen, d"urfen die Ei
   Also ist $P^{T}AP = B$. Somit sind $A$ und $B$ "ahnlich und besitzen folglich die selben Eigenwerte.
 \end{proof}
 F"ur einen Graphen $G$ seien die \DF{Eigenwerte} von $G$ definiert als $\lambda_{p}(G)  = \lambda_{p}(A(G))$ f"ur alle $1 \leq p \leq |G|$. Die Menge $\{\lambda | \lambda \text{ ist ein Eigenwert von $G$}$ bezeichnen wir als das \DF{Spektrum} von $G$. 
+
+Zwei Graphen hei{\ss}en \DF{isospektral}, falls sie die selben Eigenwerte (mit Vielfachheit) besitzen. 
+
+\begin{remark}
+  Zwei isospektrale Graphen sind nicht unbedingt isomorph.
+\end{remark}
+
+\begin{proof}
+ Betrachte dazu folgende Graphen :
+ \todo{bild}
+
+ Diese sind offenbar nicht isomorph. Betrachten wir die Adjazenzmatrizen der beiden Graphen 
+ \begin{align*}
+   A(G) = \begin{pmatrix}
+     0 & 1 & 1 & 1 & 1 \\
+     1 & 0 & 0 & 0 & 0 \\
+     1 & 0 & 0 & 0 & 0 \\
+     1 & 0 & 0 & 0 & 0 \\
+     1 & 0 & 0 & 0 & 0 
+   \end{pmatrix}  A(H) = \begin{pmatrix}
+     0 & 0 & 0 & 0 & 0 \\
+     0 & 0 & 1 & 0 & 1 \\
+     0 & 1 & 0 & 1 & 0 \\
+     0 & 0 & 1 & 0 & 1 \\
+     0 & 1 & 0 & 1 & 0 
+   \end{pmatrix}
+ \end{align*}
+ \todo{EW berechnen} Also haben $G$ und $H$ die selben Eigenwerte, sind aber nicht isomorph.
+\end{proof}
 
 \begin{lemma}
   \label{rem:evGraph} 
