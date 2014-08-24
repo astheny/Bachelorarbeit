@@ -6,25 +6,25 @@ Gegenstand dieser Bachelorarbeit ist der Zusammenhang zwischen den Eigenwerten, 
 Die in dieser Arbeit betrachteten Graphen und Hypergraphen sind endlich und haben weder Mehrfachkanten noch Schlingen. Bei den Bezeichnungen richten wir uns im Wesentlichen nach dem Buch von Diestel beziehungsweise dem Buch von Berge. \todo{Referenzen} 
 Mit $\N$ bezeichnen wir die Menge der positiven ganzen Zahlen und setzen $\N_{0} = \N \cup \left\{ 0 \right\}$. F"ur eine Menge $V$ sei die Menge $2^{V}$ die Potenzmenge von $V$ und $[V]^{p}$ mit $p\in\N_0$ die Menge der $p$-elementigen Teilmengen von $V$. 
 
-Ein Hypergraph $H$ ist ein Tupel von zwei Menge, $V(H)$ und $E(H)$. Dabei ist $V(H)$ endlich und $E(H)$ eine Teilmenge von $2^{V(H)}$ mit $|e| \geq 2$ f"ur alle $e\in E(H)$. Die Menge $V(H)$ hei{\ss}t dann \DF{Eckenmenge} von $H$ und ihre Elemente hei{\ss}en \DF{Ecken} von $H$. Die Menge $E(H)$ hei{\ss}t \DF{Kantenmenge} und ihre Elemente hei{\ss}en \DF{Kanten}. Ein Hypergraph hei{\ss}t \DF{linear}, falls zwei verschieden Kanten h"ochstens eine Ecke gemeinsam haben.
+Ein \DF{Hypergraph} $H$ ist ein Tupel von zwei Menge, $V(H)$ und $E(H)$. Dabei ist $V(H)$ endlich und $E(H)$ eine Teilmenge von $2^{V(H)}$ mit $|e| \geq 2$ f"ur alle $e\in E(H)$. Die Menge $V(H)$ hei{\ss}t dann \DF{Eckenmenge} von $H$ und ihre Elemente hei{\ss}en \DF{Ecken} von $H$. Die Menge $E(H)$ hei{\ss}t \DF{Kantenmenge} und ihre Elemente hei{\ss}en \DF{Kanten}. Ein Hypergraph hei{\ss}t \DF{linear}, falls zwei verschieden Kanten h"ochstens eine Ecke gemeinsam haben.
 
 Sei $H$ ein Hypergraph. Die \DF{Ordnung} von $H$ ist die Anzahl der Ecken von $H$, geschrieben $|H|$. Eine Kante $e$ hei{\ss}t \DF{Hyperkante}, falls $|e| \geq 3$ und sonst \DF{gew"ohnliche Kante}. F"ur eine gew"ohnliche Kante $e=\left\{ u,v \right\}$ schreiben wir auch kurz $e=uv$ oder $e=vu$. 
 Ist $E(H) \subseteq [V]^p$, so nennen wir $H$ \DF{$p$-uniform}. Ein \DF{Graph} ist ein $2$-uniformer Hypergraph, also ein Hypergraph in dem jede Kante gew"ohnlich ist. Eine Ecke $v$ ist \DF{inzident} mit einer Kante $e$, falls $v\in e$ gilt. F"ur eine Ecke $v$ von $H$ sei $E_{H}(v) = \left\{ e\in E(H) | v\in e \right\}$. Der \DF{Grad} einer Ecke $v$ ist $d_{H}(v) = |E_H(v)|$. 
 Der \DF{Minimalgrad} (\DF{Maximalgrad}) sei definiert als der kleinste (gr"o{\ss}te) Grad einer Ecke von $H$ und wird mit $\delta(H)$ ($\Delta(H)$) bezeichnet. Ist $\delta(H) = \Delta(H) = r$, so hei{\ss}t $H$ $r$-regul"ar. 
 
-Ein \DF{Unterhypergraph} von $H$ ist ein Hypergraph $H'$ mit $V(H') \subseteq V(H)$ und $E(H') \subseteq E(H)$. Wir schreiben dann $H' \subseteq H$. Gilt $H' \neq H$, so ist $H'$ ein \DF{echter Unterhypergraph}. Gibt es eine Menge $X \subseteq V(H)$ mit $V(H') = X$ und $E(H') = \left\{ e\in E(H) | e \subset X \right\}$, so ist $H'$ ein \DF{induzierter Hypergraph} und wir schreiben $H'= H[X]$ bzw. $H' \unlhd H$. 
+Ein \DF{Unterhypergraph} von $H$ ist ein Hypergraph $H'$ mit $V(H') \subseteq V(H)$ und $E(H') \subseteq E(H)$. Wir schreiben dann $H' \subseteq H$. Gilt $H' \neq H$, so ist $H'$ ein \DF{echter Unterhypergraph}. Gibt es eine Menge $X \subseteq V(H)$ mit $V(H') = X$ und $E(H') = \left\{ e\in E(H) | e \subset X \right\}$, so ist $H'$ ein \DF{induzierter Hypergraph} und wir schreiben $H'= H[X]$ beziehungsweise $H' \unlhd H$. 
 
-Ist $H$ ein Hypergraph und $X\subseteq V(H)$, so bezeichne $H-X = H[V(H) \setminus X]$. Ist $X=\left\{ v \right\}$, so schreiben wir daf"ur auch $H-v$ statt $H-X$. Ist $F\subseteq 2^{V(H)}$ eine Menge, so sei $H-F$ der Hypergraph mit Eckenmenge $V(H)$ und Kantenmenge $E(H) \setminus F$ und $H+F$ der Hypergraph mit Eckenemenge $V(H)$ und Kantenmenge $E(H) \cup F$. Ist $F= \left\{ e \right\}$ so schreiben wir $H-e$ beziehungsweise $H+e$ anstatt $H- \left\{ e \right\}$ beziehungsweise
-$H+\left\{ e \right\}$. 
+Ist $H$ ein Hypergraph und $X\subseteq V(H)$, so bezeichne $H-X = H[V(H) \setminus X]$. Ist $X=\left\{ v \right\}$, so schreiben wir daf"ur auch $H-v$ statt $H-X$. Ist $F\subseteq 2^{V(H)}$ eine Menge, so sei $H-F$ der Hypergraph mit Eckenmenge $V(H)$ und Kantenmenge $E(H) \setminus F$ und $H+F$ der Hypergraph mit Eckenemenge $V(H)$ und Kantenmenge $E(H) \cup F$. Ist $F= \left\{ e \right\}$ so schreiben wir $H\pm e$ anstatt $H\pm  \left\{ e \right\}$. 
 
 Eine Menge von Ecken $X\subseteq V(H)$ hei{\ss}t \DF{unabh"angige Menge} von $H$, falls $E(H[X]) = \emptyset$ gilt, beziehungsweise \DF{Clique}, falls $H[X]$ alle gew"ohnlichen Kanten von $[X]^{2}$ enth"alt. Die \DF{Unabh"angigkeitszahl} $\alpha(H)$ ist die Ordnung der gr"o{\ss}ten unabh"anigegen Menge von $H$. Die \DF{Cliquenzahl} $\omega(H)$ ist die Ordnung der gr"o{\ss}ten Clique von $H$. 
+
+Sind $H,H'$ zwei Hypergraphen, so heiﬂt eine Abbildung $\varphi : V(H) \to V(H')$ \DF{Isomorphismus} zwischen $H$ und $H'$, falls f"ur alle Teilmengen $\left\{ v_1,v_2,\dots v_n \right\}$ von Ecken von $V(H)$ gilt: $$ \left\{ v_1,v_2,\dots v_n \right\} \text{ ist Kante von $H$} \Leftrightarrow \left\{ \phi(v_1),\phi(v_2),\dots \phi(v_n) \right\} \text{ ist Kante von $H'$}.$$ Zwei Hypergraphen $H,H'$ heiﬂen \DF{isomorph}, falls es einen Isomorphismus zwischen
+$H$ und $H'$ gibt. 
 
 Ein Graph $G$ hei{\ss}t \DF{vollst"andiger Graph}, falls $E(G) = [V(G)]^{2}$ gilt. Ist $G$ ein vollst"andiger Graph der Ordnung $n$, so schreiben wir auch $G=K_n$. Man beachte hierbei, dass alle vollst"andigen Graphen der Ordnung $n$ isomorph sind. In diesem Sinne bezeichnen wir mit $C_n$ den \DF{Kreis} der Ordnung $n$, mit $P_n$ den \DF{Weg} der Ordnung $n$ und mit $O_n$ den \DF{kantenlosen Graphen} der Ordnung $n$ (d.h. das Komplement von $K_n$). 
 
 Damit ist $\omega(H)$ die gr"o{\ss}te Zahl, sodass $H$ einen vollst"andigen Graphen der Ordnung $n$ als Untergraphen enth"alt und $\alpha(H)$ die gr"o{\ss}te Zahl $n$, sodass $H$ den kantenlosen Graphen der Ordnung $n$ als induzierten Untergraphen enth"alt. 
 
-Der \DF{Kantengraph} $L(H)$ eines Hyergraphen $H$ ist der Graph mit der Eckenmenge $V(L(H))= E(H) $ und Kantenmenge $$E(L(H) = \left\{ ee'| \left\{ e,e' \right\} \in [E(H)]^{2}, e\cap e' \neq \emptyset \right\}$$
-F"ur eine Kante $e$ von $H$ sei $d_{H}(e) = d_{L(H)}(e) $ der \DF{Kantengrad} von $e$ in $H$. Dieser ist also die Zahl der von $e$ verschiedenen Kanten $e'$ von $H$, welche mit $e$ nichtleeren Schnitt haben. 
 \subsection{F"arbungen von Graphen und Hypergraphen}
 
 Das \DF{F\"arbungsproblem} f\"ur Graphen ist ein klassischen Problem aus der Graphentheorie mit vielf\"altigen Anwendungen in der kombinatorischen Optimierung und anderen Teilgebieten der Mathematik. Beim  F\"arbungsproblem besteht die Aufgabe darin, die Ecken eines Graphen $G$ so zu f\"arben, dass durch eine Kante verbundene Ecken verschiedenen Farben erhalten. Dabei sollen nat\"urlich m\"oglichst wenige Farben verwendet werden.
@@ -36,27 +36,58 @@ Die Bestimmung der chromatischen Zahl eines Graphen ist ein {\sf NP}-schweres Op
 Eine Abbildung $f :V(G) \to C$ ist eine F"arbung von $G$, genau dann wenn f"ur alle $c\in C$ das Urbild $f^{-1}(c)$ eine unabh"angige Menge in $G$ ist (d.h. keine zwei Ecken von $f^{-1}(c)$ sind durch eine Kante von $G$ verbunden). Diese Urbilder nennen wir \DF{Farbklassen}. Offensichtlich sind die Farbklassen disjunkt. 
 Folglich haben Farbklassen h"ochstens $\alpha (G)$ Ecken. Daraus folgt, dass jede $k$-F"arbung von $G$ $|G| \leq k \alpha(G)$ erf"ullt, und deswegen auch $|G| \leq \chi(G) \alpha(G)$ gilt. 
 
-Offensichtlich gilt $\chi(G) \leq |G|$. Damit gilt 
+Da jede Ecke eine unabh"angige Menge ist, gilt $\chi(G) \leq |G|$. Damit gilt 
 $$\chi(G) \geq |G|  \Leftrightarrow chi(G) = |G| \Leftrightarrow \alpha(G) \leq 1 \Leftrightarrow G \text{ ist ein vollst"andiger Graph}$$
 Insbesondere gilt somit f"ur $n\in \N$ : $\chi(K_n)  = n $. Da $\chi $ ein monotoner Graphenparameter ist, ist also $$\omega(G) \leq \chi(G).$$
 
-Bei der Untersuchung des F"arbungsproblems f"ur Graphen erweisen sich die kritischen Graphen als ein n"utzliches Hilfsmittel. Dies liegt vor allem daran, dass sich F"arbungsprobleme f"ur Graphen oft auf entsprechende F"ar-bungsprobleme f"ur kritische Graphen zur"uckf"uhren lassen.
-Ein Graph $G$ hei{\ss}t \DF{k-kritisch}, falls $\chi(G) = k$ ist und $\chi(H) < k$ gilt f"ur alle echten induzierten Untergraphen $H$ von $G$.
+Die chromatische Zahl des Graphen $G$ ist die kleinste Zahl $k$, derart, dass sich $G$ in $k$ viele unabh"angige Mengen unterteilen l"asst. Deswegen gilt $\chi(G) = 0$ nur, falls $V(G) = \emptyset$, also $G=\emptyset$ der leere Graph ist. Auﬂerdem ist $\chi(G) \leq 1$ genau dann, wenn $G$ keine Ecken hat und $\chi(G) \leq 2$ falls $G$ bipartit ist. 
+Ein Graph ist \DF{bipartit}, falls es zwei disjunkte Mengen $A,B\subset V(G)$ existieren, sodass $V(G) = A\cup B$ und $G[A], G[B]$ besitzen keine Kanten gilt.
+Nach dem Satz von K"onig ist $G$ genau dann bipartit, wenn $G$ keinen ungeraden Kreis als Untergraphen besitzt (\cite{koenig}). 
 
-Sie $C$ eine endliche Menge. Eine Abbildung $g: E(H) \to C$ hei{\ss}t \DF{Kantenf"arbung} von $H$, falls f"ur zwei verschiedene Kanten $e,e'$ von $H$ mit nichtleerem Schnitt $g(e) \neq g(e')$ gilt. Ist $|C| = k$, so ist $g$ eine \DF{$k$-Kantenf"arbung}. Die kleinste nat"urliche Zahl $k$, f"ur die $H$ eine $k$-Kantenf"arbung besitzt, bezeichnen wir mit $\chi'(H)$, dem \DF{chromatischen Index} von $H$. Man beachte hierbei, dass stets $\chi'(H) = \chi(L(H))$ gilt. 
+Nach Stockmeyer \cite{stockmeyer} ist f"ur jedes $k\geq 3$ das Entscheidungsproblem ob ein gegebener Graph $k$ f"arbbar ist {\sf NP}-vollst"andig. Es ist also nicht zu erwarten, dass sich Graphen mit chromatischer Zahl kleiner gleich $k$ f"ur festes $k\geq 3$ einfach charakterisieren lassen.
 
-Zu (Kanten)F"arbungen von Graphen und Hypergraphen ist vieles bekannt, vor allem die S"atze von Brooks und Vizing. Der Vollst"andigkeit halber wollen wir diese hier anf"uhren. 
 Der folgende Satz stammt von Brooks aus dem Jahr $1941$. Die Schranke werden wir sp"ater noch verbessern, siehe Satz \ref{thm:wilfev}. 
 \begin{theorem}[Brooks]
   Sei $G$ ein zusammenh"angender Graph mit Maximalgrad $\Delta$. Dann gilt $$\chi(G) \leq \Delta + 1. $$
   Gleichheit tritt nur auf, falls $G$ ein vollst"andiger Graph oder ein ungerader Kreis ist.
   \label{thm:brooks}
 \end{theorem}
-Sei $G$ ein Graph. Dann ist offensichtlich $\chi'(G) \geq \Delta(G)$, da alle Kanten die eine Ecke maximalen Grades enthalten mit unterschiedlichen Farben gef"arbt werden m"ussen. 
+Bei der Untersuchung des F"arbungsproblems f"ur Graphen erweisen sich die kritischen Graphen als ein n"utzliches Hilfsmittel. Dies liegt vor allem daran, dass sich F"arbungsprobleme f"ur Graphen oft auf entsprechende F"arbungsprobleme f"ur kritische Graphen zur"uckf"uhren lassen.
+Ein Graph $G$ hei{\ss}t \DF{k-kritisch}, falls $\chi(G) = k$ ist und $\chi(H) < k$ gilt f"ur alle echten induzierten Untergraphen $H$ von $G$. 
+
+Ist $G$ ein Graph und $t\in V(G) \cup E(G)$, so gilt 
+$$ \chi(G) -1 \leq \chi(G-t) \leq \chi(G).$$
+Daraus erhalten wir den folgenden bekannten Satz, wonach die $(k-1)$-f"arbbaren Graphen durch verbotene $k$-kritische Untergraphen charakterisiert werden k"onnen.
+
+\begin{theorem}
+  Sei $G$ ein Graph und $k\in\N$. Dann ist $\chi(G) \geq k$, genau dann wenn $G$ einen $k$-kritischen Graphen $H$ als induzierten Untergraphen enth"alt.
+  \label{thm:forbiddencritgraph}
+\end{theorem}
+
+\begin{proof}
+  Falls $G$ einen $k$-kritischen Untergraphen enth"alt, so ist $\chi(G) \geq \chi(H) = k$, da $\chi$ ein monotoner Graphenparamter ist.
+
+  Sei also $\chi(G) \geq k$. Wir w"ahlen $H$ als einen induzierten Untergraphen von $G$ kleinster Ordnung, sodass $\chi(H) \geq k $ gilt. Dann ist $\chi(H-v) < k$ f"ur alle Ecken von $H$. Also ist $H$ $k$-kritisch. 
+\end{proof}
+\subsection{F"arbungen von Kantengraphen}
+In diesem Abschnitt betrachten wir das F"arbungsproblem f"ur die Klasse der Kantengraphen. 
+Der \DF{Kantengraph} $L(H)$ eines Hyergraphen $H$ ist der Graph mit der Eckenmenge $V(L(H))= E(H) $ und Kantenmenge $$E(L(H)) = \left\{ ee'| \left\{ e,e' \right\} \in [E(H)]^{2}, e\cap e' \neq \emptyset \right\}.$$
+Zwei verschieden Kanten von $H$, welche eine Ecke gemeinsam heiﬂen adjazent. 
+F"ur eine Kante $e$ von $H$ sei $d_{H}(e) = d_{L(H)}(e) $ der \DF{Kantengrad} von $e$ in $H$. Dieser ist also die Zahl der von $e$ verschiedenen Kanten $e'$ von $H$, welche mit $e$ adjazent sind. 
+Dann sei $\Delta'(H)$ der \DF{maximale Kantengrad} von $H$ und $\delta'(H)$ der \DF{minimale Kantengrad} und wir setzen $\Delta'(H) = \delta'(H)=0$, falls $E(H) = \emptyset$. 
+
+Eine F"arbung des Kantengraphen eines Hypergraphen $H$, heiﬂt \DF{Kantenf"arbung} von $H$. Wir bezeichnen dann mit dem \DF{chromatischen Index} $\chi'(H)$ die kleinste nat"urliche Zahl $k$, sodass $L(H)$ eine $k$-F"arbung besitzt. Also gilt $\chi'(H) = \chi(L(H))$. 
+Ist $v$ eine Ecke von $H$, so ist $E_H(v)$ eine Clique von $L(H)$, und folglich gilt $\chi'(H) \geq \Delta(H)$. K"onig zeigte in \cite{koenigzwei}, dass diese Schranke f"ur bipartite Graphen scharf ist.
+\begin{theorem}[K"onig]
+  Ist $G$ ein bipartiter Graph, so gilt $\chi'(G) = \Delta(G)$.
+  \label{}
+\end{theorem}
+
 \begin{theorem}[Vizing]
   Sei $G$ ein Graph mit Maximalgrad $\Delta$. Dann gilt $\chi'(G) = \Delta$ oder $\chi'(G) = \Delta + 1$. 
   \label{thm:Vizing}
 \end{theorem}
+
 \subsection{Eigenwerte von symmetrischen Matrizen}
 \label{sss:ewgraph}
 \label{ssec:EigenwerteMatrizen} 
@@ -65,18 +96,18 @@ Bevor wir uns den Eigenwerten von Graphen zuwenden, wollen wir den Leser an eini
   Ax = \lambda x
   \label{eq:eigenwertgleichung}
 \end{equation}
-mit $x\in \R^{n}$ und $\lambda\in\R$ die (reelle) Eigenwertgleichugn von $A$. F"ur $\lambda\in\R$ ist die L"osungsmenge 
+mit $x\in \R^{n}$ und $\lambda\in\R$ die (reelle) Eigenwertgleichung von $A$. F"ur $\lambda\in\R$ ist die L"osungsmenge 
 \begin{equation*}
   E_{A}(\lambda) = \left\{ x\in\R^{n} | Ax = \lambda x\right\}
 \end{equation*}
-ein linearer Unterraum von $\R^{n}$ mit $\operatorname{dim}(E_A(\lambda) \geq 0$. Man nennt dann $\lambda$ einen \DF{Eigenwert} von $A$, falls $\operatorname{dim}(E_A(\lambda) \geq 1$ ist, die Vektoren aus $E_A\left( \lambda \right)$ hei{\ss}en \DF{Eigenvektoren} von $A$ zum Eigenwert $\lambda$ und $E_A\left( \lambda \right)$ ist der zu $\lambda$ geh"orende \DF{Eigenraum} von $A$. Die Abbildung $p_A$ mit $$p_A(\lambda) = \det (A-\lambda I)$$ ist ein Polynom aus $\R[\lambda]$ vom Grade
+ein linearer Unterraum von $\R^{n}$ mit $\operatorname{dim}(E_A(\lambda) \geq 0$. Man nennt dann $\lambda$ einen \DF{Eigenwert} von $A$, falls $\operatorname{dim}(E_A(\lambda)) \geq 1$ ist, die Vektoren aus $E_A\left( \lambda \right)$ hei{\ss}en \DF{Eigenvektoren} von $A$ zum Eigenwert $\lambda$ und $E_A\left( \lambda \right)$ ist der zu $\lambda$ geh"orende \DF{Eigenraum} von $A$. Die Abbildung $p_A$ mit $$p_A(\lambda) = \det (A-\lambda I)$$ ist ein Polynom aus $\R[\lambda]$ vom Grade
 $n$, welches \DF{charakteristisches Polynom} von $A$ genannt wird (dabei ist $I\in\Rnn$ die Einheitsmatrix der Ordnung $n$). 
 F"ur $\lambda\in\R$ gilt dann $$\lambda \text{ ist Eigenwert von }A \Leftrightarrow p_A(\lambda) = 0.$$ Da $A$ symmetrisch ist, zerf"allt $p_A$ in genau $n$ reelle Linearfaktoren, d.h. $p_A$ hat genau $n$ Nullstellen (gez"ahlt mit ihren Vielfachheiten). 
 F"ur $\lambda\in\R$ sei $m_A(\lambda$ die Vielfachheit von $\lambda$ als Nullstelle von $p_A$. Die Matrix $A$ besitzt somit $n$ reelle Eigenwerte, welche wir monton fallend anordnen k"onnen. Im Folgenden bezeichnen wir mit $\lambda_{p}(A)$ den $p$-gr"oﬂten Eigenwert von $A$, das heiﬂt es gilt $$\lambda_{1}(A) \geq \lambda_2(A) \geq \dots \lambda_{n}(A)$$ Dann ist $\lambda_{max}(A) = \lambda_1(A)$ der gr"oﬂte Eigenwert von $A$ und $\lambda_{min}(A) = \lambda_{n}(A)$ der
 kleinste Eigenwert von $A$. Die Folge $$\operatorname{sp}(A) = (\lambda_{1}(A),\lambda_{2}(A), \dots \lambda_{n}(A))$$ der Eigenwerte bezeichnet man als das \DF{Spektrum} von $A$. Bekanntlich besitzen zwei symmetrische Matrizen genau dann das gleiche Spektrum, wenn sie zueinander "ahnlich sind.
 Ist $\lambda$ ein Eigenwert von $A$ so ist $\operatorname{dim}E_A(\lambda) = m_A(\lambda)$. Eigenvektoren zu verschiedenen Eigenwerten sind stets orthogonal und $\R^{n}$ ist die direkte Summe der Eigenr"aume zu den verschiedenen Eigenwerten. Insbesondere besitzt der $\R^{n}$ eine Orthonomalbassi aus lauter Eigenwerten von $A$.
 
-Eine symmetrische Matrix $A\in\Rnn$ heiﬂt positiv semidefinit, falls $x^{T}Ax \geq 0$ f"ur alle Vektoren $x\in \R^{n}$ gilt. Gilt zus"atzlich noch $x^{T}Ax = 0$ nur f"ur $x= 0\in\R^{n}$ (hat also $A$ vollen Rang), so heiﬂt $ A$ positiv definit. Wir wollen nun auf einige Eigenschaften von positiv (semi)definiten Matrizen anf"uhren.
+Eine symmetrische Matrix $A\in\Rnn$ heiﬂt positiv semidefinit, falls $x^{T}Ax \geq 0$ f"ur alle Vektoren $x\in \R^{n}$ gilt. Gilt zus"atzlich noch $x^{T}Ax = 0$ nur f"ur $x= 0\in\R^{n}$ (hat also $A$ vollen Rang), so heiﬂt $ A$ positiv definit. Wir wollen nun einige Eigenschaften von positiv (semi)definiten Matrizen anf"uhren.
 \begin{proposition}
   Folgende Aussagen sind f"ur eine symmetrische Matrix $A\in \Rnn$ "aquivalent
   \begin{enumerate}[label={\rm(\alph*)}]
@@ -160,8 +191,8 @@ Ein Beweis f"ur die folgenden Ungleichungen findet sich in \cite[3.]{1108.1467}.
 \subsection{Eigenwerte von Graphen}
 
 \label{ssec:EigenwerteGraphen}
-Sei $G$ ein Graph der Ordnung $n$ mit der Eckenmenge $V(G) = \left\{ v_1,v_2,\dots,v_n \right\}$. Die \DF{Adjanzenzmatrix} von $G$ ist die Matrix $ A(G)\in \Rnn$ mit \[A(G)_{i,j} = \begin{cases}
-    1 & v_{i}v_{j} \in E(G) \\ 0 & v_{i}v_{j} \notin E(G)
+Sei $G$ ein Graph der Ordnung $n$ mit der Eckenmenge $V(G) = \left\{ v_1,v_2,\dots,v_n \right\}$. Die \DF{Adjanzenzmatrix} von $G$ ist die Matrix $ A(G)\in \Rnn$ mit \[A(G)_{ij} = \begin{cases}
+    1 & \text{falls }v_{i}v_{j} \in E(G) \\ 0 & \text{falls }v_{i}v_{j} \notin E(G)
 \end{cases}\] 
 Dann ist $A$ symmetrisch, und hat folglich nur reelle Eigenwerte.
 Damit es Sinn ergibt, von den Eigenwerten eines Graphen zu sprechen, d"urfen die Eigenwerte von $A(G)$ nicht von der Nummerierung der Ecken abh"angen. Das dem so ist, zeigt das folgende Lemma.
@@ -174,25 +205,25 @@ Damit es Sinn ergibt, von den Eigenwerten eines Graphen zu sprechen, d"urfen die
 \begin{proof}
   Seien $V(G)=\{v_1,\dots, v_n\}= \{u_1,\dots, u_n\}$ zwei Nummerierungen der Ecken. Sei weiterhin $A,B\in \R^{n\times n}$ mit  
   \[
-    A_{i,j} = \begin{cases}
-      1 & v_iv_j \in E(G) \\ 0 & v_iv_j \notin E(G)
+    A_{ij} = \begin{cases}
+      1 & \text{falls }v_iv_j \in E(G) \\ 0 & \text{falls }v_iv_j \notin E(G)
     \end{cases} \\ \mbox{ und }
-    B_{i,j} = \begin{cases}
-      1 & u_iu_j \in E(G) \\ 0 & u_iu_j \notin E(G)
+    B_{ij} = \begin{cases}
+      1 & \text{falls }u_iu_j \in E(G) \\ 0 & \text{falls }u_iu_j \notin E(G)
   \end{cases}\] 
-  Dann gibt es eine Permutation $\sigma\in S^{n}$ sodass $v_{\sigma(i)} = u_i$ ist. Folglich gilt $A_{\sigma(i),\sigma(j)} = B_{i,j}$ . Sei $P \in GL_n(\R) $ die Matrix mit
+  Dann gibt es eine Permutation $\sigma\in S^{n}$ sodass $v_{\sigma(i)} = u_i$ ist. Folglich gilt $A_{\sigma(i),\sigma(j)} = B_{ij}$ . Sei $P \in GL_n(\R) $ die Matrix mit
   \[
-    P_{i,j} = \begin{cases}
-      1 & \sigma(i) = j \\ 0 & \text{sonst} 
+    P_{ij} = \begin{cases}
+      1 & \text{falls }\sigma(i) = j \\ 0 & \text{sonst} 
     \end{cases} 
   \]
   Damit ist $P=(e_{\sigma(1)},\dots, e_{\sigma(n)})$. F"ur die Matrix $P^{T}AP$ gilt dann: 
   \[
-    (P^{T}AP)_{i,j} = e_j^{T} P^{T}AP e_i = e_{\sigma(j)}^{T}Ae_{\sigma(i)}=A_{\sigma(i),\sigma(j)} = B_{i,j}
+    (P^{T}AP)_{ij} = e_j^{T} P^{T}AP e_i = e_{\sigma(j)}^{T}Ae_{\sigma(i)}=A_{\sigma(i),\sigma(j)} = B_{ij}
   \]
   Also ist $P^{T}AP = B$. Somit sind $A$ und $B$ "ahnlich, und besitzen folglich das selbe charakteristische Polynom. 
 \end{proof}
-F"ur den Graphen $G$ der Ordnung $n$ sei dann $p_G = p_{A(G)}$ das \DF{charakteristische Polynom} von $G$ und $\lambda_p(G) = \lambda_{p}(A(G))$ der $p$-gr"oﬂte Eigenwerte von $G$ (f"ur $1\leq p \leq |G|$) und $\operatorname{sp}(G) = \operatorname{sp}(A(G))$ das \DF{Spektrum} von $G$. Diese sind nach Lemma \ref{lem:GraphEigenwerte} unabh"angig von der Nummerierung der Ecken, und somit wohldefiniert. Dies gilt jedeoch nicht f"ur die Eigenvektoren. 
+F"ur den Graphen $G$ der Ordnung $n$ sei dann $p_G = p_{A(G)}$ das \DF{charakteristische Polynom} von $G$ und $\lambda_p(G) = \lambda_{p}(A(G))$ der \DF{$p$-gr"oﬂte Eigenwerte} von $G$ (f"ur $1\leq p \leq |G|$) und $\operatorname{sp}(G) = \operatorname{sp}(A(G))$ das \DF{Spektrum} von $G$. Diese sind nach Lemma \ref{lem:GraphEigenwerte} unabh"angig von der Nummerierung der Ecken, und somit wohldefiniert. Dies gilt jedeoch nicht f"ur die Eigenvektoren. 
 Wir k"onnen aber auch eine koordinatenfreie Interpretation f"ur die Eigenvektoren geben. Dazu betrachten wir einen Eigenwert $\lambda$ von $G$ und einen zugeh"origen Eigenvektor $x$ von $A(G)$. Aus der Eigenwertgleichung \ref{eq:eigenwertgleichung} erhalten wir das Gleichungssystem 
 \begin{equation}
  \lambda x_{i} = \sum\limits_{j=1}^{n}A(G)_{ij}x_j 
@@ -208,13 +239,13 @@ Wir betrachten nun den Vektorraum $\R^{V(G)}$ aller Abbildungen $x:V(G) \to \R$.
   \lambda x(v) = \sum\limits_{u: uv\in E(G)} x(u)
   \label{eq:ewglneu3}
 \end{equation}
-d.h. die Summe der Werte $x(u)$ "uber die Nachbarn $u$ von $v$ ergibt den Wert $\lambda x(v)$. Es sei dann $E_G(\lambda)$ die Menge aller dieser Abbildungen. Dann ist $E_G(\lambda)$ der \DF{Eigenraum} von $G$ zum Eigenwert $\lambda$. Es sei $\mathbb 1 \R^{V(G)}$ die Abbildung mit $\mathbb 1 (v) = 1$ f"ur alle $v\in V(G)$. F"ur eine Ecke $v$ von $G$ gilt dann 
+d.h. die Summe der Werte $x(u)$ "uber die Nachbarn $u$ von $v$ ergibt den Wert $\lambda x(v)$. Es sei dann $E_G(\lambda)$ die Menge aller dieser Abbildungen. Dann ist $E_G(\lambda)$ der \DF{Eigenraum} von $G$ zum Eigenwert $\lambda$. Es sei $\mathbf{ 1 } \in \R^{V(G)}$ die Abbildung mit $\mathbbm 1 (v) = 1$ f"ur alle $v\in V(G)$. F"ur eine Ecke $v$ von $G$ gilt dann 
 \begin{equation*}
-  d_G(v) = \sum\limits_{u:uv\in E(G)} 1 = \sum\limits_{u:uv\in E(G)} \mathbb 1 (u)
+  d_G(v) = \sum\limits_{u:uv\in E(G)} 1 = \sum\limits_{u:uv\in E(G)} \mathbbm 1 (u)
 \end{equation*}
 und aus Gleichung \ref{eq:ewglneu} folgt somit f"ur $r\in \N$ \todo{$N_0$?}:
 \begin{equation}
-  \mathbb 1 \in E_G(r) \Leftrightarrow G \text{ ist } r \text{-regul"ar}.
+  \mathbbm 1 \in E_G(r) \Leftrightarrow G \text{ ist } r \text{-regul"ar}.
   \label{eq:Grregul}
 \end{equation}
 
@@ -250,20 +281,20 @@ Zwei Graphen hei{\ss}en \DF{isospektral}, falls sie das selbe Spektrum besitzen.
 \begin{example}
   \label{ex:vollstgraph}
   F"ur den vollst"andigen Graphen der Ordnung $K_n$ der Ordnung $n\geq 1$ gelten folgenden Aussagen:
-  \begin{enumerate}
+  \begin{enumerate}[label=\rm{(\alph*)}]
     \item $\operatorname{sp}(K_n) = (n-1, \underbrace{-1,-1,\dots,-1)}_{n-1 \text{ mal}}$.
     \item $p_{K_n}(\lambda) = (-1)^{n}(\lambda-(n-1))(\lambda+1)^{n-1}$.
-    \item $ E_{K_n}(n-1) = [\mathbb 1]$, wobei $\mathbb 1\in \R^{V(K_n)}$ die Einsabbildung ist mit $1(v) = 1$ f"ur alle $v\in V(G)$.
-    \item $ E_{K_n}(-1) = \left\{ x\in \R^{V(K_n)}| x \text{ ist orthogonal zu } \mathbb 1 \right\}$.
+    \item $ E_{K_n}(n-1) = [\mathbbm 1]$, wobei $\mathbbm 1\in \R^{V(K_n)}$ die Einsabbildung ist mit $1(v) = 1$ f"ur alle $v\in V(G)$.
+    \item $ E_{K_n}(-1) = \left\{ x\in \R^{V(K_n)}| x \text{ ist orthogonal zu } \mathbbm 1 \right\}$.
   \end{enumerate}
 \end{example}
 
 \begin{proof}
-  Es sei $J\in\Rnn$ die Matrix, welche nur $1$ als Eintr"ag besitzt (diese werden wir mit $1$-Matrix bezeichnen). Dann gilt $A(K_n) = J-I$, wobei $I\in\Rnn$ die Einheitsmatrix ist. Da $\operatorname{rang}(J) = n-1$, ist also $-1$ ein Eigenwert von $G$ mit Vielfachheit $n-1$. Da $K_n$ $n-1$ regul"ar ist, ist auch $n-1$ ein Eigenwert von $K_n$. Damit folgen (a) und (b). Weiterhin gilt (c) wegen Gleichung \ref{eq:Grregul}. Aus der Orthognalit"at der Eigenvektoren folgt nun (d).
+  Es sei $J\in\Rnn$ die Matrix, welche nur $1$ als Eintr"ag besitzt (diese werden wir mit $1$-Matrix bezeichnen). Dann gilt $A(K_n) = J-I$, wobei $I\in\Rnn$ die Einheitsmatrix ist. Da $\operatorname{rang}(J) = 1$, ist also $-1$ ein Eigenwert von $G$ mit Vielfachheit $n-1$. Da $K_n$ $n-1$ regul"ar ist, ist auch $n-1$ ein Eigenwert von $K_n$. Damit folgen (a) und (b). Weiterhin gilt (c) wegen Gleichung \ref{eq:Grregul}. Aus der Orthognalit"at der Eigenvektoren folgt nun (d).
 \end{proof}
 
 \begin{example}
-  Der Kreis $C_n$ der Ordnung $n\geq 3$ hat die Eigenwerte $$\lambda_p (C_n) = 2 \cos(\frac{2\pi p}{n})$$ f"ur $1\leq p \leq n$. Einen Beweis findet der Leser in \cite[1.1.4]{zbMATH05625877}. Insbesondere gilt 
+  Der Kreis $C_n$ der Ordnung $n\geq 3$ hat die Eigenwerte $$\lambda_p (C_n) = 2 \cos\left(\frac{2\pi p}{n}\right)$$ f"ur $1\leq p \leq n$. Einen Beweis findet der Leser in \cite[1.1.4]{zbMATH05625877}. Insbesondere gilt 
   \begin{align*}
     \operatorname{sp}(C_3) = \operatorname{sp}(K_3) &= (2,-1,-1) \\
     \operatorname{sp}(C_4) &= (2,0,0,-2) \\
@@ -276,7 +307,7 @@ Zwei Graphen hei{\ss}en \DF{isospektral}, falls sie das selbe Spektrum besitzen.
 \end{example}
 
 \begin{example}
-  Ist $G$ die disjunkte Vereinigug der nichtleeren Graphen $G_1,G_2,\dots G_l$ mit $l\in \N$, so ist $$p_G(\lambda) = p_{G_1}(\lambda) \cdot p_{G_2}(\lambda) \cdot \dots \cdot p_{G_l}(\lambda)$$ f"ur $\lambda\in\R$. Das Spektrum von $G$ ergibt sich somit aus der Vereinigung der Spektren von $G_1,G_2,\dots,G_l$ und f"ur $\lambda \in \R$ gilt:
+  Ist $G$ die disjunkte Vereinigug der nichtleeren Graphen $G_1,G_2,\dots, G_l$ mit $l\in \N$, so ist $$p_G(\lambda) = p_{G_1}(\lambda) \cdot p_{G_2}(\lambda) \cdot \dots \cdot p_{G_l}(\lambda)$$ f"ur $\lambda\in\R$. Das Spektrum von $G$ ergibt sich somit aus der Vereinigung der Spektren von $G_1,G_2,\dots,G_l$ und f"ur $\lambda \in \R$ gilt:
   $$m_G(\lambda) = m_{G_1}(\lambda)+ m_{G_2}(\lambda)+\dots+ m_{G_l}(\lambda) $$
 \end{example}
 
@@ -284,22 +315,27 @@ Zwei Graphen hei{\ss}en \DF{isospektral}, falls sie das selbe Spektrum besitzen.
   Wir nummerieren die Ecken von $G$ so, dass f"ur $1\leq i \leq l-1$ die Ecken von $G_i$ vor den Ecken von $G_{i+1}$ aufgelistet werden. Dann ist $$A(G) = \operatorname{diag}(A(G_1),A(G_2),\dots,A(G_l))$$ und somit ist $$A(G) - \lambda I = \operatorname{diag}(A(G_1)-\lambda I,A(G_2)-\lambda I,\dots,A(G_l)-\lambda I)$$ wobei $I$ die Einheitsmatrix der passenden Ordnung ist. Dann ist 
   \begin{align*}
     p_{G}(\lambda) &= \det(A(G) - \lambda I) \\
-    &= \det(A(G_1)-\lambda I) \cdot\det(A(G_2)-\lambda I)\cdot \dots \cdot\det(A(G_l)-\lambda I) \\
-    &= p_{G_1}(\lambda) \cdot p_{G_2}(\lambda) \cdot \dots \cdot p_{G_l}(\lambda) \cdot
+    &= \det(A(G_1)-\lambda I) \cdot\det(A(G_2)-\lambda I)\cdot \ldots \cdot\det(A(G_l)-\lambda I) \\
+    &= p_{G_1}(\lambda) \cdot p_{G_2}(\lambda) \cdot \ldots \cdot p_{G_l}(\lambda) \cdot
   \end{align*}
   Da die Eigenwerte die Nullstellen des charakteristischen Polynoms sind, gilt dann f"ur alle $\lambda \in \R$: 
   $$m_G(\lambda) = m_{G_1}(\lambda)+ m_{G_2}(\lambda)+\dots+ m_{G_l}(\lambda) .$$
 \end{proof}
 
-Ist $G$ die disjunkte Vereinigung zweier vollst"andiger Graphen $K_n$, so ist $\operatorname{sp}(G) = (n-1,n-1, \underbrace{-1,\dots,-1}_{2n-2 \text{ mal}}$. Insbesondere ist $\lambda_{max}(G) = n-1$ ein doppelter Eigenwert von $G$.
+Ist $G$ die disjunkte Vereinigung zweier vollst"andiger Graphen $K_n$, so ist $$\operatorname{sp}(G) = (n-1,n-1, \underbrace{-1,\dots,-1}_{2n-2 \text{ mal}}).$$ Insbesondere ist $\lambda_{max}(G) = n-1$ ein doppelter Eigenwert von $G$.
 
-\subsection{Eigenschaften des Spektrums}
+\subsection{Eigenschaften des Graphenspektrums}
 In diesem Abschnitt wollen wir einige einfache, aber wichtigen Eigenschaften der Spektra von Graphen geben.
-Im Jahr 1912 bewies Frobenius \todo{referenz} einen zentralen Satz "uber die Eigenwerte von unzerlegbaren Matrizen mit nicht negativen Elementen. Der folgende Satz ist eine unmittelbare Folgerung aus dem Resultat von Frobenius.
+Eine Matrix $A\in\Rnn$ heiﬂt \DF{reduzibel}, falls zwei nichtleere disjunkte Teilmengen $X,Y$ von $\left\{ 1,\dots,n \right\}$ existieren, mit $X\cup Y = \left\{ 1,\dots,n \right\}$ und $$A_{ik} = 0 ~ i\in X, k \in Y.$$ Anderfalls heiﬂt $A$ \DF{irreduzibel}. 
+Wie man leicht zeigen kann, ist $A$ reduzibel, genau dann, wenn man durch Umordnen der Zeilen und Spalten in folgende Blockform gebracht werden kann: $$\begin{pmatrix}
+  A_{11} & 0 \\ A_{12} & A_{22}
+\end{pmatrix}.$$ 
+Ist $G$ ein Graph, so gilt $$G \text{ ist zusammenh"angend} \Leftrightarrow A(G) \text{ist irreduzibel}.$$
+Im Jahr 1912 bewiesen Perron und Frobenius (\cite{perron}) einen zentralen Satz "uber die Eigenwerte von unzerlegbaren Matrizen mit nicht negativen Elementen. Der folgende Satz ist eine unmittelbare Folgerung aus dem Satz von Perron-Frobenius.
 
 \begin{theorem}
   F"ur einen zusammenh"angenden Graphen $G$ der Ordnung $n\in \N$ gelten folgende Aussagen:
-  \begin{enumerate}
+  \begin{enumerate}[label=\rm{(\alph*)}]
     \item $\lambda_{max}(G)$ ist ein einfacher Eigenwert mit $\lambda_{max}(G) \leq \Delta(G)$.
     \item Es gibt einen Eigenvektor $x$ von $G$ zum Eigenwert $\lambda_{max}(G)$ mit $x(v) > 0$ f"ur alle $v\in V(G)$. 
     \item Ist $x$ ein Eigenvektor von $G$ zum Eigenwert $\lambda$ mit $x(v)> 0$ f"ur alle $v\in V(G)$, so ist $\lambda = \lambda_{max}(G)$.
@@ -309,21 +345,21 @@ Im Jahr 1912 bewies Frobenius \todo{referenz} einen zentralen Satz "uber die Eig
 
 \begin{corollary}
   F"ur einen $r$-regul"aren Graphen $G$ der Ordnung $n \in\N$ gelten folgende Aussagen:
-  \begin{enumerate}
+  \begin{enumerate}[label=\rm{(\alph*)}]
     \item $\lambda_{max}(G) = r$.
     \item $G$ ist genau dann zusammenh"angend, wenn $\lambda_{max}(G)$ ein einfacher Eigenwert ist.
   \end{enumerate}
 \end{corollary}
 
 \begin{proof}
-  Es seien $G_1,\dots,G_l$ die Komponenten von $G$. Dann ist jede Komponente $G_i$ ein $r$-regul"arer Graph ($1\leq i \leq l$). Damit folgt aus \ref{eq:Grregul}, dass $\mathbb 1$ ein Eigenvektor von $G_i$ zum Eigenwert $r$ ist. Dann ist $\lambda_{max}(G) = r$ und $m_{G}(r) = l$. Somit gilt sowohl (a) als auch (b).
+  Es seien $G_1,\dots,G_l$ die Komponenten von $G$. Dann ist jede Komponente $G_i$ ein $r$-regul"arer Graph ($1\leq i \leq l$). Damit folgt aus \ref{eq:Grregul}, dass $\mathbbm 1$ ein Eigenvektor von $G_i$ zum Eigenwert $r$ ist. Dann ist $\lambda_{max}(G) = r$ und $m_{G}(r) = l$. Somit gilt sowohl (a) als auch (b).
 \end{proof}
 
-F"ur einen Graphen $G$ sei $\overline{G}$ der \DF{Komplementargraph} von $G$ mit $V(\overline{G}) = V(G)$ und $E(\overline(G)) = [V(G)]^{2}\setminus E(G)$.
+F"ur einen Graphen $G$ sei $\overline{G}$ der \DF{Komplementargraph} von $G$ mit $V(\overline{G}) = V(G)$ und $E(\overline{G}) = [V(G)]^{2}\setminus E(G)$.
 
 \begin{corollary}
   Ist $G$ ein $r$-regul"arer Graph der Ordnung $n\geq 1$, so gelten folgende Aussagen:
-  \begin{enumerate}
+  \begin{enumerate}[label=\rm{(\alph*)}]
     \item $\lambda_{1}(G) = r $ und $\lambda_{1}(\overline{G}) = n-1-r $.
     \item $\lambda_{i}(\overline{G}) = - \lambda_{n-i+1}(G) -1$ f"ur $2\leq i \leq n$. 
   \end{enumerate}
@@ -331,7 +367,7 @@ F"ur einen Graphen $G$ sei $\overline{G}$ der \DF{Komplementargraph} von $G$ mit
 
 \begin{proof}
   Aussage (a) folgt, da der Komplementargraph eines $r$-regul"aren Graphes $n-1-r$-regul"ar ist. 
-  Zum Beweis von (b) w"ahlen wir f"ur $G$ und $\overline{G}$ die selbe Nummerierung der Ecken, etwa $v_1,v_2,\dots v_n$. Dann ist $$A(G) + A(\overline{G}) = J-I$$ wobei $J \in \Rnn$ die Matrix $1$-Matrix ist, und $I\in\Rnn$ die Einheitsmatrix ist. Wir betrachten $\lambda = \lambda_i(G)$ f"ur $i \geq 2$. Dann existiert ein Eigenvektor $x$ zum Eigenwert $\lambda$. Dieser ist orthogonal zu $\mathbb 1 \in E_{G}(r)$. Folglich ist 
+  Zum Beweis von (b) w"ahlen wir f"ur $G$ und $\overline{G}$ die selbe Nummerierung der Ecken, etwa $v_1,v_2,\dots v_n$. Dann ist $$A(G) + A(\overline{G}) = J-I$$ wobei $J \in \Rnn$ die $1$-Matrix ist, und $I\in\Rnn$ die Einheitsmatrix ist. Wir betrachten $\lambda = \lambda_i(G)$ f"ur $i \geq 2$. Dann existiert ein Eigenvektor $x$ zum Eigenwert $\lambda$. Dieser ist orthogonal zu $\mathbbm 1 \in E_{G}(r)$. Folglich ist 
   \begin{align*}
     A(G)x + A(\overline{G})x = Jx -Ix = -x
   \end{align*}
@@ -351,10 +387,10 @@ F"ur einen Graphen $G$ sei $\overline{G}$ der \DF{Komplementargraph} von $G$ mit
 \begin{proof}
   Wir zeigen zun"achst (i). F"ur die Adjazenzmatrix $A = A(G)$ gilt $\operatorname{spur}(A)  = \sum\limits_{i=1}^{n} a_{ii}= 0$. Aus der Linearen Algebra ist bekannt, dass $\sum\limits_{i=1}^{n}\lambda_{i}(A) = \operatorname{spur}(A) = 0$ ist.
 
-  Um (ii) zu beweisen, betrachten wir $B=A^{2}$. Die Eintr"age $B_{i,j}$ geben die Anzahl aller Kantenfolgen der L"ange $2$ zwischen den Ecken $v_i$ und $v_j$ an. Insbesondere gilt $B_{i,i} = d_{G}(v_i)$. Daraus folgt:
+  Um (ii) zu beweisen, betrachten wir $B=A^{2}$. Die Eintr"age $B_{ij}$ geben die Anzahl aller Kantenfolgen der L"ange $2$ zwischen den Ecken $v_i$ und $v_j$ an. Insbesondere gilt $B_{ii} = d_{G}(v_i)$, da jede Kantenfolge der L"ange $2$ von $v_i$ nach $v_i$ genau einer Kante entspricht. Daraus folgt:
 
   \begin{equation*}
-    \sum\limits_{i=1}^{n} \lambda_{i}(G) ^{2} = \operatorname{spur}(B) = \sum\limits_{i=1}^{n} d_{G}(v_{i}) = 2|E(G)|
+    \sum\limits_{i=1}^{n} \lambda_{i}(G) ^{2} = \operatorname{spur}(B) = \sum\limits_{i=1}^{n} B_{ii} \sum\limits_{i=1}^{n} d_{G}(v_{i}) = 2|E(G)|
   \end{equation*}
 \end{proof}
 

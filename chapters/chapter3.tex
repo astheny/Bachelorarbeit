@@ -14,19 +14,21 @@ In diesem Kapitel wollen wir die in Abschnitt \ref{sss:ewgraph} behandelten Them
   \end{enumerate}
 \end{theorem}
 \begin{proof}
-  Zun"achst zeigen wir (a). Es sei $A$ die Adjazenzmatrix von $G$ und $D := \operatorname{diag}(d_1,\dots,d_n)$. Definiere $B\in\R^{n\times m}$ als die Inzidenzmatrix von $\mathcal K$, also $$B_{i,j} = \begin{cases}
-    1 & v_i \in K^j \\ 0 & v_i \notin K^j
+  Zun"achst zeigen wir (a). Es sei $A$ die Adjazenzmatrix von $G$ und $D := \operatorname{diag}(d_1,\dots,d_n)$. Definiere $B\in\R^{n\times m}$ als die Inzidenzmatrix von $\mathcal K$, also $$B_{ij} = \begin{cases}
+    1 & v_i \in K^j \\ 0 & \text{falls }v_i \notin K^j
   \end{cases}$$ 
   Nun betrachten wir $M=BB^{T}$. Es gilt
   \[
-    M_{i,j} = \sum\limits_{k=1}^{d}B_{i,k}B_{j,k}
+    M_{ij} = \sum\limits_{k=1}^{d}B_{ik}B^{T}_{kj} = \sum\limits_{k=1}^{d}B_{ik}B{jk}
   \]
-  Seien zun"achst $i,j \in \{1,\dots,n\}$ mit $i\neq j$. Ist $B_{i,k} = 1$ und $B_{j,k} = 1$, so ist $v_i,v_j  \in K^k$, und somit (da $K^k$ ein vollst"andiger Graph ist) $v_iv_j\in E(G)$. Es k"onnen aber f"ur h"ochstens ein $k\in \{1,\dots,m\}$ $B_{i,k}$ und $B_{j,k}$ gleichzeitig $1$ seien, da nach Definition einer Krauszzerlegung die Graphen aus $\mathcal K$ kantendisjunkt sind. Also ist $M_{i,j}= 1 $ genau dann, wenn $v_iv_j\in E(G)$, genau dann wenn $A_{i,j} = 1$. Somit ist $M_{i,j}=A_{i,j}$\\
-  Sei nun $i\in\{1,\dots,n\}$ beliebig. Wir betrachten $M_{i,i}$. Es gilt 
+  Seien $i,j \in \{1,\dots,n\}$ mit $i\neq j$. Da $B$ die Inzidenzmatrix von $\mathcal{K}$ ist, gilt  $$ B_{ik} = 1 \text{ und } B_{jk} = 1 \Leftrightarrow v_i,v_j \in K^{k}.$$ Ist $v_iv_j \in E(G)$, so kommt die Kante $v_iv_j$ in genau einem $K\in \mathcal{K}$ vor, d.h. es gibt genau ein $k\in \left\{ 1,\dots,m \right\}$ f"ur das $B_{ik}$ und $B_{jk}$ gleich $1$ sind. Ist $v_iv_j\notin E(G)$, so kommt die Kante $v_iv_j$ auch nicht in einem der Graphen der Krauszzerlegung vor.
+  Also ist f"ur alle $k\in \left\{ 1,\dots, m \right\}$ $B_{ik}B_{jk} = 0$. Folglich ist $M_{ij}=1$ genau dann, wenn $v_iv_j\in G$. Also ist $M_{ij} = A_{ij}$.
+  
+  Sei nun $i\in\{1,\dots,n\}$ beliebig. Wir betrachten $M_{ii}$. Es gilt 
   \[
-    M_{i,i} = \sum\limits_{k=1}^{d}B_{i,k}B_{i,k} = \sum\limits_{k=1}^{d} B_{i,k}.
+    M_{ii} = \sum\limits_{k=1}^{d}B_{ik}B_{ik} = \sum\limits_{k=1}^{d} B_{ik}.
   \]
-  $B_{i,k}=1$ gilt genau dann, wenn $v_i \in K^k$. Folglich ist $M_{i,i}= d_G(v_i:\mathcal K)= d_i$. Damit gilt $M=A+D$. $M$ ist nach Satz \ref{prop:psdmatrix} positiv semidefinit.
+  $B_{ik}=1$ gilt genau dann, wenn $v_i \in K^k$. Folglich ist $M_{ii}= d_G(v_i:\mathcal K)= d_i$. Damit gilt $M=A+D$. $M=BB^{T}$ ist nach Satz \ref{prop:psdmatrix} positiv semidefinit.
   Folglich ist $A- (-D)$ positiv semidefinit, und es folgt mit Lemma \ref{lem:evpsddif}, dass 
   \begin{equation*}
     \lambda_i(G) = \lambda_i(A) \geq \lambda_i(-D) = -d_{n-i+1}
@@ -35,13 +37,13 @@ In diesem Kapitel wollen wir die in Abschnitt \ref{sss:ewgraph} behandelten Them
 
   Nun zeigen wir (b). Sei $p<n$. Dann ist $\operatorname{rang}(M)= \operatorname{rang}(B) \leq p$. Also ist $\lambda_{p+1}(M) = 0$ und es folgt mit Satz \ref{thm:weylineq} dass 
   \begin{align*}
-    \lambda_{p+1}(A) + d \leq \lambda_{p+1}(A) + d_{n} \leq 0
+    \lambda_{p+1}(A) + d \leq \lambda_{p+1}(A) + d_{n} = \lambda_{p+1}(A) + \lambda_{n} (D) \leq \lambda_{p+1} (M) = 0
   \end{align*}
   Durch Umstellen erhalten wir die gew"unschte Ungleichung.
 \end{proof}
 \begin{corollary}
   \label{cor:Korollar1}
-  Sei $H$ ein induzierter Untergraph von $G$ und seien $q,d \in \N$ mit $q \leq |H|$ und $d \geq 2$.
+  Seien $G$ ein Graph und $H$ ein induzierter Untergraph von $G$. Desweiteren seien $q,d \in \N$ mit $q \leq |H|$ und $d \geq 2$.
   Ist $\lambda_{q}(H) \geq -d$, so ist $\kappa_{d}(G) > q$.
 \end{corollary}
 \begin{proof}
@@ -51,7 +53,7 @@ In diesem Kapitel wollen wir die in Abschnitt \ref{sss:ewgraph} behandelten Them
 \begin{corollary}
   \label{cor:LineGraphWald}
   Seien $\delta(G) \geq 2$ und $H$ ein induzierter Untergraph von $G$. Ist $H$ Kantengraph eines Waldes, so gilt 
-  Dann ist $\kappa_{2}(G)\geq \left|H\right|$.
+  $\kappa_{2}(G)\geq \left|H\right|$.
 \end{corollary}
 
 \begin{proof}
@@ -79,34 +81,29 @@ In diesem Kapitel wollen wir die in Abschnitt \ref{sss:ewgraph} behandelten Them
 \begin{theorem}
   \label{thm:MainTheorem}
   Existiert ein $d\in \N$, sodass f"ur alle  Graphen $G$ mit $\chi(G) = k $ gilt $ \lambda_{k}(G) > -d$. Dann gelten folgende Aussagen:
-  \begin{enumerate}[label=(\alph*)]
+  \begin{enumerate}[label=\rm{(\alph*)}]
     \item F"ur alle Graphen $G$ gilt $\chi(G) \leq \kappa_d (G)$.
     \item  Ist $H$ ein linearer Hypergraph mit $\left|e\right| \geq d$ f"ur alle $e\in E(H)$, so ist $\chi'\left( H \right)\leq \left|H\right| $
   \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-  Wir zeigen zun"achst (a). Sei $G$ ein beliebiger Graph mit $\chi(G) = k$. Nach Voraussetzung des Satzes ist dann $\lambda_{k}\left( G \right) > -d$. Mit Korollar \ref{cor:Korollar1} folgt $\kappa_{d}\left( G \right) \geq k = \chi\left( G \right)$. 
+  Wir zeigen zun"achst (a). Sei $G$ ein beliebiger Graph mit $\chi(G) = k$. Nach Voraussetzung ist dann $\lambda_{k}\left( G \right) > -d$. Mit Korollar \ref{cor:Korollar1} folgt $\kappa_{d}\left( G \right) \geq k = \chi\left( G \right)$. 
   Damit ist (a) gezeigt. 
 
   Wir zeigen nun (b) durch Widerspruch. Angenommen die Behauptung gilt nicht. Dann gibt es einen linearen Hypergraphen minimaler Ordnung mit $|e| \geq d$ f"ur alle $e\in E(H)$ , f"ur welchen $\chi'(H) > H$. 
-  \todo{fallunterscheidung}
-  Fall 1: Es existiert eine Kante $e$ von $H$ vom Grad kleiner als $d$. Da $|e| \geq d$ ist und $H$ ein linearer Hypergraph ist, gibt es eine Ecke $v$ von $H$ welche nur in $e$ vorkommt. Diese entfernen wir und erhalten einen Hypergraphen $H'$ der Ordnung $|H'| = |H|-1$. Dieser l"asst sich mit $\chi'(H') \leq |H'|$ Farben f"arben. Diese F"arbung k"onnen wir zu einer F"arbung von $H$ mit h"ochstens $|H'|+1 = |H|$ Farben erweitern. Ein Widerspruch zur Wahl von $H$.
+  Wir machen eine Fallunterscheidung bez"uglich dem kleinsten Eckengrad.
+  
+  \ncase{1}: Es existiert eine Kante $e$ von $H$ vom Grad kleiner als $d$. Da $|e| \geq d$ ist und $H$ ein linearer Hypergraph ist, gibt es eine Ecke $v$ von $H$ welche nur in $e$ vorkommt. Sei $H'= H-e$. Dann ist $|H'| < |H|$. Dieser l"asst sich auf Grund der Wahl von $H$ mit $\chi'(H') \leq |H'|$ Farben f"arben. Diese F"arbung k"onnen wir zu einer F"arbung von $H$ mit h"ochstens $|H'|+1 = |H|$ Farben erweitern, indem wir $e$ mit einer neuen Farbe f"arben. Dann gilt 
+  $$\chi'(H) \leq \chi'(H) +1  \leq |H'| +1 = |H| .$$ 
+  Ein Widerspruch zur Wahl von $H$. 
 
-  Fall 2: Alle Kanten von $H$ haben mindestens den Grad $d$. 
-
-  Angenommen in diesem exisitiert eine Kante vom Grad kleiner als $d$. Entfernen wir diese, erhalten wir einen Hypergraphen $H'$ kleinerer M"achtigkeit.
-  Dieser erf"ullt die Behauptung, da $H$ das kleinste Gegenbeispiel ist. Also existiert eine Kantenf"arbung von $H'$ mit h"ochstens $|H'| < |H|$ Farben. Aus dieser gewinnen wir eine Kantenf"arbung von $H$, indem wir alle Kanten wie in $H'$ f"arben, und die entfernte Kante mit einer neuen Farbe f"arben. Folglich gilt also:
-  \begin{align*}
-    \chi'(H) \leq \chi'(H') +1 \leq |H'|+1 \leq |H|
-  \end{align*}
-  Ein Widerspruch. Folglich haben alle Kanten in $H$ mindestens Grad $d$. 
-
-  Sei nun $G=L(H)$ der Kantengraph von $H$. Dann ist $\delta(G) \geq d$. F"ur eine Ecke  $v\in V(H)$ sei (analog zum Beweis von  Satz \ref{thm:equivefl}) $E_{H}(v) = \left\{ e\in E(H) | v\in e \right\}$ und $K^{v} = G[E_{H}(v)]$. Wie in Satz \ref{thm:equivefl} folgt, dass $\mathcal{K}=\left\{ K^{v} | v \in V(H) \right\}$ eine Krauszzerlegung von $G$ mit $\delta_{G}(\mathcal{K}) \geq d$ ist. Damit gilt
+  \ncase{2}: Alle Kanten von $H$ haben mindestens den Grad $d$. 
+  Sei $G=L(H)$ der Kantengraph von $H$. Dann ist $\delta(G) \geq d$. Sei $K^{v} = G[E_{H}(v)]$ f"ur alle $v\in V(G)$. Sei $\mathcal{K}=\left\{ K^{v} | v \in V(H) \right\}$. Dann ist $\mathcal{K}$ eine Krauszzerlegung von $G$. mit $\delta_{G}(\mathcal{K}) \geq d$. Damit gilt
   \begin{equation*}
-    \chi'(H) = \chi(G) \leq \kappa_{d}(G) \leq |\mathcal{K}| = |H|
+    \chi'(H) = \chi(G) \leq \kappa_{d}(G) \leq |\mathcal{K}| = |H|.
   \end{equation*}
-  Wobei die erste Ungleichung wegen (a) gilt. Damit ist alles gezeigt. 
+  Wobei die erste Ungleichung wegen (a) gilt. 
 \end{proof}
 
 
@@ -154,7 +151,8 @@ Wir wollen nun einige Schranken f"ur $\kappa_{d}(G)$ angeben.
 \end{proof}
 
 \subsection{Chromatische Zahl und Eigenwerte}
-Es ist nicht viel "uber den Zusammenhang der chromatischen Zahl eines Graphen, und seinen Eigenwerte bekannt. Wir wollen hier nur kurz auf zwei S"atze verweisen, die Schranken f"ur die chromatische Zahl eines Graphen in Abh"angigkeit des gr"o{\ss}ten bzw. kleinsten Eigenwerts angeben. Eine Absch"atzung nach oben ("ahnlich zu dem Brookschen Satz) gibt Wilf in \cite{wilf1967eigenvalues} an.
+Es ist nicht viel "uber den Zusammenhang der chromatischen Zahl eines Graphen, und seinen Eigenwerte bekannt. Wir wollen hier auf zwei S"atze verweisen, die Schranken f"ur die chromatische Zahl eines Graphen in Abh"angigkeit des gr"o{\ss}ten bzw. kleinsten Eigenwerts angeben. Eine Absch"atzung nach oben  gibt Wilf in \cite{wilf1967eigenvalues} an. Man beachte, dass diese eine Verst"arkung von Satz \ref{thm:brooks} ist, da der gr"o{\ss}te Eigenwert eines Graphen duch den Maximalgrad
+beschr"ankt ist.
 
 \begin{theorem}
   Ist $G$ ein Graph, so gilt: 
@@ -173,13 +171,12 @@ Eine untere Schranke findet sich in \cite{Hoffmanbounds} (man beachte hierbei, d
 
 \subsection{$k$-chromatische Graphen mit $\lambda_{k} > -2$}
 
-Gilt Satz \ref{thm:MainTheorem} f"ur $d=2$, so folgt die Erd\H{o}s--Faber--Lov\'asz Vermutung auf Grund von Satz \ref{thm:equivefl}. Im Folgenden wollen wir f"ur einige Graphenklassen folgende Vermutung "uberpr"ufen.
+Gelten die Vorraussetzungen von Satz \ref{thm:MainTheorem} f"ur $d=2$, so folgt die Erd\H{o}s--Faber--Lov\'asz Vermutung auf Grund von Satz \ref{thm:equivefl}. Im Folgenden wollen wir f"ur einige Graphenklassen folgende Vermutung "uberpr"ufen.
 \begin{conjecture}
   Ist $G$ ein Graph mit $\chi(G) = k$, dann gilt $\lambda_{k}(G) > -2$. 
   \label{con:maincon}
 \end{conjecture}
 
-Ein Graph $G$ hei{\ss}t $k$-kritisch, falls $\chi(G) = k$ und $\chi(H) < k$ f"ur alle induzierten Untergraphen $H$ von $G$.
 \begin{remark}
   Es reicht Vermutung \ref{con:maincon} f"ur $k$-kritische Graphen zu zeigen. 
 \end{remark}
@@ -196,7 +193,7 @@ Seien $v,r$ zwei nat"urliche Zahlen mit $v\geq r$. Der \DF{Kneser Graph} $K_{v:r
 
 \parindent 0pt $E(K_{v:r}) = \left\{ XY| X,Y \in V(K_{v:r}), X \cap Y = \emptyset \right\}$. 
 
-\parindent 15pt Es wurde gezeigt\todo{Referenz}, dass $\alpha(K_{v:r}) = \binom{v-1}{r-1}$ (falls $v >2r$) und $\chi(K_{v:r}) = v-2r+2$. Das, und  Korollar \ref{cor:alphaomegaEigenwerte} erlaubt uns Vermutung \ref{con:maincon} f"ur alle Kneser Graphen zu beweisen. 
+\parindent 15pt Es wurde gezeigt \todo{Referenz}, dass $\alpha(K_{v:r}) = \binom{v-1}{r-1}$ (falls $v >2r$) und $\chi(K_{v:r}) = v-2r+2$. Das, und  Korollar \ref{cor:alphaomegaEigenwerte} erlaubt uns Vermutung \ref{con:maincon} f"ur alle Kneser Graphen zu beweisen. 
 
 \begin{proposition}
   Seien $k,v\in \N$ mit $k>v$ und sei $G= K_{v:r}$ ein Kneser-Graph mit $\chi(G) = k$. Dann gilt $\lambda_{k}(G) > -2$
