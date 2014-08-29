@@ -5,7 +5,7 @@ In diesem Kapitel wollen wir die in Abschnitt \ref{sss:ewgraph} behandelten Them
 \subsection{Krauszzerlegungen und Eigenwerte}
 \begin{theorem}
   \label{thm:KrauszEigenwerte}
-  Seien $G$ ein Graph mit $V(G)=\{v_1,\dots,v_n\}$ und $\mathcal K=\{K^1,\dots,K^p\}$ eine Krauszzerlegung von $G$ mit $d_G(\mathcal K) \geq d \geq 2$ . Desweiteren sei $d_i = d_G(v_{i}:\mathcal K)$ f"ur $1\leq i \leq n$. 
+  Seien $G$ ein Graph mit $V(G)=\{v_1,\dots,v_n\}$ und $\mathcal K=\{K^1,\dots,K^p\}$ eine Krauszzerlegung von $G$ mit $d(\mathcal K) \geq d \geq 2$ . Desweiteren sei $d_i = d_{\mathcal{K}}(v_{i})$ f"ur $1\leq i \leq n$. 
   Dabei w"ahlen wir die Eckennummerierung so, dass $d_1 \geq \dots \geq d_{n}$ ist.
   Dann gelten folgende Aussagen : 
   \begin{enumerate}[label=\rm{(\alph*)}]
@@ -28,7 +28,7 @@ In diesem Kapitel wollen wir die in Abschnitt \ref{sss:ewgraph} behandelten Them
   \[
     M_{ii} = \sum\limits_{k=1}^{d}B_{ik}B_{ik} = \sum\limits_{k=1}^{d} B_{ik}.
   \]
-  $B_{ik}=1$ gilt genau dann, wenn $v_i \in K^k$. Folglich ist $M_{ii}= d_G(v_i:\mathcal K)= d_i$. Damit gilt $M=A+D$. $M=BB^{T}$ ist nach Satz \ref{prop:psdmatrix} positiv semidefinit.
+  $B_{ik}=1$ gilt genau dann, wenn $v_i \in K^k$. Folglich ist $M_{ii}= d_{\mathcal{K}}(v_i)= d_i$. Damit gilt $M=A+D$. $M=BB^{T}$ ist nach Satz \ref{prop:psdmatrix} positiv semidefinit.
   Folglich ist $A- (-D)$ positiv semidefinit, und es folgt mit Lemma \ref{lem:evpsddif}, dass 
   \begin{equation*}
     \lambda_i(G) = \lambda_i(A) \geq \lambda_i(-D) = -d_{n-i+1}
@@ -47,7 +47,7 @@ In diesem Kapitel wollen wir die in Abschnitt \ref{sss:ewgraph} behandelten Them
   Ist $\lambda_{q}(H) \geq -d$, so ist $\kappa_{d}(G) > q$.
 \end{corollary}
 \begin{proof}
-  Angenommen es gilt $p = \kappa_{d}(G) < q$. Dann gibt es  eine Krauszzerlegung $\mathcal{K}$ von $G$ mit $|\mathcal{K}| = p$ und $\delta_G(\mathcal{K}) \geq d$. Wegen Lemma \ref{lem:InterlacingGraphen} gilt dann $\lambda_{q}(G) \geq \lambda_{q}(H) > -d $. Andererseits folgt aus Satz \ref{thm:KrauszEigenwerte} dass $\lambda_{q}(G) \leq \lambda_{p+1} \leq -d $, ein Widerspruch. 
+  Angenommen es gilt $p = \kappa_{d}(G) < q$. Dann gibt es  eine Krauszzerlegung $\mathcal{K}$ von $G$ mit $|\mathcal{K}| = p$ und $\delta(\mathcal{K}) \geq d$. Wegen Lemma \ref{lem:InterlacingGraphen} gilt dann $\lambda_{q}(G) \geq \lambda_{q}(H) > -d $. Andererseits folgt aus Satz \ref{thm:KrauszEigenwerte} dass $\lambda_{q}(G) \leq \lambda_{p+1} \leq -d $, ein Widerspruch. 
 \end{proof}
 
 \begin{corollary}
@@ -57,7 +57,7 @@ In diesem Kapitel wollen wir die in Abschnitt \ref{sss:ewgraph} behandelten Them
 \end{corollary}
 
 \begin{proof}
-  Sei $q = |H|$. Da $H$ Kantengraph eines Waldes ist, folgt $\lambda_{q}(H) > -2$ (vgl. \cite[3.4.10]{zbMATH05625877}) 
+  Sei $q = |H|$. Da $H$ Kantengraph eines Waldes ist, folgt $\lambda_{q}(H) > -2$ aus Korollar \ref{cor:linegraphwald}.
   Dann ist mit Korollar \ref{cor:Korollar1} $\kappa_{2}\left( G \right) \geq \left| H\right|$.
 \end{proof}
 
@@ -94,11 +94,11 @@ In diesem Kapitel wollen wir die in Abschnitt \ref{sss:ewgraph} behandelten Them
   Wir zeigen nun (b) durch Widerspruch. Angenommen die Behauptung gilt nicht. Dann gibt es einen linearen Hypergraphen minimaler Ordnung mit $|e| \geq d$ f"ur alle $e\in E(H)$ , f"ur welchen $\chi'(H) > H$. 
   Wir machen eine Fallunterscheidung bez"uglich dem kleinsten Eckengrad.
   
-  \ncase{1}: Es existiert eine Kante $e$ von $H$ vom Grad kleiner als $d$. Da $|e| \geq d$ ist und $H$ ein linearer Hypergraph ist, gibt es eine Ecke $v$ von $H$ welche nur in $e$ vorkommt. Sei $H'= H-e$. Dann ist $|H'| < |H|$. Dieser l"asst sich auf Grund der Wahl von $H$ mit $\chi'(H') \leq |H'|$ Farben f"arben. Diese F"arbung k"onnen wir zu einer F"arbung von $H$ mit h"ochstens $|H'|+1 = |H|$ Farben erweitern, indem wir $e$ mit einer neuen Farbe f"arben. Dann gilt 
+  \ncase{1} Es existiert eine Kante $e$ von $H$ vom Grad kleiner als $d$. Da $|e| \geq d$ ist und $H$ ein linearer Hypergraph ist, gibt es eine Ecke $v$ von $H$ welche nur in $e$ vorkommt. Sei $H'= H-e$. Dann ist $|H'| < |H|$. Dieser l"asst sich auf Grund der Wahl von $H$ mit $\chi'(H') \leq |H'|$ Farben f"arben. Diese F"arbung k"onnen wir zu einer F"arbung von $H$ mit h"ochstens $|H'|+1 = |H|$ Farben erweitern, indem wir $e$ mit einer neuen Farbe f"arben. Dann gilt 
   $$\chi'(H) \leq \chi'(H) +1  \leq |H'| +1 = |H| .$$ 
   Ein Widerspruch zur Wahl von $H$. 
 
-  \ncase{2}: Alle Kanten von $H$ haben mindestens den Grad $d$. 
+  \ncase{2} Alle Kanten von $H$ haben mindestens den Grad $d$. 
   Sei $G=L(H)$ der Kantengraph von $H$. Dann ist $\delta(G) \geq d$. Sei $K^{v} = G[E_{H}(v)]$ f"ur alle $v\in V(G)$. Sei $\mathcal{K}=\left\{ K^{v} | v \in V(H) \right\}$. Dann ist $\mathcal{K}$ eine Krauszzerlegung von $G$. mit $\delta_{G}(\mathcal{K}) \geq d$. Damit gilt
   \begin{equation*}
     \chi'(H) = \chi(G) \leq \kappa_{d}(G) \leq |\mathcal{K}| = |H|.
@@ -135,7 +135,7 @@ Wir wollen nun einige Schranken f"ur $\kappa_{d}(G)$ angeben.
     \kappa_{d}(G) \geq n &\geq \frac{nd}{\lambda_{1}(G)+d}
   \end{align*}
   \ncase{2}{$\kappa_{d}(G) < n$}
-  Sei $\mathcal{K}$ eine Krauszzerlegung von $G$ mit $|\mathcal{K}| = \kappa_{d}(G)$ und $\delta_{G}(\mathcal{K}) \geq d$. Seien $d_{i} = d_{G}(v:\mathcal{K})$. Wir k"onnen annehmen, dass die $d_{i}$ fallend geordnet sind. Sei $B\in \R^{n\times p}$ die Adjanzenzmatrix von $\mathcal{K}$ und $M = BB^{T} = A+D$, wobei $A= A(G)$ und $D = \operatorname{diag}(d_{1},\dots,d_n)$.
+  Sei $\mathcal{K}$ eine Krauszzerlegung von $G$ mit $|\mathcal{K}| = \kappa_{d}(G)$ und $\delta_{G}(\mathcal{K}) \geq d$. Seien $d_{i} = d_{\mathcal{K}}(v)$. Wir k"onnen annehmen, dass die $d_{i}$ fallend geordnet sind. Sei $B\in \R^{n\times p}$ die Adjanzenzmatrix von $\mathcal{K}$ und $M = BB^{T} = A+D$, wobei $A= A(G)$ und $D = \operatorname{diag}(d_{1},\dots,d_n)$.
   Dann ist $M$ positiv semidefinit und $\operatorname{rang} (M) \leq p = \kappa_{d}(G) < n $. Deswegen ist $\lambda_{p+1}(M) = \dots \lambda_{n}(M) = 0$. 
   Mit Satz \ref{thm:kyfanineq} folgt dann : 
   \begin{align*}
@@ -156,16 +156,16 @@ beschr"ankt ist.
 
 \begin{theorem}
   Ist $G$ ein Graph, so gilt: 
-  $$\chi(G) \leq \lambda_{1}(G) +1$$
+  $$\chi(G) \leq \lambda_{1}(G) +1.$$
   Gleichheit tritt nur auf, falls $G$ ein vollst"ander Graph oder ein ungerader Kreis ist.
   \label{thm:wilfev}
 \end{theorem}
 
-Eine untere Schranke findet sich in \cite{Hoffmanbounds} (man beachte hierbei, dass $\lambda_{n}(G)$ negativ ist):
+Eine untere Schranke findet sich in \cite{Hoffmanbounds} (man beachte hierbei, dass $\lambda_{min}(G)$ negativ ist):
 
 \begin{theorem}
-  Ist $G$ ein Graph mit $|G| = n$, so gilt:
-  $$\chi(G) \geq 1 - \frac{\lambda_{1}(G)}{\lambda_{n}(G)}$$
+  Ist $G$ ein Graph, so gilt:
+  $$\chi(G) \geq 1 - \frac{\lambda_{max}(G)}{\lambda_{min}(G)}$$
   \label{thm:Hoffmanev}
 \end{theorem}
 
@@ -182,18 +182,17 @@ Gelten die Vorraussetzungen von Satz \ref{thm:MainTheorem} f"ur $d=2$, so folgt 
 \end{remark}
 
 \begin{proof}
-  Sei $G$ ein Graph mit $\chi(G) = k$. Dann enth"alt $G$ einen $k$-kritischen Untergraphen $H$. F"ur diesen gilt (nach Vermutung) $\lambda_{k}(H) > -2$. Nun folgt mit Satz \todo{referenz}
+  Sei $G$ ein Graph mit $\chi(G) = k$. Dann enth"alt $G$ einen $k$-kritischen Untergraphen $H$. F"ur diesen gilt (nach Vermutung) $\lambda_{k}(H) > -2$. Nun folgt mit Satz \ref{lem:InterlacingGraphen}:
   \begin{equation*}
     \lambda_{k}(G) \geq \lambda_{k}(H) > -2
   \end{equation*}
   Damit gilt Vermutung \ref{con:maincon} auch f"ur $G$.
 \end{proof}
 
-Seien $v,r$ zwei nat"urliche Zahlen mit $v\geq r$. Der \DF{Kneser Graph} $K_{v:r}$ ist der Graph mit Eckenmenge $V(K_{v:r}) = \left\{ X \subset \left\{ 1,\dots v \right\} | |X| = r \right\}$ und Kantenmenge 
-
-\parindent 0pt $E(K_{v:r}) = \left\{ XY| X,Y \in V(K_{v:r}), X \cap Y = \emptyset \right\}$. 
-
-\parindent 15pt Es wurde gezeigt \todo{Referenz}, dass $\alpha(K_{v:r}) = \binom{v-1}{r-1}$ (falls $v >2r$) und $\chi(K_{v:r}) = v-2r+2$. Das, und  Korollar \ref{cor:alphaomegaEigenwerte} erlaubt uns Vermutung \ref{con:maincon} f"ur alle Kneser Graphen zu beweisen. 
+Seien $v,r$ zwei nat"urliche Zahlen mit $v\geq r$. Der \DF{Kneser Graph} $K_{v:r}$ geht auf Kneser \cite{Kneser55} zur"uck und ist der Graph mit Eckenmenge $$V(K_{v:r}) = \left\{ X \subset \left\{ 1,\dots v \right\} | |X| = r \right\}$$ und Kantenmenge 
+ $$E(K_{v:r}) = \left\{ XY| X,Y \in V(K_{v:r}), X \cap Y = \emptyset \right\}.$$ 
+ 
+Es wurde gezeigt \todo{Referenz}, dass $\alpha(K_{v:r}) = \binom{v-1}{r-1}$ (falls $v >2r$) und $\chi(K_{v:r}) = v-2r+2$. Das, und  Korollar \ref{cor:alphaomegaEigenwerte} erlaubt uns Vermutung \ref{con:maincon} f"ur alle Kneser Graphen zu beweisen. 
 
 \begin{proposition}
   Seien $k,v\in \N$ mit $k>v$ und sei $G= K_{v:r}$ ein Kneser-Graph mit $\chi(G) = k$. Dann gilt $\lambda_{k}(G) > -2$
@@ -208,9 +207,9 @@ Seien $v,r$ zwei nat"urliche Zahlen mit $v\geq r$. Der \DF{Kneser Graph} $K_{v:r
     \lambda_{k}(G) \geq \lambda_{p}(G) \geq 0 > -2
   \end{equation*}
 
-  \ncase{3} {$2r = v $} Die Ecken von $G$ sind alle $r$-elementingen Teilmengen von $\left\{ 1,\dots,v \right\}$. Da $v=2r$ ist f"ur ein $w\in V(G)$ die einzige benachbarte Ecke ihr Komplement in $\left\{ 1,\dots,v \right\}$. Also sind die Komponenten von $G$ alle isomoprh zu $K_{2}$. Dann ist $\chi(G) = 2$ und $\omega(G) = 2$. Aus Korollar \ref{cor:alphaomegaEigenwerte} folgt dann, dass $\lambda_{2}(G) \geq -1 > -2$ ist.
+  \ncase{3} {$2r = v $} Die Ecken von $G$ sind alle $r$-elementingen Teilmengen von $\left\{ 1,\dots,v \right\}$. Da $v=2r$ ist f"ur ein $w\in V(G)$ die einzige benachbarte Ecke ihr Komplement in $\left\{ 1,\dots,v \right\}$. Also sind die Komponenten von $G$ alle isomorph zu $K_{2}$. Dann ist $\chi(G) = 2$ und $\omega(G) = 2$. Aus Korollar \ref{cor:alphaomegaEigenwerte} folgt dann, dass $\lambda_{2}(G) \geq -1 > -2$ ist.
 
-  \ncase{4}{$2r > v$} Dann ist $|E(G)| = 0$, da je zwei Ecken nichtleeren Schnitt haben, und folglich ist $G$ ein leerer Graph, welcher nur den Eigenwert $0>-2$ besitzt. Insbesondere ist also auch $\lambda_{k}(G) > -2$.
+  \ncase{4}{$2r > v$} Dann ist $|E(G)| = 0$, da je zwei Ecken nichtleeren Schnitt haben, und folglich ist $G$ ein kantenloser Graph, welcher nur den Eigenwert $0>-2$ besitzt. Insbesondere ist also auch $\lambda_{k}(G) > -2$.
 \end{proof}
 
 \begin{proposition}
@@ -245,7 +244,6 @@ Seien $v,r$ zwei nat"urliche Zahlen mit $v\geq r$. Der \DF{Kneser Graph} $K_{v:r
     &\leq 2(3n-6) -4(n-3) = 2n
   \end{align*}
   Die Ungleichung folgt dabei aus der Absch"artzung der Kanten f"ur planare Graphen. Aus der Absch"atzung der $2$ und $1$ Norm folgt nun:
-
   \begin{align*}
     2n &\geq \lambda_{1}^{2} +\lambda_{2}^{2} +\lambda_{3}^{2}  \\ &\geq \frac{1}{3} (|\lambda_{1}| + |\lambda_2| + |\lambda_3|)^{2} \\
     &\geq \frac{1}{3}(\lambda_{1}+ \lambda_2 + \lambda_3)^{2}\\ &\geq \frac{1}{3}(2n-6)^{2}

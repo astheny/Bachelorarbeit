@@ -8,10 +8,8 @@ TODO
 ======
 
 - Besseres Transpose bei Matrizen
-- Einheitliche Bezeichnungen
-    - Matrizen
-    - Graphen
-    - Vektoren
-    - Eigenwerte
-- Eigenwerte thm und Ungleichungen einheitlich
-- Bibliographie deutsch
+- Mengen neu machen (leere Menge \ems, \set{}{}
+- Schranke über Parameter
+- Courant Fisher Zitat
+- epsilon Parameter einführen
+
