@@ -15,7 +15,7 @@
 \usepackage{todonotes}
 
 % Bibliography Package
-\usepackage{biblatex}
+%\usepackage[citestyle=numeric,style=numeric,sorting=nyt]{biblatex}
 
 \geometry{a4paper,tmargin=3cm,bmargin=3cm,lmargin=3cm,rmargin=3cm,headheight=0cm,headsep=1cm,footskip=1cm}
 
@@ -90,12 +90,13 @@
 
 % LITERATUR :
 
-\newcommand{\au}[1]{{\sc #1}}     % author(s)
+\newcommand{\au}[1]{{\sc #1}\,,}     % author(s)
 \newcommand{\ti}[1]{{\rm #1.}}   % article title ohne abstand
 \newcommand{\bkti}[1]{{\em #1}}      % book title
-\newcommand{\jou}[1]{{\em #1,\,}}    % journal
+%\newcommand{\jou}[1]{{\em #1,\,}}    % journal
+\newcommand{\jou}[1]{{\em #1\,}}
 \newcommand{\yr}[1]{{\rm (#1).\,}}   % year
-\newcommand{\pp}[1]{{\rm pages #1.}} % pages
-\newcommand{\vp}[2]{{\bf #1}:#2.} % volume and pages
-
-\def\und{{\rm und \/}} 
+\newcommand{\pp}[1]{{\rm pp. #1.}} % pages
+%\newcommand{\vp}[1]{{\rm #1.}}  % volume and pages
+\newcommand{\vp}[2]{{\bf #1} {#2.}}
+\def\und{{\rm und \/}}

@@ -156,7 +156,7 @@ Eine symmetrische Matrix $A\in\Rnn$ heiﬂt positiv semidefinit, falls $x^{T}Ax \g
 \end{proposition}
 
 F"ur $A\in\Rnn$ und $x\in \R^{n} \setminus \left\{ 0 \right\}$ sei der \DF{Rayleigh-Quotient} $R_A(x)$ definiert als $$R_A(x) = \frac{x^TAx}{x^Tx}.$$
-Der folgende Satz findet sich in der Literatur als Courant-Fischer Minmax Theorem, es scheint schwierig zu sein eine Originalquelle zu finden.
+Der folgende Satz findet sich in der Literatur als Courant-Fischer Minmax Theorem \cite{CourantH24} \cite{Fischer05}.
 \begin{theorem}[Courant-Fischer]
   Sei $A\in \R^{n\times n}$ symmetrisch. Dann gilt f"ur alle $p\in\{1,\dots, n\}$:
   \begin{enumerate}[label={\rm(\alph*)}]
@@ -184,6 +184,8 @@ Der folgende Satz findet sich in der Literatur als Courant-Fischer Minmax Theore
   \end{align*}
   f"ur $1\leq p \leq n$. 
 \end{proof}
+
+Oftmals interessiert man sich, wie die Eigenwerte einer symmetrischen Matrix sich ver"andern, wenn man Zeilen und die korrespondierenden Spalten der Matrix l"oscht. Die bei diesem Prozess entstehende Matrix ist wieder symmetrisch. Es stellt sich heraus, dass die Eigenwerte der so entstehenden Matrix sich durch die der urspr"unglichen beschr"anken lassen. Das folgende Resultat geht auf Cauchy zur"uck, es scheint schwierig eine Originalquelle zu finden.
 \begin{theorem}[Interlacing]
   \label{thm:Interlacing}
   Sei $A\in \R^{n\times n}$ symmetrisch und sei $B\in\R^{(n-k)\times(n-k)}$ die symmetrische Matrix, welche aus $A$ durch L"oschen von Zeilen und den entsprechenden Spalten entsteht. Dann ist $B$ symmetrisch, und es gilt:
@@ -292,7 +294,7 @@ und aus Gleichung (\ref{eq:ewglneu}) folgt somit f"ur $r\in \N$ :
   \label{ex:vollstgraph}
   F"ur den vollst"andigen Graphen der Ordnung $K_n$ der Ordnung $n\geq 1$ gelten folgenden Aussagen:
   \begin{enumerate}[label=\rm{(\alph*)}]
-    \item $\operatorname{sp}(K_n) = (n-1, \underbrace{-1,-1,\dots,-1)}_{n-1 \text{ mal}}$.
+    \item $\operatorname{sp}(K_n) = (n-1, \underbrace{-1,-1,\dots,-1}_{n-1 \text{ mal}})$.
     \item $p_{K_n}(\lambda) = (-1)^{n}(\lambda-(n-1))(\lambda+1)^{n-1}$.
     \item $ E_{K_n}(n-1) = [\mathbbm 1]$, wobei $\mathbbm 1\in \R^{V(K_n)}$ die Einsabbildung ist mit $1(v) = 1$ f"ur alle $v\in V(G)$.
     \item $ E_{K_n}(-1) = \left\{ x\in \R^{V(K_n)}| x \text{ ist orthogonal zu } \mathbbm 1 \right\}$.
@@ -304,7 +306,7 @@ und aus Gleichung (\ref{eq:ewglneu}) folgt somit f"ur $r\in \N$ :
 \end{proof}
 
 \begin{example}
-  Der Kreis $C_n$ der Ordnung $n\geq 3$ hat die Eigenwerte $$\lambda_p (C_n) = 2 \cos\left(\frac{2\pi p}{n}\right)$$ f"ur $1\leq p \leq n$. Man beachte hierbei, dass die Eigenwerte nicht der Gr"oﬂe nach geordnet sind.
+  Der Kreis $C_n$ der Ordnung $n\geq 3$ hat die Eigenwerte $$\lambda_p (C_n) = 2 \cos\left(\frac{2\pi p}{n}\right)$$ f"ur $1\leq p \leq n$. Man beachte hierbei, dass die Eigenwerte nicht der Gr"oﬂe nach geordnet sind. Insbesondere gilt:
   \begin{align*}
     \operatorname{sp}(C_3) = \operatorname{sp}(K_3) &= (2,-1,-1) \\
     \operatorname{sp}(C_4) &= (2,0,0,-2) \\
@@ -319,6 +321,7 @@ Einen Beweis findet der Leser in \cite[1.1.4]{zbMATH05625877}.
 \begin{example}
   Ist $G$ die disjunkte Vereinigug der nichtleeren Graphen $G_1,G_2,\dots, G_l$ mit $l\in \N$, so ist $$p_G(\lambda) = p_{G_1}(\lambda) \cdot p_{G_2}(\lambda) \cdot \dots \cdot p_{G_l}(\lambda)$$ f"ur $\lambda\in\R$. Das Spektrum von $G$ ergibt sich somit aus der Vereinigung der Spektren von $G_1,G_2,\dots,G_l$ und f"ur $\lambda \in \R$ gilt:
   $$m_G(\lambda) = m_{G_1}(\lambda)+ m_{G_2}(\lambda)+\dots+ m_{G_l}(\lambda) $$
+  \label{ex:disjointunion}
 \end{example}
 
 \begin{proof}
@@ -398,6 +401,7 @@ Satzt ist ein unmittelbare Folgerung aus dem Satz von Perron-Frobenius.
 \begin{proof}
   Es seien $G_1,\dots,G_l$ die Komponenten von $G$. Dann ist jede Komponente $G_i$ ein $r$-regul"arer Graph ($1\leq i \leq l$). Damit folgt aus (\ref{eq:Grregul}), dass $\mathbbm 1$ ein Eigenvektor von $G_i$ zum Eigenwert $r$ ist. Dann ist $\lambda_{max}(G) = r$ und $m_{G}(r) = l$. Somit gilt sowohl (a) als auch (b).
 \end{proof}
+
 
 F"ur einen Graphen $G$ sei $\overline{G}$ der \DF{Komplementargraph} von $G$ mit $V(\overline{G}) = V(G)$ und $E(\overline{G}) = [V(G)]^{2}\setminus E(G)$.
 
