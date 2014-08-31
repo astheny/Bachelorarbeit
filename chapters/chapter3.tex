@@ -106,7 +106,7 @@ Eine M"oglichkeit dies zu zeigen, w"are zu beweisen, dass $\xi_2$ ein Szekeres-W
   Ein Widerspruch zur Wahl von $H$. 
 
   \ncase{2} Alle Kanten von $H$ haben mindestens den Grad $d$. 
-  Sei $G=L(H)$ der Kantengraph von $H$. Dann ist $\delta(G) \geq d$. Sei $K^{v} = G[E_{H}(v)]$ f"ur alle $v\in V(G)$. Sei $\mathcal{K}=\left\{ K^{v} | v \in V(H) \right\}$. Dann ist $\mathcal{K}$ eine Krauszzerlegung von $G$. mit $\delta_{G}(\mathcal{K}) \geq d$. Damit gilt
+  Sei $G=L(H)$ der Kantengraph von $H$. Dann ist $\delta(G) \geq d$. Sei $K^{v} = G[E_{H}(v)]$ f"ur alle $v\in V(G)$. Sei $\mathcal{K}=\left\{ K^{v} \;|\; v \in V(H) \right\}$. Dann ist $\mathcal{K}$ eine Krauszzerlegung von $G$. mit $\delta_{G}(\mathcal{K}) \geq d$. Damit gilt
   \begin{equation*}
     \chi'(H) = \chi(G) \leq \kappa_{d}(G) \leq |\mathcal{K}| = |H|.
   \end{equation*}
@@ -198,8 +198,8 @@ Gelten die Vorraussetzungen von Satz \ref{thm:MainTheorem} f"ur $d=2$, so folgt 
   Damit gilt Vermutung \ref{con:maincon} auch f"ur $G$.
 \end{proof}
 
-Seien $v,r$ zwei nat"urliche Zahlen mit $v\geq 2r-1$. Der \DF{Kneser Graph} $K_{v:r}$ geht auf Kneser \cite{Kneser55} zur"uck und ist der Graph mit Eckenmenge $$V(K_{v:r}) = \left\{ X \subset \left\{ 1,\dots v \right\} | |X| = r \right\}$$ und Kantenmenge 
- $$E(K_{v:r}) = \left\{ XY| X,Y \in V(K_{v:r}), X \cap Y = \emptyset \right\}.$$ 
+Seien $v,r$ zwei nat"urliche Zahlen mit $v\geq 2r-1$. Der \DF{Kneser Graph} $K_{v:r}$ geht auf Kneser \cite{Kneser55} zur"uck und ist der Graph mit Eckenmenge $$V(K_{v:r}) = \left\{ X \subset \left\{ 1,\dots v \right\} \;|\; |X| = r \right\}$$ und Kantenmenge 
+ $$E(K_{v:r}) = \left\{ XY\;|\; X,Y \in V(K_{v:r}), X \cap Y = \varnothing \right\}.$$ 
  $K_{v:1}$ ist ein vollst"andiger Graph der Ordnung $v$ und $K_{2r-1:r}$ besitzt keine Kanten. Kneser gibt in \cite{Kneser55} eine obere Schranke f"ur die chromatische Zahl der Kneser Graphen an. Sp"ater zeigte Lov\'asz \todo{Referenz}, dass diese Schranke immer angenommen wird.
  \begin{theorem}
    Ist $v\geq 2r-1$, dann gilt
