@@ -12,9 +12,9 @@ TODO
   - "uberpr"ufen
 - [x] Courant Fisher Zitat
 - [x] epsilon Parameter einführen
-  - [] nochmal dr"uber schauen obs passt
+  - nochmal dr"uber schauen obs passt
 - [x] Hajos Konstruktion
   - "uberpr"ufen
   - Bild
 - [x] cite gescheit machen
-
+- [] Schranke von xi neu

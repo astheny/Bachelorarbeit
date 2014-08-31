@@ -2,7 +2,7 @@
 Der Hauptteil dieser Bachelorarbeit befasst sich mit einer neuen Herangehensweise an die Erd\H{o}s--Faber--Lov\'asz Vermutung. 
 Es bezeichne $\cE(n)$ die Klasse aller Graphen welche die Vereinigung von $n$ kantendisjunkten vollst"andigen Graphen der Ordnung $n$ sind. 
 F"ur $G\in\cE(n)$ gilt also $G= \bigcup\limits_{i=1}^{n} G_i$, wobei $G_i \cong K_n$ und $|G_i \cap G_j| \leq 1$ f"ur alle $1\leq i,j \leq n$ mit $i\neq j$ (in Abbildung \ref{fig:egraphen} sind die Kanten der vollst"andigen Graphen mit der selben Farbe markiert).
-\begin{figure}[htbp]
+\begin{figure}[h]
         \centering
         \includegraphics{images/bildeg3und4}
         \caption{Zwei Graphen aus $\cE(3)$ und $\cE(4)$}
@@ -14,7 +14,6 @@ Sei $G\in\cE(n)$. Dann ist $\chi(G) = n$.
 \label{con:efl}
 \end{conjecture}
 Die Vermutung wurde 1972 in Ohio von Erd\H{o}s, Faber und Lov\'asz aufgestellt, als sie "uber eine Verallgemeinerung der Vizing-Schranke f"ur lineare Hypergraphen nachdachten (siehe \cite{FaberL74} und \cite{Erdos76}). Bereits sieben Jahre sp"ater, im Jahr 1979 bot Erd\H{o}s schon 500 Dollar f"ur die L"osung des Problems.
-
 Diese Vermutung geh"orte zu Erd\H{o}s Lieblingsproblemen (siehe \cite{Erdos81}).
 
 Vermutung \ref{con:efl} l"asst ist "aquivalent zu der folgenden Vermutung "uber lineare Hypergraphen (siehe Satz \ref{thm:equivefl}):
@@ -23,14 +22,21 @@ Vermutung \ref{con:efl} l"asst ist "aquivalent zu der folgenden Vermutung "uber 
 \label{con:eflhyper}
 \end{conjecture}
 
-Im Folgenden wollen wir einige Resultate zur Vermutung \ref{con:efl} anf"uhren. Kahn \cite{Kahn92} bewies, dass die Vermutung asymptotische wahr ist.
+Im Folgenden wollen wir einige Resultate zur Vermutung \ref{con:efl} anf"uhren. Chung und Lawler \cite{ChungL88} bewiesen die folgende obere Schranke f"ur die chromatische Zahl von Graphen aus $\cE(n)$:
 
+\begin{theorem}
+  Ist $n\in\N$ und $G\in \cE(n)$, so gilt:
+  $$\chi(G) \leq \frac{3n}{2}-2$$
+  \label{thm:ChungLawler}
+\end{theorem}
+Kahn \cite{Kahn92} verbesserte diese obere Schranke, indem er bewies, dass die Vermutung asymptotisch wahr ist.
 \begin{theorem}
   Ist $H$ ein linearer Hypergraph, so gilt: $$\chi'(H) = |H| + o(|H|)$$
   \label{thm:kahn}
 \end{theorem}
-Weitere Anmerkungen und Resultate finden sich in \cite{RomeroS2007}.
 
+Es ist au{\ss}erdem bekannt, das Vermutung \ref{con:efl} f"ur $n\leq 10$ gilt, wie Hindman \cite{Hindman81} bewies.
+Weitere Anmerkungen und Resultate finden sich in \cite{RomeroS2007}.
 
 \subsection{Krauszzerlegungen von Graphen}
 Die Graphen aus $\cE(n)$ lassen sich alle durch $n$ vollst"andige Graphen der Ordnung $n$ kantendisjunkt "uberdecken. Im Folgenden wollen wir ein allgemeineres Konzept betrachten, indem wir nicht fordern, dass alle Graphen der "Uberdeckung die selbe Ordnung haben. 
@@ -78,6 +84,8 @@ Somit l"asst sich der Kantengraph $L(G)$ mit vollst"andigen Graphen "uberdecken.
 \begin{example}
   Sei $G$ ein dreiecksfreier Graph mit Minimalgrad mindestens $d$. Dann ist $\kappa_{d}(G) = |E(G)|$, da $G$ keine Dreiecke enth"alt und somit jeder Graph einer Krauszzerlegung von $G$ isomorph zu $K_{2}$ sein muss. 
 \end{example}
+
+Wir werden nun einen Zusammenhang zwischen Krauszzerlegungen und der Erd\H{o}s Faber Lov\'asz Vermutung herstellen.
 
 \begin{theorem}
   Die folgenden Aussagen sind "aquivalent:

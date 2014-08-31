@@ -41,10 +41,12 @@ In diesem Kapitel wollen wir die in Abschnitt \ref{sss:ewgraph} behandelten Them
   \end{align*}
   Durch Umstellen erhalten wir die gew"unschte Ungleichung.
 \end{proof}
+
+Mit diesem Satz erhalten wir sofort Aussagen "uber Krauszzerlegungen von $G$, falls $G$ bestimmte Untergraphen enth"alt.
 \begin{corollary}
   \label{cor:Korollar1}
   Seien $G$ ein Graph und $H$ ein induzierter Untergraph von $G$. Desweiteren seien $q,d \in \N$ mit $q \leq |H|$ und $d \geq 2$.
-  Ist $\lambda_{q}(H) \geq -d$, so ist $\kappa_{d}(G) > q$.
+  Ist $\lambda_{q}(H) > -d$, so ist $\kappa_{d}(G) \geq q$.
 \end{corollary}
 \begin{proof}
   Angenommen es gilt $p = \kappa_{d}(G) < q$. Dann gibt es  eine Krauszzerlegung $\mathcal{K}$ von $G$ mit $|\mathcal{K}| = p$ und $\delta(\mathcal{K}) \geq d$. Wegen Lemma \ref{lem:InterlacingGraphen} gilt dann $\lambda_{q}(G) \geq \lambda_{q}(H) > -d $. Andererseits folgt aus Satz \ref{thm:KrauszEigenwerte} dass $\lambda_{q}(G) \leq \lambda_{p+1} \leq -d $, ein Widerspruch. 
@@ -52,15 +54,16 @@ In diesem Kapitel wollen wir die in Abschnitt \ref{sss:ewgraph} behandelten Them
 
 \begin{corollary}
   \label{cor:LineGraphWald}
-  Seien $\delta(G) \geq 2$ und $H$ ein induzierter Untergraph von $G$. Ist $H$ Kantengraph eines Waldes, so gilt 
+  Seien $G$ ein Graph und $H$ ein induzierter Untergraph von $G$. Ist $H$ Kantengraph eines Waldes, so gilt 
   $\kappa_{2}(G)\geq \left|H\right|$.
 \end{corollary}
 
 \begin{proof}
-  Sei $q = |H|$. Da $H$ Kantengraph eines Waldes ist, folgt $\lambda_{q}(H) > -2$ aus Korollar \ref{cor:linegraphwald}.
+  Ist $\delta(G) \leq 1$, so ist nichts zu zeigen, da dann mit \ref{lm:krauszexistenz} folgt, dass $\kappa_2(G) = \infty$ richtig ist.
+  Sei sonst $q = |H|$. Da $H$ Kantengraph eines Waldes ist, folgt $\lambda_{q}(H) > -2$ aus Korollar \ref{cor:linegraphwald}.
   Dann ist mit Korollar \ref{cor:Korollar1} $\kappa_{2}\left( G \right) \geq \left| H\right|$.
 \end{proof}
-
+Der folgende Korollar wurde bereits von Klotz \cite{Klotz89} gezeigt. Wir erhalten "uber die Krauszzerlegung und Korollar \ref{cor:LineGraphWald} jedoch einen eleganten Beweis.
 \begin{corollary}[Klotz]
   $\kappa_{2}\left( K_n \right) \geq n$
 \end{corollary}
@@ -81,10 +84,38 @@ In diesem Kapitel wollen wir die in Abschnitt \ref{sss:ewgraph} behandelten Them
 Wir wollen nun einen Menge von Graphenparametern definieren. Seien dazu $d\geq 1$ und $G$ ein Graph. Wir bezeichnen mit $\xi_{d}$ die Anzahl aller Eigenwerte von $G$, welche echt gr"o{\ss}er als $-d$ sind. Damit ist also 
 $$\xi_{d}(G) = \max \set{i}{\lambda_i > -d}.$$
 Dieser ist ein Graphenparamter, da nach Lemma \ref{lem:GraphEigenwerte} isomorphe Graphen das selbe Spektrum besitzen, und somit $\xi_d $ zwei isomorphen Graphen die selbe reelle Zahl zuordnet. 
-Nach Lemma \ref{lem:InterlacingGraphen} ist $\xi_{d}$ f"ur alle $d\geq 1$ ein monotoner Graphenparamter, d.h. ist $H$ ein induzierter Untergraph von $G$, so gilt $\xi_d(H) \leq \xi_d(G)$.
-Um die Erd\H{o}s-Faber-Lov\'asz Vermutung zu beweisen, reicht es also aus zu zeigen, dass jeder Graph $$\chi(G) \leq \xi_{2}(G)$$ erf"ullt. 
+Nach Lemma \ref{lem:InterlacingGraphen} gilt, falls $H$ ein induzierter Untergraph von $G$ ist, dass $$\xi_d(H) \leq \xi_{d}(G)$$ f"ur alle $d\in \N$ richtig ist. 
+
+Um die Erd\H{o}s-Faber-Lov\'asz Vermutung zu beweisen, reicht es also aus zu zeigen, dass jeder Graph $$\chi(G) \leq \xi_{2}(G)$$ erf"ullt, da mit Korollar \ref{cor:Korollar1} dann $$\chi(G) \leq \kappa_{2}(G)$$ gilt, was mit Satz \ref{thm:MainTheorem} dann Vermutung \ref{con:efl} beweist.
 
 Eine M"oglichkeit dies zu zeigen, w"are zu beweisen, dass $\xi_2$ ein Szekeres-Wilf-Paramter ist. Die Eigenschaft (S1) ist nach den obigen "Uberlgungen erf"ullt. Berechnungen in Maple zeigen jedoch, dass Eigenschaft (S2) nicht immer erf"ullt ist. \todo{ausf"uhrlicher? mit Beispiel?}
+
+Es ist jedoch m"oglich die chromatische Zahl durch eine Funktion von $\xi_2$ nach oben zu beschr"anken, wie der folgende Satz zeigt.
+\todo{schreiben}
+%\begin{theorem}
+%  Es gibt eine Funktion $f:\R \to \R$ welche $$\chi(G) \leq f(\xi_{2}(G)$$ f"ur alle Graphen $G$ erf"ullt. 
+%  \label{thm:funktionxi}
+%\end{theorem}
+%Zum Beweis dieses Satzes ben"otigen definieren wir $$\beta(G) = \max\set{|H|}{H\unlhd G, \lambda_{min}(H) > -2}$$ und beweisen folgendes Lemma:
+%
+%\begin{lemma}
+%  Ist $G$ ein Graph mit $\beta(G) \leq p$ und $\omega(G) \leq q$, so ist $$\chi(G) \leq f(p,q)= $$ \todo{ausrechnen}
+%  \label{lem:funktionxilemma}
+%\end{lemma}
+%\begin{proof}
+%  Wir beweise die Aussage durch Induktion nach $\omega(G)$. Ist $\omega(G) \leq 1$, so ist $\chi(G) \leq 1$, also w"ahlen wir $f(p,1) = 1$. 
+%  
+%  Sei nun $\omega(G) \leq q$ mit $q \geq 2$. Ist $\omega(G) \leq q-1$, so folgt die Aussage durch die Induktionsovorkr
+%\end{proof}<++>
+%\begin{proof}[von Satz \ref{thm:funktionxi}]
+%Seien $G$ ein Graph und $X,Y$ Teilmengen von $V(G)$ mit $X\cup Y = V(G)$. Dann gilt:
+%$$\chi(G) \leq \chi(G[X]) + \chi(G[Y]).$$ Ist n"amlich $\chi (G[X]) = k$ und $\chi(G[Y]) = l$, so f"arben wir zuerst die Ecken von $G[X]$ mit $k$ Farben, und dann die verbleibenden Ecken von $G[Y\setminus X]$ mit $l$ neuen Farben. Dies ergibt eine $k+l$ F"arbung von $G$.
+%
+%Seien außerdem $pK_n$ derjenige Graph, welcher die disjunkte Vereingung von $p$ mal dem Graphen $K_n$ ist und 
+%Dann gilt $\omega(G) \leq \xi_{2}(G) $ und $\beta(G) \leq \xi_{2}(G)$. 
+%\end{proof}<++>
+%
+
 \begin{theorem}
   \label{thm:MainTheorem}
   Existiert ein $d\in \N$, sodass f"ur alle  Graphen $G$ $$\chi(G) \leq \xi_{d}(G)$$ gilt, so gelten folgende Aussagen:
@@ -101,12 +132,11 @@ Eine M"oglichkeit dies zu zeigen, w"are zu beweisen, dass $\xi_2$ ein Szekeres-W
   Wir zeigen nun (b) durch Widerspruch. Angenommen die Behauptung gilt nicht. Dann gibt es einen linearen Hypergraphen minimaler Ordnung mit $|e| \geq d$ f"ur alle $e\in E(H)$ , f"ur welchen $\chi'(H) > H$. 
   Wir machen eine Fallunterscheidung bez"uglich dem kleinsten Eckengrad.
   
-  \ncase{1} Es existiert eine Kante $e$ von $H$ vom Grad kleiner als $d$. Da $|e| \geq d$ ist und $H$ ein linearer Hypergraph ist, gibt es eine Ecke $v$ von $H$ welche nur in $e$ vorkommt. Sei $H'= H-e$. Dann ist $|H'| < |H|$. Dieser l"asst sich auf Grund der Wahl von $H$ mit $\chi'(H') \leq |H'|$ Farben f"arben. Diese F"arbung k"onnen wir zu einer F"arbung von $H$ mit h"ochstens $|H'|+1 = |H|$ Farben erweitern, indem wir $e$ mit einer neuen Farbe f"arben. Dann gilt 
+  \ncase{1}{$\delta(H) < d$} Dann existiert eine Kante $e$ von $H$ vom Grad kleiner als $d$. Da $|e| \geq d$ ist und $H$ ein linearer Hypergraph ist, gibt es eine Ecke $v$ von $H$ welche nur in $e$ vorkommt. Sei $H'= H-e$. Dann ist $|H'| < |H|$. Dieser l"asst sich auf Grund der Wahl von $H$ mit $\chi'(H') \leq |H'|$ Farben f"arben. Diese F"arbung k"onnen wir zu einer F"arbung von $H$ mit h"ochstens $|H'|+1 = |H|$ Farben erweitern, indem wir $e$ mit einer neuen Farbe f"arben. Dann gilt 
   $$\chi'(H) \leq \chi'(H) +1  \leq |H'| +1 = |H| .$$ 
   Ein Widerspruch zur Wahl von $H$. 
 
-  \ncase{2} Alle Kanten von $H$ haben mindestens den Grad $d$. 
-  Sei $G=L(H)$ der Kantengraph von $H$. Dann ist $\delta(G) \geq d$. Sei $K^{v} = G[E_{H}(v)]$ f"ur alle $v\in V(G)$. Sei $\mathcal{K}=\left\{ K^{v} \;|\; v \in V(H) \right\}$. Dann ist $\mathcal{K}$ eine Krauszzerlegung von $G$. mit $\delta_{G}(\mathcal{K}) \geq d$. Damit gilt
+  \ncase{2}{$\delta(H) \geq d$} Sei $G=L(H)$ der Kantengraph von $H$. Dann ist $\delta(G) \geq d$. Sei $K^{v} = G[E_{H}(v)]$ f"ur alle $v\in V(G)$. Sei $\mathcal{K}=\left\{ K^{v} \;|\; v \in V(H) \right\}$. Dann ist $\mathcal{K}$ eine Krauszzerlegung von $G$. mit $\delta_{G}(\mathcal{K}) \geq d$. Damit gilt
   \begin{equation*}
     \chi'(H) = \chi(G) \leq \kappa_{d}(G) \leq |\mathcal{K}| = |H|.
   \end{equation*}
@@ -158,7 +188,7 @@ Wir wollen nun einige Schranken f"ur $\kappa_{d}(G)$ angeben.
 \end{proof}
 
 \subsection{Chromatische Zahl und Eigenwerte}
-Es ist nicht viel "uber den Zusammenhang der chromatischen Zahl eines Graphen, und seinen Eigenwerte bekannt. Wir wollen hier auf zwei S"atze verweisen, die Schranken f"ur die chromatische Zahl eines Graphen in Abh"angigkeit des gr"o{\ss}ten bzw. kleinsten Eigenwerts angeben. Eine Absch"atzung nach oben  gibt Wilf in \cite{wilf1967eigenvalues} an. Man beachte, dass diese eine Verst"arkung von Satz \ref{thm:brooks} ist, da der gr"o{\ss}te Eigenwert eines Graphen duch den Maximalgrad
+Es ist nicht viel "uber den Zusammenhang der chromatischen Zahl eines Graphen, und seinen Eigenwerte bekannt. Wir wollen hier auf zwei S"atze verweisen, die Schranken f"ur die chromatische Zahl eines Graphen in Abh"angigkeit des gr"o{\ss}ten bzw. kleinsten Eigenwerts angeben. Eine Absch"atzung nach oben  gibt Wilf in \cite{Wilf67} an. Man beachte, dass diese eine Verst"arkung von Satz \ref{thm:brooks} ist, da der gr"o{\ss}te Eigenwert eines Graphen duch den Maximalgrad
 beschr"ankt ist.
 
 \begin{theorem}
@@ -168,7 +198,7 @@ beschr"ankt ist.
   \label{thm:wilfev}
 \end{theorem}
 
-Eine untere Schranke findet sich in \cite{Hoffmanbounds} (man beachte hierbei, dass $\lambda_{min}(G)$ negativ ist):
+Eine untere Schranke findet sich in \cite{Hoffman70} (man beachte hierbei, dass $\lambda_{min}(G)$ negativ ist):
 
 \begin{theorem}
   Ist $G$ ein Graph, so gilt:
@@ -190,12 +220,7 @@ Gelten die Vorraussetzungen von Satz \ref{thm:MainTheorem} f"ur $d=2$, so folgt 
 
 \begin{proof}
   Gelte Vermutung \ref{con:maincon} f"ur kritische Graphen.
-  Sei $G$ ein Graph mit $\chi(G) = k$. Dann enth"alt $G$ einen $k$-kritischen Untergraphen $H$. F"ur diesen gilt nach Vorraussetzung $$k= \chi(H) \leq \xi_{2}(H).$$ Folglich ist $\lambda_{k}(H) > -2$. Nun folgt mit Satz \ref{lem:InterlacingGraphen}:
-  \begin{equation*}
-    \lambda_{k}(G) \geq \lambda_{k}(H) > -2.
-  \end{equation*}
-  Und deswegen $\chi(G) = k \leq \xi_{2}(G)$.
-  Damit gilt Vermutung \ref{con:maincon} auch f"ur $G$.
+  Sei $G$ ein Graph mit $\chi(G) = k$. Dann enth"alt $G$ einen $k$-kritischen Untergraphen $H$. F"ur diesen gilt nach Vorraussetzung $$k= \chi(H) \leq \xi_{2}(H).$$ Dann ist aber auch $$k \leq \xi_{2}(H) \leq \xi_{2}(G) ,$$ da $H$ ein induzierter Untergraph von $G$ ist.  Damit gilt Vermutung \ref{con:maincon} auch f"ur $G$.
 \end{proof}
 
 Seien $v,r$ zwei nat"urliche Zahlen mit $v\geq 2r-1$. Der \DF{Kneser Graph} $K_{v:r}$ geht auf Kneser \cite{Kneser55} zur"uck und ist der Graph mit Eckenmenge $$V(K_{v:r}) = \left\{ X \subset \left\{ 1,\dots v \right\} \;|\; |X| = r \right\}$$ und Kantenmenge 
@@ -203,8 +228,7 @@ Seien $v,r$ zwei nat"urliche Zahlen mit $v\geq 2r-1$. Der \DF{Kneser Graph} $K_{
  $K_{v:1}$ ist ein vollst"andiger Graph der Ordnung $v$ und $K_{2r-1:r}$ besitzt keine Kanten. Kneser gibt in \cite{Kneser55} eine obere Schranke f"ur die chromatische Zahl der Kneser Graphen an. Sp"ater zeigte Lov\'asz \todo{Referenz}, dass diese Schranke immer angenommen wird.
  \begin{theorem}
    Ist $v\geq 2r-1$, dann gilt
-   $$\chi(K_{v:r}) \leq v-2r+2$$
-   \label{thm:kneserfarbung}
+   $$\chi(K_{v:r}) \leq v-2r+2$$ \label{thm:kneserfarbung}
  \end{theorem}
  Der folgende Satz ist als Satz von Erd\H{o}s-Ko-Rado \cite{ErdosKoRado61} bekannt, und gibt die Unabh"angigkeitszahl eines Kneser Graphen an.
  \begin{theorem}
@@ -212,7 +236,7 @@ Seien $v,r$ zwei nat"urliche Zahlen mit $v\geq 2r-1$. Der \DF{Kneser Graph} $K_{
    $$\alpha(K_{v:r})= \binom{v-1}{r-1}.$$
    \label{thm:ErdosKoRado}
  \end{theorem}
-
+ Mit den beiden vorrangegangenen S"atzen k"onnen wir nun beweisen, dass ein Kneser Graph unsere Vermutung \ref{con:maincon} erf"ullt. 
 \begin{proposition}
   Seien $v\geq 2r-1$, $r\geq 1$ und sei $G= K_{v:r}$ ein Kneser Graph. Dann gilt $\chi(G) \leq \xi_{2}(G)$. 
 \end{proposition}
@@ -226,22 +250,23 @@ Seien $v,r$ zwei nat"urliche Zahlen mit $v\geq 2r-1$. Der \DF{Kneser Graph} $K_{
     \lambda_{k}(G) \geq \lambda_{p}(G) \geq 0 > -2.
   \end{equation*}
   Folglich gilt $\chi(G) \leq \xi_{2}(G)$.
+
   \ncase{3} {$ v = 2r $} Die Ecken von $G$ sind alle $r$-elementingen Teilmengen von $\left\{ 1,\dots,v \right\}$. Da $v=2r$ ist f"ur ein $w\in V(G)$ die einzige benachbarte Ecke ihr Komplement in $\left\{ 1,\dots,v \right\}$. Also sind die Komponenten von $G$ alle isomorph zu $K_{2}$. Dann ist $\chi(G) = 2$ und $\omega(G) = 2$. Aus Korollar \ref{cor:alphaomegaEigenwerte} folgt dann, dass $\lambda_{2}(G) \geq -1 > -2$ ist. Insbesondere ist $\chi(G) \leq \xi(G)$. 
 
   \ncase{4}{$v=2r+1$} Dann ist $|E(G)| = 0$, und folglich ist $G$ ein kantenloser Graph, welcher nur den Eigenwert $0>-2$ besitzt. Insbesondere ist also auch $\lambda_{k}(G) = 0 > -2$. Und deswegen gilt $\chi(G) \leq \xi_{2}(G)$.
 \end{proof}
-
+Eine weitere Klasse von Graphen die unsere Vermutung erf"ullen sind die perfekten Graphen.
 \begin{proposition}
   Sei $G$ ein perfekter Graph. Dann gilt:
   $$\chi(G) \leq \xi_{2}(G)$$
 \end{proposition}
 
 \begin{proof}
-  Da $G$ ein perfekter Graph ist, gilt $k = \chi(G) = \omega(G)$. Also besitzt $G$ einen vollst"andigen Graphen der Ordnung $k$ als induzierten Untergraphen. Nach \ref{cor:alphaomegaEigenwerte} ist $\lambda_{k}(G) > -2$. Und damit $\chi(G) \leq \xi_{2}(G)$.
+  Da $G$ ein perfekter Graph ist, gilt $k = \chi(G) = \omega(G)$. Also besitzt $G$ einen vollst"andigen Graphen der Ordnung $k$ als induzierten Untergraphen. Nach \ref{cor:alphaomegaEigenwerte} ist $$\lambda_{k}(G) > -2.$$ Und damit $\chi(G) \leq \xi_{2}(G)$.
 \end{proof}
 
 \begin{proposition}
-  Vermutung \ref{con:maincon} gilt f"ur planare Graphen welche mindestens $7$ Ecken besitzen.
+  Vermutung \ref{con:maincon} gilt f"ur planare Graphen, welche mindestens $7$ Ecken besitzen.
 \end{proposition}
 
 \begin{proof}
@@ -268,10 +293,10 @@ Seien $v,r$ zwei nat"urliche Zahlen mit $v\geq 2r-1$. Der \DF{Kneser Graph} $K_{
 \subsection{H\'ajos und Ore Summe}
 In diesem Abschnitt wollen wir die Klasse der H\'ajos-konstruierbaren Graphen und die Klasse der Ore-konstruierbaren Graphen untersuchen. 
 
-Sei $G$ ein Graph und $X$ eine nichtleere Menge von Ecken von $G$. Wir erhalten einen neuen Graphen $G'$ aus $G$ durch \DF{Identifizierung}  von $X$ mit einer Ecke $x$, falls $G'$ aus $G-X$ durch hinzuf"ugen der neuen Ecke $x$ entsteht, welche mit allen Nachbarn von $X$ in $G-X$ benachbart ist. 
+Sei $G$ ein Graph und $X$ eine nichtleere Menge von Ecken von $G$. Wir erhalten einen neuen Graphen $G'$ aus $G$ durch \DF{Identifizierung}  von $X$ mit einer Ecke $x$, falls $G'$ aus $G-X$ durch hinzuf"ugen der neuen Ecke $x$ entsteht, welche in $G'$ mit allen Nachbarn von $X$ in $G-X$ benachbart ist. 
 
 Seien $G_1, G_2$ zwei nichtleere disjunkte Graphen und $x_1y_1\in E(G_1)$ sowie $x_2y_2 \in E(G_2)$ zwei beliebige Kanten. Die \DF{Haj\'os Summe} \cite{Hajos61} von $G_1$ und $G_2$ (bez"uglich $x_1y_1$ und $x_2y_2$) ist derjenige Graph, der entsteht wenn wir $G_1$ und $G_2$ vereinigen, die Kanten $x_1y_1$ und $x_2y_2$ entfernen, die Kante $y_1y_2$ hinzuf"ugen und  die Ecken $x_1$ und $x_2$ identifizieren. Wir schreiben dann auch $G= \text{H\'ajos}(G_1,x_1y_1,G_2,x_1y_2)$ oder
-kurz $G= \text{H\'ajos}(G_1,G_2)$ falls die Wahl der Kanten beliebig ist.
+kurz $G= \text{H\'ajos}(G_1,G_2)$.
 
 F"ur $k\in \N$ hei{\ss}t ein Graph $G$ \DF{H\'ajos-$k$-konstruierbar}, falls $G$ entweder ein vollst"andiger Graph der Ordnung $k$ ist, falls $G$ durch die Haj\'os Summe zweier Haj\'os $k$-konstruierbarer Graphen entsteht, oder falls $G$ durch die Identifizierung zweier nicht benachbarten Ecken eines Haj\'os $k$-konstruierbaren Graphen entsteht. 
 
