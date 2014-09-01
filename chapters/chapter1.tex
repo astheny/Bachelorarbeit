@@ -13,17 +13,16 @@ Sei $H$ ein Hypergraph. Die \DF{Ordnung} von $H$ ist die Anzahl der Ecken von $H
 Ist $E(H) \subseteq [V]^p$, so nennen wir $H$ \DF{$p$-uniform}. Ein \DF{Graph} ist ein $2$-uniformer Hypergraph, also ein Hypergraph in dem jede Kante gew"ohnlich ist. Eine Ecke $v$ ist \DF{inzident} mit einer Kante $e$, falls $v\in e$ gilt. F"ur eine Ecke $v$ von $H$ sei $E_{H}(v) = \set{ e\in E(H) }{ v\in e }$ die Menge aller mit $v$ inzidenten Kanten. Der \DF{Grad} einer Ecke $v$ ist $d_{H}(v) = |E_H(v)|$. 
 Der \DF{Minimalgrad} (\DF{Maximalgrad}) sei definiert als der kleinste (gr"o{\ss}te) Grad einer Ecke von $H$ und wird mit $\delta(H)$ ($\Delta(H)$) bezeichnet. F"ur $H=\varnothing$ setzen wir $\delta(H) = \Delta(H) = 0$. Ist $\delta(H) = \Delta(H) = r$, so hei{\ss}t $H$ $r$-regul"ar. 
 
-Ein \DF{Unterhypergraph} von $H$ ist ein Hypergraph $H'$ mit $V(H') \subseteq V(H)$ und $E(H') \subseteq E(H)$. Wir schreiben dann $H' \subseteq H$. Gilt $H' \neq H$, so ist $H'$ ein \DF{echter Unterhypergraph}. Gibt es eine Menge $X \subseteq V(H)$ mit $V(H') = X$ und $E(H') = \set{ e\in E(H) }{ e \subset X }$, so ist $H'$ ein \DF{induzierter Unterhypergraph} und wir schreiben $H'= H[X]$ beziehungsweise $H' \unlhd H$. 
+Ein \DF{Unterhypergraph} von $H$ ist ein Hypergraph $H'$ mit $V(H') \subseteq V(H)$ und $E(H') \subseteq E(H)$. Wir schreiben dann $H' \subseteq H$. Gilt zus"atzlich $H' \neq H$, so ist $H'$ ein \DF{echter Unterhypergraph}. Gibt es eine Menge $X \subseteq V(H)$ mit $V(H') = X$ und $E(H') = \set{ e\in E(H) }{ e \subset X }$, so ist $H'$ ein \DF{induzierter Unterhypergraph} und wir schreiben $H'= H[X]$ beziehungsweise $H' \unlhd H$. 
 
-Ist $H$ ein Hypergraph und $X\subseteq V(H)$, so bezeichne $H-X = H[V(H) \setminus X]$. Ist $X=\{ v \}$, so schreiben wir daf"ur auch $H-v$ statt $H-\{v\}$. Ist $F\subseteq 2^{V(H)}$ eine Menge, so sei $H-F$ der Hypergraph mit Eckenmenge $V(H)$ und Kantenmenge $E(H) \setminus F$ und $H+F$ der Hypergraph mit Eckenemenge $V(H)$ und Kantenmenge $E(H) \cup F$. Ist $F= \{ e \}$ so schreiben wir $H\pm e$ anstatt $H\pm  \{ e \}$. 
+Ist $X\subseteq V(H)$, so bezeichne $H-X = H[V(H) \setminus X]$. Ist $X=\{ v \}$, so schreiben wir daf"ur auch $H-v$ statt $H-\{v\}$. Ist $F\subseteq 2^{V(H)}$ eine Menge, so sei $H-F$ der Hypergraph mit Eckenmenge $V(H)$ und Kantenmenge $E(H) \setminus F$ und $H+F$ der Hypergraph mit Eckenemenge $V(H)$ und Kantenmenge $E(H) \cup F$. Ist $F= \{ e \}$ so schreiben wir $H\pm e$ anstatt $H\pm  \{ e \}$. 
 
-Eine Menge von Ecken $X\subseteq V(H)$ hei{\ss}t \DF{unabh"angige Menge} von $H$, falls $E(H[X]) = \varnothing$ gilt, beziehungsweise \DF{Clique}, falls $H[X]$ alle gew"ohnlichen Kanten von $[X]^{2}$ enth"alt. Die \DF{Unabh"angigkeitszahl} $\alpha(H)$ ist die Ordnung der gr"o{\ss}ten unabh"anigegen Menge von $H$. Die \DF{Cliquenzahl} $\omega(H)$ ist die Ordnung der gr"o{\ss}ten Clique von $H$. 
+Eine Menge von Ecken $X\subseteq V(H)$ hei{\ss}t \DF{unabh"angige Menge} von $H$, falls $E(H[X]) = \varnothing$ gilt, beziehungsweise \DF{Clique} von $H$, falls $H[X]$ alle gew"ohnlichen Kanten von $[X]^{2}$ enth"alt. Die \DF{Unabh"angigkeitszahl} $\alpha(H)$ ist die Ordnung der gr"o{\ss}ten unabh"anigegen Menge von $H$. Die \DF{Cliquenzahl} $\omega(H)$ ist die Ordnung der gr"o{\ss}ten Clique von $H$. 
 
 Sind $H,H'$ zwei Hypergraphen, so heiﬂt eine bijektive Abbildung $f : V(H) \to V(H')$ \DF{Isomorphismus} zwischen $H$ und $H'$, falls f"ur alle Teilmengen $\{ v_1,v_2,\dots, v_n \}$ von Ecken von $V(H)$ gilt: $$ \{ v_1,v_2,\dots, v_n \} \text{ ist Kante von $H$} \Leftrightarrow \{ f(v_1),f(v_2),\dots, f(v_n) \} \text{ ist Kante von $H'$}.$$ Zwei Hypergraphen $H,H'$ heiﬂen \DF{isomorph}, falls es einen Isomorphismus zwischen
 $H$ und $H'$ gibt. 
 
-F"ur einen Graphen $G$ sei $\overline{G}$ der \DF{Komplementargraph} von $G$ mit $V(\overline{G}) = V(G)$ und $E(\overline{G}) = [V(G)]^{2}\setminus E(G)$.
-
+F"ur einen Graphen $G$ sei $\overline{G}$ der \DF{Komplementargraph} von $G$ mit $V(\overline{G}) = V(G)$ und $E(\overline{G}) = [V(G)]^{2}\setminus E(G)$.  
 Ein Graph $G$ hei{\ss}t \DF{vollst"andiger Graph}, falls $E(G) = [V(G)]^{2}$ gilt. Ist $G$ ein vollst"andiger Graph der Ordnung $n$, so schreiben wir auch $G=K_n$. Man beachte hierbei, dass alle vollst"andigen Graphen der Ordnung $n$ isomorph sind. In diesem Sinne bezeichnen wir mit $C_n$ den \DF{Kreis} der Ordnung $n$ und mit $O_n$ den \DF{kantenlosen Graphen} der Ordnung $n$ (d.h. das Komplement von $K_n$). 
 Ein Kreis $C_n$ heiﬂt \DF{gerade} beziehungsweise \DF{ungerade}, je nachdem ob seine Ordnung gerade beziehungsweise ungerade ist.
 
@@ -33,11 +32,13 @@ F"ur einen Hypergraphen $H$ ist $\omega(H)$ die gr"o{\ss}te Zahl $n$, sodass $H$
 
 Das \DF{F\"arbungsproblem} f\"ur Graphen ist ein klassischen Problem aus der Graphentheorie mit vielf\"altigen Anwendungen in der kombinatorischen Optimierung und anderen Teilgebieten der Mathematik. Beim  F\"arbungsproblem besteht die Aufgabe darin, die Ecken eines Graphen so zu f\"arben, dass durch eine Kante verbundene Ecken verschiedenen Farben erhalten. Dabei sollen nat\"urlich m\"oglichst wenige Farben verwendet werden.
 
-Seien $G$ ein Graph $C$ eine Menge. Eine Abbildung $\varphi :V(G) \to C$ hei{\ss}t \DF{F"arbung} von $G$, falls f"ur alle Kanten $vw$ von $G$ gilt: $\varphi (v) \neq \varphi (w)$. Ist $|C| = k \in \N_0$, so hei{\ss}t $\varphi $ \DF{$k$-F"arbung}. Besitzt ein Graph $G$ eine $k$-F"arbung, so heiﬂt $G$ \DF{$k$-f"arbbar}.
+Seien $G$ ein Graph $C$ eine Menge. Eine Abbildung $\varphi :V(G) \to C$ hei{\ss}t \DF{F"arbung} von $G$, falls f"ur alle Kanten $vw$ von $G$ gilt: $\varphi (v) \neq \varphi (w)$. Ist $|C| = k \in \N_0$, so hei{\ss}t $\varphi $ auch \DF{$k$-F"arbung}. Besitzt ein Graph $G$ eine $k$-F"arbung, so heiﬂt $G$ \DF{$k$-f"arbbar}.
 Die kleinste nat"urliche Zahl $k$, f"ur die $G$ $k$-f"arbbar ist, bezeichnen wir mit $\chi(G)$, der \DF{chromatischen Zahl} von $G$. 
 Ist die chromatische Zahl von $G$ gleich $k$, so wird $G$ auch \DF{$k$-chromatisch} genannt.
 
 Die Bestimmung der chromatischen Zahl eines Graphen ist ein {\sf NP}-schweres Optimierungsproblem, wie im Jahre 1972 von Karp \cite{Karp72} gezeigt wurde. Sei $\varphi $ eine F"arbung von $G$ und $H$ ein Untergraph von $G$. Dann ist $\varphi _{|V(H)}$ eine F"arbung von $H$. Folglich ist die chromatische Zahl ein monotoner Graphenparameter, d.h. $$ H\subseteq G \Rightarrow \chi(H) \leq \chi(G).$$
+Auﬂerdem ist die chromatische Zahl subadditiv, d.h. sind $X,Y$ zwei Teilmengen von $V(G)$ mit $X\cup Y = V(G)$, so gilt $$\chi(G) \leq \chi(G[X])+ \chi(G[Y]).$$ 
+Ist n"amlich $\chi(G[X]) = k$ und $\chi(G[Y])= l$, so erhalten wir eine $(l+k)$-F"arbung von $G$, indem wir zun"achst alle Ecken aus $X$ mit $k$ Farben f"arben, und dann die verbleibenden Ecken aus $Y\setminus X$ mit h"ochstens $l$ Farben f"arben.
 
 Eine Abbildung $\varphi  :V(G) \to C$ ist genau dann eine F"arbung von $G$, wenn f"ur alle $c\in C$ das Urbild $\varphi ^{-1}(c)$ eine unabh"angige Menge in $G$ ist (d.h. keine zwei Ecken von $\varphi ^{-1}(c)$ sind durch eine Kante von $G$ verbunden). Diese Urbilder nennen wir \DF{Farbklassen}. Offensichtlich sind die Farbklassen disjunkt und haben h"ochstens $\alpha (G)$ Ecken. Daraus folgt, dass jede $k$-F"arbung von $G$ die Ungleichung $|G| \leq k \alpha(G)$ erf"ullt, und deswegen auch $|G| \leq \chi(G) \alpha(G)$ gilt. 
 
@@ -103,11 +104,11 @@ Szekeres und Wilf \cite{SzekW68} bewiesen dann folgendes Resultat.
 Ein einfaches Beispiel f"ur einen Szekeres-Wilf Paramter ist $\Delta+1$. Somit gilt f"ur jeden Graphen $G$ die Ungleichung $\chi(G) \leq \Delta(G)+1$. Brooks \cite{Brooks41} bestimmte im Jahr 1941 die Graphen $G$ mit $\chi(G) = \Delta(G) +1$, er bewies folgendes Resultat:
 \begin{theorem}[Brooks]
   Sei $G$ ein zusammenh"angender Graph mit Maximalgrad $\Delta$. Dann gilt $$\chi(G) \leq \Delta + 1. $$
-  Die Gleichheit gilt dann, und nur dann, wenn $G$ ein vollst"andiger Graph, oder ein ungerader Kreis ist.
+  Die Gleichheit gilt genau dann, wenn $G$ ein vollst"andiger Graph oder ein ungerader Kreis ist.
   \label{thm:brooks}
 \end{theorem}
 Ein weiteres Beispiel f"ur einen Szekeres-Wilf-Paramter ist die \DF{F"arbungszahl} $\operatorname{col}(G)$ eines Graphen definiert durch
-$$ \operatorname{col}(G) = 1 + \max\limits_{H\subset G}\delta(H)$$
+$$ \operatorname{col}(G) = 1 + \max\limits_{H\subseteq G}\delta(H)$$
 Auch dieser Paramter ist somit eine obere Schranke f"ur die chromatische Zahl. Es l"asst sich auch leicht zeigen, dass f"ur jeden Szekeres-Wilf Paramter $\rho$ die Ungleichung $\operatorname{col}(G) \leq \rho(G)$ f"ur alle Graphen $G$ gilt.
 \subsection{F"arbungen von Kantengraphen}
 In diesem Abschnitt betrachten wir das F"arbungsproblem f"ur die Klasse der Kantengraphen. 
@@ -116,7 +117,7 @@ Zwei verschieden Kanten von $H$, welche eine Ecke gemeinsam haben heiﬂen adjazen
 F"ur eine Kante $e$ von $H$ sei $d_{H}(e) = d_{L(H)}(e) $ der \DF{Kantengrad} von $e$ in $H$. Dieser ist also die Zahl der von $e$ verschiedenen Kanten $e'$ von $H$, welche mit $e$ adjazent sind. 
 Dann sei $\Delta'(H)$ der \DF{maximale Kantengrad} von $H$ und $\delta'(H)$ der \DF{minimale Kantengrad} und wir setzen $\Delta'(H) = \delta'(H)=0$, falls $E(H) = \varnothing$. 
 
-Eine F"arbung des Kantengraphen eines Hypergraphen $H$, heiﬂt \DF{Kantenf"arbung} von $H$. Eine Kantenf"arbung ist somit eine Abbildung, die jeder Kante von $H$ eine Farbe zuordnet, sodass adjazente Kanten verschiedene Farben erhalten. Wir bezeichnen dann mit dem \DF{chromatischen Index} $\chi'(H)$ die kleinste nat"urliche Zahl $k$, sodass $L(H)$ eine $k$-F"arbung besitzt. Also gilt $\chi'(H) = \chi(L(H))$. 
+Eine F"arbung des Kantengraphen eines Hypergraphen $H$ heiﬂt \DF{Kantenf"arbung} von $H$. Eine Kantenf"arbung ist somit eine Abbildung, die jeder Kante von $H$ eine Farbe zuordnet, sodass adjazente Kanten verschiedene Farben erhalten. Wir bezeichnen dann mit dem \DF{chromatischen Index} $\chi'(H)$ die kleinste nat"urliche Zahl $k$, sodass $L(H)$ eine $k$-F"arbung besitzt. Also gilt $\chi'(H) = \chi(L(H))$. 
 Ist $v$ eine Ecke von $H$, so ist $E_H(v)$ eine Clique von $L(H)$, und folglich gilt $\chi'(H) \geq \Delta(H)$. K"onig zeigte in \cite{Konig36} , dass diese Schranke f"ur bipartite Graphen scharf ist.
 \begin{theorem}[K"onig]
   Ist $G$ ein bipartiter Graph, so gilt $\chi'(G) = \Delta(G)$.
@@ -143,8 +144,8 @@ mit $x\in \R^{n}$ und $\lambda\in\R$ die (reelle) Eigenwertgleichung von $A$. F"
 ein linearer Unterraum von $\R^{n}$ mit $\operatorname{dim}(E_A(\lambda) \geq 0$. Man nennt dann $\lambda$ einen \DF{Eigenwert} von $A$, falls $\operatorname{dim}(E_A(\lambda)) \geq 1$ ist, die Vektoren aus $E_A\left( \lambda \right)$ hei{\ss}en \DF{Eigenvektoren} von $A$ zum Eigenwert $\lambda$ und $E_A\left( \lambda \right)$ ist der zu $\lambda$ geh"orende \DF{Eigenraum} von $A$. Die Abbildung $p_A$ mit $$p_A(\lambda) = \det (A-\lambda I)$$ ist ein Polynom aus $\R[\lambda]$ vom Grade
 $n$, welches \DF{charakteristisches Polynom} von $A$ genannt wird (dabei ist $I\in\Rnn$ die Einheitsmatrix der Ordnung $n$). 
 F"ur $\lambda\in\R$ gilt dann $$\lambda \text{ ist Eigenwert von }A \Leftrightarrow p_A(\lambda) = 0.$$ Da $A$ symmetrisch ist, zerf"allt $p_A$ in genau $n$ reelle Linearfaktoren, d.h. $p_A$ hat genau $n$ Nullstellen (gez"ahlt mit ihren Vielfachheiten). 
-F"ur $\lambda\in\R$ sei $m_A(\lambda$ die Vielfachheit von $\lambda$ als Nullstelle von $p_A$. Die Matrix $A$ besitzt somit $n$ reelle Eigenwerte, welche wir monton fallend anordnen k"onnen. Im Folgenden bezeichnen wir mit $\lambda_{p}(A)$ den $p$-gr"oﬂten Eigenwert von $A$, das heiﬂt es gilt $$\lambda_{1}(A) \geq \lambda_2(A) \geq \dots \lambda_{n}(A)$$ Dann ist $\lambda_{max}(A) = \lambda_1(A)$ der gr"oﬂte Eigenwert von $A$ und $\lambda_{min}(A) = \lambda_{n}(A)$ der
-kleinste Eigenwert von $A$. Die Folge $$\operatorname{sp}(A) = (\lambda_{1}(A),\lambda_{2}(A), \dots \lambda_{n}(A))$$ der Eigenwerte bezeichnet man als das \DF{Spektrum} von $A$. Bekanntlich besitzen zwei symmetrische Matrizen genau dann das gleiche Spektrum, wenn sie zueinander "ahnlich sind.
+F"ur $\lambda\in\R$ sei $m_A(\lambda$ die Vielfachheit von $\lambda$ als Nullstelle von $p_A$. Die Matrix $A$ besitzt somit $n$ reelle Eigenwerte, welche wir monton fallend anordnen k"onnen. Im Folgenden bezeichnen wir mit $\lambda_{p}(A)$ den $p$-gr"oﬂten Eigenwert von $A$, das heiﬂt es gilt $$\lambda_{1}(A) \geq \lambda_2(A) \geq \dots \geq \lambda_{n}(A)$$ Dann ist $\lambda_{max}(A) = \lambda_1(A)$ der gr"oﬂte Eigenwert von $A$ und $\lambda_{min}(A) = \lambda_{n}(A)$ der
+kleinste Eigenwert von $A$. Die Folge $$\operatorname{sp}(A) = (\lambda_{1}(A),\lambda_{2}(A), \dots ,\lambda_{n}(A))$$ der Eigenwerte bezeichnet man als das \DF{Spektrum} von $A$. Bekanntlich besitzen zwei symmetrische Matrizen genau dann das gleiche Spektrum, wenn sie zueinander "ahnlich sind.
 Ist $\lambda$ ein Eigenwert von $A$ so ist $\operatorname{dim}E_A(\lambda) = m_A(\lambda)$. Eigenvektoren zu verschiedenen Eigenwerten sind stets orthogonal und $\R^{n}$ ist die direkte Summe der Eigenr"aume zu den verschiedenen Eigenwerten. Insbesondere besitzt der $\R^{n}$ eine Orthonomalbasis aus lauter Eigenwerten von $A$.
 
 Eine symmetrische Matrix $A\in\Rnn$ heiﬂt \DF{positiv semidefinit}, falls $x^{T}Ax \geq 0$ f"ur alle Vektoren $x\in \R^{n}$ gilt. Gilt zus"atzlich noch $x^{T}Ax = 0$ nur f"ur $x= 0\in\R^{n}$ (hat also $A$ vollen Rang), so heiﬂt $A$ \DF{positiv definit}. Wir wollen nun einige Eigenschaften von positiv (semi)definiten Matrizen anf"uhren.

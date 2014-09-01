@@ -83,42 +83,49 @@ Der folgende Korollar wurde bereits von Klotz \cite{Klotz89} gezeigt. Wir erhalt
 
 Wir wollen nun einen Menge von Graphenparametern definieren. Seien dazu $d\geq 1$ und $G$ ein Graph. Wir bezeichnen mit $\xi_{d}$ die Anzahl aller Eigenwerte von $G$, welche echt gr"o{\ss}er als $-d$ sind. Damit ist also 
 $$\xi_{d}(G) = \max \set{i}{\lambda_i > -d}.$$
-Dieser ist ein Graphenparamter, da nach Lemma \ref{lem:GraphEigenwerte} isomorphe Graphen das selbe Spektrum besitzen, und somit $\xi_d $ zwei isomorphen Graphen die selbe reelle Zahl zuordnet. 
+Ist $G=\varnothing$, so setzen wir $\xi_{d}(G) = 0$ f"ur alle $d\in\N$.
+Dieser ist ein Graphenparamter, da nach Lemma \ref{lem:GraphEigenwerte} isomorphe Graphen das selbe Spektrum besitzen, und somit $\xi_d $ zwei isomorphen Graphen die selbe nat"urliche Zahl zuordnet. 
 Nach Lemma \ref{lem:InterlacingGraphen} gilt, falls $H$ ein induzierter Untergraph von $G$ ist, dass $$\xi_d(H) \leq \xi_{d}(G)$$ f"ur alle $d\in \N$ richtig ist. 
 
 Um die Erd\H{o}s-Faber-Lov\'asz Vermutung zu beweisen, reicht es also aus zu zeigen, dass jeder Graph $$\chi(G) \leq \xi_{2}(G)$$ erf"ullt, da mit Korollar \ref{cor:Korollar1} dann $$\chi(G) \leq \kappa_{2}(G)$$ gilt, was mit Satz \ref{thm:MainTheorem} dann Vermutung \ref{con:efl} beweist.
 
 Eine M"oglichkeit dies zu zeigen, w"are zu beweisen, dass $\xi_2$ ein Szekeres-Wilf-Paramter ist. Die Eigenschaft (S1) ist nach den obigen "Uberlgungen erf"ullt. Berechnungen in Maple zeigen jedoch, dass Eigenschaft (S2) nicht immer erf"ullt ist. \todo{ausf"uhrlicher? mit Beispiel?}
 
-Es ist jedoch m"oglich die chromatische Zahl durch eine Funktion von $\xi_2$ nach oben zu beschr"anken, wie der folgende Satz zeigt.
-\todo{schreiben}
-%\begin{theorem}
-%  Es gibt eine Funktion $f:\R \to \R$ welche $$\chi(G) \leq f(\xi_{2}(G)$$ f"ur alle Graphen $G$ erf"ullt. 
-%  \label{thm:funktionxi}
-%\end{theorem}
-%Zum Beweis dieses Satzes ben"otigen definieren wir $$\beta(G) = \max\set{|H|}{H\unlhd G, \lambda_{min}(H) > -2}$$ und beweisen folgendes Lemma:
-%
-%\begin{lemma}
-%  Ist $G$ ein Graph mit $\beta(G) \leq p$ und $\omega(G) \leq q$, so ist $$\chi(G) \leq f(p,q)= $$ \todo{ausrechnen}
-%  \label{lem:funktionxilemma}
-%\end{lemma}
-%\begin{proof}
-%  Wir beweise die Aussage durch Induktion nach $\omega(G)$. Ist $\omega(G) \leq 1$, so ist $\chi(G) \leq 1$, also w"ahlen wir $f(p,1) = 1$. 
-%  
-%  Sei nun $\omega(G) \leq q$ mit $q \geq 2$. Ist $\omega(G) \leq q-1$, so folgt die Aussage durch die Induktionsovorkr
-%\end{proof}<++>
-%\begin{proof}[von Satz \ref{thm:funktionxi}]
-%Seien $G$ ein Graph und $X,Y$ Teilmengen von $V(G)$ mit $X\cup Y = V(G)$. Dann gilt:
-%$$\chi(G) \leq \chi(G[X]) + \chi(G[Y]).$$ Ist n"amlich $\chi (G[X]) = k$ und $\chi(G[Y]) = l$, so f"arben wir zuerst die Ecken von $G[X]$ mit $k$ Farben, und dann die verbleibenden Ecken von $G[Y\setminus X]$ mit $l$ neuen Farben. Dies ergibt eine $k+l$ F"arbung von $G$.
-%
-%Seien außerdem $pK_n$ derjenige Graph, welcher die disjunkte Vereingung von $p$ mal dem Graphen $K_n$ ist und 
-%Dann gilt $\omega(G) \leq \xi_{2}(G) $ und $\beta(G) \leq \xi_{2}(G)$. 
-%\end{proof}<++>
-%
+Es ist jedoch m"oglich die chromatische Zahl durch eine Funktion von $\xi_2$ nach oben zu beschr"anken, wie der folgende Satz zeigt. Dazu ben"otigen wir einen weiteren Parameter, $\beta$, welcher f"ur einen Graphen $G$ wie folgt definiert ist:
+$$\beta(G) = \max\set{|H|}{H\unlhd G, \lambda_{min}(H) > -2}.$$
+
+\begin{lemma}
+  Ist $G$ ein Graph mit $\beta(G) \leq p$ und $\omega(G) \leq q$, so existiert eine Funktion $f:\N ^{2} \to \R$ f"ur die $\chi(G) \leq f(p,q) $ gilt. 
+  \label{lem:funktionxilemma}
+\end{lemma}
+\begin{proof}
+  Wir beweisen die Aussage durch Induktion nach $\omega(G)$. Sei also $\beta(G) \leq p$ f"ur $p\in \N$. Ist $\omega(G) \leq 1$, so ist $\chi(G) \leq 1$ und wir k"onnen $f(p,1) = 1$ w"ahlen.
+  
+  Sei nun $\omega(G) \leq q$ mit $q \geq 2$ und gelte f"ur alle Graphen $H$ mit $\omega(H) \leq q-1$, dass $\chi(H) \leq f(p,q-1)$ f"ur alle $p \in \N$ erf"ullt ist.
+  Ist $\omega(G) \leq q-1$, so folgt die Aussage durch die Induktionsvoraussetzung. Andernfalls ist $\omega(G) = q$ und $\beta(G) = l \leq p$. Dann gibt es einen induzierten Untergraphen $H$ von $G$, sodass $|H|=l$ und $\lambda_{min}(H)> -2$. F"ur $v\in V(H)$ sei $N_v = \set{u\in V(G)}{uv\in E(G)}$, die Menge der Nachbarn von
+  $v$ in $G$. Dann ist $\omega(G[N_v]) \leq \omega(G) -1 $, da sonst $G[N_v\cup \{v\}]$ einen vollst"andiger Graphen der Ordnung $p+1$ enth"alt, was nicht m"oglich ist, da $\omega(G) \leq p$ ist. Au{\ss}erdem gilt $\beta(G[N_v]) \leq \beta(G)$, da jeder induzierte Untergraph von $G[N_v]$ wieder ein induzierter Untergraph von $G$ ist. Wegen der Induktionsvorraussetzung folgt dann, dass $\chi(G[N_v]) \leq f(p,q-1)$ richtig ist. 
+  Wir w"ahlen $$N = V(G) \setminus (V(H) \cup \bigcup\limits_{v\in V(H)} N_v ),$$ die Menge aller Ecken von $G$ die weder in $H$ vorkommen, noch zu einer Ecke von $H$ benachbart sind. Wir zeigen, dass $G[N]$ kantenlos ist. W"are dem nicht so, so existiert eine Kante $uv\in E(G[N])$. 
+  Dann ist $u,v\notin V(H)$ und weder $u$ noch $v$ ist mit einer Ecke aus $H$ benachbart. Wir betrachten den Graphen $$H' = G[V(H) \cup \{u,v\}].$$ Dieser ist ebenfalls ein induzierter Untergraph von $G$ mit $|H'| > |H|$. Da er die disjunkte Vereinigung von $H$ und einem vollst"andigen Graphen der Ordnung $2$ ist, ist das Spektrum von $H'$ die Vereinigung des Spektrums von $H$ und $(1,-1)$. Insbesondere ist $$\lambda_{min}(H') = \min \{\lambda_{min}(H), -1\} > -2.$$ 
+  Dies ist ein Widerspruch zur Wahl von $H$. Also ist $G[N]$ kantenlos, und folglich gilt $\chi(G[N]) \leq 1$. 
+  Wegen der Subadditivit"at der chromatischen Zahl und $|H| \leq \beta(G) \leq q$ gilt dann $$\chi(G) \leq \chi(G[N]) + \chi(H) + \sum\limits_{v\in V(H)}\chi(G[N_v]) \leq 1 + |H| + |H|f(p,q-1)  \leq 1+q+p\cdot f(p,q-1).$$
+
+Also folgt aus dem Prinzip der vollst"andigen Induktion, dass die Funktion $f$ eine obere Schranke f"ur $\chi(G)$ ist.
+\end{proof}
+Mit dieser Vorarbeit k"onnen wir nun den folgenden Satz beweisen.
+\begin{theorem}
+  Es gibt eine Funktion $f:\R \to \R$ welche $$\chi(G) \leq g(\xi_{2}(G))$$ f"ur alle Graphen $G$ erf"ullt. 
+  \label{thm:funktionxi}
+\end{theorem}
+
+\begin{proof}
+  Wir zeigen, dass f"ur alle Graphen $G$ die Ungleichung $\beta(G) \leq \xi_{2}(G) $ erf"ullt ist. Dann folgt die Behauptung, indem wir $g(\xi_2(G))=f(\xi_2(G),\xi_2(G))$ setzen, wobei $f$ die Funktion aus \ref{lem:funktionxilemma} ist.
+
+  Sei also $\beta(G) = l \in \N$. Dann existiert ein induzierter Untergraph $H$ von $G$ mit $|H| = l$ und $\lambda_{min}(H) = \lambda_{l}(H) > -2$. Folglich ist mit Lemma \ref{lem:InterlacingGraphen} $\lambda_l (G) \geq \lambda_{l}(H) > -2$, was $\xi_2(G) \geq l = \beta(G)$ impliziert.
+\end{proof}
 
 \begin{theorem}
   \label{thm:MainTheorem}
-  Existiert ein $d\in \N$, sodass f"ur alle  Graphen $G$ $$\chi(G) \leq \xi_{d}(G)$$ gilt, so gelten folgende Aussagen:
+  Existiert ein $d\in \N$, sodass f"ur alle  Graphen $G$ $$\chi(G) \leq \xi_{d}(G)$$ gilt, so gelten die folgende Aussagen:
   \begin{enumerate}[label=\rm{(\alph*)}]
     \item F"ur alle Graphen $G$ gilt $\chi(G) \leq \kappa_d (G)$.
     \item  Ist $H$ ein linearer Hypergraph mit $\left|e\right| \geq d$ f"ur alle $e\in E(H)$, so ist $\chi'\left( H \right)\leq \left|H\right| $
@@ -305,7 +312,7 @@ Es ist bekannt, dass die H\'ajos Summe zweier $k$-chromatischer Graphen wieder $
 
 \begin{theorem}
   Seien $k\in\N$ und $d\in\N$. Seien weiterhin $G_1$ und $G_2$ Graphen mit $k\leq \xi_{d}(G)$. Dann gilt f"ur $G= \text{H\'ajos}(G_1,G_2)$:
-  $$\xi_{d}(G) \geq 2k-4$$
+  $\xi_{d}(G) \geq 2k-4$
   \label{thm:hajoseigenwerte}
 \end{theorem}
 
