@@ -13,17 +13,18 @@ In diesem Kapitel wollen wir die in Abschnitt \ref{sss:ewgraph} behandelten Them
     \item $\lambda_{p+1}(G) \leq -d$ falls $p < n$ ist.
   \end{enumerate}
 \end{theorem}
+
 \begin{proof}
-  Zun"achst zeigen wir (a). Es sei $A$ die Adjazenzmatrix von $G$ und $D := \operatorname{diag}(d_1,\dots,d_n)$. Definiere $B\in\R^{n\times m}$ als die Inzidenzmatrix von $\mathcal K$, also $$B_{ij} = \begin{cases}
+  Zun"achst zeigen wir (a). Es sei $A$ die Adjazenzmatrix von $G$ und $D = \operatorname{diag}(d_1,\dots,d_n)$. Definiere $B\in\R^{n\times m}$ als die Inzidenzmatrix von $\mathcal K$, also $$B_{ij} = \begin{cases}
     1 & v_i \in K^j \\ 0 & \text{falls }v_i \notin K^j
   \end{cases}$$ 
   Nun betrachten wir $M=BB^{T}$. Es gilt
   \[
-    M_{ij} = \sum\limits_{k=1}^{d}B_{ik}B^{T}_{kj} = \sum\limits_{k=1}^{d}B_{ik}B{jk}
+    M_{ij} = \sum\limits_{k=1}^{m}B_{ik}B^{T}_{kj} = \sum\limits_{k=1}^{m}B_{ik}B{jk}
   \]
   Seien $i,j \in \{1,\dots,n\}$ mit $i\neq j$. Da $B$ die Inzidenzmatrix von $\mathcal{K}$ ist, gilt  $$ B_{ik} = 1 \text{ und } B_{jk} = 1 \Leftrightarrow v_i,v_j \in K^{k}.$$ Ist $v_iv_j \in E(G)$, so kommt die Kante $v_iv_j$ in genau einem $K\in \mathcal{K}$ vor, d.h. es gibt genau ein $k\in \left\{ 1,\dots,m \right\}$ f"ur das $B_{ik}$ und $B_{jk}$ gleich $1$ sind. Ist $v_iv_j\notin E(G)$, so kommt die Kante $v_iv_j$ auch nicht in einem der Graphen der Krauszzerlegung vor.
   Also ist f"ur alle $k\in \left\{ 1,\dots, m \right\}$ $B_{ik}B_{jk} = 0$. Folglich ist $M_{ij}=1$ genau dann, wenn $v_iv_j\in G$. Also ist $M_{ij} = A_{ij}$.
-  
+
   Sei nun $i\in\{1,\dots,n\}$ beliebig. Wir betrachten $M_{ii}$. Es gilt 
   \[
     M_{ii} = \sum\limits_{k=1}^{d}B_{ik}B_{ik} = \sum\limits_{k=1}^{d} B_{ik}.
@@ -42,14 +43,43 @@ In diesem Kapitel wollen wir die in Abschnitt \ref{sss:ewgraph} behandelten Them
   Durch Umstellen erhalten wir die gew"unschte Ungleichung.
 \end{proof}
 
-Mit diesem Satz erhalten wir sofort Aussagen "uber Krauszzerlegungen von $G$, falls $G$ bestimmte Untergraphen enth"alt.
+Wir wollen nun eine Folge von Graphenparametern definieren. Seien dazu $d\geq 1$ und $G$ ein Graph. Wir bezeichnen mit $\xi_{d}$ die Anzahl aller Eigenwerte von $G$, welche echt gr"o{\ss}er als $-d$ sind. Damit ist also 
+$$\xi_{d}(G) = \max \set{i}{\lambda_i > -d}.$$
+Ist $G=\varnothing$, so setzen wir $\xi_{d}(G) = 0$ f"ur alle $d\in\N$.
+Dieser ist ein Graphenparamter, da nach Lemma \ref{lem:GraphEigenwerte} isomorphe Graphen das selbe Spektrum besitzen, und somit $\xi_d $ zwei isomorphen Graphen die selbe nat"urliche Zahl zuordnet. 
+
+\begin{lemma}
+  Seien $G$ ein Graph und $d\in \N$. Dann gelten f"ur den Graphenparameter $\xi_d$ folgende Aussagen:
+  \begin{enumerate}[label={\rm(\alph*)}]
+    \item Ist $H$ ein induzierter Untergraph von $G$, so gilt $\xi_{d}(H) \leq \xi_{d}(G)$.
+    \item Ist $d\geq 2$, so gilt $\omega(G) \leq \xi_{d}(G)$.
+    \item $\alpha(G) \leq \xi_{d}(G)$. 
+    \item Ist $v\in V(G)$ eine Ecke von $G$, so gilt $\xi_{d}(G) \leq \xi_{d}(G-v) +1$.
+    \item Ist $d'\in\N$ mit $d \leq d'$, so gilt $\xi_{d}(G) \leq \xi_{d'}(G)$.
+  \end{enumerate}
+  \label{lem:xieigenschaften}
+\end{lemma}
+
+\begin{proof}
+  Wir zeigen zun"achst (a). Sei $\xi_{d}(H) = l$. Folglich ist $\lambda_{l}(H) > -d$, und wir erhalten mit Lemma \ref{lem:InterlacingGraphen}, dass $\lambda_{l}(G) \geq \lambda_{l}(H) > -d$ gilt. Deswegen ist $\xi_{d}(G) \geq l = \xi_{d}(H)$. Also gilt (a).
+
+  Um (b) und (c) zu zeigen, seien $p = \omega(G)$ und $q=\alpha(G)$. Nach Korollar \ref{cor:alphaomegaEigenwerte} ist dann $\lambda_{p}(G) \geq -1$ und $\lambda_q(G) \geq 0$ und deswegen $\xi_{d}(G) \geq p = \omega(G)$ f"ur $d \geq 2$ und $\xi_{d}(G) \geq q = \alpha(G)$ f"ur alle $d \in \N$. 
+
+  F"ur den Beweis von (d) w"ahlen wir eine beliebige Ecke $v\in V(G)$ von $G$. Dann ist $G-v$ ein induzierter Untergraph der Ordnung $|G|-1$. Sei $l=\xi_{d}(G-v)$. Ist $l= |G|-1$, so ist nichts zu zeigen, da $\xi_d(G)$ nach oben durch $|G|$ beschr"ankt ist. Andernfalls ist $l< |G| -1$. 
+  Dann ist $\lambda_{l}(G-v) > -d$ und $\lambda_{l+1}(G-v) \leq -d$. Nun folgt mit Lemma \ref{lem:InterlacingGraphen}, dass $$\lambda_{l+2}(G) \leq \lambda_{l+1}(G-v) \leq -d$$ richtig ist. Deswegen ist $\xi_{d}(G) \leq l+1 = \xi_{l}(G-v) +1$. 
+
+  Aussage (e) gilt, da die Eigenwerte eines Graphen fallend geordnet sind.
+\end{proof}
+
+Mit Satz \ref{thm:KrauszEigenwerte} erhalten wir sofort Aussagen "uber Krauszzerlegungen von $G$, falls $G$ bestimmte Untergraphen enth"alt.
 \begin{corollary}
   \label{cor:Korollar1}
-  Seien $G$ ein Graph und $H$ ein induzierter Untergraph von $G$. Desweiteren seien $q,d \in \N$ mit $q \leq |H|$ und $d \geq 2$.
-  Ist $\lambda_{q}(H) > -d$, so ist $\kappa_{d}(G) \geq q$.
+  Seien $G$ ein Graph und $H$ ein induzierter Untergraph von $G$. Desweiteren seien $q,d \in \N$ mit $\xi_{d}(H) \geq q$. Dann ist $\kappa_{d}(G) \geq q$.
 \end{corollary}
+
 \begin{proof}
-  Angenommen es gilt $p = \kappa_{d}(G) < q$. Dann gibt es  eine Krauszzerlegung $\mathcal{K}$ von $G$ mit $|\mathcal{K}| = p$ und $\delta(\mathcal{K}) \geq d$. Wegen Lemma \ref{lem:InterlacingGraphen} gilt dann $\lambda_{q}(G) \geq \lambda_{q}(H) > -d $. Andererseits folgt aus Satz \ref{thm:KrauszEigenwerte} dass $\lambda_{q}(G) \leq \lambda_{p+1} \leq -d $, ein Widerspruch. 
+  Da $H$ ein induzierter Untergraph von $G$ ist, folgt aus Lemma \ref{lem:xieigenschaften}, dass $\xi_{d}(G) \geq q$ gilt. Also ist $\lambda_{q}(G) > -d$. 
+  Angenommen es gilt $p = \kappa_{d}(G) < q$. Dann gibt es  eine Krauszzerlegung $\mathcal{K}$ von $G$ mit $|\mathcal{K}| = p$ und $\delta(\mathcal{K}) \geq d$. Aus Satz \ref{thm:KrauszEigenwerte} folgt, dass $\lambda_{q}(G) \leq \lambda_{p+1}(G) \leq -d $ gilt. Dann ist aber auch $\xi_{d}(G) < q$ und wir erhalten einen Widerspruch. Folglich ist $\kappa_2(G) \geq q$.
 \end{proof}
 
 \begin{corollary}
@@ -60,7 +90,8 @@ Mit diesem Satz erhalten wir sofort Aussagen "uber Krauszzerlegungen von $G$, fa
 
 \begin{proof}
   Ist $\delta(G) \leq 1$, so ist nichts zu zeigen, da dann mit \ref{lm:krauszexistenz} folgt, dass $\kappa_2(G) = \infty$ richtig ist.
-  Sei sonst $q = |H|$. Da $H$ Kantengraph eines Waldes ist, folgt $\lambda_{q}(H) > -2$ aus Korollar \ref{cor:linegraphwald}.
+
+  Sei sonst $q = |H|$. Da $H$ Kantengraph eines Waldes ist, folgt $\lambda_{q}(H) > -2$ aus Korollar \ref{cor:linegraphwald}. Also ist $\xi_{2}(H) = |H|$.
   Dann ist mit Korollar \ref{cor:Korollar1} $\kappa_{2}\left( G \right) \geq \left| H\right|$.
 \end{proof}
 Der folgende Korollar wurde bereits von Klotz \cite{Klotz89} gezeigt. Wir erhalten "uber die Krauszzerlegung und Korollar \ref{cor:LineGraphWald} jedoch einen eleganten Beweis.
@@ -70,7 +101,10 @@ Der folgende Korollar wurde bereits von Klotz \cite{Klotz89} gezeigt. Wir erhalt
 
 \begin{proof}
   $K_n$ ist der Kantengraph von $K_{1,n}$. Nun folgt die Behauptung aus Korollar \ref{cor:LineGraphWald}.
+
+  Einen zweiten Beweis erhalten wir durch Betrachten der Eigenwerte von $K_n$. Nach Lemma \ref{lem:xieigenschaften} gilt $n = \omega(K_n) \leq \xi_{2}(K_n)$. Somit folgt die Behauptung aus Korollar \ref{cor:Korollar1}.
 \end{proof}
+
 \begin{corollary}
   Ist $\delta\left( G \right) \geq 2$, so gilt $\omega\left( G \right)\leq \kappa_{2}\left( G \right)$ und $\alpha\left( G \right)\leq \kappa_{2}\left( G \right)$.
   \label{cor:alphaomegakrausz}
@@ -81,13 +115,7 @@ Der folgende Korollar wurde bereits von Klotz \cite{Klotz89} gezeigt. Wir erhalt
   F"ur $q=\alpha\left( G \right)$ gilt mit Korollar \ref{cor:alphaomegaEigenwerte} $\lambda_{q}\left( G \right)\geq 0 > -2$. Damit folgt $\alpha\left( G \right) \leq \kappa_{2}\left( G \right)$.
 \end{proof}
 
-Wir wollen nun einen Menge von Graphenparametern definieren. Seien dazu $d\geq 1$ und $G$ ein Graph. Wir bezeichnen mit $\xi_{d}$ die Anzahl aller Eigenwerte von $G$, welche echt gr"o{\ss}er als $-d$ sind. Damit ist also 
-$$\xi_{d}(G) = \max \set{i}{\lambda_i > -d}.$$
-Ist $G=\varnothing$, so setzen wir $\xi_{d}(G) = 0$ f"ur alle $d\in\N$.
-Dieser ist ein Graphenparamter, da nach Lemma \ref{lem:GraphEigenwerte} isomorphe Graphen das selbe Spektrum besitzen, und somit $\xi_d $ zwei isomorphen Graphen die selbe nat"urliche Zahl zuordnet. 
-Nach Lemma \ref{lem:InterlacingGraphen} gilt, falls $H$ ein induzierter Untergraph von $G$ ist, dass $$\xi_d(H) \leq \xi_{d}(G)$$ f"ur alle $d\in \N$ richtig ist. 
-
-Um die Erd\H{o}s-Faber-Lov\'asz Vermutung zu beweisen, reicht es also aus zu zeigen, dass jeder Graph $$\chi(G) \leq \xi_{2}(G)$$ erf"ullt, da mit Korollar \ref{cor:Korollar1} dann $$\chi(G) \leq \kappa_{2}(G)$$ gilt, was mit Satz \ref{thm:MainTheorem} dann Vermutung \ref{con:efl} beweist.
+Um die Erd\H{o}s-Faber-Lov\'asz Vermutung zu beweisen, reicht es aus zu zeigen, dass jeder Graph $$\chi(G) \leq \xi_{2}(G)$$ erf"ullt. Dann gilt mit Korollar \ref{cor:Korollar1} $$\chi(G) \leq \kappa_{2}(G),$$  woraus mit Satz \ref{thm:MainTheorem} dann Vermutung \ref{con:efl} folgt.
 
 Eine M"oglichkeit dies zu zeigen, w"are zu beweisen, dass $\xi_2$ ein Szekeres-Wilf-Paramter ist. Die Eigenschaft (S1) ist nach den obigen "Uberlgungen erf"ullt. Berechnungen in Maple zeigen jedoch, dass Eigenschaft (S2) nicht immer erf"ullt ist. \todo{ausf"uhrlicher? mit Beispiel?}
 
@@ -100,16 +128,17 @@ $$\beta(G) = \max\set{|H|}{H\unlhd G, \lambda_{min}(H) > -2}.$$
 \end{lemma}
 \begin{proof}
   Wir beweisen die Aussage durch Induktion nach $\omega(G)$. Sei also $\beta(G) \leq p$ f"ur $p\in \N$. Ist $\omega(G) \leq 1$, so ist $\chi(G) \leq 1$ und wir k"onnen $f(p,1) = 1$ w"ahlen.
-  
+
   Sei nun $\omega(G) \leq q$ mit $q \geq 2$ und gelte f"ur alle Graphen $H$ mit $\omega(H) \leq q-1$, dass $\chi(H) \leq f(p,q-1)$ f"ur alle $p \in \N$ erf"ullt ist.
   Ist $\omega(G) \leq q-1$, so folgt die Aussage durch die Induktionsvoraussetzung. Andernfalls ist $\omega(G) = q$ und $\beta(G) = l \leq p$. Dann gibt es einen induzierten Untergraphen $H$ von $G$, sodass $|H|=l$ und $\lambda_{min}(H)> -2$. F"ur $v\in V(H)$ sei $N_v = \set{u\in V(G)}{uv\in E(G)}$, die Menge der Nachbarn von
   $v$ in $G$. Dann ist $\omega(G[N_v]) \leq \omega(G) -1 $, da sonst $G[N_v\cup \{v\}]$ einen vollst"andiger Graphen der Ordnung $p+1$ enth"alt, was nicht m"oglich ist, da $\omega(G) \leq p$ ist. Au{\ss}erdem gilt $\beta(G[N_v]) \leq \beta(G)$, da jeder induzierte Untergraph von $G[N_v]$ wieder ein induzierter Untergraph von $G$ ist. Wegen der Induktionsvorraussetzung folgt dann, dass $\chi(G[N_v]) \leq f(p,q-1)$ richtig ist. 
-  Wir w"ahlen $$N = V(G) \setminus (V(H) \cup \bigcup\limits_{v\in V(H)} N_v ),$$ die Menge aller Ecken von $G$ die weder in $H$ vorkommen, noch zu einer Ecke von $H$ benachbart sind. Wir zeigen, dass $G[N]$ kantenlos ist. W"are dem nicht so, so existiert eine Kante $uv\in E(G[N])$. 
-  Dann ist $u,v\notin V(H)$ und weder $u$ noch $v$ ist mit einer Ecke aus $H$ benachbart. Wir betrachten den Graphen $$H' = G[V(H) \cup \{u,v\}].$$ Dieser ist ebenfalls ein induzierter Untergraph von $G$ mit $|H'| > |H|$. Da er die disjunkte Vereinigung von $H$ und einem vollst"andigen Graphen der Ordnung $2$ ist, ist das Spektrum von $H'$ die Vereinigung des Spektrums von $H$ und $(1,-1)$. Insbesondere ist $$\lambda_{min}(H') = \min \{\lambda_{min}(H), -1\} > -2.$$ 
+  Wir w"ahlen $$N = V(G) \setminus  \cup \bigcup\limits_{v\in V(H)} N_v,$$ die Menge aller Ecken von $G$ die mit keiner Ecke von $H$ benachbart sind. Wir zeigen, dass $G[N]$ kantenlos ist. W"are dem nicht so, so existiert eine Kante $uv\in E(G[N])$. 
+  Dann kommen beide Ecken nach Definition von $N$ nicht in $V(H)$ vor. 
+  Also gilt $u,v\notin V(H)$ und weder $u$ noch $v$ ist mit einer Ecke aus $H$ benachbart. Wir betrachten den Graphen $$H' = G[V(H) \cup \{u,v\}].$$ Dieser ist ebenfalls ein induzierter Untergraph von $G$ mit $|H'| > |H|$. Da er die disjunkte Vereinigung von $H$ und einem vollst"andigen Graphen der Ordnung $2$ ist, ist das Spektrum von $H'$ die Vereinigung des Spektrums von $H$ und $(1,-1)$. Insbesondere ist $$\lambda_{min}(H') = \min \{\lambda_{min}(H), -1\} > -2.$$ 
   Dies ist ein Widerspruch zur Wahl von $H$. Also ist $G[N]$ kantenlos, und folglich gilt $\chi(G[N]) \leq 1$. 
   Wegen der Subadditivit"at der chromatischen Zahl und $|H| \leq \beta(G) \leq q$ gilt dann $$\chi(G) \leq \chi(G[N]) + \chi(H) + \sum\limits_{v\in V(H)}\chi(G[N_v]) \leq 1 + |H| + |H|f(p,q-1)  \leq 1+q+p\cdot f(p,q-1).$$
 
-Also folgt aus dem Prinzip der vollst"andigen Induktion, dass die Funktion $f$ eine obere Schranke f"ur $\chi(G)$ ist.
+  Also folgt aus dem Prinzip der vollst"andigen Induktion, dass die Funktion $f$ eine obere Schranke f"ur $\chi(G)$ ist.
 \end{proof}
 Mit dieser Vorarbeit k"onnen wir nun den folgenden Satz beweisen.
 \begin{theorem}
@@ -138,7 +167,7 @@ Mit dieser Vorarbeit k"onnen wir nun den folgenden Satz beweisen.
 
   Wir zeigen nun (b) durch Widerspruch. Angenommen die Behauptung gilt nicht. Dann gibt es einen linearen Hypergraphen minimaler Ordnung mit $|e| \geq d$ f"ur alle $e\in E(H)$ , f"ur welchen $\chi'(H) > H$. 
   Wir machen eine Fallunterscheidung bez"uglich dem kleinsten Eckengrad.
-  
+
   \ncase{1}{$\delta(H) < d$} Dann existiert eine Kante $e$ von $H$ vom Grad kleiner als $d$. Da $|e| \geq d$ ist und $H$ ein linearer Hypergraph ist, gibt es eine Ecke $v$ von $H$ welche nur in $e$ vorkommt. Sei $H'= H-e$. Dann ist $|H'| < |H|$. Dieser l"asst sich auf Grund der Wahl von $H$ mit $\chi'(H') \leq |H'|$ Farben f"arben. Diese F"arbung k"onnen wir zu einer F"arbung von $H$ mit h"ochstens $|H'|+1 = |H|$ Farben erweitern, indem wir $e$ mit einer neuen Farbe f"arben. Dann gilt 
   $$\chi'(H) \leq \chi'(H) +1  \leq |H'| +1 = |H| .$$ 
   Ein Widerspruch zur Wahl von $H$. 
@@ -231,19 +260,19 @@ Gelten die Vorraussetzungen von Satz \ref{thm:MainTheorem} f"ur $d=2$, so folgt 
 \end{proof}
 
 Seien $v,r$ zwei nat"urliche Zahlen mit $v\geq 2r-1$. Der \DF{Kneser Graph} $K_{v:r}$ geht auf Kneser \cite{Kneser55} zur"uck und ist der Graph mit Eckenmenge $$V(K_{v:r}) = \left\{ X \subset \left\{ 1,\dots v \right\} \;|\; |X| = r \right\}$$ und Kantenmenge 
- $$E(K_{v:r}) = \left\{ XY\;|\; X,Y \in V(K_{v:r}), X \cap Y = \varnothing \right\}.$$ 
- $K_{v:1}$ ist ein vollst"andiger Graph der Ordnung $v$ und $K_{2r-1:r}$ besitzt keine Kanten. Kneser gibt in \cite{Kneser55} eine obere Schranke f"ur die chromatische Zahl der Kneser Graphen an. Sp"ater zeigte Lov\'asz \todo{Referenz}, dass diese Schranke immer angenommen wird.
- \begin{theorem}
-   Ist $v\geq 2r-1$, dann gilt
-   $$\chi(K_{v:r}) \leq v-2r+2$$ \label{thm:kneserfarbung}
- \end{theorem}
- Der folgende Satz ist als Satz von Erd\H{o}s-Ko-Rado \cite{ErdosKoRado61} bekannt, und gibt die Unabh"angigkeitszahl eines Kneser Graphen an.
- \begin{theorem}
-   Ist $v\geq 2r$ und $r \geq 2$, so gilt: 
-   $$\alpha(K_{v:r})= \binom{v-1}{r-1}.$$
-   \label{thm:ErdosKoRado}
- \end{theorem}
- Mit den beiden vorrangegangenen S"atzen k"onnen wir nun beweisen, dass ein Kneser Graph unsere Vermutung \ref{con:maincon} erf"ullt. 
+$$E(K_{v:r}) = \left\{ XY\;|\; X,Y \in V(K_{v:r}), X \cap Y = \varnothing \right\}.$$ 
+$K_{v:1}$ ist ein vollst"andiger Graph der Ordnung $v$ und $K_{2r-1:r}$ besitzt keine Kanten. Kneser gibt in \cite{Kneser55} eine obere Schranke f"ur die chromatische Zahl der Kneser Graphen an. Sp"ater zeigte Lov\'asz \todo{Referenz}, dass diese Schranke immer angenommen wird.
+\begin{theorem}
+  Ist $v\geq 2r-1$, dann gilt
+  $$\chi(K_{v:r}) \leq v-2r+2$$ \label{thm:kneserfarbung}
+\end{theorem}
+Der folgende Satz ist als Satz von Erd\H{o}s-Ko-Rado \cite{ErdosKoRado61} bekannt, und gibt die Unabh"angigkeitszahl eines Kneser Graphen an.
+\begin{theorem}
+  Ist $v\geq 2r$ und $r \geq 2$, so gilt: 
+  $$\alpha(K_{v:r})= \binom{v-1}{r-1}.$$
+  \label{thm:ErdosKoRado}
+\end{theorem}
+Mit den beiden vorrangegangenen S"atzen k"onnen wir nun beweisen, dass ein Kneser Graph unsere Vermutung \ref{con:maincon} erf"ullt. 
 \begin{proposition}
   Seien $v\geq 2r-1$, $r\geq 1$ und sei $G= K_{v:r}$ ein Kneser Graph. Dann gilt $\chi(G) \leq \xi_{2}(G)$. 
 \end{proposition}
