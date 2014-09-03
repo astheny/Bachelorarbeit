@@ -194,7 +194,7 @@ Wir wollen nun einige Schranken f"ur $\kappa_{d}(G)$ angeben.
   Sei $G$ ein Graph der Ordnung $n$ und $d\in \N$. Dann gilt:
   \begin{align*}
     \kappa_{d}(G) &\geq \frac{nd}{\lambda_{1}(G) +d} 
-    %\lambda_n(A) \leq -d 
+    %\JJambda_n(A) \leq -d 
   \end{align*}
   \label{thm:kappaineq1}
 \end{theorem}
@@ -234,6 +234,15 @@ beschr"ankt ist.
   \label{thm:wilfev}
 \end{theorem}
 
+\begin{proof}
+  Wir zeigen, dass $\lambda_{1}+1$ ein Szekeres-Wilf Parameter ist. Dann folgt die Behauptung wegen Satz \ref{thm:szekereswilf}. 
+
+  Um (S1) zu zeigen, sei $H$ ein induzierter Untergraph von $G$. Dann ist wegen Lemma \ref{lem:InterlacingGraphen} $\lambda_{1}(H) \leq \lambda_{1}(G)$ und folglich auch $\lambda_{1}(H) +1 \leq \lambda_{1}(G) +1$.
+
+  Um (S2) zu zeigen, sei 
+
+
+\end{proof}<++>
 Eine untere Schranke findet sich in \cite{Hoffman70} (man beachte hierbei, dass $\lambda_{min}(G)$ negativ ist):
 
 \begin{theorem}
@@ -259,37 +268,37 @@ Gelten die Vorraussetzungen von Satz \ref{thm:MainTheorem} f"ur $d=2$, so folgt 
   Sei $G$ ein Graph mit $\chi(G) = k$. Dann enth"alt $G$ einen $k$-kritischen Untergraphen $H$. F"ur diesen gilt nach Vorraussetzung $$k= \chi(H) \leq \xi_{2}(H).$$ Dann ist aber auch $$k \leq \xi_{2}(H) \leq \xi_{2}(G) ,$$ da $H$ ein induzierter Untergraph von $G$ ist.  Damit gilt Vermutung \ref{con:maincon} auch f"ur $G$.
 \end{proof}
 
-Seien $v,r$ zwei nat"urliche Zahlen mit $v\geq 2r-1$. Der \DF{Kneser Graph} $K_{v:r}$ geht auf Kneser \cite{Kneser55} zur"uck und ist der Graph mit Eckenmenge $$V(K_{v:r}) = \left\{ X \subset \left\{ 1,\dots v \right\} \;|\; |X| = r \right\}$$ und Kantenmenge 
-$$E(K_{v:r}) = \left\{ XY\;|\; X,Y \in V(K_{v:r}), X \cap Y = \varnothing \right\}.$$ 
-$K_{v:1}$ ist ein vollst"andiger Graph der Ordnung $v$ und $K_{2r-1:r}$ besitzt keine Kanten. Kneser gibt in \cite{Kneser55} eine obere Schranke f"ur die chromatische Zahl der Kneser Graphen an. Sp"ater zeigte Lov\'asz \todo{Referenz}, dass diese Schranke immer angenommen wird.
+Seien $k,r$ zwei nat"urliche Zahlen mit $k\geq 2r-1$. Der \DF{Kneser Graph} $K_{k:r}$ geht auf Kneser \cite{Kneser55} zur"uck und ist der Graph mit Eckenmenge $$V(K_{k:r}) = [\{1,\dots,k\}]^{r}$$ und Kantenmenge 
+$$E(K_{k:r}) = \left\{ XY\;|\; X,Y \in V(K_{k:r}), X \cap Y = \varnothing \right\}.$$ 
+$K_{k:1}$ ist ein vollst"andiger Graph der Ordnung $k$ und $K_{2r-1:r}$ besitzt keine Kanten. Kneser gibt in \cite{Kneser55} eine obere Schranke f"ur die chromatische Zahl der Kneser Graphen an. Sp"ater zeigte Lov\'asz \todo{Referenz}, dass diese Schranke immer angenommen wird.
 \begin{theorem}
-  Ist $v\geq 2r-1$, dann gilt
-  $$\chi(K_{v:r}) \leq v-2r+2$$ \label{thm:kneserfarbung}
+  Ist $k\geq 2r-1$, dann gilt
+  $$\chi(K_{k:r}) \leq k-2r+2$$ \label{thm:kneserfarbung}
 \end{theorem}
 Der folgende Satz ist als Satz von Erd\H{o}s-Ko-Rado \cite{ErdosKoRado61} bekannt, und gibt die Unabh"angigkeitszahl eines Kneser Graphen an.
 \begin{theorem}
-  Ist $v\geq 2r$ und $r \geq 2$, so gilt: 
-  $$\alpha(K_{v:r})= \binom{v-1}{r-1}.$$
+  Ist $k\geq 2r$ und $r \geq 2$, so gilt: 
+  $$\alpha(K_{k:r})= \binom{k-1}{r-1}.$$
   \label{thm:ErdosKoRado}
 \end{theorem}
 Mit den beiden vorrangegangenen S"atzen k"onnen wir nun beweisen, dass ein Kneser Graph unsere Vermutung \ref{con:maincon} erf"ullt. 
 \begin{proposition}
-  Seien $v\geq 2r-1$, $r\geq 1$ und sei $G= K_{v:r}$ ein Kneser Graph. Dann gilt $\chi(G) \leq \xi_{2}(G)$. 
+  Seien $k\geq 2r-1$, $r\geq 1$ und sei $G= K_{k:r}$ ein Kneser Graph. Dann gilt $\chi(G) \leq \xi_{2}(G)$. 
 \end{proposition}
 
 \begin{proof}
-  Sei $\chi(G) = k$. Wir fixieren $v\in \N$ und machen eine Fallunterscheidung bez"uglich $r$. 
+  Sei $\chi(G) = k$. Wir fixieren $k\in \N$ und machen eine Fallunterscheidung bez"uglich $r$. 
 
-  \ncase{1} {$r=1$} Dann ist $G=K_{v:1}$ isomorph zu $K_v$. Die Eigenwerte des $K_v$ sind alle gr"o{\ss}er als $-2$, insbesondere also auch $\lambda_{k}(G)$. Folglich ist $\chi(G) \leq \xi_{2}(G)$. 
+  \ncase{1} {$r=1$} Dann ist $G=K_{k:1}$ isomorph zu $K_k$. Die Eigenwerte des $K_k$ sind alle gr"o{\ss}er als $-2$, insbesondere also auch $\lambda_{k}(G)$. Folglich ist $\chi(G) \leq \xi_{2}(G)$. 
 
-  \ncase{2} {$v > 2r \geq 4 $} Sei $p = \alpha(G)$.  Dann ist nach Satz \ref{thm:ErdosKoRado} $ p = \binom{v-1}{r-1}$ und folglich $ p \geq v-1$. Nach Satz \ref{thm:kneserfarbung} ist $\chi(G) = v-2r+2 < v-2$. Folglich ist $p > \chi(G)$. Mit  Korollar \ref{cor:alphaomegaEigenwerte} gilt dann \begin{equation*}
+  \ncase{2} {$k > 2r \geq 4 $} Sei $p = \alpha(G)$.  Dann ist nach Satz \ref{thm:ErdosKoRado} $ p = \binom{k-1}{r-1}$ und folglich $ p \geq k-1$. Nach Satz \ref{thm:kneserfarbung} ist $\chi(G) = k-2r+2 < k-2$. Folglich ist $p > \chi(G)$. Mit  Korollar \ref{cor:alphaomegaEigenwerte} gilt dann \begin{equation*}
     \lambda_{k}(G) \geq \lambda_{p}(G) \geq 0 > -2.
   \end{equation*}
   Folglich gilt $\chi(G) \leq \xi_{2}(G)$.
 
-  \ncase{3} {$ v = 2r $} Die Ecken von $G$ sind alle $r$-elementingen Teilmengen von $\left\{ 1,\dots,v \right\}$. Da $v=2r$ ist f"ur ein $w\in V(G)$ die einzige benachbarte Ecke ihr Komplement in $\left\{ 1,\dots,v \right\}$. Also sind die Komponenten von $G$ alle isomorph zu $K_{2}$. Dann ist $\chi(G) = 2$ und $\omega(G) = 2$. Aus Korollar \ref{cor:alphaomegaEigenwerte} folgt dann, dass $\lambda_{2}(G) \geq -1 > -2$ ist. Insbesondere ist $\chi(G) \leq \xi(G)$. 
+  \ncase{3} {$ k = 2r $} Die Ecken von $G$ sind alle $r$-elementingen Teilmengen von $\left\{ 1,\dots,k \right\}$. Da $k=2r$ ist f"ur ein $w\in V(G)$ die einzige benachbarte Ecke ihr Komplement in $\left\{ 1,\dots,k \right\}$. Also sind die Komponenten von $G$ alle isomorph zu $K_{2}$. Dann ist $\chi(G) = 2$ und $\omega(G) = 2$. Aus Korollar \ref{cor:alphaomegaEigenwerte} folgt dann, dass $\lambda_{2}(G) \geq -1 > -2$ ist. Insbesondere ist $\chi(G) \leq \xi(G)$. 
 
-  \ncase{4}{$v=2r+1$} Dann ist $|E(G)| = 0$, und folglich ist $G$ ein kantenloser Graph, welcher nur den Eigenwert $0>-2$ besitzt. Insbesondere ist also auch $\lambda_{k}(G) = 0 > -2$. Und deswegen gilt $\chi(G) \leq \xi_{2}(G)$.
+  \ncase{4}{$k=2r+1$} Dann ist $|E(G)| = 0$, und folglich ist $G$ ein kantenloser Graph, welcher nur den Eigenwert $0>-2$ besitzt. Insbesondere ist also auch $\lambda_{k}(G) = 0 > -2$. Und deswegen gilt $\chi(G) \leq \xi_{2}(G)$.
 \end{proof}
 Eine weitere Klasse von Graphen die unsere Vermutung erf"ullen sind die perfekten Graphen.
 \begin{proposition}
@@ -302,12 +311,12 @@ Eine weitere Klasse von Graphen die unsere Vermutung erf"ullen sind die perfekte
 \end{proof}
 
 \begin{proposition}
-  Vermutung \ref{con:maincon} gilt f"ur planare Graphen, welche mindestens $7$ Ecken besitzen.
+  Sei $G$ ein planrer Graph mit $|G| \geq 7$. Dann gilt $\chi(G) \leq \xi_{2}(G)$.
+  \label{prop:planaregraphen}
 \end{proposition}
 
 \begin{proof}
-  Sei $G$ ein planarer Graph mit $|G| \geq 7$.
-  Wir zeigen, dass $\lambda_4(G) > -2$ gilt. Da alle planaren Graphen eine chromatische Zahl kleiner gleich $4$ haben, folgt dann die Behauptung.
+  Wir zeigen, dass $\lambda_4(G) > -2$ gilt. Dann ist $\xi_{2}(G) \geq 4$. Da alle planaren Graphen eine chromatische Zahl kleiner gleich $4$ haben, folgt dann die Behauptung.
 
   Nehmen wir daf"ur an, dass $\lambda_{4}(G) < -2$ gilt.
   Aus Lemma \ref{rem:evGraph} (i) folgt dann:
@@ -326,6 +335,25 @@ Eine weitere Klasse von Graphen die unsere Vermutung erf"ullen sind die perfekte
   \end{align*}
   L"osen der entstehenden quadratischen Gleichung ergibt $n\leq 6$, ein Widerspruch.
 \end{proof} 
+
+\begin{corollary}
+  Sei $G$ ein planarer Graph. Dann gilt $\chi(G) \leq \xi_{2}(G) $. 
+\end{corollary}
+\begin{proof}
+  Wir machen eine Fallunterscheidung bez"uglich $k=\chi(G)$. Auf Grund des $4$-Farbensatzes reicht es dann die F"alle $k=1,2,3,4$ zu betrachten.
+  
+  \ncase{1}{k = 1} Da jeder Graph mindestens einen nichtnegativen Eigenwert besitzt, ist $\xi_{2}(G) \geq 1 = \chi(G)$.
+
+  \ncase{2}{k = 2} Dann ist $G$ bipartit. Insbesondere ist $\omega(G) = 2$ und wir finden wegen Lemma \ref{lem:xieigenschaften} $\xi_{2}(G) \geq \omega(G) = 2 = \chi(G)$.
+
+  \ncase{3}{k = 3} Ist $|G| \geq 7$, so ist wegen Satz \ref{prop:planaregraphen} nichts zu zeigen. Anderfalls ist $|G| \leq 6$. Da $G$ nicht bipartit ist, enth"alt $G$ einen Kreis ungerader L"ange. Dieser kann nur die L"ange $3$ oder $5$ haben, da $|G| \leq 6$ ist. In beiden F"allen folgt mit Beispiel \ref{ex:kreiseeigenwerte} und Lemma \ref{lem:InterlacingGraphen}, dass $\xi_{2}(G) \geq 3 = \chi(G)$ gilt.
+
+  \ncase{4}{k = 4} $G$ enth"alt nach Satz \ref{thm:forbiddencritgraph} einen $4$-kritischen Untergraphen $G'$. Ist $|G'| \geq 7$, so ist wegen Satz \ref{prop:planaregraphen} $\xi_{2}(G') \geq 4$. Mit Lemma \ref{lem:xieigenschaften} folgt dann $\xi_{2}(G) \geq \xi_{2}(G') \geq 4 = \chi(G)$.
+  Ist $|G'| \leq 6$, so folgt aus einem Resultat von Toft \cite{Toft74b}, dass $G' = K_4$ oder $G'$ den Kreis $C_5$ als induzierten Untergraphen enth"alt. Nun folgt $\xi_{2}(G) \geq \xi_{2}(G') \geq 4 = \chi(G)$. 
+
+  Damit ist alles gezeigt.
+\end{proof}
+
 \subsection{H\'ajos und Ore Summe}
 In diesem Abschnitt wollen wir die Klasse der H\'ajos-konstruierbaren Graphen und die Klasse der Ore-konstruierbaren Graphen untersuchen. 
 
@@ -334,9 +362,13 @@ Sei $G$ ein Graph und $X$ eine nichtleere Menge von Ecken von $G$. Wir erhalten 
 Seien $G_1, G_2$ zwei nichtleere disjunkte Graphen und $x_1y_1\in E(G_1)$ sowie $x_2y_2 \in E(G_2)$ zwei beliebige Kanten. Die \DF{Haj\'os Summe} \cite{Hajos61} von $G_1$ und $G_2$ (bez"uglich $x_1y_1$ und $x_2y_2$) ist derjenige Graph, der entsteht wenn wir $G_1$ und $G_2$ vereinigen, die Kanten $x_1y_1$ und $x_2y_2$ entfernen, die Kante $y_1y_2$ hinzuf"ugen und  die Ecken $x_1$ und $x_2$ identifizieren. Wir schreiben dann auch $G= \text{H\'ajos}(G_1,x_1y_1,G_2,x_1y_2)$ oder
 kurz $G= \text{H\'ajos}(G_1,G_2)$.
 
-F"ur $k\in \N$ hei{\ss}t ein Graph $G$ \DF{H\'ajos-$k$-konstruierbar}, falls $G$ entweder ein vollst"andiger Graph der Ordnung $k$ ist, falls $G$ durch die Haj\'os Summe zweier Haj\'os $k$-konstruierbarer Graphen entsteht, oder falls $G$ durch die Identifizierung zweier nicht benachbarten Ecken eines Haj\'os $k$-konstruierbaren Graphen entsteht. 
+Wir betrachten nun im folgenden f"ur $k\in \N$ die Graphenklasse $\mathcal{H}_k$ der \DF{$k$-Haj\'os konstruierbaren Graphen}. Diese ist die kleinste Klasse $\mathcal{H}_k$ welche folgende drei Eigenschaften erf"ullt:
+\begin{enumerate}
+  \item $K_k\in \mathcal{H}_k$.
+  \item Sind $G, H \in \mathcal{H}_k$, so auch die Haj\'os Summe von $G$ und $H$.
+  \item Ist $G\in \mathcal{H}_k$ und $u,v\in V(G)$ zwei nicht benachbarte Ecken von $G$, dann ist die Identifizierung von $u$ und $v$ in $G$ auch in $\mathcal{H}_k$.
+\end{enumerate}
 
-\todo{ein Bild?}
 Es ist bekannt, dass die H\'ajos Summe zweier $k$-chromatischer Graphen wieder $k$-chromatisch ist \todo{quelle?}. 
 
 \begin{theorem}
@@ -355,4 +387,10 @@ Es ist bekannt, dass die H\'ajos Summe zweier $k$-chromatischer Graphen wieder $
 Eine weitere, der H\'ajos Summe "ahnliche Konstruktion ist die \DF{Ore Summe} \cite{Ore67}. Seien $G_1$ und $G_2$ zwei disjunkte Graphen und $x_1y_1$ eine Kante von $G_1$ und $x_2y_2$ eine Kante von $G_2$. Desweiteren seien $v_1,v_2,\dots,v_t$ unterschiedliche Ecken von $G_1\setminus x_1$ und $u_1,u_2,\dots,u_r$ unterschiedliche Ecken von $G_2\setminus x_2$. Wir konstruieren nun die Ore Summe von $G_1$ und $G_2$ aus der H\'ajos Summe
 $\text{H\'ajos}(G_1,x_1y_1, G_2, x_2y_2)$, indem wir zus"atzlich die Kanten $v_1u_1,v_2u_2,\dots,v_ru_r$ hinzuf"ugen. Der so entstandene Graph ist dann die Ore Summe von $G_1$ und $G_2$. 
 
-F"ur $k\in\N$ hei{\ss}t ein Graph $G$ \DF{Ore $k$-konstruierbar}, falls $G$ entweder ein vollst"andiger Graph der Ordnung $k$ ist, oder die Ore Summe zweier disjunkter Ore $k$-konstruierbaren Graphen ist. 
+F"ur $k\in \N$ sei $\mathcal{O}_k$ die Klasse der \DF{Ore $k$-konstruierbaren Graphen} definiert als die kleinste Klasse, welche folgende zwei Eigenschaften erf"ullt:
+\begin{enumerate}
+  \item $K_k\in \mathcal{O}_k$.
+  \item Sind $G,H\in O_k$, so auch die Ore Summe von $G$ und $H$.
+\end{enumerate}
+
+Wie sich zeigen l"asst, gilt dann f"ur alle $k\in\N$: $\mathcal{O}_k ) \mathcal{H}_k$.

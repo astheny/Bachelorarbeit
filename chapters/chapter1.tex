@@ -313,6 +313,7 @@ und aus Gleichung (\ref{eq:ewglneu}) folgt somit f"ur $r\in \N$ :
     \operatorname{sp}(C_4) &= (2,0,0,-2) \\
     \operatorname{sp}(C_5) &= (2, \frac{1}{2}(\sqrt 5 - 1),\frac{1}{2}(\sqrt 5 - 1),\frac{1}{2}(-\sqrt 5 - 1),\frac{1}{2}(-\sqrt 5 - 1))
   \end{align*}
+  \label{ex:kreiseeigenwerte}
 \end{example}
 Einen Beweis findet der Leser in \cite[2.1]{CvetkovicDS79}
 \begin{example}
@@ -462,19 +463,37 @@ Satz ist ein unmittelbare Folgerung aus dem Satz von Perron-Frobenius.
   Dann ist $\lambda_{i} (H') = 0$ f"ur  $1\leq i \leq q$. Also folgt aus Korollar \ref{lem:InterlacingGraphen}, dass $\lambda_{q}(G) \geq \lambda_{q}(H') = 0$ ist.
 \end{proof}
 
-Wir wollen hier auf das Buch Spectra of Graphs von Cvetkovi\'c, Doob und Sachs \cite{CvetkovicDS79} verweisen, welches weitere Resultate "uber das Spektrum von Graphen enth"alt. Dort werden auch die Eigenwerte von Kantengraphen charakterisiert. Der Beweis findet sich in \cite[Theorem 6.11]{CvetkovicDS79}.
+Wir wollen uns nun noch kurz mit den Eigenwerten von Kantengraphen befassen. Es sei $G=L(H)$ der Kantengraph des Graphs $H$ mit $V(H) = \{v_1,v_2,\dots,v_n\}$ und $E(H) = \{e_1,e_2,\dots,e_m\}$. Wir betrachten die Inzidenzmatrix $B=B(H) \in \R^{n\times m}$ mit 
+$$B_ij = \begin{cases}
+  1 & \text{ falls } v_i \in e_j \\
+  0 & \text{ falls } v_i \notin e_j . \\
+\end{cases}$$
+Dann erhalten wir die folgenden Beziehungen:
+$$A(G) = B^{T}B -2I \text{ und } A(H) = BB^{T} - D,$$
+wobei $D= \operatorname{diag}(d_H(v_1),d_H(v_2),\dots,d_H(v_n)$ die Gradmatrix von $H$ ist. Die Matrizen $B^{T}B$ und $BB^{T}$ sind dann positiv semidefinit und folglich sind ihre Eigenwerte nicht negativ (siehe Satz \ref{prop:psdmatrix}). 
+F"ur den $p$-gr"o{\ss}ten Eigenwert von $G$ gilt somit 
+$$ \lambda_{p}(G) = \lambda_{p}(B^{T}B) -2 \geq -2,$$ also ist insbesondere $\lambda_{min}(G) \geq -2$. 
+Ist der Graph $H$ kreislos, und damit ein Wald, so ist $\operatorname{rang}(B) = m$ \todo{einheitlicher rang} (wie sich leicht durch Induktion nach $n$ zeigen l"asst). Dann ist $B^{T}B$ positiv definit und somit $\lambda_{min}(G) > -2$. 
+Zusammenfassend erhalten wir dann folgendes, wohlbekanntes Resultat (siehe \cite[Theorem 6.11]{CvetkovicDS79}).
 
-\begin{theorem}[Doob]
-  F"ur jeden Graphen $G$ gilt: $$\lambda_{min}(L(G)) \geq -2.$$
-  Gleichheit tritt dann, und nur dann auf, wenn $G$ einen geraden Kreis oder zwei ungerade Kreise in einer Komponente enth"alt.
-  \label{thm:linegrapheigenvalues}
-\end{theorem}
-Aus diesem Satz erhalten wir sofort das folgende Resultat "uber Kantengraphen von W"aldern.
-\begin{corollary}
-  Ist $G$ der Kantengraph eines Waldes, so gilt $\lambda_{min}(G) > -2$.
+\begin{theorem}
+  Ist $G=L(H)$ der Kantengraph eines Graphen $H$, so ist $\lambda_{min}(G) \geq -2$. Ist $H$ ein Wald, so ist $\lambda_{min}(G) > -2$. 
   \label{cor:linegraphwald}
-\end{corollary}
+\end{theorem}
+Aus der Linearen Algebra wei{\ss} man, dass die Matrizen $BB^{T}$ und $B^{T}B$ dieselben Eigenwerte mit den selben Vielfachheiten besitzen, mit Ausnahme des Eigenwerts $\lambda = 0$. Es gilt dann
+$$ \lambda^{n} p_{B^{T}B} (\lambda) = \lambda^{m} p_{BB^{T}} (\lambda)$$
+Die Vielfachheit des Eigenwerts $\lambda = 0$ h"angt nur von dem Rang der Matrix $B$ ab. Ist $H$ zusammenh"angend und $n\geq 2$, so kann der Rang von $B$ nur die Werte $n$ oder $n-1$ annehmen, je nachdem ob $H$ bipartit ist oder nicht. Dies wurde zuerst von Sachs \cite{Sachs} gezeigt. 
+Daraus erh"alt man folgendes Resultat (siehe auch das Buch von Cvetkovi\'c, Rowlinson und Simi\'c \cite[Theorem 2.2.4]{CvetkovicRowSlob10}.
 
-\begin{proof}
-  Da $G$ Kantengraph eines Waldes ist, folgt mit Satz \ref{thm:linegrapheigenvalues}, dass $\lambda_{min}(G) \geq -2$ gilt. W"are nun $\lambda_{min}(G) = -2$, so w"urde der Wald, dessen Kantengraph $G$ ist einen Kreis enthalten (entweder einen geraden Kreis, oder zwei ungerade Kreise in einer Komponente). Da aber W"alder keine Kreise enthalten, ist dies unm"oglich und es gilt $\lambda_{min}(G) > -2$. 
-\end{proof}
+\begin{theorem}
+  Es sei $H$ ein zusammenh"angender Graph mit $n$ Ecken und $m$ Kanten, wobei $n\geq 2$ ist. F"ur die Vielfachheit des Eigenwertes $\lambda = -2$ von $G=L(H)$ gilt:
+  $$m_G(-2) = \begin{cases}
+    m-n+1 &\text{ falls } H \text{ bipartit ist} \\
+    m-n &\text{ sonst.}
+  \end{cases}$$
+  \label{thm:sachszshgrapheigenwert}
+\end{theorem}
+
+In den 1970er Jahren sind verschieden Arten erschienen, die sich mit der Charakterisierung der Graphen $G$ mit $\lambda_{min}(G) \geq -2$ befassen.
+Zur Geschichte dieses Problems siehe \cite{CvetkovicRowSlob10}.
+Eine erste Teilcharakterisierung dieser Graphenklasse wurde 1977 von Hoffman \cite{Hoffman77}, eine vollst"andige Charakterisierung wurde 1978 von Cameron, Goethals, Seidel und Shult \cite{CameronGSS78} gefunden.
