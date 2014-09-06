@@ -17,4 +17,6 @@ TODO
   - "uberpr"ufen
   - Bild
 - [x] cite gescheit machen
+- [] Bild von isospektralen Graphen neu
 - [] Schranke von xi neu
+- [] bbm wieder einbinden

@@ -6,7 +6,7 @@ Gegenstand dieser Bachelorarbeit ist der Zusammenhang zwischen den Eigenwerten, 
 Die in dieser Arbeit betrachteten Graphen und Hypergraphen sind endlich und haben weder Mehrfachkanten noch Schlingen. Bei den Bezeichnungen richten wir uns im Wesentlichen nach dem Buch von Diestel \cite{Diestel10} beziehungsweise dem Buch von Berge \cite{Berge01}. 
 Mit $\N$ bezeichnen wir die Menge der positiven ganzen Zahlen und setzen $\N_{0} = \N \cup \{ 0 \}$. F"ur eine Menge $V$ sei die Menge $2^{V}$ die Potenzmenge von $V$ und $[V]^{p}$ mit $p\in\N_0$ die Menge der $p$-elementigen Teilmengen von $V$. 
 
-Ein \DF{Hypergraph} $H$ ist ein Tupel von zwei Menge, $V(H)$ und $E(H)$. Dabei ist $V(H)$ endlich und $E(H)$ eine Teilmenge von $2^{V(H)}$ mit $|e| \geq 2$ f"ur alle $e\in E(H)$. Die Menge $V(H)$ hei{\ss}t dann \DF{Eckenmenge} von $H$ und ihre Elemente hei{\ss}en \DF{Ecken} von $H$. Die Menge $E(H)$ hei{\ss}t \DF{Kantenmenge} und ihre Elemente hei{\ss}en \DF{Kanten}. Ein Hypergraph hei{\ss}t \DF{linear}, falls zwei verschieden Kanten h"ochstens eine Ecke gemeinsam haben. 
+Ein \DF{Hypergraph} $H$ ist ein Tupel von zwei Menge, $V(H)$ und $E(H)$. Dabei ist $V(H)$ endlich und $E(H)$ eine Teilmenge von $2^{V(H)}$ mit $|e| \geq 2$ f"ur alle $e\in E(H)$. Die Menge $V(H)$ hei{\ss}t dann \DF{Eckenmenge} von $H$ und ihre Elemente hei{\ss}en \DF{Ecken} von $H$. Die Menge $E(H)$ hei{\ss}t \DF{Kantenmenge} und ihre Elemente hei{\ss}en \DF{Kanten}. Ein Hypergraph hei{\ss}t \DF{linear}, falls zwei verschiedene Kanten h"ochstens eine Ecke gemeinsam haben. 
 Ist $V(H) = \varnothing$, so nennen wir $H$ auch den \DF{leeren Graphen} und schreiben kurz $H=\varnothing$.
 
 Sei $H$ ein Hypergraph. Die \DF{Ordnung} von $H$ ist die Anzahl der Ecken von $H$, geschrieben $|H|$. Eine Kante $e$ hei{\ss}t \DF{Hyperkante}, falls $|e| \geq 3$ ist und hei{\ss}t \DF{gew"ohnliche Kante}, falls $|e| =2$ ist. F"ur eine gew"ohnliche Kante $e=\{ u,v \}$ schreiben wir auch kurz $e=uv$ oder $e=vu$. 
@@ -52,7 +52,7 @@ Nach dem Satz von K"onig \cite{Konig16} ist $G$ genau dann bipartit, wenn $G$ ke
 Nach Stockmeyer \cite{Stockmeyer73} ist f"ur jedes $k\geq 3$ das Entscheidungsproblem ob ein gegebener Graph $k$-f"arbbar ist {\sf NP}-vollst"andig. Es ist also nicht zu erwarten, dass sich Graphen mit chromatischer Zahl h"ochstens $k$ f"ur festes $k\geq 3$ einfach charakterisieren lassen.
 
 Bei der Untersuchung des F"arbungsproblems f"ur Graphen erweisen sich die kritischen Graphen als ein n"utzliches Hilfsmittel. Dies liegt vor allem daran, dass sich F"arbungsprobleme f"ur Graphen oft auf entsprechende F"arbungsprobleme f"ur kritische Graphen zur"uckf"uhren lassen.
-Ein Graph $G$ hei{\ss}t \DF{k-kritisch}, falls $\chi(G) = k$ ist und $\chi(H) < k$ gilt f"ur alle echten induzierten Untergraphen $H$ von $G$. 
+Ein Graph $G$ hei{\ss}t \DF{k-kritisch}, falls $\chi(G) = k$ ist und $\chi(H) < k$ f"ur alle echten induzierten Untergraphen $H$ von $G$ gilt. 
 
 Entfernen wir aus einem Graphen $G$ eine Ecke oder Kante, so bleibt die chromatische Zahl gleich oder verringert sich um den Wert $1$, d.h. f"ur $t\in V(G) \cup E(G)$ gilt:
 \begin{equation}
@@ -68,7 +68,7 @@ Daraus erhalten wir den folgenden bekannten Satz, wonach die $(k-1)$-f"arbbaren 
 
 \begin{proof}
   Falls $G$ einen $k$-kritischen Untergraphen $H$ enth"alt, so ist $\chi(G) \geq \chi(H) = k$, da $\chi$ ein monotoner Graphenparamter ist.  Sei also $\chi(G) \geq k$. Da $G$ endliche Ordnung hat, besitzt $G$ einen induzierten Untergraphen $G'$ kleinster Ordnung mit $\chi(G')=k$. 
-  Dann ist $\chi(H) < k$ f"ur jeden echten induzierten Untergraphen $H$ von $G'$. Wegen $\chi(G') \geq k \geq 1$ gibt es eine Ecke $v$ in $G'$. Dann ist $G'-v$ ein echter induzierter Untergraph von $G'$ und somit ist $\chi(H) < k$. Aus (\ref{eq:chiungl}) folgt dann $\chi(G') = k$. 
+  Dann ist $\chi(H) < k$ f"ur jeden echten induzierten Untergraphen $H$ von $G'$. Wegen $\chi(G') \geq k \geq 1$ gibt es eine Ecke $v$ in $G'$. Dann ist $G'-v$ ein echter induzierter Untergraph von $G'$ und somit ist $\chi(G-v) < k$. Aus (\ref{eq:chiungl}) folgt dann $\chi(G') = k$. 
   Folglich ist $G'$ ein $k$-kritischer Graph.
 \end{proof}
 Gegen"uber $k$-chromatischen Graphen haben $k$-kritische Graphen eine eingeschr"ankte Struktur. Ein einfaches Beispiel daf"ur ist das folgende Resultat.
@@ -112,8 +112,8 @@ Auch dieser Paramter ist somit eine obere Schranke f"ur die chromatische Zahl. E
 \subsection{F"arbungen von Kantengraphen}
 In diesem Abschnitt betrachten wir das F"arbungsproblem f"ur die Klasse der Kantengraphen. 
 Der \DF{Kantengraph} $L(H)$ eines Hyergraphen $H$ ist der Graph mit der Eckenmenge $V(L(H))= E(H) $ und der Kantenmenge $$E(L(H)) = \set{ ee'}{ \{ e,e' \} \in [E(H)]^{2}, e\cap e' \neq \varnothing }.$$
-Zwei verschieden Kanten von $H$, welche eine Ecke gemeinsam haben heißen adjazent. 
-F"ur eine Kante $e$ von $H$ sei $d_{H}(e) = d_{L(H)}(e) $ der \DF{Kantengrad} von $e$ in $H$. Dieser ist also die Zahl der von $e$ verschiedenen Kanten $e'$ von $H$, welche mit $e$ adjazent sind. 
+Zwei verschieden Kanten von $H$, welche eine Ecke gemeinsam haben heißen \DF{adjazent}. 
+F"ur eine Kante $e$ von $H$ sei $d_{H}(e) = d_{L(H)}(e) $ der \DF{Kantengrad} von $e$ in $H$. Dieser ist also die Zahl der Kanten von $H$, welche mit $e$ adjazent sind.
 Dann sei $\Delta'(H)$ der \DF{maximale Kantengrad} von $H$ und $\delta'(H)$ der \DF{minimale Kantengrad} von $H$ und wir setzen $\Delta'(H) = \delta'(H)=0$, falls $E(H) = \varnothing$. 
 
 Eine F"arbung des Kantengraphen eines Hypergraphen $H$ wird auch \DF{Kantenf"arbung} von $H$ genannt. Eine Kantenf"arbung ist somit eine Abbildung, die jeder Kante von $H$ eine Farbe zuordnet, sodass adjazente Kanten verschiedene Farben erhalten. Wir bezeichnen dann mit dem \DF{chromatischen Index} $\chi'(H)$ die kleinste nat"urliche Zahl $k$, sodass $L(H)$ eine $k$-F"arbung besitzt. Also gilt $\chi'(H) = \chi(L(H))$. 
@@ -157,9 +157,8 @@ Eine symmetrische Matrix $A\in\Rnn$ heißt \DF{positiv semidefinit}, falls $x^{T}
   \end{enumerate}
   \label{prop:psdmatrix}
 \end{proposition}
-
-F"ur eine Matrix $A\in\Rnn$ und einen Vektor $x\in \R^{n} \setminus \{ 0 \}$ ist $$R_A(x) = \frac{x^TAx}{x^Tx}.$$
-der \DF{Rayleigh-Quotient} von $A$ an der Stelle $x$. Die Abbildung $R_A$ wurde zuerst von J.W. Rayleigh zur numerischen Berechnung der Eigenwerte von $A$ benutzt. Ist $x$ ein Eigenvektor von $A$ zum Eigenwert $\lambda$, so gilt $R_A(x) = \lambda$. F"ur eine symmetrische Matrix $A \in \Rnn$ ist 
+F"ur eine Matrix $A\in\Rnn$ und einen Vektor $x\in \R^{n} \setminus \{ 0 \}$ ist der \DF{Rayleigh-Quotient} von $A$ an der Stelle $x$ als $$R_A(x) = \frac{x^TAx}{x^Tx}$$ definiert.
+Die Abbildung $R_A$ wurde zuerst von J.W. Rayleigh zur numerischen Berechnung der Eigenwerte von $A$ benutzt. Ist $x$ ein Eigenvektor von $A$ zum Eigenwert $\lambda$, so gilt $R_A(x) = \lambda$. F"ur eine symmetrische Matrix $A \in \Rnn$ ist 
 $$\lambda_{min}(A) \leq R_A(x) \leq \lambda_{max}(A)$$
 f"ur alle $x\in \R^{n}\setminus \left\{ 0 \right\}$. Die folgende Charakterisierung wurder zuerst in einer Arbeit von Fischer \cite{Fischer05} und danach in dem Lehrbuch von Courant und Hilbert \cite{CourantH24} erw"ahnt. In der Literatur wird dieses Resultat daher als Minmax-Prinzip von Courant-Fischer (Courant-Fischer Minmax Theorem) bezeichnet.
 \begin{theorem}[Courant-Fischer]
@@ -211,7 +210,7 @@ Oftmals interessiert man sich, wie sich die Eigenwerte einer symmetrischen Matri
     &\leq \max\set{\min\limits_{x\in W , x \neq 0} \frac{y^TAy}{y^Ty}}{ W\subseteq \R^n \text{ ist linearer Unterraum der Dimension } p} \\
     &= \lambda_p(A)
   \end{align*}
-  Damit ist die erste Ungleichung gezeigt. Die zweite folgt analog bei Betrachtung von $-A$ und $-B$, da $\lambda_{p}(-A) = -\lambda_{n-p+1}(A)$ ist.
+  Damit ist die erste Ungleichung gezeigt. Die zweite folgt analog bei Betrachtung von $-A$ und $-B$, da $\lambda_{p}(-A) = -\lambda_{n-p+1}(A)$ f"ur alle $1 \leq p \leq n$ ist.
 \end{proof}
 
 Die folgenden Ungleichungen werden sp"ater bei der Betrachtung der Eigenwerte von Graphen hilfreich seien. 
@@ -258,7 +257,7 @@ Damit es Sinn ergibt, von den Eigenwerten eines Graphen zu sprechen, d"urfen die
       1 & \text{falls }u_iu_j \in E(G) \\ 0 & \text{falls }u_iu_j \notin E(G).
   \end{cases}\] 
   Dann gibt es eine Permutation $\sigma\in S^{n}$ sodass $v_{\sigma(i)} = u_i$ ist. Folglich gilt $A_{\sigma(i)\sigma(j)} = B_{ij}$ . 
-  Sei $P=(e_{\sigma(1)},e_{\sigma(2)},\dots,e_{\sigma(n)}$. Dann ist $P$ eine regul"are Matrix und f"ur die Matrix $P^{T}AP$ gilt:
+  Sei $P=(e_{\sigma(1)},e_{\sigma(2)},\dots,e_{\sigma(n)})$. Dann ist $P$ eine regul"are Matrix und f"ur die Matrix $P^{T}AP$ gilt:
   \[
     (P^{T}AP)_{ij} = e_j^{T} P^{T}AP e_i = e_{\sigma(j)}^{T}Ae_{\sigma(i)}=A_{\sigma(i)\sigma(j)} = B_{ij}
   \]
@@ -421,7 +420,7 @@ Satz ist ein unmittelbare Folgerung aus dem Satz von Perron-Frobenius.
 \end{proof}
 
 \begin{lemma}
-  \label{rem:evGraph} 
+  \label{lem:evGraph} 
 
   Sei $G$ ein Graph der Ordnung $n\in\N$ mit $m$ Kanten. Dann gilt:
   \begin{enumerate}[label={\rm(\alph*)}]
