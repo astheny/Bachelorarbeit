@@ -20,3 +20,5 @@ TODO
 - [] Bild von isospektralen Graphen neu
 - [] Schranke von xi neu
 - [] bbm wieder einbinden
+- [] beta = xi_2? 
+- [] wann nimmt xi_d ab?

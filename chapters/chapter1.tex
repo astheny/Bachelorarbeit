@@ -25,7 +25,7 @@ F"ur einen Graphen $G$ sei $\overline{G}$ der \DF{Komplementargraph} von $G$ mit
 Ein Graph $G$ hei{\ss}t \DF{vollst"andiger Graph}, falls $E(G) = [V(G)]^{2}$ gilt. Ist $G$ ein vollst"andiger Graph der Ordnung $n$, so schreiben wir auch $G=K_n$. Man beachte hierbei, dass alle vollst"andigen Graphen der Ordnung $n$ isomorph sind. In diesem Sinne bezeichnen wir mit $C_n$ den \DF{Kreis} der Ordnung $n$ und mit $O_n$ den \DF{kantenlosen Graphen} der Ordnung $n$ (d.h. das Komplement von $K_n$). 
 Ein Kreis $C_n$ heißt \DF{gerade} beziehungsweise \DF{ungerade}, je nachdem ob seine Ordnung gerade beziehungsweise ungerade ist.
 
-F"ur einen Hypergraphen $H$ ist $\omega(H)$ die gr"o{\ss}te Zahl $n$, sodass $H$ einen vollst"andigen Graphen der Ordnung $n$ als Untergraphen enth"alt, und $\alpha(H)$ ist die gr"o{\ss}te Zahl $n$, sodass $H$ den kantenlosen Graphen der Ordnung $n$ als induzierten Untergraphen enth"alt. 
+F"ur einen Hypergraphen $H$ ist $\omega(H)$ die gr"o{\ss}te Zahl $n$, sodass $H$ einen vollst"andigen Graphen der Ordnung $n$ als Untergraphen enth"alt und $\alpha(H)$ ist die gr"o{\ss}te Zahl $n$, sodass $H$ den kantenlosen Graphen der Ordnung $n$ als induzierten Untergraphen enth"alt. 
 
 \subsection{F"arbungen von Graphen und Hypergraphen}
 
@@ -37,16 +37,16 @@ Ist die chromatische Zahl von $G$ gleich $k$, so wird $G$ auch \DF{$k$-chromatis
 
 Die Bestimmung der chromatischen Zahl eines Graphen ist ein {\sf NP}-schweres Optimierungsproblem, wie im Jahre 1972 von Karp \cite{Karp72} gezeigt wurde. Sei $\varphi $ eine F"arbung von $G$ und $H$ ein Untergraph von $G$. Dann ist $\varphi |_{V(H)}$ eine F"arbung von $H$. Folglich ist die chromatische Zahl ein monotoner Graphenparameter, d.h. $$ H\subseteq G \Rightarrow \chi(H) \leq \chi(G).$$
 Außerdem ist die chromatische Zahl subadditiv, d.h. sind $X,Y$ zwei Teilmengen von $V(G)$ mit $X\cup Y = V(G)$, so gilt $$\chi(G) \leq \chi(G[X])+ \chi(G[Y]).$$ 
-Ist n"amlich $\chi(G[X]) = k$ und $\chi(G[Y])= \ell$, so erhalten wir eine $(k+\ell)$-F"arbung von $G$, indem wir zun"achst alle Ecken aus $X$ mit $k$ Farben f"arben, und dann die verbleibenden Ecken aus $Y\setminus X$ mit h"ochstens $\ell$ Farben f"arben.
+Ist n"amlich $\chi(G[X]) = k$ und $\chi(G[Y])= \ell$, so erhalten wir eine $(k+\ell)$-F"arbung von $G$, indem wir zun"achst alle Ecken aus $X$ mit $k$ Farben f"arben und dann die verbleibenden Ecken aus $Y\setminus X$ mit h"ochstens $\ell$ Farben f"arben.
 
-Eine Abbildung $\varphi  :V(G) \to C$ ist genau dann eine F"arbung von $G$, wenn f"ur alle $c\in C$ das Urbild $\varphi ^{-1}(c)$ eine unabh"angige Menge in $G$ ist (d.h. keine zwei Ecken von $\varphi ^{-1}(c)$ sind durch eine Kante von $G$ verbunden). Diese Urbilder nennen wir \DF{Farbklassen}. Offensichtlich sind die Farbklassen disjunkt und haben h"ochstens $\alpha (G)$ Ecken. Daraus folgt, dass jede $k$-F"arbung von $G$ die Ungleichung $|G| \leq k \alpha(G)$ erf"ullt, und deswegen auch $|G| \leq \chi(G) \alpha(G)$ gilt. 
+Eine Abbildung $\varphi  :V(G) \to C$ ist genau dann eine F"arbung von $G$, wenn f"ur alle $c\in C$ das Urbild $\varphi ^{-1}(c)$ eine unabh"angige Menge in $G$ ist (d.h. keine zwei Ecken von $\varphi ^{-1}(c)$ sind durch eine Kante von $G$ verbunden). Diese Urbilder nennen wir \DF{Farbklassen}. Offensichtlich sind die Farbklassen disjunkt und haben h"ochstens $\alpha (G)$ Ecken. Daraus folgt, dass jede $k$-F"arbung von $G$ die Ungleichung $|G| \leq k \alpha(G)$ erf"ullt und deswegen auch $|G| \leq \chi(G) \alpha(G)$ gilt. 
 
 Da jede Ecke eine unabh"angige Menge ist, gilt $\chi(G) \leq |G|$. Damit gilt 
 $$\chi(G) \geq |G|  \Leftrightarrow \chi(G) = |G| \Leftrightarrow \alpha(G) \leq 1 \Leftrightarrow G \text{ ist ein vollst"andiger Graph}$$
 Insbesondere gilt somit f"ur $n\in \N_0$ : $\chi(K_n)  = n $. Da $\chi $ ein monotoner Graphenparameter ist, ist also 
 $$\omega(G) \leq \chi(G).$$
 
-Die chromatische Zahl des Graphen $G$ ist die kleinste Zahl $k$, f"ur die sich $V(G)$ in $k$ viele unabh"angige Mengen (die Farbklassen) zerlegen l"asst. Deswegen gilt $\chi(G) = 0$ nur, falls $V(G)\neq \varnothing$ ist, d.h. falls $G$ der leere Graph ist. Außerdem ist $\chi(G) \leq 1$ genau dann, wenn $G$ keine Kanten hat, und $\chi(G) \leq 2$ gilt genau dann, wenn $G$ bipartit ist.
+Die chromatische Zahl des Graphen $G$ ist die kleinste Zahl $k$, f"ur die sich $V(G)$ in $k$ viele unabh"angige Mengen (die Farbklassen) zerlegen l"asst. Deswegen gilt $\chi(G) = 0$ nur, falls $V(G)\neq \varnothing$ ist, d.h. falls $G$ der leere Graph ist. Außerdem ist $\chi(G) \leq 1$ genau dann, wenn $G$ keine Kanten hat und $\chi(G) \leq 2$ gilt genau dann, wenn $G$ bipartit ist.
 Nach dem Satz von K"onig \cite{Konig16} ist $G$ genau dann bipartit, wenn $G$ keinen Kreis ungerader Ordnung als Untergraphen besitzt. 
 
 Nach Stockmeyer \cite{Stockmeyer73} ist f"ur jedes $k\geq 3$ das Entscheidungsproblem ob ein gegebener Graph $k$-f"arbbar ist {\sf NP}-vollst"andig. Es ist also nicht zu erwarten, dass sich Graphen mit chromatischer Zahl h"ochstens $k$ f"ur festes $k\geq 3$ einfach charakterisieren lassen.
@@ -117,7 +117,7 @@ F"ur eine Kante $e$ von $H$ sei $d_{H}(e) = d_{L(H)}(e) $ der \DF{Kantengrad} vo
 Dann sei $\Delta'(H)$ der \DF{maximale Kantengrad} von $H$ und $\delta'(H)$ der \DF{minimale Kantengrad} von $H$ und wir setzen $\Delta'(H) = \delta'(H)=0$, falls $E(H) = \varnothing$. 
 
 Eine F"arbung des Kantengraphen eines Hypergraphen $H$ wird auch \DF{Kantenf"arbung} von $H$ genannt. Eine Kantenf"arbung ist somit eine Abbildung, die jeder Kante von $H$ eine Farbe zuordnet, sodass adjazente Kanten verschiedene Farben erhalten. Wir bezeichnen dann mit dem \DF{chromatischen Index} $\chi'(H)$ die kleinste nat"urliche Zahl $k$, sodass $L(H)$ eine $k$-F"arbung besitzt. Also gilt $\chi'(H) = \chi(L(H))$. 
-Ist $v$ eine Ecke von $H$, so ist $E_H(v)$ eine Clique von $L(H)$, und folglich gilt $\chi'(H) \geq \Delta(H)$. K"onig zeigte in \cite{Konig36} , dass diese Schranke f"ur bipartite Graphen scharf ist.
+Ist $v$ eine Ecke von $H$, so ist $E_H(v)$ eine Clique von $L(H)$ und folglich gilt $\chi'(H) \geq \Delta(H)$. K"onig zeigte in \cite{Konig36} , dass diese Schranke f"ur bipartite Graphen scharf ist.
 \begin{theorem}[K"onig]
   Ist $G$ ein bipartiter Graph, so gilt $\chi'(G) = \Delta(G)$.
   \label{}
@@ -192,7 +192,7 @@ f"ur alle $x\in \R^{n}\setminus \left\{ 0 \right\}$. Die folgende Charakterisier
 Oftmals interessiert man sich, wie sich die Eigenwerte einer symmetrischen Matrix ver"andern, wenn man Zeilen und die korrespondierenden Spalten der Matrix l"oscht. Die bei diesem Prozess entstehende Matrix ist wieder symmetrisch. Es stellt sich heraus, dass die Eigenwerte der so entstehenden Matrix sich durch die Eigenwerte der urspr"unglichen beschr"anken lassen. Das folgende Resultat geht auf Cauchy zur"uck, es scheint schwierig eine Originalquelle zu finden.
 \begin{theorem}[Interlacing]
   \label{thm:Interlacing}
-  Sei $A\in \R^{n\times n}$ symmetrisch und sei $B\in\R^{(n-k)\times(n-k)}$ die symmetrische Matrix, welche aus $A$ durch L"oschen von Zeilen und den entsprechenden Spalten entsteht. Dann ist $B$ symmetrisch, und es gilt:
+  Sei $A\in \R^{n\times n}$ symmetrisch und sei $B\in\R^{(n-k)\times(n-k)}$ die symmetrische Matrix, welche aus $A$ durch L"oschen von Zeilen und den entsprechenden Spalten entsteht. Dann ist $B$ symmetrisch und es gilt:
   \begin{align*}
     \lambda_{p}(A) \geq \lambda_{p}(B) \geq \lambda_{p+k}(A) 
   \end{align*}
@@ -225,9 +225,9 @@ Die Weyl Ungleichungen wurden von \cite{Weyl12} bewiesen.
 \end{theorem}
 Die folgenden Ungleichungen wurden von Fan \cite{KyFan49} bewiesen.
 \begin{theorem}[Ky Fan Ungleichungen]
-  Seien $A,B,C\in\Rnn$ symmetrische Matrizen mit $A = B+C$. F"ur alle $1\leq k \leq n$ gilt dann:
+  Seien $A,B,C\in\Rnn$ symmetrische Matrizen mit $A = B+C$. F"ur alle $1\leq p \leq n$ gilt dann:
   \begin{equation*}
-    \sum\limits_{p=1}^{k} \lambda_{p}(A) \leq \sum\limits_{p=1}^{k} \lambda_{p}(B) + \sum\limits_{p=1}^{k} \lambda_{p} (C)
+    \sum\limits_{i=1}^{p} \lambda_{i}(A) \leq \sum\limits_{i=1}^{p} \lambda_{i}(B) + \sum\limits_{i=1}^{p} \lambda_{i} (C)
   \end{equation*}
   F"ur $k=n$ gilt Gleichheit.
   \label{thm:kyfanineq}
@@ -261,9 +261,9 @@ Damit es Sinn ergibt, von den Eigenwerten eines Graphen zu sprechen, d"urfen die
   \[
     (P^{T}AP)_{ij} = e_j^{T} P^{T}AP e_i = e_{\sigma(j)}^{T}Ae_{\sigma(i)}=A_{\sigma(i)\sigma(j)} = B_{ij}
   \]
-  Also ist $P^{T}AP = B$. Somit sind $A$ und $B$ "ahnlich, und besitzen folglich dasselbe charakteristische Polynom. 
+  Also ist $P^{T}AP = B$. Somit sind $A$ und $B$ "ahnlich und besitzen folglich dasselbe charakteristische Polynom. 
 \end{proof}
-F"ur den Graphen $G$ der Ordnung $n$ sei dann $p_G = p_{A(G)}$ das \DF{charakteristische Polynom} von $G$ und $\lambda_p(G) = \lambda_{p}(A(G))$ der \DF{$p$-gr"oßte Eigenwerte} von $G$ (f"ur $1\leq p \leq |G|$) und $\operatorname{sp}(G) = \operatorname{sp}(A(G))$ das \DF{Spektrum} von $G$. Diese Gr"oßen sind nach Lemma \ref{lem:GraphEigenwerte} unabh"angig von der Nummerierung der Ecken, und somit wohldefiniert. Dies gilt jedoch nicht f"ur die Eigenvektoren. 
+F"ur den Graphen $G$ der Ordnung $n$ sei dann $p_G = p_{A(G)}$ das \DF{charakteristische Polynom} von $G$ und $\lambda_p(G) = \lambda_{p}(A(G))$ der \DF{$p$-gr"oßte Eigenwerte} von $G$ (f"ur $1\leq p \leq |G|$) und $\operatorname{sp}(G) = \operatorname{sp}(A(G))$ das \DF{Spektrum} von $G$. Diese Gr"oßen sind nach Lemma \ref{lem:GraphEigenwerte} unabh"angig von der Nummerierung der Ecken und somit wohldefiniert. Dies gilt jedoch nicht f"ur die Eigenvektoren. 
 Wir k"onnen aber auch eine koordinatenfreie Interpretation f"ur die Eigenvektoren geben. Dazu betrachten wir einen Eigenwert $\lambda$ von $G$ und einen zugeh"origen Eigenvektor $x$ von $A(G)$. Aus der Eigenwertgleichung (\ref{eq:eigenwertgleichung}) erhalten wir das Gleichungssystem 
 \begin{equation}
   \lambda x_{i} = \sum\limits_{j=1}^{n}A(G)_{ij}x_j 
@@ -412,7 +412,7 @@ Satz ist ein unmittelbare Folgerung aus dem Satz von Perron-Frobenius.
 
 \begin{proof}
   Aussage (a) folgt aus Korollar \ref{cor:regulargrapheigenvalue}, da der Komplementargraph eines $r$-regul"aren Graphen $(n-1-r)$-regul"ar ist. 
-  Zum Beweis von (b) w"ahlen wir f"ur $G$ und $\overline{G}$ die selbe Nummerierung der Ecken. Dann ist $$A(G) + A(\overline{G}) = J-I$$ wobei $J \in \Rnn$ die $1$-Matrix ist, und $I\in\Rnn$ die Einheitsmatrix ist. Wir betrachten $\lambda = \lambda_i(G)$ f"ur $i \geq 2$. Dann existiert ein Eigenvektor $x$ zum Eigenwert $\lambda$. Dieser ist orthogonal zu $\mathbbm 1 \in E_{G}(r)$. Folglich ist 
+  Zum Beweis von (b) w"ahlen wir f"ur $G$ und $\overline{G}$ die selbe Nummerierung der Ecken. Dann ist $$A(G) + A(\overline{G}) = J-I$$ wobei $J \in \Rnn$ die $1$-Matrix ist und $I\in\Rnn$ die Einheitsmatrix ist. Wir betrachten $\lambda = \lambda_i(G)$ f"ur $i \geq 2$. Dann existiert ein Eigenvektor $x$ zum Eigenwert $\lambda$. Dieser ist orthogonal zu $\mathbbm 1 \in E_{G}(r)$. Folglich ist 
   \begin{align*}
     A(G)x + A(\overline{G})x = Jx -Ix = -x
   \end{align*}
@@ -472,7 +472,7 @@ $$A(G) = B^{T}B -2I \text{ und } A(H) = BB^{T} - D,$$
 wobei $D= \operatorname{diag}(d_H(v_1),d_H(v_2),\dots,d_H(v_n)$ die Gradmatrix von $H$ ist. Die Matrizen $B^{T}B$ und $BB^{T}$ sind dann positiv semidefinit und folglich sind ihre Eigenwerte nicht negativ (siehe Satz \ref{prop:psdmatrix}). 
 F"ur den $p$-gr"o{\ss}ten Eigenwert von $G$ gilt somit 
 $$ \lambda_{p}(G) = \lambda_{p}(B^{T}B) -2 \geq -2,$$ also ist insbesondere $\lambda_{min}(G) \geq -2$. 
-Ist der Graph $H$ kreislos, und damit ein Wald, so ist $\operatorname{rang}(B) = m$ \todo{einheitlicher rang} (wie sich leicht durch Induktion nach $n$ zeigen l"asst). Dann ist $B^{T}B$ positiv definit und somit $\lambda_{min}(G) > -2$. 
+Ist der Graph $H$ kreislos und damit ein Wald, so ist $\operatorname{rang}(B) = m$ \todo{einheitlicher rang} (wie sich leicht durch Induktion nach $n$ zeigen l"asst). Dann ist $B^{T}B$ positiv definit und somit $\lambda_{min}(G) > -2$. 
 Zusammenfassend erhalten wir dann folgendes, wohlbekanntes Resultat (siehe \cite[Theorem 6.11]{CvetkovicDS79}).
 
 \begin{theorem}
