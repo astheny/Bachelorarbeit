@@ -43,8 +43,7 @@ In diesem Kapitel wollen wir die in Abschnitt \ref{sss:ewgraph} behandelten Them
 \end{proof}
 
 Wir wollen nun eine Folge von Graphenparametern definieren. Seien dazu $d\geq 1$ und $G$ ein Graph. Wir bezeichnen mit $\xi_{d}(G)$ die Anzahl aller Eigenwerte von $G$, welche echt gr"o{\ss}er als $-d$ sind. Damit ist also 
-$$\xi_{d}(G) = \max \set{i}{\lambda_i(G) > -d}.$$
-Ist $G=\varnothing$, so setzen wir $\xi_{d}(G) = 0$ f"ur alle $d\in\N$.
+$$\xi_{d}(G) = |\set{i}{\lambda_i(G) > -d}|.$$
 Dieser ist ein Graphenparamter, da nach Lemma \ref{lem:GraphEigenwerte} isomorphe Graphen das selbe Spektrum besitzen und somit $\xi_d $ zwei isomorphen Graphen die selbe nat"urliche Zahl zuordnet. 
 
 \begin{lemma}
@@ -65,7 +64,7 @@ Dieser ist ein Graphenparamter, da nach Lemma \ref{lem:GraphEigenwerte} isomorph
   Um (b) und (c) zu zeigen, seien $p = \omega(G)$ und $q=\alpha(G)$. Nach Korollar \ref{cor:alphaomegaEigenwerte} ist dann $\lambda_{p}(G) \geq -1$ und $\lambda_q(G) \geq 0$ und deswegen $\xi_{d}(G) \geq p = \omega(G)$ f"ur $d \geq 2$ und $\xi_{d}(G) \geq q = \alpha(G)$ f"ur alle $d \in \N$. 
 
   F"ur den Beweis von (d) w"ahlen wir eine beliebige Ecke $v\in V(G)$ von $G$. Dann ist $G-v$ ein induzierter Untergraph von $G$ der Ordnung $|G|-1$. Sei $l=\xi_{d}(G-v)$. Ist $l= |G|-1$, so ist nichts zu zeigen, da $\xi_d(G)$ nach oben durch $|G|$ beschr"ankt ist. Andernfalls ist $l< |G| -1$. 
-  Dann ist $\lambda_{l}(G-v) > -d$ und $\lambda_{l+1}(G-v) \leq -d$. Nun folgt mit Lemma \ref{lem:InterlacingGraphen}, dass $$\lambda_{l+2}(G) \leq \lambda_{l+1}(G-v) \leq -d$$ richtig ist. Deswegen ist $\xi_{d}(G) \leq l+1 = \xi_{l}(G-v) +1$. 
+  Dann ist $\lambda_{l}(G-v) > -d$ und $\lambda_{l+1}(G-v) \leq -d$. Nun folgt mit Lemma \ref{lem:InterlacingGraphen}, dass $$\lambda_{l+2}(G) \leq \lambda_{l+1}(G-v) \leq -d$$ richtig ist. Deswegen ist $\xi_{d}(G) \leq l+1 = \xi_{d}(G-v) +1$. 
 
   Aussage (e) gilt, da die Eigenwerte eines Graphen fallend geordnet sind.
 \end{proof}
@@ -105,16 +104,20 @@ Der folgende Korollar wurde bereits von Klotz \cite{Klotz89} gezeigt. Wir erhalt
 \end{proof}
 
 \begin{corollary}
-  Ist $\delta\left( G \right) \geq 2$, so gilt $\omega\left( G \right)\leq \kappa_{2}\left( G \right)$ und $\alpha\left( G \right)\leq \kappa_{2}\left( G \right)$.
+  Ist $G$ ein Graph so gilt $\omega\left( G \right)\leq \kappa_{2}\left( G \right)$ und $\alpha\left( G \right)\leq \kappa_{2}\left( G \right)$.
   \label{cor:alphaomegakrausz}
 \end{corollary}
 
 \begin{proof}
-  Sei $p = \omega(G)$. Dann gilt nach Korollar \ref{cor:alphaomegaEigenwerte} $\lambda_{p}\left( G \right)\geq -1 > -2$. Damit sind f"ur $d=2$ die Voraussetzungen von Korollar \ref{cor:Korollar1} erf"ullt und es gilt folglich $\kappa_{2}\left( G \right)\geq p = \omega\left( G \right)$.
-  F"ur $q=\alpha\left( G \right)$ gilt mit Korollar \ref{cor:alphaomegaEigenwerte} $\lambda_{q}\left( G \right)\geq 0 > -2$. Damit folgt $\alpha\left( G \right) \leq \kappa_{2}\left( G \right)$.
+  Aus Lemma \ref{lem:xieigenschaften} folgt
+  \begin{align*}
+    \omega(G) &\leq \xi_{2}(G) \leq \kappa_{2}(G) \\
+    \alpha(G) &\leq \xi_{2}(G) \leq \kappa_{2}(G) 
+  \end{align*}
+  und damit die Behauptung.
 \end{proof}
 
-Um die Erd\H{o}s-Faber-Lov\'asz Vermutung zu beweisen, gen"ugt es zu zeigen, dass jeder Graph $G$ die Ungleichung $$\chi(G) \leq \xi_{2}(G)$$ erf"ullt. Dann gilt mit Korollar \ref{cor:Korollar1} $$\chi(G) \leq \kappa_{2}(G),$$  woraus mit Satz \ref{thm:MainTheorem} dann Vermutung \ref{con:efl} folgt.
+Um die Erd\H{o}s--Faber--Lov\'asz Vermutung zu beweisen, gen"ugt es zu zeigen, dass jeder Graph $G$ die Ungleichung $$\chi(G) \leq \xi_{2}(G)$$ erf"ullt. Dann gilt mit Korollar \ref{cor:Korollar1} $$\chi(G) \leq \kappa_{2}(G),$$  woraus mit Satz \ref{thm:MainTheorem} dann Vermutung \ref{con:efl} folgt.
 
 Eine M"oglichkeit dies zu zeigen, w"are zu beweisen, dass $\xi_2$ ein Szekeres-Wilf-Paramter ist. Die Eigenschaft (S1) ist nach den obigen "Uberlgungen erf"ullt. Berechnungen in Maple zeigen jedoch, dass Eigenschaft (S2) nicht immer erf"ullt ist. 
 
@@ -161,9 +164,7 @@ Mit dieser Vorarbeit k"onnen wir nun den folgenden Satz beweisen.
 \end{theorem}
 
 \begin{proof}
-  Wir zeigen zun"achst (a). Sei $G$ ein beliebiger Graph mit $\chi(G) = k$. Nach Voraussetzung ist dann $\chi(G) \leq \xi_{d}(G)$, d.h. $\lambda_{k}\left( G \right) > -d$. Mit Korollar \ref{cor:Korollar1} folgt $\kappa_{d}\left( G \right) \geq k = \chi\left( G \right)$. 
-  Damit ist (a) gezeigt. 
-
+  Aussage (a) folgt aus Korollar \ref{cor:Korollar1}.  
   Wir zeigen nun (b) durch Widerspruch. Angenommen die Behauptung gilt nicht. Dann gibt es einen linearen Hypergraphen minimaler Ordnung mit $|e| \geq d$ f"ur alle $e\in E(H)$ , f"ur welchen $\chi'(H) > H$. 
   Wir machen eine Fallunterscheidung bez"uglich dem kleinsten Eckengrad.
 
@@ -316,11 +317,10 @@ Es ist bekannt, dass die H\'ajos Summe zweier $k$-chromatischer Graphen wieder $
   Desweiteren gilt $|H_i| = |G_i|-2$ f"ur $i=1,2$. Also folgt aus Lemma \ref{lem:InterlacingGraphen}, dass $$\lambda_{k_i-2}(H_i) \geq \lambda_{k_i}(G_i) > -d$$ f"ur $i=1,2$ richtig ist. Wir betrachten nun den Graphen $H$, welcher die disjunkte Vereinigung von $H_1$ und $H_2$ ist. Dann ist $H$ ebenfalls ein induzierter Untergraph von $G$. 
   Das Spektrum von $H$ ist nach Beispiel \ref{ex:disjointunion} die Vereinigung der Spektra von $H_1$ und $H_2$. Also gilt $\xi_{d}(H) \geq (k_1-2)+ (k_2-2) = k_1+k_2-4$, da $H_i$ ($i=1,2$) mindestens $k_i -2$ Eigenwerte besitzt, die gr"o{\ss}er als $-d$ sind.
   sowohl $H_1$ als auch $H_2$ mindestens $k-2$ Eigenwerte besitzen, die gr"o{\ss}er als $-d$ sind. 
-  Da $\xi_d$ ein monotoner Graphenparamter ist, gilt auch $\xi_{d}(G) \geq k_1+k_2-4$.
+  Deswegen gilt auch $\xi_{d}(G) \geq k_1+k_2-4$.
 \end{proof}
 
-Eine weitere, der H\'ajos Summe "ahnliche Konstruktion ist die \DF{Ore Summe} \cite{Ore67}. Seien $G_1$ und $G_2$ zwei disjunkte Graphen und $x_1y_1$ eine Kante von $G_1$ und $x_2y_2$ eine Kante von $G_2$. Desweiteren seien $v_1,v_2,\dots,v_t$ unterschiedliche Ecken von $G_1\setminus x_1$ und $u_1,u_2,\dots,u_r$ unterschiedliche Ecken von $G_2\setminus x_2$. Wir konstruieren nun die Ore Summe von $G_1$ und $G_2$ aus der H\'ajos Summe
-$\text{H\'ajos}(G_1,x_1y_1, G_2, x_2y_2)$, indem wir zus"atzlich die Kanten $v_1u_1,v_2u_2,\dots,v_ru_r$ hinzuf"ugen. Der so entstandene Graph ist dann die Ore Summe von $G_1$ und $G_2$. 
+Eine weitere, der H\'ajos Summe "ahnliche Konstruktion ist die \DF{Ore Summe} \cite{Ore67}. Seien $G_1$ und $G_2$ zwei disjunkte Graphen und $x_1y_1$ eine Kante von $G_1$ und $x_2y_2$ eine Kante von $G_2$. Desweiteren seien $v_1,v_2,\dots,v_t$ unterschiedliche Ecken von $G_1\setminus x_1$ und $u_1,u_2,\dots,u_r$ unterschiedliche Ecken von $G_2\setminus x_2$. Wir konstruieren nun die Ore Summe von $G_1$ und $G_2$ aus der H\'ajos Summe von $G_1$ und $G_2$, indem wir zus"atzlich die Kanten $v_1u_1,v_2u_2,\dots,v_ru_r$ hinzuf"ugen. Der so entstandene Graph ist dann die Ore Summe von $G_1$ und $G_2$. 
 
 F"ur $k\in \N$ sei $\mathcal{O}_k$ die Klasse der \DF{Ore $k$-konstruierbaren Graphen} definiert als die kleinste Klasse, welche folgende zwei Eigenschaften erf"ullt:
 \begin{enumerate}
@@ -328,7 +328,7 @@ F"ur $k\in \N$ sei $\mathcal{O}_k$ die Klasse der \DF{Ore $k$-konstruierbaren Gr
   \item Sind $G,H\in O_k$, so auch die Ore Summe von $G$ und $H$.
 \end{enumerate}
 
-Wie sich zeigen l"asst, gilt dann f"ur alle $k\in\N$: $\mathcal{O}_k ) \mathcal{H}_k$.
+Wie sich zeigen l"asst, gilt dann f"ur alle $k\in\N$: $\mathcal{O}_k = \mathcal{H}_k$.
 
 \subsection{Graphen mit $\chi \leq \xi_{2}$}
 
@@ -347,9 +347,9 @@ Gelten die Vorraussetzungen von Satz \ref{thm:MainTheorem} f"ur $d=2$, so folgt 
   Sei $G$ ein Graph mit $\chi(G) = k$. Dann enth"alt $G$ einen $k$-kritischen Untergraphen $H$. F"ur diesen gilt nach Vorraussetzung $$k= \chi(H) \leq \xi_{2}(H).$$ Dann ist aber auch $$k \leq \xi_{2}(H) \leq \xi_{2}(G) ,$$ da $H$ ein induzierter Untergraph von $G$ ist.  Damit gilt Vermutung \ref{con:maincon} auch f"ur $G$.
 \end{proof}
 
-Seien $k,r$ zwei nat"urliche Zahlen mit $k\geq 2r-1$. Der \DF{Kneser Graph} $K_{k:r}$ geht auf Kneser \cite{Kneser55} zur"uck und ist der Graph mit Eckenmenge $$V(K_{k:r}) = [\{1,\dots,k\}]^{r}$$ und Kantenmenge 
-$$E(K_{k:r}) = \left\{ XY\;|\; X,Y \in V(K_{k:r}), X \cap Y = \varnothing \right\}.$$ 
-$K_{k:1}$ ist ein vollst"andiger Graph der Ordnung $k$ und $K_{2r-1:r}$ besitzt keine Kanten. 
+Seien $k,r$ zwei nat"urliche Zahlen mit $k\geq 2r-1$. Der \DF{Kneser Graph} $K_{p:r}$ geht auf Kneser \cite{Kneser55} zur"uck und ist der Graph mit Eckenmenge $$V(K_{p:r}) = [\{1,\dots,p\}]^{r}$$ und Kantenmenge 
+$$E(K_{p:r}) = \left\{ XY\;|\; X,Y \in V(K_{p:r}), X \cap Y = \varnothing \right\}.$$ 
+$K_{p:1}$ ist ein vollst"andiger Graph der Ordnung $p$ und $K_{2r-1:r}$ besitzt keine Kanten. 
 Der Graph $K_{5:2}$ ist auch als der Petersen Graph bekannt.
 
 \begin{figure}[h]
@@ -360,47 +360,47 @@ Der Graph $K_{5:2}$ ist auch als der Petersen Graph bekannt.
 \end{figure}
 Kneser gibt in \cite{Kneser55} eine obere Schranke f"ur die chromatische Zahl der Kneser Graphen an. Sp"ater zeigte Lov\'asz \todo{Referenz}, dass diese Schranke immer angenommen wird.
 \begin{theorem}
-  Ist $k\geq 2r-1$, so gilt
-  $$\chi(K_{k:r}) \leq k-2r+2$$ \label{thm:kneserfarbung}
+  Ist $p\geq 2r-1$, so gilt
+  $$\chi(K_{p:r}) \leq p-2r+2$$ \label{thm:kneserfarbung}
 \end{theorem}
 Der folgende Satz ist als Satz von Erd\H{o}s-Ko-Rado \cite{ErdosKoRado61} bekannt und gibt die Unabh"angigkeitszahl eines Kneser Graphen an.
 \begin{theorem}
-  Ist $k\geq 2r$ und $r \geq 2$, so gilt: 
-  $$\alpha(K_{k:r})= \binom{k-1}{r-1}.$$
+  Ist $p\geq 2r$ und $r \geq 2$, so gilt: 
+  $$\alpha(K_{p:r})= \binom{p-1}{r-1}.$$
   \label{thm:ErdosKoRado}
 \end{theorem}
-Mit den beiden vorrangegangenen S"atzen k"onnen wir nun einen Satz "uber die Eigenwerte von Kneser Graphn beweisen.
+Mit den beiden vorangegangenen S"atzen k"onnen wir nun beweisen, dass Kneser Graphen die Vermutung \ref{con:maincon} erf"ullen.
 \begin{proposition}
-  Seien $k\geq 2r-1$, $r\geq 1$ und sei $G= K_{k:r}$ ein Kneser Graph. Dann gilt $\chi(G) \leq \xi_{2}(G)$. 
+  Seien $p\geq 2r-1$, $r\geq 1$ und sei $G= K_{p:r}$ ein Kneser Graph. Dann gilt $\chi(G) \leq \xi_{2}(G)$. 
 \end{proposition}
-
 \begin{proof}
   Sei $\chi(G) = k$. Wir machen eine Fallunterscheidung bez"uglich $r$.
 
-  \ncase{1} {$r=1$} Dann ist $G=K_{k:1}$ isomorph zu $K_k$. Die Eigenwerte des $K_k$ sind alle gr"o{\ss}er als $-2$, insbesondere also auch $\lambda_{k}(G)$. Folglich ist $\chi(G) \leq \xi_{2}(G)$. 
+  \ncase{1} {$r=1$} Dann ist $G=K_{p:1}$ isomorph zu $K_p$. Die Eigenwerte des $K_p$ sind alle gr"o{\ss}er als $-2$, insbesondere also auch $\lambda_{k}(G)$. Folglich ist $\chi(G) \leq \xi_{2}(G)$. 
 
-  \ncase{2} {$k > 2r \geq 4 $} Sei $p = \alpha(G)$.  Dann ist nach Satz \ref{thm:ErdosKoRado} $ p = \binom{k-1}{r-1}$ und folglich $ p \geq k-1$. Nach Satz \ref{thm:kneserfarbung} ist $\chi(G) = k-2r+2 < k-2$. Folglich ist $p > \chi(G)$. Mit  Korollar \ref{cor:alphaomegaEigenwerte} gilt dann \begin{equation*}
-    \lambda_{k}(G) \geq \lambda_{p}(G) \geq 0 > -2.
-  \end{equation*}
-  Folglich gilt $\chi(G) \leq \xi_{2}(G)$.
+  \ncase{2} {$p > 2r \geq 4 $} Sei $q = \alpha(G)$.  Dann ist nach Satz \ref{thm:ErdosKoRado} $ q = \binom{p-1}{r-1}$ und folglich $ q \geq p-1$. Nach Satz \ref{thm:kneserfarbung} ist $\chi(G) = p-2r+2 < p-2$. Folglich ist $q > \chi(G)$. 
+  Dann gilt $$\chi(G) < q = \alpha(G) \leq \xi_{2}(G) $$ wegen Lemma \ref{lem:xieigenschaften}.
 
-  \ncase{3} {$ k = 2r $} Die Ecken von $G$ sind alle $r$-elementingen Teilmengen von $\left\{ 1,\dots,k \right\}$. Da $k=2r$ ist f"ur ein $w\in V(G)$ die einzige benachbarte Ecke ihr Komplement in $\left\{ 1,\dots,k \right\}$. Also sind die Komponenten von $G$ alle isomorph zu $K_{2}$. Dann ist $\chi(G) = 2$ und $\omega(G) = 2$. 
+  \ncase{3} {$ p = 2r $} Die Ecken von $G$ sind alle $r$-elementingen Teilmengen von $\left\{ 1,\dots,p \right\}$. Da $p=2r$ ist f"ur ein $w\in V(G)$ die einzige benachbarte Ecke ihr Komplement in $\left\{ 1,\dots,p \right\}$. Also sind die Komponenten von $G$ alle isomorph zu $K_{2}$. Dann ist $\chi(G) = 2$ und $\omega(G) = 2$. 
   Aus Lemma \ref{lem:xieigenschaften} folgt dann $\xi_{2}(G) \geq \omega(G) = \chi(G)$.
 
   \ncase{4}{$k=2r+1$} Dann ist $|E(G)| = 0$ und folglich ist $G$ ein kantenloser Graph. Also ist $\alpha(G) = |G|$ und wir erhalten aus Lemma \ref{lem:xieigenschaften}, dass $\xi_{2}(G) \geq \alpha(G)$ gilt.
 \end{proof}
+Eine weitere Klasse die Vermutung \ref{con:maincon} erf"ullt, ist die Klasse der perfekten Graphen.
+
 \begin{proposition}
-  Sei $G$ ein perfekter Graph. Dann gilt:
-  $$\chi(G) \leq \xi_{2}(G)$$
+  Sei $G$ ein perfekter Graph. Dann gilt 
+  $\chi(G) \leq \xi_{2}(G)$.
 \end{proposition}
 
 \begin{proof}
-  Da $G$ ein perfekter Graph ist, gilt $k = \chi(G) = \omega(G)$. 
+  Da $G$ ein perfekter Graph ist, gilt $\chi(G) = \omega(G)$. 
   Mit Lemma \ref{lem:xieigenschaften} folgt dann $\xi_2(G) \geq \omega(G) = \chi(G)$.
 \end{proof}
 
+Planare Graphen sind nach dem Vierfarbensatz \todo{referenz} mit $4$ Farben f"arbbar. Der nachfolgende Satz garantiert, dass alle planaren Graphen der Ordnung mindestens $7$ Vermutung \ref{con:maincon} ebenfalls erf"ullen.
 \begin{proposition}
-  Sei $G$ ein planrer Graph mit $|G| \geq 7$. Dann gilt $\xi_{2}(G) \geq 4$.
+  Sei $G$ ein planarer Graph mit $|G| \geq 7$. Dann gilt $\xi_{2}(G) \geq 4$.
   \label{prop:planaregraphen}
 \end{proposition}
 
@@ -413,7 +413,7 @@ Mit den beiden vorrangegangenen S"atzen k"onnen wir nun einen Satz "uber die Eig
   Wir erhalten nun durch Umstellen die quadratische Ungleichung $$-2n^{2} +15n -18 \geq 0.$$
   L"osen dieser Ungleichung ergibt $ \frac{3}{2} \leq n \leq 6$, ein Widerspruch zur Vorrausetzung $n\geq 7$.
 \end{proof} 
-
+Aus dem vorhergehenden Satz erhalten wir sofort, dass jeder planare Graph die Vermutung \ref{con:maincon} erf"ullt.
 \begin{corollary}
   Sei $G$ ein planarer Graph. Dann gilt $\chi(G) \leq \xi_{2}(G) $. 
 \end{corollary}
@@ -425,11 +425,13 @@ Mit den beiden vorrangegangenen S"atzen k"onnen wir nun einen Satz "uber die Eig
 
   \ncase{2}{k = 2} Dann ist $G$ bipartit und enth"alt mindestens eine Kante. Insbesondere ist $\omega(G) = 2$ und wir finden wegen Lemma \ref{lem:xieigenschaften} $\xi_{2}(G) \geq \omega(G) = 2 = \chi(G)$.
 
-  \ncase{3}{k = 3} Ist $|G| \geq 7$, so ist wegen Satz \ref{prop:planaregraphen} nichts zu zeigen. Anderfalls ist $|G| \leq 6$. Da $G$ nicht bipartit ist, besitzt $G$ nach dem Satz von K"onig einen ungeraden Kreis $C$ als Untergraphen. Da $|G| \leq 6$ gilt dann $|C| = 3$ oder  $|C| = 5$.
+  \ncase{3}{k = 3} Ist $|G| \geq 7$, so ist wegen Satz \ref{prop:planaregraphen} nichts zu zeigen. Also reicht es den Fall $|G| \leq 6$ zu betrachten. Da $G$ nicht bipartit ist, besitzt $G$ nach dem Satz von K"onig einen ungeraden Kreis $C$ als Untergraphen. Da $|G| \leq 6$ gilt dann $|C| = 3$ oder  $|C| = 5$.
   Ist $|C| = 3$, so ist $\omega(G) \geq 3$ und die Behauptung folgt mit Lemma \ref{lem:xieigenschaften}. 
-  Anderfalls ist $|C| = 5$ und wir k"onnen annehmen, dass $G$ dreiecksfrei ist. Wir zeigen, dass $C$ ein induzierter Untergraph von $G$ ist. Sei $C' = G[V(C)]$. Wir bleibt zu zeigen, dass $E(C') = E(C)$ ist. Sei $uv\in E(C')\setminus E(C)$ eine Kante von $C'$, welche nicht in $C$ vorkommt. 
-  Dann gibt es eine Ecke $w$, f"ur welche $uw,wv\in E(C)$, da $C$ ein Kreis der Ordnung $5$ ist. Dann ist aber $G[\{u,v,w\}]$ ein Dreieck und folglich $G$ nicht dreiecksfrei, ein Widerspruch.
-  Deswegen ist $C$ ein induzierter Untergraph und wir finden
+  Andernfalls ist $|C| = 5$ und wir k"onnen annehmen, dass $G$ dreiecksfrei ist. Wir zeigen, dass $C$ ein induzierter Untergraph von $G$ ist. Sei $C' = G[V(C)]$. Es bleibt zu zeigen, dass $E(C') = E(C)$ ist. Sei $uv\in E(C')\setminus E(C)$ eine Kante von $C'$, welche nicht in $C$ vorkommt. 
+  Da $C$ ein Kreis der L"ange $5$ ist, besitzt $C$ den Durchmesser $2$. Da die Kante $uv$ nicht zu $C$ geh"ort, ist dann der Abstand zwischen $u$ und $v$ in $C$ gleich $2$. 
+  Dann gibt es aber eine Ecke $w$ die in $C$ sowohl mit $u$ als auch mit $v$ benachbart ist.
+  Deswegen ist $G[\{u,v,w\}]$ ein Kreis, im Widerspruch zu der Annahme, das $G$ dreiecksfrei ist.
+  Deswegen ist $C$ ein induzierter Untergraph und wir finden wegen Beispiel \ref{ex:kreiseeigenwerte}:
   $$\xi_{2}(G) \geq \xi_{2}(C) = 5 > 3 = \chi(G).$$
 
   \ncase{4}{k = 4} $G$ enth"alt nach Satz \ref{thm:forbiddencritgraph} einen $4$-kritischen Untergraphen $G'$. Ist $|G'| \geq 7$, so ist wegen Satz \ref{prop:planaregraphen} $\xi_{2}(G') \geq 4$. Mit Lemma \ref{lem:xieigenschaften} folgt dann $\xi_{2}(G) \geq \xi_{2}(G') \geq 4 = \chi(G)$.
@@ -438,7 +440,7 @@ Mit den beiden vorrangegangenen S"atzen k"onnen wir nun einen Satz "uber die Eig
   Damit ist alles gezeigt.
 \end{proof}
 
-Berge \cite[Kapitel 15, Satz 2]{Berge91} zeigte, dass ein Graph $G$ der Ordnung $n$ und sein Komplement $\overline{G}$ stets die Ungleichung $\chi(G) + \chi(\overline{G}) \leq n+1$ erf"ullen. Au{\ss}erdem bewies Finck \cite{Finck66}, dass Gleichheit in dieser Ungleichung nur dann gilt, wenn $G$ einer der beiden Graphentypen $F_1$ oder $F_2$ ist. 
+Berge \cite[Kapitel 15, Satz 2]{Berge91} zeigte, dass ein Graph $G$ der Ordnung $n$ und sein Komplement $\overline{G}$ stets die Ungleichung $\chi(G) + \chi(\overline{G}) \leq n+1$ erf"ullen. Au{\ss}erdem bewies Finck \cite{Finck66}, dass Gleichheit in dieser Ungleichung genau dann gilt, wenn $G$ von einem der beiden Graphentypen $F_1$ oder $F_2$ ist. 
 Diese sind wie folgt definiert:
 \todo{bessere formulierung}
 Seien $n,p$ zwei nat"urliche Zahlen. Ein Graph $G$ geh"ort zum Typ $F_1 (n,p)$, falls $G$ aus einer unabh"angigen Menge $O$ der Ordnung $p$ und einem vollst"andigen Graphen $K$ der Ordnung $n-p+1$ besteht und es genau eine Ecke gibt, welche sowohl in $O$ als auch in $K$ vorkommt. Zwischen $O$ und $K$ d"urfen Kanten verlaufen. 
@@ -472,7 +474,7 @@ Seien $v\in V(C), w\in V(K), u\in V(O)$ beliebig. Dann ist $vw\in E(G), vu\notin
   \label{thm:xichromatisch}
 \end{theorem}
 \begin{proof}
-  Gilt $\chi(G) + \chi(\overline{G}) \leq n$, so ist nach Satz \ref{thm:xikomplement} nichts mehr zu zeigen. Anderfalls ist $G$ entweder vom Typ $F_1$ oder $F_2$. 
+  Gilt $\chi(G) + \chi(\overline{G}) \leq n$, so ist nach Satz \ref{thm:xikomplement} nichts mehr zu zeigen. Andernfalls ist $G$ entweder vom Typ $F_1$ oder $F_2$. 
 
   \ncase{1}{$G$ ist vom Typ $F_1(n,p)$} Dann ist $\omega(G) = n-p+1$ und $\omega (\overline{G})=p$. Dann folgt mit Lemma \ref{lem:xieigenschaften}, dass 
   $$\xi_{2}(G) + \xi_{2}(\overline{G}) \geq \omega(G) + \omega(\overline{G}) = n+ 1 = \chi(G) + \chi(\overline{G}).$$

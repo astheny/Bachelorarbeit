@@ -217,10 +217,11 @@ Die folgenden Ungleichungen werden sp"ater bei der Betrachtung der Eigenwerte vo
 Die Weyl Ungleichungen wurden von \cite{Weyl12} bewiesen.
 
 \begin{theorem}[Weyl Ungleichungen]
-  Seien $A,B,C\in\Rnn$ symmetrische Matrizen mit $A = B+C$. F"ur alle $1\leq p \leq n$ gilt dann:
+  Seien $A,B,C\in\Rnn$ symmetrische Matrizen mit $A = B+C$. Dann gilt
   \begin{equation*}
     \lambda_{p}(B) + \lambda_{n}(C) \leq \lambda_{p}(A) \leq \lambda_{p}(B) + \lambda_{1}(C)
   \end{equation*}
+  f"ur alle $1 \leq p \leq n$.
   \label{thm:weylineq}
 \end{theorem}
 Die folgenden Ungleichungen wurden von Fan \cite{KyFan49} bewiesen.
@@ -236,7 +237,7 @@ Die folgenden Ungleichungen wurden von Fan \cite{KyFan49} bewiesen.
 \subsection{Eigenwerte von Graphen}
 
 \label{ssec:EigenwerteGraphen}
-Sei $G$ ein Graph der Ordnung $n\in\N$ mit der Eckenmenge $V(G) = \{ v_1,v_2,\dots,v_n \}$. Die \DF{Adjanzenzmatrix} von $G$ ist die Matrix $ A(G)\in \Rnn$ mit \[A(G)_{ij} = \begin{cases}
+Sei $G$ ein Graph der Ordnung $n\in\N$ mit der Eckenmenge $V(G) = \{ v_1,v_2,\dots,v_n \}$. Die \DF{Adjazenzmatrix} von $G$ ist die Matrix $ A(G)\in \Rnn$ mit \[A(G)_{ij} = \begin{cases}
     1 & \text{falls }v_{i}v_{j} \in E(G) \\ 0 & \text{falls }v_{i}v_{j} \notin E(G)
 \end{cases}\] 
 Dann ist $A$ symmetrisch und hat folglich nur reelle Eigenwerte.
@@ -472,7 +473,7 @@ $$A(G) = B^{T}B -2I \text{ und } A(H) = BB^{T} - D,$$
 wobei $D= \operatorname{diag}(d_H(v_1),d_H(v_2),\dots,d_H(v_n)$ die Gradmatrix von $H$ ist. Die Matrizen $B^{T}B$ und $BB^{T}$ sind dann positiv semidefinit und folglich sind ihre Eigenwerte nicht negativ (siehe Satz \ref{prop:psdmatrix}). 
 F"ur den $p$-gr"o{\ss}ten Eigenwert von $G$ gilt somit 
 $$ \lambda_{p}(G) = \lambda_{p}(B^{T}B) -2 \geq -2,$$ also ist insbesondere $\lambda_{min}(G) \geq -2$. 
-Ist der Graph $H$ kreislos und damit ein Wald, so ist $\operatorname{rang}(B) = m$ \todo{einheitlicher rang} (wie sich leicht durch Induktion nach $n$ zeigen l"asst). Dann ist $B^{T}B$ positiv definit und somit $\lambda_{min}(G) > -2$. 
+Ist der Graph $H$ kreislos und damit ein Wald, so ist $\operatorname{rang}(B) = m$ (wie sich leicht durch Induktion nach $n$ zeigen l"asst). Dann ist $B^{T}B$ positiv definit und somit $\lambda_{min}(G) > -2$. 
 Zusammenfassend erhalten wir dann folgendes, wohlbekanntes Resultat (siehe \cite[Theorem 6.11]{CvetkovicDS79}).
 
 \begin{theorem}

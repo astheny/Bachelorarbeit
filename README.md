@@ -22,3 +22,4 @@ TODO
 - [] bbm wieder einbinden
 - [] beta = xi_2? 
 - [] wann nimmt xi_d ab?
+- [] |H| = beta(G) -> dominating set?
