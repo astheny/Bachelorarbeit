@@ -158,7 +158,7 @@ Eine symmetrische Matrix $A\in\Rnn$ heiﬂt \DF{positiv semidefinit}, falls $x^{T}
   \label{prop:psdmatrix}
 \end{proposition}
 F"ur eine Matrix $A\in\Rnn$ und einen Vektor $x\in \R^{n} \setminus \{ 0 \}$ ist der \DF{Rayleigh-Quotient} von $A$ an der Stelle $x$ als $$R_A(x) = \frac{x^TAx}{x^Tx}$$ definiert.
-Die Abbildung $R_A$ wurde zuerst von J.W. Rayleigh zur numerischen Berechnung der Eigenwerte von $A$ benutzt. Ist $x$ ein Eigenvektor von $A$ zum Eigenwert $\lambda$, so gilt $R_A(x) = \lambda$. F"ur eine symmetrische Matrix $A \in \Rnn$ ist 
+Die Abbildung $R_A$ wurde zuerst von Rayleigh zur numerischen Berechnung der Eigenwerte von $A$ benutzt. Ist $x$ ein Eigenvektor von $A$ zum Eigenwert $\lambda$, so gilt $R_A(x) = \lambda$. F"ur eine symmetrische Matrix $A \in \Rnn$ ist 
 $$\lambda_{min}(A) \leq R_A(x) \leq \lambda_{max}(A)$$
 f"ur alle $x\in \R^{n}\setminus \left\{ 0 \right\}$. Die folgende Charakterisierung wurder zuerst in einer Arbeit von Fischer \cite{Fischer05} und danach in dem Lehrbuch von Courant und Hilbert \cite{CourantH24} erw"ahnt. In der Literatur wird dieses Resultat daher als Minmax-Prinzip von Courant-Fischer (Courant-Fischer Minmax Theorem) bezeichnet.
 \begin{theorem}[Courant-Fischer]
@@ -264,7 +264,7 @@ Damit es Sinn ergibt, von den Eigenwerten eines Graphen zu sprechen, d"urfen die
   \]
   Also ist $P^{T}AP = B$. Somit sind $A$ und $B$ "ahnlich und besitzen folglich dasselbe charakteristische Polynom. 
 \end{proof}
-F"ur den Graphen $G$ der Ordnung $n$ sei dann $p_G = p_{A(G)}$ das \DF{charakteristische Polynom} von $G$ und $\lambda_p(G) = \lambda_{p}(A(G))$ der \DF{$p$-gr"oﬂte Eigenwerte} von $G$ (f"ur $1\leq p \leq |G|$) und $\operatorname{sp}(G) = \operatorname{sp}(A(G))$ das \DF{Spektrum} von $G$. Diese Gr"oﬂen sind nach Lemma \ref{lem:GraphEigenwerte} unabh"angig von der Nummerierung der Ecken und somit wohldefiniert. Dies gilt jedoch nicht f"ur die Eigenvektoren. 
+F"ur den Graphen $G$ der Ordnung $n$ sei dann $p_G = p_{A(G)}$ das \DF{charakteristische Polynom} von $G$ und $\lambda_p(G) = \lambda_{p}(A(G))$ der \DF{$p$-gr"oﬂte Eigenwerte} von $G$ (f"ur $1\leq p \leq |G|$) und $\operatorname{sp}(G) = \operatorname{sp}(A(G))$ das \DF{Spektrum} von $G$. Diese Gr"oﬂen sind nach Lemma \ref{lem:GraphEigenwerte} unabh"angig von der Nummerierung der Ecken und somit wohldefiniert. Insbesondere besitzen isomorphe Graphen das selbe Spektrum. Dies gilt jedoch nicht f"ur die Eigenvektoren. 
 Wir k"onnen aber auch eine koordinatenfreie Interpretation f"ur die Eigenvektoren geben. Dazu betrachten wir einen Eigenwert $\lambda$ von $G$ und einen zugeh"origen Eigenvektor $x$ von $A(G)$. Aus der Eigenwertgleichung (\ref{eq:eigenwertgleichung}) erhalten wir das Gleichungssystem 
 \begin{equation}
   \lambda x_{i} = \sum\limits_{j=1}^{n}A(G)_{ij}x_j 
@@ -290,7 +290,7 @@ und aus Gleichung (\ref{eq:ewglneu}) folgt somit f"ur $r\in \N$ :
   \label{eq:Grregul}
 \end{equation}
 
-
+Wir wollen nun die Eigenwerte der vollst"andigen Graphen, Kreise und der kantenlosen Graphen berechnen. 
 \begin{example}
   \label{ex:vollstgraph}
   F"ur den vollst"andigen Graphen $K_n$ mit $n\geq 1$ gelten folgenden Aussagen:
@@ -306,8 +306,9 @@ und aus Gleichung (\ref{eq:ewglneu}) folgt somit f"ur $r\in \N$ :
   Es sei $J\in\Rnn$ die Matrix, welche nur $1$ als Eintr"ag besitzt (diese werden wir mit $1$-Matrix bezeichnen). Dann gilt $A(K_n) = J-I$, wobei $I\in\Rnn$ die Einheitsmatrix ist. Da $\operatorname{rang}(J) = 1$, ist also $-1$ ein Eigenwert von $G$ mit Vielfachheit $n-1$. Da $K_n$ $n-1$ regul"ar ist, ist auch $n-1$ ein Eigenwert von $K_n$. Damit folgen (a) und (b). Weiterhin gilt (c) wegen Gleichung (\ref{eq:Grregul}). Aus der Orthognalit"at der Eigenvektoren folgt nun (d).
 \end{proof}
 
+Einen Beweis f"ur das folgende Beispiel findet der Leser in \cite[2.1]{CvetkovicDS79}. Man beachte hierbei, dass die Eigenwerte in diesem Satz nicht der Gr"oﬂe nach geordnet sind. 
 \begin{example}
-  Der Kreis $C_n$ der Ordnung $n\geq 3$ hat die Eigenwerte $$\lambda_p (C_n) = 2 \cos\left(\frac{2\pi p}{n}\right)$$ f"ur $1\leq p \leq n$. Man beachte hierbei, dass die Eigenwerte nicht der Gr"oﬂe nach geordnet sind. Insbesondere gilt:
+  Der Kreis $C_n$ der Ordnung $n\geq 3$ hat die Eigenwerte $$\lambda_p (C_n) = 2 \cos\left(\frac{2\pi p}{n}\right)$$ f"ur $1\leq p \leq n$. Insbesondere gilt:
   \begin{align*}
     \operatorname{sp}(C_3) = \operatorname{sp}(K_3) &= (2,-1,-1) \\
     \operatorname{sp}(C_4) &= (2,0,0,-2) \\
@@ -315,7 +316,6 @@ und aus Gleichung (\ref{eq:ewglneu}) folgt somit f"ur $r\in \N$ :
   \end{align*}
   \label{ex:kreiseeigenwerte}
 \end{example}
-Einen Beweis findet der Leser in \cite[2.1]{CvetkovicDS79}
 \begin{example}
   F"ur den kantenlosen Graphen $O_n$ der Ordnung $n\in\N$ ist $A(O_n)$ die Nullmatrix und somit gilt $p_{O_n}(\lambda) = (-1)^{n} \lambda^{n}$ und $\lambda_{i} (O_n) = 0$ f"ur alle $1\leq i \leq n$.
 \end{example}
@@ -345,8 +345,8 @@ Ist $G=K_n+K_n$ die disjunkte Vereinigung zweier vollst"andiger Graphen $K_n$, s
   \caption{Zwei nicht isomorphe Graphen}
   \label{fig:isospektralgraphen}
 \end{figure}
-Lemma \ref{lem:GraphEigenwerte} impliziert insbesondere, dass isomorphe Graphen dasselbe charakteristische Polynom und somit dasselbe Spetkrum haben. Die Umkehrung gilt hingegen nicht. Dazu betrachten wir die Graphen $G$ und $H$, wobei $G=K_{1,4}$ ein Stern ist und $H=C_4+K_1$, die disjunkte Vereinigung von $C_4$ und $K_1$ ist (siehe Abbildung \ref{fig:isospektralgraphen}).
-\todo{Bild neu} Diese sind offenbar nicht isomorph. Wir k"onnen die Ecken so nummerieren, dass f"ur die Adjazenzmatrizen gilt: 
+Wir haben bereits festgestellt, dass isomorphe Graphen das selbe Spektrum und damit die selben Eigenwerte besitzen. Die Umkehrung dieser Tatsache gilt hingegen nicht. Dazu betrachten wir die Graphen $G$ und $H$, wobei $G=K_{1,4}$ ein Stern ist und $H=C_4+K_1$, die disjunkte Vereinigung von $C_4$ und $K_1$ ist (siehe Abbildung \ref{fig:isospektralgraphen}). 
+  Diese sind offenbar nicht isomorph. Wir k"onnen die Ecken so nummerieren, dass f"ur die Adjazenzmatrizen gilt: 
 \begin{align*}
   A(G) = \begin{pmatrix}
     0 & 1 & 1 & 1 & 1 \\
@@ -365,7 +365,7 @@ Lemma \ref{lem:GraphEigenwerte} impliziert insbesondere, dass isomorphe Graphen 
 Eine einfache Rechnung liefert dann $$p_G(\lambda) = p_H(\lambda) = -\lambda^{3}(\lambda+2)(\lambda-2)$$ und somit 
 $$\operatorname{sp}(G)=\operatorname{sp}(H) = (2,0,0,0,-2).$$
 Die Graphen $G$ und $H$ haben dasselbe Spektrum, sind aber nicht isomorph.
-Zwei Graphen hei{\ss}en \DF{isospektral}, falls sie das selbe Spektrum besitzen. Isomoprhe Graphen sind also stets isospektral, aber nicht umgekehrt. 
+Zwei Graphen hei{\ss}en \DF{isospektral}, falls sie das selbe Spektrum besitzen. Isomorphe Graphen sind also stets isospektral, aber nicht umgekehrt. 
 
 Die Graphentheorie besch"aftigt sich mit der Struktur und den Eigenschaften von Graphen. Eine \DF{Grapheneigenschaft} ist eine Klasse von Graphen, die mit jedem Graphen $G$ auch alle dazu isomorphen Graphen enth"alt. So ist zum Beispiel Zusammenhang (d.h. die Klasse der zusammenh"angenden Graphen) eine Grapheneigenschaft. Eine \DF{Spektraleigenschaft von Graphen} ist eine Klasse von Graphen, die mit jedem Graphen $G$ auch alle dazu isospektralen Graphen
 enth"alt. 

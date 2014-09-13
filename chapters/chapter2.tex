@@ -57,23 +57,33 @@ F"ur $d \geq 1$ sei $\kappa_d(G)$ die kleinste positive Zahl $m$ derart, dass $G
 
 \begin{figure}[htb]
   \centering
-  \includegraphics{images/krauszzerlegungk4.eps}
+  \includegraphics{images/k4decomp.eps}
   \caption{Eine Krauszzerlegung des $K_4$}
   \label{fig:KrauszzerlegungK4}
 \end{figure}
-In Abbildung \ref{fig:KrauszzerlegungK4} sehen wir eine Krauszzerlegung $\mathcal{K}$ des $K_4$ (die einzelnen kantendisjunkten Untergraphen sind jeweils mit der selben Farbe markiert). Wir k"onnen au{\ss}erdem erkennen, dass $\delta_{G}(\mathcal{K}) = 2$ und folglich $\kappa_{2}(K_4) \leq 4$ (wir werden sp"ater sehen, dass stets $\kappa_{2}(K_n) \geq n$ gilt und somit $\kappa_{2}(K_{4}) = 4$ ist). 
+In Abbildung \ref{fig:KrauszzerlegungK4} sehen wir eine Krauszzerlegung $\mathcal{K}$ des $K_4$ (die einzelnen kantendisjunkten Untergraphen sind jeweils mit der selben Farbe markiert). Wir k"onnen au{\ss}erdem erkennen, dass $\delta(\mathcal{K}) = 2$ und folglich $\kappa_{2}(K_4) \leq 4$ (wir werden sp"ater sehen, dass stets $\kappa_{2}(K_n) \geq n$ gilt und somit $\kappa_{2}(K_{4}) = 4$ ist). 
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics{images/K5krauszdecomp.eps}
+  \caption{Zwei Krauszzerlegungen des $K_5$}
+  \label{fig:KrauszzerlegungK5}
+\end{figure}
+
+In Abbildung \ref{fig:KrauszzerlegungK5} sehen wir zwei Krauszzerlegungen des $K_5$, beide mit Minimalgrad $2$. 
+
 \begin{lemma}
   Seien $G$ ein Graph und $d\in \N$. Genau dann ist $\kappa_{d}(G) < \infty$, wenn $\delta(G) \geq d$ ist. 
   \label{lm:krauszexistenz}
 \end{lemma}
 
 \begin{proof}
-  Wir zeigen zun"achst, dass $\delta(G) \geq d$ ist, falls $p = \kappa_d(G) < \infty$. Sei $v\in V(G)$ mit $d_{G}(v) = \delta(G)$. Dann existiert eine Krauszzerlegung $\mathcal{K}=\left\{ K^{1}, \dots , K^{p} \right\}$ von $G$ mit $\delta_{G}(\mathcal{K}) \geq d$. Da alle Graphen der Krauszzerlegung kantendisjunkt sind, gilt $$ d \leq \sum\limits_{K\in \mathcal{K}, v\in K} d_{K}(v) \leq d_{G}(v) = \delta(v).$$
+  Wir zeigen zun"achst, dass $\delta(G) \geq d$ ist, falls $p = \kappa_d(G) < \infty$. Sei $v\in V(G)$ mit $d_{G}(v) = \delta(G)$. Dann existiert eine Krauszzerlegung $\mathcal{K}=\left\{ K^{1}, \dots , K^{p} \right\}$ von $G$ mit $\delta(\mathcal{K}) \geq d$. Da alle Graphen der Krauszzerlegung kantendisjunkt sind, gilt $$ d \leq \sum\limits_{K\in \mathcal{K}, v\in K} d_{K}(v) \leq d_{G}(v) = \delta(v).$$
   Dabei gilt die erste Ungleichung, da $v$ in mindestens $d$ der Graphen aus $\mathcal{K}$ vorkommt und in diesen mindestens Grad $1$ hat.
 
   Sei nun $\delta(G) \geq d$. Wir m"ussen zeigen, dass es eine Krauszzerlegung $\mathcal{K}$ mit
-  $d_{\mathcal{K}}(v) \geq d$ f"ur alle $v\in V(G)$ gibt. Sei $E(G)= \{e_1,\dots, e_{m}\}$ eine Nummerierung der Kanten. Sei dann $K^i$ der Graph, welcher nur aus der Kante $e_i$ und den zu $e_i$ inzidenten Kanten besteht. Wir zeigen: $\mathcal{K} = \left\{ K^i \;|\; 1 \leq i \leq m \right\}$ ist eine Krauszzerlegung von $G$ mit $\delta_{G}(\mathcal{K}) \geq d$. (K1) ist erf"ullt, da alle Graphen von $\mathcal{K}$ isomorph zu $K_{2}$ sind. Sind $K,K'$ zwei verschiedene Graphen aus $\mathcal{K}$, so sind sie
-  kantendisjunkt, da ihre einzigen Kanten in $G$ verschieden sind. Also ist auch (K2) erf"ullt. Da jede Kante von $G$ in einem $K\in \mathcal{K}$ vorkommt, ist auch (K3) erf"ullt. Sei nun $v$ eine Ecke von $G$. Dann ist $$d_{\mathcal{K}}(v) = d_{G}(v) \geq \delta(G) \geq d$$ und folglich auch $\delta_{G}(\mathcal{K}) \geq d$. Damit ist gezeigt, dass $\mathcal{K}$ eine Krauszzerlegung von $G$ ist mit $\delta_{G}\left( \mathcal{K} \right) \geq d$. Also ist
+  $d_{\mathcal{K}}(v) \geq d$ f"ur alle $v\in V(G)$ gibt. Sei $E(G)= \{e_1,\dots, e_{m}\}$ eine Nummerierung der Kanten. Sei dann $K^i$ der Graph, welcher nur aus der Kante $e_i$ und den zu $e_i$ inzidenten Kanten besteht. Wir zeigen: $\mathcal{K} = \left\{ K^i \;|\; 1 \leq i \leq m \right\}$ ist eine Krauszzerlegung von $G$ mit $\delta(\mathcal{K}) \geq d$. (K1) ist erf"ullt, da alle Graphen von $\mathcal{K}$ isomorph zu $K_{2}$ sind. Sind $K,K'$ zwei verschiedene Graphen aus $\mathcal{K}$, so sind sie
+  kantendisjunkt, da ihre einzigen Kanten in $G$ verschieden sind. Also ist auch (K2) erf"ullt. Da jede Kante von $G$ in einem $K\in \mathcal{K}$ vorkommt, ist auch (K3) erf"ullt. Sei nun $v$ eine Ecke von $G$. Dann ist $$d_{\mathcal{K}}(v) = d_{G}(v) \geq \delta(G) \geq d$$ und folglich auch $\delta(\mathcal{K}) \geq d$. Damit ist gezeigt, dass $\mathcal{K}$ eine Krauszzerlegung von $G$ ist mit $\delta\left( \mathcal{K} \right) \geq d$. Also ist
   $\kappa_{d}(G) \leq |\mathcal{K}| <
   \infty$.
 \end{proof}
@@ -95,8 +105,15 @@ Wir werden nun einen Zusammenhang zwischen Krauszzerlegungen und der Erd\H{o}s--
 \end{theorem}
 
 \begin{proof}
-  Wir zeigen zuerst, dass (b) aus (a) folgt. Sei dazu $H$ ein linearer Hypergraph der Ordnung $n$ und $G=L(H)$ sein Kantengraph. Sei $v\in V(H)$ eine Ecke von $H$. Wir betrachten dann $K^{v} = G[E_H(v)]$. Dann ist $K^{v}$ ein vollst"andiger Graph. Wir zeigen, dass seine Ordnung h"ochstens $n-1$ ist. Angenommen, das ist nicht der Fall. Dann ist die Ordnung von $K^{v}$ mindestens $n$ und wir finden $n$ unterschiedlich Kanten in $E_H(v)$, welche $v$ enthalten. 
-  Da $H$ ein linearer Hypergraph ist, ist $|e\cap e'| = |\{ v \}| = 1$ f"ur alle $\{e,e'\} \in [E_H(v)]^{2}$. Au{\ss}erdem ist $|e| \geq 2$ f"ur alle $e\in E(H)$. 
+  Wir zeigen zuerst, dass (b) aus (a) folgt. Sei dazu $H$ ein linearer Hypergraph der Ordnung $n$ und $G=L(H)$ sein Kantengraph. Sei $v\in V(H)$ eine Ecke von $H$. Wir betrachten dann $K^{v} = G[E_H(v)]$. Dann ist $K^{v}$ ein vollst"andiger Graph. Wir zeigen, dass seine Ordnung h"ochstens $n-1$ ist. Angenommen, das ist nicht der Fall. 
+\begin{figure}[h]
+  \centering
+  \includegraphics{images/KvLinegraph.eps}
+  \caption{Die Beziehung von $v$ und $K^{v}$}
+  \label{fig:kvlinegraph}
+\end{figure}
+  Dann ist die Ordnung von $K^{v}$ mindestens $n$ und wir finden $n$ unterschiedlich Kanten in $E_H(v)$, welche $v$ enthalten. 
+  Da $H$ ein linearer Hypergraph ist, ist $v$ die einzige Ecke die zwei Kanten aus $E_{H}(v)$ gemeinsam haben, d.h. $|e\cap e'| = |\{ v \}| = 1$ f"ur alle $\{e,e'\} \in [E_H(v)]^{2}$. Au{\ss}erdem ist $|e| \geq 2$ f"ur alle $e\in E(H)$. 
   Dann folgt aber, dass $$|H| \geq |\bigcup\limits_{e\in E_H(v)} e| = \sum\limits_{e\in E_{H}(v)} |e\setminus \{v\}|+ | \{v\}| \geq n+1$$ gilt, ein Widerspruch zur Voraussetzung $|H| = n$. 
   Also ist $K^{v}$ ein vollst"andiger Graph der Ordnung h"ochstens $n-1$. Wir bezeichnen dann mit $\tilde{K^{v}}$ den vollst"andigen Graphen der Ordnung $n$, der aus $K^{v}$ entsteht indem wir die n"otige Anzahl Ecken und Kanten hinzuf"ugen. 
   Es bezeichne dann $\tilde{G}$ den Graphen, den wir aus $G$ erhalten, indem wir alle Ecken und Kanten die wir so hinzugef"ugt haben auch zu $G$ hinzuf"ugen. 
@@ -109,8 +126,9 @@ Wir werden nun einen Zusammenhang zwischen Krauszzerlegungen und der Erd\H{o}s--
   Also ist $ee'\in K^{v}\in \mathcal{K}$. Damit ist auch (K3) gezeigt. Also ist $\mathcal{K}$ eine Krauszzerlegung von $G$. Insbesondere ist auch $\tilde{\mathcal{K}} = \set{\tilde{K^{v}}}{v\in V(H)}$ eine Krauszzerlegung von $\tilde{G}$. Also ist $\tilde{G}\in \cE(n)$. Mit (a) folgt dann $$ \chi'(H) = \chi(G) \leq \chi(\tilde{G}) \leq n = |H|.$$
   
 Als n"achstes zeigen wir, dass (c) aus (b) folgt. 
-  Dazu betrachten wir einen beliebigen Graphen $G$ und zeigen, dass $\chi(G) \leq \kappa_{2}(G)$ gilt. Ist $\kappa_{2}(G) = \infty$, so ist nichts zu zeigen. Andernfalls ist $\kappa_{2}(G) = p < \infty $ und es gibt eine Krauszzerlegung $\mathcal{K}= \left\{ K^{1},\dots,K^{p} \right\}$ von $G$ mit $\delta_{G}(\mathcal{K}) \geq 2 $.  
-  F"ur $v\in V(G)$ definieren wir $e_v$ als die Menge aller $K\in \mathcal{K}$, welche $v$ enthalten. Da $\mathcal{K}$ eine Krauszzerlegung ist, gilt $|e_v| = d_{\mathcal{K}}(v)\geq \delta_{H}(\mathcal{K}) \geq 2$ f"ur alle $v \in V(G)$. Sei $H$ der Hypergraph mit Eckenmenge $\mathcal{K}$ und Kantenmenge $\left\{ e_v\;|\; v\in V(G) \right\}$. Wir betrachten $\pi: V(G) \mapsto E(H)$ mit $\pi(v) = e_v$, diese ist offensichtlich surjektiv. Wir zeigen, dass $\pi$ bijektiv ist. W"are dem nicht so, so g"abe es zwei unterschiedliche Ecken $v,w$ mit $e_v = e_w$. 
+  Dazu betrachten wir einen beliebigen Graphen $G$ und zeigen, dass $\chi(G) \leq \kappa_{2}(G)$ gilt. Ist $\kappa_{2}(G) = \infty$, so ist nichts zu zeigen. Andernfalls ist $\kappa_{2}(G) = p < \infty $ und es gibt eine Krauszzerlegung $\mathcal{K}= \left\{ K^{1},\dots,K^{p} \right\}$ von $G$ mit $\delta(\mathcal{K}) \geq 2 $.  
+  \todo{bild von hypergraph konstruktion}
+  F"ur $v\in V(G)$ definieren wir $e_v$ als die Menge aller $K\in \mathcal{K}$, welche $v$ enthalten. Da $\mathcal{K}$ eine Krauszzerlegung ist, gilt $|e_v| = d_{\mathcal{K}}(v)\geq \delta(\mathcal{K}) \geq 2$ f"ur alle $v \in V(G)$. Sei $H$ der Hypergraph mit Eckenmenge $\mathcal{K}$ und Kantenmenge $\left\{ e_v\;|\; v\in V(G) \right\}$. Wir betrachten $\pi: V(G) \mapsto E(H)$ mit $\pi(v) = e_v$, diese ist offensichtlich surjektiv. Wir zeigen, dass $\pi$ bijektiv ist. W"are dem nicht so, so g"abe es zwei unterschiedliche Ecken $v,w$ mit $e_v = e_w$. 
   Da $|e_v| \geq 2$ ist,  w"are dann die Kante $vw$ in zwei Graphen von $\mathcal{K}$ enthalten, was der Bedingung (K2) widerspr"ache. Also ist $\pi$ bijektiv.
   Wir zeigen nun, dass $H$ ein linear Hypergraph ist. 
   Seien dazu $e_{v},e_{w} $ zwei unterschiedliche Kanten von $H$.
@@ -129,8 +147,8 @@ Als n"achstes zeigen wir, dass (c) aus (b) folgt.
   Sei $G\in \cE(p) $ mit $p\in \N$. Dann ist $G$ die kantendisjunkte Vereinigung von $p$ vollst"andigen Graphen der Ordnung $p$, welche wir mit $K^{1},\dots, K^{p}$ bezeichnen wollen. Nun entfernen wir wiederholt Ecken aus $G$,  deren aktueller Grad kleiner als $p$ ist solange, bis keine Ecken vom Grad kleiner als $p$ existieren. Den daraus resultierenden (m"oglicherweise leeren) Graphen nennen wir $H$. 
   Gelingt es, $H$ mit $p$ Farben zu f"arben, so k"onnen wir diese F"arbung schrittweise zu einer F"arbung von $G$ erweitern, indem wir die entfernten Ecken in umgekehrter Reihenfolge f"arben. Dies ist mit $p$ Farben m"oglich, da jede zu f"arbende Ecke h"ochstens $p-1$ bereits gef"arbte Nachbarn besitzt.
   Somit reicht es zu zeigen, dass $\chi(H) \leq p$ ist. Ist $V(H) =\varnothing$, so gilt dies trivialerweise. Andernfalls gilt nach Konstruktion $\delta(H) \geq p $. 
-  Sei $\hat{K}^i = K^{i} \cap H$ f"ur $1\leq i \leq n$. Dann ist $\hat{K}^i$ ein vollst"andiger Graph f"ur alle $i$. W"ahle $\mathcal{K} = \left\{ \hat{K}^i \;|\; | \hat{K}^i| \geq 2  , 1\leq i \leq n\right\}$. Wir zeigen, dass $\mathcal{K}$ eine Krauszzerlegung von $H$ mit $\delta_{H}(\mathcal{K}) \geq 2$ ist.
-  Die Bedingung (K1) ist offensichtlich erf"ullt. Da in $G$ die $K^{i}$ kantendisjunkt sind, sind die $\hat{K}^{i}$ in $H$ ebenfalls kantendisjunkt, da $H$ ein induzierter Untergraph von $G$ ist. Folglich ist die Bedingung (K2) ebenfalls erf"ullt. Sei $v\in V(H)$. Dann ist $d_{H}(v) \geq p$ und somit gilt $d_{G}(v) \geq d_H(v) \geq p$. 
+  Sei $\hat{K}^i = K^{i} \cap H$ f"ur $1\leq i \leq n$. Dann ist $\hat{K}^i$ ein vollst"andiger Graph f"ur alle $i$. W"ahle $\mathcal{K} = \left\{ \hat{K}^i \;|\; | \hat{K}^i| \geq 2  , 1\leq i \leq n\right\}$. Wir zeigen, dass $\mathcal{K}$ eine Krauszzerlegung von $H$ mit $\delta(\mathcal{K}) \geq 2$ ist.
+  Die Bedingung (K1) ist offensichtlich erf"ullt. Da in $G$ die $K^{i}$ kantendisjunkt sind und $H$ ein induzierter Untergraph von $G$ ist sind die $\hat{K}^{i}$ in $H$ ebenfalls kantendisjunkt. Folglich ist die Bedingung (K2) ebenfalls erf"ullt. Sei $v\in V(H)$. Dann ist $d_{H}(v) \geq p$ und somit gilt $d_{G}(v) \geq d_H(v) \geq p$. 
   Die Ecke $v$ ist in mindestens zwei vollst"andigen Graphen $K$ und $K'$ aus der Krauszzerlegung $\mathcal{K}$ enthalten. 
   Ansonsten w"are $v$ nur in einem vollst"andigen Graphen $K \in \mathcal{K}$ enthalten und somit w"are $d_{H}(v) = d_{K}(v) \leq p-1$, was unm"oglich ist. 
   Folglich ist $d_{\mathcal{K}}(v) \geq 2$ f"ur alle $v \in V(H)$. Also ist $\mathcal{K}$ eine Krauszzerlegung mit $\delta(\mathcal{K}) \geq 2$ und wegen (c) folgt dann:

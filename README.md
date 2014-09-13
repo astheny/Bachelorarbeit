@@ -23,3 +23,4 @@ TODO
 - [] beta = xi_2? 
 - [] wann nimmt xi_d ab?
 - [] |H| = beta(G) -> dominating set?
+- [] mehr "uber domination und matching vs. farbung finden
