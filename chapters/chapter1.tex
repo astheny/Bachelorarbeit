@@ -3,7 +3,7 @@
 Gegenstand dieser Bachelorarbeit ist der Zusammenhang zwischen den Eigenwerten, der chromatischen Zahl und den Krauszzerlegungen eines Graphen. Die daf"ur ben"otigten Grundlagen werden wir in Kapitel 1 erarbeiten. 
 \subsection{Graphen und Hypergraphen}
 \label{ssec:graphenundhypergraphen}
-Die in dieser Arbeit betrachteten Graphen und Hypergraphen sind endlich und haben weder Mehrfachkanten noch Schlingen. Bei den Bezeichnungen richten wir uns im Wesentlichen nach dem Buch von Diestel \cite{Diestel10} beziehungsweise dem Buch von Berge \cite{Berge01}. 
+Die in dieser Arbeit betrachteten Graphen und Hypergraphen sind endlich und haben weder Mehrfachkanten noch Schlingen. Bei den Bezeichnungen richten wir uns im Wesentlichen nach dem Buch von Diestel \cite{Diestel10} beziehungsweise dem Buch von Berge \cite{Berge91}. 
 Mit $\N$ bezeichnen wir die Menge der positiven ganzen Zahlen und setzen $\N_{0} = \N \cup \{ 0 \}$. F"ur eine Menge $V$ sei die Menge $2^{V}$ die Potenzmenge von $V$ und $[V]^{p}$ mit $p\in\N_0$ die Menge der $p$-elementigen Teilmengen von $V$. 
 
 Ein \DF{Hypergraph} $H$ ist ein Tupel von zwei Mengen, $V(H)$ und $E(H)$. Dabei ist $V(H)$ endlich und $E(H)$ eine Teilmenge von $2^{V(H)}$ mit $|e| \geq 2$ f"ur alle $e\in E(H)$. Die Menge $V(H)$ hei{\ss}t dann \DF{Eckenmenge} von $H$ und ihre Elemente hei{\ss}en \DF{Ecken} von $H$. Die Menge $E(H)$ hei{\ss}t \DF{Kantenmenge} und ihre Elemente hei{\ss}en \DF{Kanten}. Ein Hypergraph hei{\ss}t \DF{linear}, falls zwei verschiedene Kanten h"ochstens eine Ecke gemeinsam haben. 
@@ -14,9 +14,9 @@ Ist $E(H) \subseteq [V]^p$, so nennen wir $H$ \DF{$p$-uniform}. Ein \DF{Graph} i
 Der \DF{Minimalgrad} (\DF{Maximalgrad}) sei definiert als der kleinste (gr"o{\ss}te) Grad einer Ecke von $H$ und wird mit $\delta(H)$ ($\Delta(H)$) bezeichnet. F"ur $H=\varnothing$ setzen wir $\delta(H) = \Delta(H) = 0$. Ist $\delta(H) = \Delta(H) = r$, so hei{\ss}t $H$ \DF{$r$-regul"ar}. 
 
 Ein \DF{Unterhypergraph} von $H$ ist ein Hypergraph $H'$ mit $V(H') \subseteq V(H)$ und $E(H') \subseteq E(H)$. Wir schreiben dann $H' \subseteq H$. Gilt zus"atzlich $H' \neq H$, so ist $H'$ ein \DF{echter Unterhypergraph}. Gibt es eine Menge $X \subseteq V(H)$, sodass  $V(H') = X$ und $E(H') = E(H) \cap 2^{X}$ gilt, so ist $H'$ ein \DF{induzierter Unterhypergraph} und wir schreiben $H'= H[X]$ oder $H' \unlhd H$.  
-Ist $X\subseteq V(H)$, so bezeichne $H-X = H[V(H) \setminus X]$. Ist $X=\{ v \}$, so schreiben wir daf"ur auch $H-v$ statt $H-\{v\}$. Ist $F\subseteq 2^{V(H)}$ eine Menge, so sei $H-F$ der Hypergraph mit Eckenmenge $V(H)$ und Kantenmenge $E(H) \setminus F$ (treten nach Entfernen der Kanten Ecken auf, welche nur mit einer Kante inzident sind, so entfernen wir diese auch) und $H+F$ der Hypergraph mit Eckenemenge $V(H)$ und Kantenmenge $E(H) \cup F$. Ist $F= \{ e \}$ so schreiben wir $H\pm e$ anstatt $H\pm  \{ e \}$. 
+Ist $X\subseteq V(H)$, so bezeichne $H-X = H[V(H) \setminus X]$. Ist $X=\{ v \}$, so schreiben wir daf"ur auch $H-v$ statt $H-\{v\}$. Ist $F\subseteq 2^{V(H)}$ eine Menge, so sei $H-F$ der Hypergraph mit Eckenmenge $V(H)$ und Kantenmenge $E(H) \setminus F$  und $H+F$ der Hypergraph mit Eckenemenge $V(H)$ und Kantenmenge $E(H) \cup F$. Ist $F= \{ e \}$ so schreiben wir $H\pm e$ anstatt $H\pm  \{ e \}$. 
 
-Eine Menge von Ecken $X\subseteq V(H)$ hei{\ss}t \DF{unabh"angige Menge} von $H$, falls $E(H[X]) = \varnothing$ gilt. Die \DF{Unabh"angigkeitszahl} $\alpha(H)$ ist die Ordnung der gr"o{\ss}ten unabh"angigen Menge von $H$. Eine Menge von Ecken $X\subseteq V(H)$ hei{\ss}t \DF{Clique} von $H$, falls $H[X]$ alle gew"ohnlichen Kanten von $[X]^{2}$ enth"alt. Die \DF{Cliquenzahl} $\omega(H)$ ist die Ordnung der gr"o{\ss}ten Clique von $H$. 
+Eine Menge von Ecken $X\subseteq V(H)$ hei{\ss}t \DF{unabh"angige Menge} von $H$, falls $E(H[X]) = \varnothing$ gilt. Die \DF{Unabh"angigkeitszahl} $\alpha(H)$ ist die M"achtigkeit der gr"o{\ss}ten unabh"angigen Menge von $H$. Eine Menge von Ecken $X\subseteq V(H)$ hei{\ss}t \DF{Clique} von $H$, falls $H[X]$ alle gew"ohnlichen Kanten von $[X]^{2}$ enth"alt. Die \DF{Cliquenzahl} $\omega(H)$ ist die M"achtigkeit der gr"o{\ss}ten Clique von $H$. 
 
 Sind $H,H'$ zwei Hypergraphen, so heißt eine bijektive Abbildung $f : V(H) \to V(H')$ \DF{Isomorphismus} zwischen $H$ und $H'$, falls f"ur alle Teilmengen $\{ v_1,v_2,\dots, v_p \}$ von Ecken von $V(H)$ gilt: $$ \{ v_1,v_2,\dots, v_p \} \text{ ist Kante von $H$} \Leftrightarrow \{ f(v_1),f(v_2),\dots, f(v_p) \} \text{ ist Kante von $H'$}.$$ Zwei Hypergraphen $H,H'$ heißen \DF{isomorph}, falls es einen Isomorphismus zwischen
 $H$ und $H'$ gibt. 
@@ -61,7 +61,7 @@ Entfernen wir aus einem Graphen $G$ eine Ecke oder Kante, so bleibt die chromati
 Daraus erhalten wir den folgenden bekannten Satz, wonach die $(k-1)$-f"arbbaren Graphen durch verbotene $k$-kritische Untergraphen charakterisiert werden k"onnen.
 
 \begin{theorem}
-  Seien $G$ ein Graph und $k\in\N$. Dann ist $\chi(G) \geq k$, genau dann wenn $G$ einen $k$-kritischen Graphen $H$ als induzierten Untergraphen enth"alt.
+  Seien $G$ ein Graph und $k\in\N$. Genau dann ist $\chi(G) \geq k$, wenn $G$ einen $k$-kritischen Graphen $H$ als induzierten Untergraphen enth"alt.
   \label{thm:forbiddencritgraph}
 \end{theorem}
 
@@ -124,7 +124,7 @@ Die erste obere Schranke f"ur beliebige Graphen wurde 1964 von Vizing \cite{Vizi
 \end{theorem}
 \begin{theorem}[K"onig]
   Ist $G$ ein bipartiter Graph, so gilt $\chi'(G) = \Delta(G)$.
-  \label{}
+  \label{thm:konigbip}
 \end{theorem}
 
 \subsection{Eigenwerte von symmetrischen Matrizen}
@@ -237,7 +237,7 @@ Die Ky Fan Ungleichungen wurden von Fan \cite{KyFan49} bewiesen.
 
 \label{ssec:EigenwerteGraphen}
 Sei $G$ ein Graph der Ordnung $n\in\N$ mit der Eckenmenge $V(G) = \{ v_1,v_2,\dots,v_n \}$. Die \DF{Adjazenzmatrix} von $G$ ist die Matrix $ A(G)\in \Rnn$ mit \[A(G)_{ij} = \begin{cases}
-    1 & \text{falls }v_{i}v_{j} \in E(G) \\ 0 & \text{falls }v_{i}v_{j} \notin E(G)
+    1 & \text{falls }v_{i}v_{j} \in E(G) \\ 0 & \text{falls }v_{i}v_{j} \notin E(G).
 \end{cases}\] 
 Dann ist $A$ symmetrisch und hat folglich nur reelle Eigenwerte.
 Damit es Sinn ergibt, von den Eigenwerten eines Graphen zu sprechen, d"urfen die Eigenwerte von $A(G)$ nicht von der Nummerierung der Ecken abh"angen. Das dem so ist, zeigt das folgende Lemma.
@@ -263,7 +263,8 @@ Damit es Sinn ergibt, von den Eigenwerten eines Graphen zu sprechen, d"urfen die
   \]
   Also ist $P^{T}AP = B$. Somit sind $A$ und $B$ "ahnlich und besitzen folglich dasselbe charakteristische Polynom. 
 \end{proof}
-F"ur den Graphen $G$ der Ordnung $n$ sei dann $p_G = p_{A(G)}$ das \DF{charakteristische Polynom} von $G$ und $\lambda_p(G) = \lambda_{p}(A(G))$ der \DF{$p$-gr"oßte Eigenwerte} von $G$ (f"ur $1\leq p \leq n$) und $\operatorname{sp}(G) = \operatorname{sp}(A(G))$ das \DF{Spektrum} von $G$. Diese Gr"oßen sind nach Lemma \ref{lem:GraphEigenwerte} unabh"angig von der Nummerierung der Ecken und somit wohldefiniert. Insbesondere besitzen isomorphe Graphen das selbe Spektrum. Dies gilt jedoch nicht f"ur die Eigenvektoren. 
+F"ur den Graphen $G$ der Ordnung $n$ seien dann $p_G = p_{A(G)}$ das \DF{charakteristische Polynom} von $G$, $\lambda_p(G) = \lambda_{p}(A(G))$ der \DF{$p$-gr"oßte Eigenwerte} von $G$ ( $1\leq p \leq n$), $\operatorname{sp}(G) = \operatorname{sp}(A(G))$ das \DF{Spektrum} von $G$ und $m_G(\lambda) = m_{A(G)}(\lambda)$ die \DF{Vielfachheit} von $\lambda$ als Nullstelle von $p_G$ (und somit die Vielfachheit von $\lambda$ als Eigenwert von $G$). 
+Diese Gr"oßen sind nach Lemma \ref{lem:GraphEigenwerte} unabh"angig von der Nummerierung der Ecken und somit wohldefiniert. Insbesondere besitzen isomorphe Graphen dasselbe Spektrum. Dies gilt jedoch nicht f"ur die Eigenvektoren. 
 Wir k"onnen aber auch eine koordinatenfreie Interpretation f"ur die Eigenvektoren geben. Dazu betrachten wir einen Eigenwert $\lambda$ von $G$ und einen zugeh"origen Eigenvektor $x$ von $A(G)$. Aus der Eigenwertgleichung (\ref{eq:eigenwertgleichung}) erhalten wir das Gleichungssystem 
 \begin{equation}
   \lambda ~ x_{i} = \sum\limits_{j=1}^{n}A(G)_{ij}x_j 
@@ -338,7 +339,7 @@ Einen Beweis f"ur das folgende Beispiel findet der Leser in \cite[2.1]{Cvetkovic
   $$m_G(\lambda) = m_{G_1}(\lambda)+ m_{G_2}(\lambda)+\dots+ m_{G_l}(\lambda) .$$ Was zu zeigen war.
 \end{proof}
 
-Ist $G=K_n+K_n$ die disjunkte Vereinigung zweier vollst"andiger Graphen $K_n$, so gilt folglich f"ur das Spektrum von $G$: $$\operatorname{sp}(G) = (n-1,n-1, \underbrace{-1,\dots,-1}_{2n-2 \text{ mal}}).$$ Insbesondere ist $\lambda_{max}(G) = n-1$ ein doppelter Eigenwert von $G$.
+Ist $G=K_n+K_n$ die disjunkte Vereinigung zweier vollst"andiger Graphen $K_n$, so gilt folglich f"ur das Spektrum von $G$: $$\operatorname{sp}(G) = (n-1,n-1, \underbrace{-1,\dots,-1}_{2n-2 \text{ mal}}).$$ Insbesondere ist $\lambda_{max}(G) = n-1$ ein doppelter Eigenwert von $G$. 
 
 \begin{figure}[h]
   \centering
@@ -346,8 +347,8 @@ Ist $G=K_n+K_n$ die disjunkte Vereinigung zweier vollst"andiger Graphen $K_n$, s
   \caption{Zwei nicht isomorphe Graphen}
   \label{fig:isospektralgraphen}
 \end{figure}
-Wir haben bereits festgestellt, dass isomorphe Graphen das selbe Spektrum und damit die selben Eigenwerte besitzen. Die Umkehrung dieser Tatsache gilt hingegen nicht. Dazu betrachten wir die Graphen $G$ und $H$, wobei $G=K_{1,4}$ ein Stern ist und $H=C_4+K_1$, die disjunkte Vereinigung von $C_4$ und $K_1$ ist (siehe Abbildung \ref{fig:isospektralgraphen}). 
-  Diese sind offenbar nicht isomorph. Wir k"onnen die Ecken so nummerieren, dass f"ur die Adjazenzmatrizen gilt: 
+Wir haben bereits festgestellt, dass isomorphe Graphen dasselbe Spektrum und damit dieselben Eigenwerte besitzen. Die Umkehrung dieser Tatsache gilt hingegen nicht. Dazu betrachten wir die Graphen $G$ und $H$, wobei $G=K_{1,4}$ ein Stern ist und $H=C_4+K_1$, die disjunkte Vereinigung von $C_4$ und $K_1$ ist (siehe Abbildung \ref{fig:isospektralgraphen}). 
+Diese sind offenbar nicht isomorph. Wir k"onnen die Ecken so nummerieren, dass f"ur die Adjazenzmatrizen gilt: 
 \begin{align*}
   A(G) = \begin{pmatrix}
     0 & 1 & 1 & 1 & 1 \\
@@ -389,6 +390,7 @@ Satz ist eine unmittelbare Folgerung aus dem Satz von Perron-Frobenius.
     \item Ist $x$ ein Eigenvektor von $G$ zum Eigenwert $\lambda$ mit $x(v)> 0$ f"ur alle $v\in V(G)$, so ist $\lambda = \lambda_{max}(G)$.
     \item F"ur alle Eigenwerte $\lambda$ von $G$ gilt $|\lambda| \leq \lambda_{max}(G)$.
   \end{enumerate}
+  \label{thm:zusammenhgraph}
 \end{theorem}
 
 \begin{corollary}
@@ -401,7 +403,9 @@ Satz ist eine unmittelbare Folgerung aus dem Satz von Perron-Frobenius.
 \end{corollary}
 
 \begin{proof}
-  Es seien $G_1,G_2,\dots,G_l$ die Komponenten von $G$. Dann ist jede Komponente $G_i$ ein $r$-regul"arer Graph ($1\leq i \leq l$). Damit folgt aus (\ref{eq:Grregul}), dass $\mathbbm 1$ ein Eigenvektor von $G_i$ zum Eigenwert $r$ ist. Dann ist $\lambda_{max}(G) = r$ und $m_{G}(r) = l$. Daraus folgt dann sowohl (a) als auch (b).
+
+  Es seien $G_1,G_2,\dots,G_\ell$ die Komponenten von $G$. Dann ist jede Komponente $G_i$ ein $r$-regul"arer Graph ($1\leq i \leq \ell$). Damit folgt aus (\ref{eq:Grregul}), dass $\mathbbm 1$ ein Eigenvektor von $G_i$ zum Eigenwert $r$ ist. 
+  Aus Satz \ref{thm:zusammenhgraph}(a)(c) folgt dann, dass $\lambda_{max}(G_i) = r$ und $m_{G_i}(r) = 1$. Dann ist $\lambda_{max}(G) = r$ und $m_{G}(r) = \ell$ wegen Beispiel \ref{ex:disjointunion}.
 \end{proof}
 
 \begin{corollary}
@@ -414,11 +418,18 @@ Satz ist eine unmittelbare Folgerung aus dem Satz von Perron-Frobenius.
 
 \begin{proof}
   Aussage (a) folgt aus Korollar \ref{cor:regulargrapheigenvalue}, da der Komplementargraph eines $r$-regul"aren Graphen $(n-1-r)$-regul"ar ist. 
-  Zum Beweis von (b) w"ahlen wir f"ur $G$ und $\overline{G}$ dieselbe Nummerierung der Ecken. Dann ist $$A(G) + A(\overline{G}) = J-I$$ wobei $J \in \Rnn$ die $1$-Matrix ist und $I\in\Rnn$ die Einheitsmatrix ist. Wir betrachten $\lambda = \lambda_i(G)$ f"ur $i \geq 2$. Dann existiert ein Eigenvektor $x$ zum Eigenwert $\lambda$. Dieser ist orthogonal zu $\mathbbm 1 \in E_{G}(r)$. Folglich ist 
+  Bekanntlich ist entweder $G$ oder $\overline G$ zusammnh"angend. Beim Beweis von Aussage (b) k"onnen wir also annehmen, dass $G$ zusammenh"angend ist. Sonst k"onnen wir die Rollen von $G$ und $\overline G$ vertauschen. Wir w"ahlen nun f"ur $G$ und $\overline G$ dieselbe Nummerierung der Ecken.
+  Dann ist 
+  $$A(G) + A(\overline G) = J-I$$ 
+  wobei $J \in \Rnn$ die $1$-Matrix ist und $I\in\Rnn$ die Einheitsmatrix ist. Wir betrachten nun eine Orthonormalbasis $\{x_1, x_2, \dots, x_n\}$ aus lauter Eigenvektoren von $G$ mit den zugeh"origen Eigenwerten $\lambda_{i} = \lambda_{i}(G) $ f"ur alle $1\leq i \leq n$. 
+  Da $\lambda_{1}(G) = r$ und $E_G(r) = [\mathbbm 1]$ ist (siehe Korollar \ref{cor:regulargrapheigenvalue} und \ref{eq:Grregul}) k"onnen wir $x_1 = \mathbbm 1$ w"ahlen. 
+  Wir zeigen nun, dass  $\{x_1, x_2, \dots, x_n\}$ eine Orthonormalbasis aus lauter Eigenvektoren von $\overline G$ ist. 
+  Da $\overline G$ $(n-1-r)$ regul"ar ist, ist $x_1$ ein Eigenvektor von $\overline G$. Sei nun $2 \leq i \leq n$. Dann steht $x_i$ orthogonal auf $\mathbbm 1$. 
+  Folglich ist
   \begin{align*}
-    A(G)x + A(\overline{G})x = Jx -Ix = -x
+    A(G)x_i + A(\overline{G})x_i = Jx_i -Ix_i = -x_i.
   \end{align*}
-  Durch Umstellen erhalten wir $A(\overline{G})x = (-\lambda-1)x$. Also ist $(-\lambda-1)$ ein Eigenwert von $\overline{G}$. Analog k"onnen wir zeigen, dass f"ur $\lambda = \lambda_{i}(\overline{G})$  ($i\geq 2$) $-1-\lambda$ ein Eigenwert von $G$ ist. 
+  Wegen $A(G)x_i = \lambda_{i}x_i$ gilt dann $A(\overline G)x_i = (-1-\lambda_{i}(G))x_i$ und damit die Behauptung. 
 \end{proof}
 
 \begin{lemma}
@@ -478,8 +489,7 @@ Zusammenfassend erhalten wir dann folgendes, wohlbekanntes Resultat (siehe \cite
 
 \begin{theorem}
   Ist $G=L(H)$ der Kantengraph eines Graphen $H$, so ist $\lambda_{min}(G) \geq -2$. Ist $H$ ein Wald, so ist $\lambda_{min}(G) > -2$. 
-  \label{cor:linegraphwald}
-\end{theorem}
+  \label{cor:linegraphwald} \end{theorem}
 Aus der Linearen Algebra ist bekannt, dass die Matrizen $BB^{T}$ und $B^{T}B$ dieselben Eigenwerte mit denselben Vielfachheiten besitzen, mit Ausnahme des Eigenwerts $\lambda = 0$. Es gilt dann
 $$ \lambda^{n} p_{B^{T}B} (\lambda) = \lambda^{m} p_{BB^{T}} (\lambda)$$
 Die Vielfachheit des Eigenwerts $\lambda = 0$ h"angt nur von dem Rang der Matrix $B$ ab. Ist $H$ zusammenh"angend und $n\geq 2$, so kann der Rang von $B$ nur die Werte $n$ oder $n-1$ annehmen, je nachdem ob $H$ bipartit ist oder nicht. Dies wurde zuerst von Sachs \cite{Sachs} gezeigt. 
