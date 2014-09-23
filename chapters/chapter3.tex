@@ -163,7 +163,7 @@ Also ist $V(H)$ eine dominierende Menge und wir finden $\gamma (G) \leq \beta(G)
   Es sei $f:\N^{2}\to \N$ die wie folgt rekursiv definierte Funktion:
   $$f(p,q) = \begin{cases}
     1 & \text{ falls } q = 1 \\
-    1+p\cdot f(p,q-1) & \text{ falls } q \geq 2
+    1+p\cdot f(p,q-1) & \text{ falls } q \geq 2.
   \end{cases}$$
   Wir behaupten nun, dass f"ur alle Graphen $G$ mit $\beta(G) \leq p$ und $\omega(G)  \leq q$ gilt $\chi(G) \leq f(p,q)$. 
 
@@ -322,7 +322,7 @@ Es ist nicht viel "uber den Zusammenhang der chromatischen Zahl eines Graphen un
   Da $G$ zusammenh"angend ist, kann man mit Satz \ref{thm:zusammenhgraph} zeigen, dass gilt: $G= H$ und $G$ ist regul"ar. Also gilt $\chi(G) = \Delta(G) +1 $. Dann folgt aus dem Satz von Brooks \ref{thm:brooks}, dass $G$ ein vollst"andiger Graph oder ein ungerader Kreis ist. 
 \end{proof}
 
-Eine untere Schranke f"ur die chromatische Zahl geht auf Hoffman zur"uck und findet sich in \cite{Hoffman70}(man beachte hierbei, dass $\lambda_{min}(G)$ negativ ist):
+Eine untere Schranke f"ur die chromatische Zahl geht auf Hoffman \cite{Hoffman70} zur"uck (man beachte hierbei, dass $\lambda_{min}(G)$ negativ ist):
 \begin{theorem}
   Ist $G$ ein Graph, so gilt:
   $$\chi(G) \geq 1 - \frac{\lambda_{max}(G)}{\lambda_{min}(G)}.$$
@@ -348,7 +348,7 @@ Wir haben bereits in Satz \ref{cor:linegraphwald} gesehen, dass alle Eigenwerte 
 \end{theorem}
 
 \begin{proof}
-  Wir k"onnen annhemen, dass $H$ zusammenh"angend ist. Sonst betrachten wir die Komponenten $H_1,H_2,\dots,H_\ell$ von $H$ (welche wenigstens eine Kante enthalten). Dann sind $G_i= L(H_i)$ ($1\leq i \leq \ell$) die Komponenten von $G$. Und es gilt $\chi(G) = \max\limits_{1 \leq i \leq \ell} \chi(G_i)$ sowie $\xi_{2}(G) = \xi_{2}(G_1) + \xi_{2}(G_2) + \dots + \xi_{2}(G_\ell)$ (siehe Beispiel \ref{ex:disjointunion}). 
+  Wir k"onnen annehmen, dass $H$ zusammenh"angend ist. Sonst betrachten wir die Komponenten $H_1,H_2,\dots,H_\ell$ von $H$ (welche wenigstens eine Kante enthalten). Dann sind $G_i= L(H_i)$ ($1\leq i \leq \ell$) die Komponenten von $G$. Und es gilt $\chi(G) = \max\limits_{1 \leq i \leq \ell} \chi(G_i)$ sowie $\xi_{2}(G) = \xi_{2}(G_1) + \xi_{2}(G_2) + \dots + \xi_{2}(G_\ell)$ (siehe Beispiel \ref{ex:disjointunion}). 
 
 Sei also $H$ ein zusammenh"angender Graph mit $n$ Ecken, $m$ Kanten und $G = L(H)$. Da $E(H) \neq \varnothing$ ist, gilt $n \geq 2$ und wegen Satz \ref{cor:linegraphwald} ist dann $\xi_{2}(G) = |G| - m_G(-2) = m - m_G(-2)$. Ist $H$ bipartit, so folgt aus Satz \ref{thm:konigbip}, dass $\chi(G) = \Delta(H)$ ist.  
   Desweiteren ist dann $m_G(-2) = m-n+1$ (siehe Satz \ref{thm:sachszshgrapheigenwert}). Deswegen ist $\xi_{2}(G) = m - (m-n+1) = n-1$ und es gilt

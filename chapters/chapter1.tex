@@ -259,11 +259,11 @@ Damit es Sinn ergibt, von den Eigenwerten eines Graphen zu sprechen, d"urfen die
   Dann gibt es eine Permutation $\sigma\in S^{n}$ sodass $v_{\sigma(i)} = u_i$ ist. Folglich gilt $A_{\sigma(i)\sigma(j)} = B_{ij}$ . 
   Dann ist die Matrix $P=(e_{\sigma(1)},e_{\sigma(2)},\dots,e_{\sigma(n)})\in \Rnn$ regul"ar und f"ur die Matrix $P^{T}AP$ gilt:
   \[
-    (P^{T}AP)_{ij} = e_j^{T} P^{T}AP e_i = e_{\sigma(j)}^{T}Ae_{\sigma(i)}=A_{\sigma(i)\sigma(j)} = B_{ij}
+    (P^{T}AP)_{ij} = e_j^{T} P^{T}AP e_i = e_{\sigma(j)}^{T}Ae_{\sigma(i)}=A_{\sigma(i)\sigma(j)} = B_{ij}.
   \]
   Also ist $P^{T}AP = B$. Somit sind $A$ und $B$ "ahnlich und besitzen folglich dasselbe charakteristische Polynom. 
 \end{proof}
-F"ur den Graphen $G$ der Ordnung $n$ seien dann $p_G = p_{A(G)}$ das \DF{charakteristische Polynom} von $G$, $\lambda_p(G) = \lambda_{p}(A(G))$ der \DF{$p$-gr"oﬂte Eigenwerte} von $G$ ( $1\leq p \leq n$), $\operatorname{sp}(G) = \operatorname{sp}(A(G))$ das \DF{Spektrum} von $G$ und $m_G(\lambda) = m_{A(G)}(\lambda)$ die \DF{Vielfachheit} von $\lambda$ als Nullstelle von $p_G$ (und somit die Vielfachheit von $\lambda$ als Eigenwert von $G$). 
+F"ur den Graphen $G$ der Ordnung $n$ seien dann $p_G = p_{A(G)}$ das \DF{charakteristische Polynom} von $G$, $\lambda_p(G) = \lambda_{p}(A(G))$ der \DF{$p$-gr"oﬂte Eigenwerte} von $G$ ($1\leq p \leq n$), $\operatorname{sp}(G) = \operatorname{sp}(A(G))$ das \DF{Spektrum} von $G$ und $m_G(\lambda) = m_{A(G)}(\lambda)$ die \DF{Vielfachheit} von $\lambda$ als Nullstelle von $p_G$ (und somit die Vielfachheit von $\lambda$ als Eigenwert von $G$). 
 Diese Gr"oﬂen sind nach Lemma \ref{lem:GraphEigenwerte} unabh"angig von der Nummerierung der Ecken und somit wohldefiniert. Insbesondere besitzen isomorphe Graphen dasselbe Spektrum. Dies gilt jedoch nicht f"ur die Eigenvektoren. 
 Wir k"onnen aber auch eine koordinatenfreie Interpretation f"ur die Eigenvektoren geben. Dazu betrachten wir einen Eigenwert $\lambda$ von $G$ und einen zugeh"origen Eigenvektor $x$ von $A(G)$. Aus der Eigenwertgleichung (\ref{eq:eigenwertgleichung}) erhalten wir das Gleichungssystem 
 \begin{equation}
@@ -303,7 +303,7 @@ Wir wollen nun die Eigenwerte der vollst"andigen Graphen, Kreise und der kantenl
 \end{example}
 
 \begin{proof}
-  Es sei $J\in\Rnn$ die Matrix, welche nur $1$ als Eintrg besitzt (diese werden wir mit $1$-Matrix bezeichnen). Dann gilt $A(K_n) = J-I$, wobei $I\in\Rnn$ die Einheitsmatrix ist. Da $\operatorname{rang}(J) = 1$, ist also $-1$ ein Eigenwert von $G$ mit Vielfachheit $n-1$. 
+  Es sei $J\in\Rnn$ die Matrix, welche nur $1$ als Eintrag besitzt (diese werden wir mit $1$-Matrix bezeichnen). Dann gilt $A(K_n) = J-I$, wobei $I\in\Rnn$ die Einheitsmatrix ist. Da $\operatorname{rang}(J) = 1$, ist also $-1$ ein Eigenwert von $G$ mit Vielfachheit $n-1$. 
   Da $K_n$ regul"ar vom Grad $n-1$ ist, ist auch $n-1$ ein Eigenwert von $K_n$.
   Damit folgen (a) und (b). Weiterhin gilt (c) wegen Gleichung (\ref{eq:Grregul}). Aus der Orthogonalit"at der Eigenvektoren folgt nun (d).
 \end{proof}
@@ -348,7 +348,7 @@ Ist $G=K_n+K_n$ die disjunkte Vereinigung zweier vollst"andiger Graphen $K_n$, s
   \caption{Zwei nicht isomorphe Graphen}
   \label{fig:isospektralgraphen}
 \end{figure}
-Wir haben bereits festgestellt, dass isomorphe Graphen dasselbe Spektrum und damit dieselben Eigenwerte besitzen. Die Umkehrung dieser Tatsache gilt hingegen nicht. Dazu betrachten wir die Graphen $G$ und $H$, wobei $G=K_{1,4}$ ein Stern ist und $H=C_4+K_1$, die disjunkte Vereinigung von $C_4$ und $K_1$ ist (siehe Abbildung \ref{fig:isospektralgraphen}). 
+Wir haben bereits festgestellt, dass isomorphe Graphen dasselbe Spektrum und damit dieselben Eigenwerte besitzen. Die Umkehrung dieser Tatsache gilt hingegen nicht. Dazu betrachten wir die Graphen $G$ und $H$, wobei $G=K_{1,4}$ ein Stern ist und $H=C_4+K_1$ die disjunkte Vereinigung von $C_4$ und $K_1$ ist (siehe Abbildung \ref{fig:isospektralgraphen}). 
 Diese sind offenbar nicht isomorph. Wir k"onnen die Ecken so nummerieren, dass f"ur die Adjazenzmatrizen gilt: 
 \begin{align*}
   A(G) = \begin{pmatrix}
@@ -405,7 +405,7 @@ Satz ist eine unmittelbare Folgerung aus dem Satz von Perron-Frobenius. Einen Be
 
 \begin{proof}
   Es seien $G_1,G_2,\dots,G_\ell$ die Komponenten von $G$. Dann ist jede Komponente $G_i$ ein $r$-regul"arer Graph ($1\leq i \leq \ell$). Damit folgt aus (\ref{eq:Grregul}), dass $\mathbbm 1$ ein Eigenvektor von $G_i$ zum Eigenwert $r$ ist. 
-  Aus Satz \ref{thm:zusammenhgraph}(a)(c) folgt dann, dass $\lambda_{max}(G_i) = r$ und $m_{G_i}(r) = 1$. Dann ist $\lambda_{max}(G) = r$ und $m_{G}(r) = \ell$ wegen Beispiel \ref{ex:disjointunion}.
+  Aus Satz \ref{thm:zusammenhgraph}(a)(c) folgt dann, dass $\lambda_{max}(G_i) = r$ und $m_{G_i}(r) = 1$ sind. Dann ist $\lambda_{max}(G) = r$ und $m_{G}(r) = \ell$ wegen Beispiel \ref{ex:disjointunion}.
 \end{proof}
 
 \begin{corollary}
